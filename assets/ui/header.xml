@@ -1,0 +1,17 @@
+<grid width="100%" height="7%" columns="3" id="header">
+	<hbox width="50%"/>
+	<group id="langSwitcher" layout="horizontal" width="20%" >
+		<optionbox value="fr-FR" text="fr" id="fr" />
+		<optionbox value="de-DE" text="de" id="de" />
+		<optionbox value="en-GB" text="en" id="en" selected="true"/>
+		<optionbox value="it-IT" text="it" id="it" />
+	</group>
+	<hbox width="30%" id="sendGroup">
+		
+		<switch id="sendAll" selected="true" width="20%" />
+		<label text="Send all" id="slider2" width="55%" />
+		<button id="send" text="{{SUBMIT}}" width="25%" />
+	</hbox>
+	<!--<button id="send" icon="images/send.png"/>-->
+	
+</grid>

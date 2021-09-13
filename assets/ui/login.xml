@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vbox width="100%"
+	  height="100%"
+	  id="logger"
+	  >
+		<label text="{{MAIN_TITLE}}"
+			   styleName="title"
+			   />
+	<grid id="credentials"
+		  width="100%"
+		  height="95%"
+		  top="45%"
+		  left="45%"
+		  columns="3"
+		  >
+
+		<!-- 1 -->
+		
+		<!-- 2 -->
+		<label text="Username"
+			   styleName="subtitle"
+			   tooltip="Use your NT credentials\n Expl: gclooney\nWh@tEls3"
+			   />
+		<textfield id="username"
+				   allowFocus="true"
+				   />
+		<box />
+		<!-- 3 -->
+		<label text="Password"
+			   styleName="subtitle"
+			   tooltip="Use your NT credentials\n Expl: gclooney\nWh@tEls3"
+			   />
+		<textfield 
+				   id="pwd"
+					text=""
+			allowFocus="true"
+				   />
+		<image text="show" resource="images/eye.png" id="showPwd" width="40px" />
+		<!-- 4 -->
+		<box />
+		<button text="Let's coach !"
+				id="login"
+				/>
+		<label id="feedback">
+		</label>
+	</grid>
+	<hbox width="100%"
+		  height="5%"
+		  >
+		<label text="Version 0.5"
+			   textAlign="center"
+			   width="100%"
+			   id="version"
+			   >
+		</label>
+	</hbox>
+</vbox>

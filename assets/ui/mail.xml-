@@ -1,0 +1,209 @@
+ <box id="inbound" width="70%">
+	 <tabview width="1400" height="900" >
+		<hbox text="Communication" id="communication" width="100%">	
+			<vbox styleName="topic" id="greetings" width="30%">
+				<label text="Salutations &amp; Identification" styleName="title" id="title"/>
+				<box width="100%" height="1" style="background-color: #000000;" />
+				<vbox id="welcome">
+					<hbox>
+					<label styleName="question" text="Customer was properly welcomed" verticalAlign="center" id="question"/>
+					
+					</hbox>
+					<group layout="horizontal" styleName="agreement" id="agreement">
+						<optionbox text="Agreed" id="agreed"/>
+						<optionbox text="Disagreed" id="disagreed" />
+						<!--<optionbox text="Focus" />-->
+					</group>
+					
+					<textarea placeholder="Justification: " id="justify" hidden="true" width="100%"/>
+					
+				</vbox>
+				<vbox width="100%" id="identification">
+					<hbox>
+					<label styleName="question critical" text="Customer was identified" verticalAlign="center" id="question"/>
+					
+					</hbox>
+					<group layout="horizontal" styleName="agreement">
+						<optionbox text="Agreed" id="agreed"/>
+						<optionbox text="Disagreed" id="disagreed" />
+						<optionbox text="N/A" id="na" />
+						<!--<optionbox text="Focus" />-->
+					</group>
+					<textarea placeholder="Justification: " id="justify" hidden="true" width="100%" />
+				</vbox>
+			</vbox>
+			<vbox styleName="topic" width="30%" id="professionalism">
+				<label text="Professionalism" styleName="title" id="title"/>
+				<box width="100%" height="1" style="background-color: #000000;" />
+				<vbox width="100%" id="empathy">
+					<hbox>
+						<label styleName="question critical" text="Agent showed empathy" verticalAlign="center" id="question"/>
+						
+					</hbox>
+					<group layout="horizontal" styleName="agreement">
+						<optionbox text="Agreed" id="agreed"/>
+						<optionbox text="Disagreed" id="disagreed" />
+					</group>
+					<textarea placeholder="Justification: " id="justify" hidden="true" width="100%"/>
+				</vbox>
+				<vbox width="100%" id="activeLisntening">
+					<hbox>
+						<label styleName="question" text="Agent did active listening and paraphrasing" verticalAlign="center" id="question"/>
+						
+						
+					</hbox>
+					
+					<group layout="horizontal" styleName="agreement">
+						<optionbox text="Agreed" id="agreed"/>
+						<optionbox text="Disagreed" id="disagreed" />
+						<optionbox text="N/A" id="na" />
+						<!--<optionbox text="Focus" />-->
+					</group>
+					<textarea placeholder="Justification: " id="justify" hidden="true" width="100%"/>
+				</vbox>
+			</vbox>
+			<vbox styleName="topic" width="30%" id="closing">
+				<label text="Closing" styleName="title" id="title"/>
+				<box width="100%" height="1" style="background-color: #000000;" />
+				<vbox width="100%" id="nextSteps">$
+					<hbox>
+						<label styleName="question" text="Agent informed about the next steps" verticalAlign="center" id="question"/>
+						
+					</hbox>
+					<group layout="horizontal" styleName="agreement">
+						<optionbox text="Agreed" id="agreed"/>
+						<optionbox text="Disagreed" id="disagreed" />
+						<!--<optionbox text="N/A" id="na" />-->
+					</group>
+					<textarea placeholder="Justification: " id="justify" hidden="true" width="100%"/>
+				</vbox>
+				<vbox width="100%" id="stateOfTheArt">
+					<hbox>
+						<label styleName="question" text="Closing was done in the state of the art" verticalAlign="center" id="question"/>
+						
+					</hbox>
+					<group layout="horizontal" styleName="agreement">
+						<optionbox text="Agreed" id="agreed"/>
+						<optionbox text="Disagreed" id="disagreed" />
+						<optionbox text="N/A" id="na" />
+					</group>
+					<textarea placeholder="Justification: " id="justify" hidden="true" width="100%"/>
+				</vbox>
+				<vbox width="100%" id="memos">
+					<hbox>
+						<label styleName="question" text="Clear memos and were stored in the system" verticalAlign="center" id="question"/>
+						
+					</hbox>
+					<group layout="horizontal" styleName="agreement">
+						<optionbox text="Agreed" id="agreed"/>
+						<optionbox text="Disagreed" id="disagreed" />
+						<optionbox text="N/A" id="na" />
+					</group>
+					<textarea placeholder="Justification: " id="justify" hidden="true" width="100%"/>
+				</vbox>
+			</vbox>
+		</hbox>
+		<hbox text="Business" id="business" width="100%">	
+			<vbox styleName="topic" width="30%" id="telephonySystem">
+				<label 
+					text="Telephony and systems" 
+					styleName="title" id="title"/>
+				<box 
+					width="100%" 
+					height="1" 
+					style="background-color: #000000;" />
+				<vbox width="100%" id="handling">
+					<hbox>
+					<label 
+						styleName="question critical" 
+						text="Hold was handle properly" 
+						verticalAlign="center" id="question"/>
+					
+					</hbox>
+					
+					<group 
+						layout="horizontal" 
+						styleName="agreement">
+						<optionbox text="Agreed" id="agreed"/>
+						<optionbox text="Disagreed" id="disagreed" />
+						<optionbox text="N/A" id="na" />
+					</group>
+					
+					<textarea placeholder="Justification: " id="justify" hidden="true" width="100%"/>
+				</vbox>
+				<vbox width="100%" id="ticket">
+					<hbox>
+						<label styleName="question" text="Ticket was correctly filed in" verticalAlign="center" id="question"/>
+						
+					</hbox>
+					<group layout="horizontal" styleName="agreement">
+						<optionbox text="Agreed" id="agreed"/>
+						<optionbox text="Disagreed" id="disagreed" />
+						<optionbox text="N/A" id="na" />
+
+					</group>
+					
+					<textarea placeholder="Justification: " id="justify" hidden="true" width="100%"/>
+				</vbox>
+			</vbox>
+			<vbox styleName="topic" width="30%" id="process">
+				<label text="Process" styleName="title" id="title"/>
+				<box width="100%" height="1" style="background-color: #000000;" />
+				<vbox width="100%" id="expectation">
+					<hbox>
+						<label styleName="question critical" text="Agent did what he was expected to do" verticalAlign="center" id="question"/>
+						
+					</hbox>
+					<group layout="horizontal" styleName="agreement">
+						<optionbox text="Agreed" id="agreed"/>
+						<optionbox text="Disagreed" id="disagreed" />
+						<!--<optionbox text="Focus" />-->
+					</group>
+					<textarea placeholder="Justification: " id="justify" hidden="true" width="100%"/>
+				</vbox>
+				<vbox width="100%" id="adherence">
+					<hbox>
+						<label styleName="question critical" text="Agent followed the process" verticalAlign="center" id="question"/>
+						
+					</hbox>
+					<group layout="horizontal" styleName="agreement">
+						<optionbox text="Agreed" id="agreed"/>
+						<optionbox text="Disagreed" id="disagreed" />
+						<optionbox text="N/A" id="na" />
+					</group>
+					<textarea placeholder="Justification: " id="justify" hidden="true" width="100%"/>
+				</vbox>
+			</vbox>
+			<vbox styleName="topic" width="30%" id="effieciency">
+				<label text="Efficiency" styleName="title" id="title"/>
+				<box width="100%" height="1" style="background-color: #000000;" />
+				<vbox width="100%" id="recalling">
+					<hbox>
+						<label styleName="question critical" text="Agent did the necessary to avoid recalling" verticalAlign="center" id="question"/>
+						
+					</hbox>
+					<group layout="horizontal" styleName="agreement">
+						<optionbox text="Agreed" id="agreed"/>
+						<optionbox text="Disagreed" id="disagreed" />
+						<!--<optionbox text="N/A" id="na" />-->
+					</group>
+					<textarea placeholder="Justification: " id="justify" hidden="true" width="100%"/>
+				</vbox>
+				<vbox width="100%" id="upsell">
+					<hbox>
+						<label styleName="question" text="Agent took the opportunity for an upsell or a retention" verticalAlign="center" id="question"/>
+						
+					</hbox>
+					<group layout="horizontal" styleName="agreement">
+						<optionbox text="Agreed" id="agreed"/>
+						<optionbox text="Disagreed" id="disagreed" />
+						<optionbox text="N/A" id="na" />
+					</group>
+					<textarea placeholder="Justification: " id="justify" hidden="true" width="100%"/>
+				</vbox>
+			</vbox>
+		</hbox>
+		
+    </tabview> 
+	
+ </box>

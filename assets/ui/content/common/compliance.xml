@@ -1,0 +1,23 @@
+<vbox id="compliance" width="100%" styleName="questions">
+	<label styleName="question" id="question" htmlText="{{common.compliance.compliance}}" tooltip="{{common.compliance.compliance.tooltip}}" >
+	</label>
+
+	<hbox width="90%">
+
+		<group width="10%" layout="vertical" id="agreement" styleNames="agreement critical">
+			<optionbox text="{{AGREE}}" id="y" />
+			<optionbox text="{{DISAGREE}}" id="n" />
+			<optionbox text="{{NA}}" id="na" />
+		</group>
+		<textarea 
+			styleName="justify" 
+			allowFocus="true"
+			height="60px" 
+			hidden="true" 
+			id="justify" 
+			placeholder="Tell us why !" 
+		/>
+
+	</hbox>
+
+</vbox>

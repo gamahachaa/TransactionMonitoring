@@ -1,0 +1,4 @@
+<hbox width="100%" height="90%" id="content">
+	
+	<import resource="assets/ui/metadatas.xml"/>
+</hbox>

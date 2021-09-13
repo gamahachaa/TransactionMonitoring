@@ -1,0 +1,1 @@
+powershell -Command "(gc bin/index.html) -replace 'TM-[a-z0-9_]+\.js', 'TM-TEST.js' | Out-File -encoding UTF8 bin/index.html"

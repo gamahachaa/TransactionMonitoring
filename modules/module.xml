@@ -1,0 +1,19 @@
+<module id="my-module">
+	<resources>
+        <resource path="/assets/images" prefix="images" />
+        <resource path="/assets/locales" prefix="locale" />
+    </resources>
+	<locales path="locale/">
+        <locale id="en">
+			<resource path="locale/en-GB/tm_en.csv" prefix="main" />
+			<resource path="locale/en-GB/mailer_en.properties" prefix="mailer" />
+			<resource path="locale/en-GB/inbound_en.properties" prefix="inbound" />
+			<resource path="locale/en-GB/common_en.properties" prefix="common" />
+			<resource path="locale/en-GB/mail_en.properties" prefix="mail" />
+		</locale>
+        <!--<locale id="en" resource="locale/en-GB/tm_en.properties" />-->
+        <!--<locale id="de" resource="locale/de-DE/tm_de.txt" />-->
+        <!--<locale id="fr" resource="locale/fr-FR/tm_fr.txt" />-->
+        <!--<locale id="it" resource="locale/it-IT/tm_it.txt" />-->
+    </locales>
+</module>

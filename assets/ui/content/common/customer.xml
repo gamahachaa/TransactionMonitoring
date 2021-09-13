@@ -1,0 +1,66 @@
+<vbox width="100%">
+	<vbox styleName="questions" id="welcome" width="100%">
+		<label styleName="question" id="question" htmlText="{{content.inbound.customer.welcome}}" tooltip="{{content.inbound.customer.welcome.tooltip}}" >
+		</label>
+
+		<hbox width="90%">
+
+			<group layout="vertical" id="agreement" styleNames="agreement">
+				<optionbox text="{{AGREE}}" id="y" />
+				<optionbox text="{{DISAGREE}}" id="n" />
+				<optionbox text="{{NA}}" id="na" />
+			</group>
+			<textarea styleName="justify" height="60px" hidden="true" id="justify" placeholder="Tell us why !" />
+
+		</hbox>
+	</vbox>
+	<vbox styleName="questions" id="empathy" width="100%">
+		<label 
+			styleName="question" 
+			id="question" 
+			htmlText="{{content.inbound.customer.empathy}}" 
+			
+			tooltip="{{content.inbound.customer.empathy.tooltip}}">
+		</label>
+
+		<hbox width="90%">
+			<group layout="vertical" id="agreement" styleNames="agreement critical">
+				<optionbox text="{{AGREE}}" id="y" />
+				<optionbox text="{{DISAGREE}}" id="n" />
+				<!--<optionbox text="{{NA}}" id="na" />-->
+			</group>
+			<textarea styleName="justify" height="60px" hidden="true" id="justify" placeholder="Tell us why !" />
+
+		</hbox>
+	</vbox>
+	<vbox styleName="questions" id="nextesteps" width="100%" >
+		<label styleName="question" id="question" htmlText="{{content.inbound.customer.nextesteps}}" tooltip="{{content.inbound.customer.nextesteps.tooltip}}">
+		</label>
+
+		<hbox width="90%">
+
+			<group layout="vertical" id="agreement" styleNames="agreement">
+				<optionbox text="{{AGREE}}" id="y" />
+				<optionbox text="{{DISAGREE}}" id="n" />
+				<!--<optionbox text="{{NA}}" id="na" />-->
+			</group>
+			<textarea styleName="justify" height="60px" hidden="true" id="justify" placeholder="Tell us why !" />
+
+		</hbox>
+	</vbox>
+	<vbox styleName="questions" id="closing" width="100%">
+		<label styleName="question" id="question" htmlText="{{content.inbound.customer.closing}}" tooltip="{{content.inbound.customer.closing.tooltip}}">
+		</label>
+
+		<hbox width="90%">
+
+			<group layout="vertical" id="agreement" styleNames="agreement">
+				<optionbox text="{{AGREE}}" id="y" />
+				<optionbox text="{{DISAGREE}}" id="n" />
+				<!--<optionbox text="{{NA}}" id="na" />-->
+			</group>
+			<textarea styleName="justify" height="60px" hidden="true" id="justify" placeholder="Tell us why !" />
+
+		</hbox>
+	</vbox>
+</vbox>

@@ -1,0 +1,36 @@
+<vbox id="mail"
+	  width="80%"
+	  height="100%"
+	  styleName="content"
+	  >
+	<vbox id="compliance"
+		  width="75%"
+		  styleName="contentBlocks compliance"
+		  >
+		<import resource="assets/ui/content/common/compliance.xml" />
+	</vbox>
+	<hbox width="90%">
+		<vbox width="50%"
+			  styleName="contentBlocks customer"
+			  id="customer"
+			  >
+			<import resource="assets/ui/content/common/customer.xml"
+					omitRoot="true"
+					/>
+			<import resource="assets/ui/content/custom/mail/customer.xml"
+					omitRoot="true"
+					/>
+		</vbox>
+		<vbox width="50%"
+			  styleName="contentBlocks business"
+			  id="business"
+			  >
+			<import resource="assets/ui/content/common/business.xml"
+					omitRoot="true"
+					/>
+			<import resource="assets/ui/content/custom/mail/business.xml"
+					omitRoot="true"
+					/>
+		</vbox>
+	</hbox>
+</vbox>

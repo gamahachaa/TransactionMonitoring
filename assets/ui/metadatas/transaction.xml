@@ -1,0 +1,108 @@
+<vbox styleName="topic"
+	  id="transaction"
+	  width="100%"
+	  >
+	<label text="TRANSACTION"
+		   styleName="title"
+		   id="transactionTitle"
+		   />
+	<hbox>
+		<group layout="horizontal"
+			   id="formSwitcher"
+			   >
+			<optionbox 
+				id="inbound" 
+				text="inbound"
+				selected="true" />
+			<optionbox 
+				id="mail" 
+				text="mail"/>
+			<optionbox 
+				id="outbound" 
+				text="outbound"
+				hidden="true"/>
+			<optionbox 
+				id="ticket" 
+				text="ticket"
+				hidden="true" />
+		</group>
+		<!--<switch id="formSwitcher" />
+		<label text="inbound"
+			   id="slider1"
+			   tooltip="{{FORM_HELP}}"
+			   />-->
+	</hbox>
+	<label text="{{TRANSACTION_ID}}"
+		   verticalAlign="center"
+		   tooltip="{{TRANSACTION_ID_HELP}}"
+		   styleName="subtitle"
+		   />
+	<textfield 
+		id="transactionID"
+		width="200%"
+		tooltip="{{TRANSACTION_ID_HELP}}"
+		allowFocus="true"
+		/>
+
+	<hbox>
+		<label text="{{TRANSACTION_AGENT}}"
+			   verticalAlign="center"
+			   tooltip="{{TRANSACTION_AGENT_HELP}}"
+			   styleName="subtitle"
+			   />
+		<label id="agentlabel"
+			   text="   "
+			   >
+		</label>
+	</hbox>
+
+	<textfield id="agentNt"
+			   width="150%"
+			   allowFocus="true"
+			   tooltip="{{TRANSACTION_AGENT_HELP}}"
+			   />
+	<hbox>
+		<label 
+			   text="{{TRANSACTION_WHEN_DATE}}"
+			   styleName="subtitle"
+			   />
+		<dropdown text="{{SELECT_DATE}}"
+				  type="date"
+				  id="TRANSACTION_WHEN"
+				  allowFocus="true"
+				  />
+		<label 
+			   text="{{TRANSACTION_WHEN_TIME}}"
+			   styleName="subtitle"
+			   />
+		<number-stepper pos="00"
+						step="1"
+						min="00"
+						max="23"
+						width="42px"
+						id="TRANSACTION_WHEN_HOURS"
+						allowFocus="true"
+						/>
+		<label text=":" />
+		<number-stepper pos="00"
+						step="5"
+						min="00"
+						max="55"
+						width="42px"
+						id="TRANSACTION_WHEN_MINUTES"
+						allowFocus="true"
+						/>
+	</hbox>
+	<label text="{{TRANSACTION_SUMMARY}}"
+		   tooltip="{{TRANSACTION_SUMMARY_HELP}}"
+		   id="summary"
+		   styleName="subtitle"
+		   />
+	<textarea width="300%"
+			  tooltip="{{TRANSACTION_SUMMARY_HELP}}"
+			  id="transactionsummary"
+			  styleName="summarries"
+			  allowFocus="true"
+			  />
+
+</vbox>

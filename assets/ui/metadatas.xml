@@ -1,0 +1,8 @@
+<vbox id="general" width="25%" styleName="metadatas">
+	<vbox styleName="topic" id="transaction" width="100%">
+		<import resource="assets/ui/metadatas/transaction.xml" omitRoot="true"/>
+	</vbox>
+	<vbox styleName="topic" id="monitoring" width="100%">
+		<import resource="assets/ui/metadatas/monitoring.xml" omitRoot="true"/>
+	</vbox>
+</vbox>
