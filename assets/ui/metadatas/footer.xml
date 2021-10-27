@@ -1,0 +1,27 @@
+<!--<hbox width="100%">-->
+<vbox width="100%" id="footer">
+
+	<!--<hbox width="50%" />-->
+	<grid id="sendGroup" columns="3" width="100%">
+
+		<checkbox id="sendAll"
+				selected="true"
+				width="65%"
+				tooltip="{{SEND_ALL_TOOLTIP}}"
+				/>
+		<!--label text="Send all"
+			   id="slider2"
+			   width="52%"
+			   styleName="metaLabels"
+			   /-->
+		<button id="send"
+				text="{{SUBMIT}}"
+				width="35%"
+				/>
+	</grid>
+	<label text="Version 0.5"
+		   textAlign="center"
+		   id="version"
+		   >
+	</label>
+</vbox>

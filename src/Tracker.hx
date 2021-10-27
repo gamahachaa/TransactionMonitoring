@@ -3,6 +3,7 @@ import js.Browser;
 import xapi.Agent;
 import xapi.Verb;
 import signals.Signal1;
+import xapi.types.Score;
 import xapi.types.StatementRef;
 /**
  * ...
@@ -53,7 +54,7 @@ class Tracker
 		coach:Actor,
 		activity:String,
 		activityExtensions:Map<String,Dynamic>,
-		score:Float,
+		score:Score,
 		success:Bool,
 		resultsExtension:Map<String,Dynamic>,
 		?lang:String="en")
@@ -69,7 +70,7 @@ class Tracker
 		coachAgent:Actor,
 		monitoree:Actor,
 		activity:String,
-		score:Float,
+		score:Score,
 		success:Bool,
 		lang:String,
 		extensions:Map<String,Dynamic>
@@ -89,7 +90,7 @@ class Tracker
 		activity:String,
 		activityExtensions:Map<String,Dynamic>,
 		monitoree:Actor,
-		score:Float,
+		score:Score,
 		success:Bool,
 		lang:String,
 		extensions:Map<String,Dynamic>

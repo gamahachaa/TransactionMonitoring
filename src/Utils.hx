@@ -75,5 +75,14 @@ class Utils
 		}
 		return m;
 	}
+	public static function stringyfyMap(map:Map<String,Dynamic>):Map<String,String>
+	{
+		var m:Map<String,String> = [];
+		for ( k => v in map)
+		{
+			m.set(k, Std.string(v));
+		}
+		return m;
+	}
 	
 }

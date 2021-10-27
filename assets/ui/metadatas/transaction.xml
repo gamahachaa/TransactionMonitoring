@@ -3,83 +3,60 @@
 	  width="100%"
 	  >
 	<label text="TRANSACTION"
-		   styleName="title"
+		   styleName="h1"
 		   id="transactionTitle"
 		   />
 	<hbox>
-		<group layout="horizontal"
-			   id="formSwitcher"
-			   >
-			<optionbox 
-				id="inbound" 
-				text="inbound"
-				selected="true" />
-			<optionbox 
-				id="mail" 
-				text="mail"/>
-			<optionbox 
-				id="outbound" 
-				text="outbound"
-				hidden="true"/>
-			<optionbox 
-				id="ticket" 
-				text="ticket"
-				hidden="true" />
-		</group>
-		<!--<switch id="formSwitcher" />
-		<label text="inbound"
-			   id="slider1"
-			   tooltip="{{FORM_HELP}}"
-			   />-->
-	</hbox>
 	<label text="{{TRANSACTION_ID}}"
 		   verticalAlign="center"
 		   tooltip="{{TRANSACTION_ID_HELP}}"
-		   styleName="subtitle"
+		   styleName="h2meta"
 		   />
-	<textfield 
-		id="transactionID"
-		width="200%"
-		tooltip="{{TRANSACTION_ID_HELP}}"
-		allowFocus="true"
-		/>
-
+	<textfield id="transactionID"
+			   placeholder="Expl: S.O. 1234567 "
+			   
+			   />
+    </hbox>
 	<hbox>
 		<label text="{{TRANSACTION_AGENT}}"
 			   verticalAlign="center"
 			   tooltip="{{TRANSACTION_AGENT_HELP}}"
-			   styleName="subtitle"
+			   styleName="h2meta"
 			   />
-		<label id="agentlabel"
-			   text="   "
-			   >
-		</label>
-	</hbox>
-
-	<textfield id="agentNt"
-			   width="150%"
+		<textfield id="agentNt"
+			   placeholder="agent"
 			   allowFocus="true"
 			   tooltip="{{TRANSACTION_AGENT_HELP}}"
 			   />
+		<image resource="images/check-green-icon.png" id="agewntOK" hidden="true"/>
+		
+	</hbox>
+    <hbox height="40px">
+		<label id="agentlabel"
+			   text="   "
+			   />
+		
+		
+	</hbox>
+	
 	<hbox>
-		<label 
-			   text="{{TRANSACTION_WHEN_DATE}}"
-			   styleName="subtitle"
+		<label text="{{TRANSACTION_WHEN_DATE}}"
+			   styleName="h2meta"
+			   tooltip="{{TRANSACTION_WHEN_HELP}}"
 			   />
 		<dropdown text="{{SELECT_DATE}}"
 				  type="date"
 				  id="TRANSACTION_WHEN"
 				  allowFocus="true"
 				  />
-		<label 
-			   text="{{TRANSACTION_WHEN_TIME}}"
-			   styleName="subtitle"
+		<label text="{{TRANSACTION_WHEN_TIME}}"
+			   styleName="h2meta"
 			   />
 		<number-stepper pos="00"
 						step="1"
 						min="00"
 						max="23"
-						width="42px"
+						width="38px"
 						id="TRANSACTION_WHEN_HOURS"
 						allowFocus="true"
 						/>
@@ -88,21 +65,51 @@
 						step="5"
 						min="00"
 						max="55"
-						width="42px"
+						width="38px"
 						id="TRANSACTION_WHEN_MINUTES"
 						allowFocus="true"
 						/>
 	</hbox>
+	
+	<hbox>
+		<label text="{{TRANSACTION_TYPE}}"
+			   styleName="h2meta"
+			   />
+	<group layout="horizontal"
+			   id="formSwitcher"
+		   verticalAlign="center"
+			   >
+			<optionbox id="inbound"
+					   text="inbound"
+					   styleName="metaLabels"
+					   />
+			<optionbox id="mail"
+					   text="mail"
+					   styleName="metaLabels"
+					   />
+			<optionbox id="outbound"
+					   text="outbound"
+					   hidden="true"
+					   styleName="metaLabels"
+					   />
+			<optionbox id="case"
+					   text="case"
+					   hidden="false"
+					   styleName="metaLabels"
+					   />
+		</group>
+	</hbox>
 	<label text="{{TRANSACTION_SUMMARY}}"
 		   tooltip="{{TRANSACTION_SUMMARY_HELP}}"
 		   id="summary"
-		   styleName="subtitle"
+		   styleName="h2meta"
 		   />
-	<textarea width="300%"
-			  tooltip="{{TRANSACTION_SUMMARY_HELP}}"
+	<textarea tooltip="{{TRANSACTION_SUMMARY_HELP}}"
 			  id="transactionsummary"
 			  styleName="summarries"
 			  allowFocus="true"
+			  placeholder="{{TRANSACTION_SUMMARY_PLACEHOLDER}}"
+			   width="100%"
 			  />
 
 </vbox>

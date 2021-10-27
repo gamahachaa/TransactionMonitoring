@@ -2,7 +2,7 @@
 
 @echo off
 
-set DEV=0
+set DEV=1
 
 rem PREPARE DATESTAMP ------------------------------------------------------------------------------------------------------------------------------
 for /f "tokens=2 delims==" %%a in ('wmic OS Get localdatetime /value') do set "dt=%%a"

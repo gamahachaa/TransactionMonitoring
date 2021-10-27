@@ -14,7 +14,10 @@ import xapi.types.StatementRef;
 }*/
 class TMMailer extends MailHelper
 {
-	static inline var CUSTOM_RULES:String = ".critical{color:#F0AD50;} .AGREE{color:#65A63C;} .DISAGREE{color:#D95350;}";
+	static inline var CUSTOM_RULES:String = ".critical{color:#EC9A29;} .AGREE{color:#81c14b;} .DISAGREE{color:#f05365;}";
+	var reason:String;
+	var isCalibration:Bool;
+	var currentTopic:String;
 	//public var reason:String;
 	//public var transactionType:String;
 	//public var sender:Actor;
@@ -34,63 +37,106 @@ class TMMailer extends MailHelper
 		super(url);
 		this.transaction = transaction;
 		this.monitoring = monitoring;
+		
 	}
 	public function build(all:Bool, ?previousStatement:StatementRef)
 	{
-		//var transactionType = transaction.type;
-		var type = monitoring.data.get(Monitoring.MONITORING_TYPE);
-		var reason = monitoring.data.get(Monitoring.MONITORING_REASON);
-		var sender = monitoring.coach;
-		this.setSubject('[${LocaleManager.instance.lookupString(transaction.type.toUpperCase())} Transaction Monitoring] $type $reason ${LocaleManager.instance.lookupString("FROM")} ${sender.firstName} ${sender.sirName}');
-		if (reason == "calibration"){
+		reason = monitoring.data.get(Monitoring.MONITORING_REASON);
+		isCalibration = reason == "calibration" ;
+		prepareHeader();
+		setBody(prepareBody(all, previousStatement), true, CUSTOM_RULES);
+	}
+    function prepareHeader()
+	{
+		
+		//var sender = monitoring.coach;
+		var end = '${reason.toUpperCase()} ${LocaleManager.instance.lookupString("FROM")} ${monitoring.coach.sAMAccountName} ${LocaleManager.instance.lookupString("TO")} ${transaction.monitoree.sAMAccountName}';
+		
+		if (isCalibration){
 			this.setTo([this.monitoring.coach.mbox.substr(7)]);
+			end = '$reason ${LocaleManager.instance.lookupString("OF")} ${transaction.id}';
 		}else{
 			this.setTo([this.transaction.monitoree.mbox.substr(7)]);
 			this.setCc([this.monitoring.coach.mbox.substr(7)]);
 		}
-	
-		
-		//prepareBody();
-		//var customRules = CUSTOM_RULES;
-		setBody(prepareBody(all, previousStatement), true, CUSTOM_RULES);
+	    this.setSubject('[${LocaleManager.instance.lookupString(transaction.type.toUpperCase())} Transaction Monitoring] ${monitoring.data.get(Monitoring.MONITORING_TYPE)} ' + end);
 	}
-
 	function prepareBody(all:Bool, ?agentReviewRef:StatementRef)
 	{
-		var reciepient = transaction.monitoree;
+		var reciepient = isCalibration ? monitoring.coach : transaction.monitoree;
 		var transactionSummary = transaction.data.get(Transaction.TRANSACTION_SUMMARY);
 		var monitoringSummary = monitoring.data.get(Monitoring.MONITORING_SUMMARY);
 		var criticalFailed = Question.FAILED_CRITICAL.length;
 		var score = Question.GET_SCORE();
-		var b = '<h1>${LocaleManager.instance.lookupString("HELLO")} ${reciepient.firstName}</h1>';
+		var success = (Question.FAILED_CRITICAL.length == 0 || score.scaled > .79);
+		var descaled = Math.round(score.scaled * 100);
 		var formatedTransactionDate = DateTools.format(transaction.date, "%d.%m.%Y %H:%M");
+		var b = "";
+		if (isCalibration)
+		{
+			b = '<h1>${LocaleManager.instance.lookupString("CALLIBRATION")} ${LocaleManager.instance.lookupString("BY")},</h1>';
+			b += monitoring.coach.buildEmailBody();
+		}else{
+			b = '<h1>${LocaleManager.instance.lookupString("HELLO")} ${reciepient.firstName},</h1>';
+			b += '${LocaleManager.instance.lookupString(transaction.type.toUpperCase())} Transaction Monitoring ${monitoring.data.get(Monitoring.MONITORING_TYPE)} <strong>${monitoring.data.get(Monitoring.MONITORING_REASON)}</strong> ${LocaleManager.instance.lookupString("FROM")} ${monitoring.coach.firstName} ${monitoring.coach.sirName}';
+		}
+		
+		//${LocaleManager.instance.lookupString("BY")} ${monitoring.coach.sAMAccountName}
+		
+		
 		b += '<h2>${LocaleManager.instance.lookupString("TRANSACTION_SUMMARY")}</h2>';
 		b += '<p>${LocaleManager.instance.lookupString("TRANSACTION_ID")} : ${transaction.id}, ${LocaleManager.instance.lookupString("TRANSACTION_WHEN_DATE")} : $formatedTransactionDate</p>';
 		b += '<p>$transactionSummary</p>';
 		b += '<h2>${LocaleManager.instance.lookupString("MONITORING_SUMMARY")}</h2>';
 		b += '<p>$monitoringSummary</p>';
-		b += '<h3>$criticalFailed ${LocaleManager.instance.lookupString("CRITICAL_MISTAKES")}, ';
-		b += 'Score: $score</h3>';
-		b += '<br/><i>${LocaleManager.instance.lookupString("LEGEND")}</i>';
+		if (success) {
+			b += '<h3 class="AGREE">$criticalFailed ${LocaleManager.instance.lookupString("CRITICAL_MISTAKES")}, ';
+			b += 'Score: $descaled /100 &rarr; ${LocaleManager.instance.lookupString("AGREE")}</h3>';
+		}
+		else {
+			b += '<h3 class="DISAGREE">$criticalFailed ${LocaleManager.instance.lookupString("CRITICAL_MISTAKES")}, ';
+			b += 'Score: $descaled /100 &rarr; ${LocaleManager.instance.lookupString("DISAGREE")}</h3>';
+		}
+			
+		
+		
 		b += "<ul>";
+		currentTopic = "";
+		var topic = "";
+		var topicTab = [];
 		for (k => v in Question.ALL)
 		{
+			topicTab = k.split(".");
+			topic = "common." + topicTab[2];
+			if (topic != currentTopic){
+				if (currentTopic != "") b += "</ul></li>";
+				b += '<li><h4>${LocaleManager.instance.lookupString(topic)}</h4><ul>';
+				 currentTopic = topic;
+			}
 			if(!all && v.agreement.choice == "n" || all)
-				b += prepareAnswers(k, v.agreement);
+				b += prepareAnswers(k, v);
 		}
-		b += "</ul>";
-		b += '<h3>${LocaleManager.instance.lookupString("MONITORED_BY")}</h3>';
-		b += monitoring.coach.buildEmailBody();
+		b += "</ul></li></ul>";
+		
+		b += isCalibration ? "" :  '<h3>${LocaleManager.instance.lookupString("MONITORED_BY")}</h3>'+ monitoring.coach.buildEmailBody();
 		
 		if (agentReviewRef != null) b += "QAST Tracking ID : " + agentReviewRef.id;
-		
+		b += '<br/><br/><i>${LocaleManager.instance.lookupString("LEGEND")}</i>';
 		return b;
 	}
-	function prepareAnswers(id:String, answer:Agreement)
+	function prepareAnswers(id:String, answer:Question)
 	{
-		//var critical = answer.critical ? "<span class='critical'>&copy;</span>":"";
-
-		var choice = switch (answer.choice)
+		#if debug
+		trace("TMMailer::prepareAnswers::id", id );
+		#end
+		var criticalIcon = LocaleManager.instance.lookupString("CRITICAL_ICON");
+		var critical = answer.userData.critical ? "<span class='critical'>" + criticalIcon + " " + answer.userData.criticality +"</span> ":"";
+		
+		
+        #if debug
+		//trace("TMMailer::prepareAnswers::answer", answer );
+		#end
+		var choice = switch (answer.agreement.choice)
 		{
 			case "y":"AGREE";
 			case "n":"DISAGREE";
@@ -105,10 +151,10 @@ class TMMailer extends MailHelper
 			q = LocaleManager.instance.lookupString(reg.matched(1));
 		}
 
-		r += '<p>$q &rarr; ';
+		r += '<p>$q $critical &rarr; ';
 		//r += '<h4>{{$id}} :</h4>';
 		r += '<strong class="$choice">${LocaleManager.instance.lookupString(choice)}</strong>';
-		if(answer.justification.length>0) r += ' (${answer.justification})';
+		if(answer.agreement.justification.length>0) r += ' (${answer.agreement.justification})';
 		//if (answer.choice == "n") r += ' (${answer.justification})';
 		r += "</p>";
 		

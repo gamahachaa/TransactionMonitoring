@@ -122,14 +122,14 @@ class XapiHelper extends Http
 		verb = did;
 	}
 	public function setResult(
-		scoreScaled:Float,
+		score:Score,
 		?extensions:Map<String,Dynamic>,
 		?success:Bool,
 		?completion:Bool,
 		?response:String,
 		?duration:Float)
 	{
-		result = new Result(new Score(scoreScaled * 100), success, true, null, duration, extensions);
+		result = new Result(score, success, true, null, duration, extensions);
 	}
 	public function setContext(
 		instructor:Agent, 

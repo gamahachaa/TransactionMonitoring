@@ -107,9 +107,10 @@ class MailHelper extends Http
 		var b = "";
 		//var b = '<style type="text/css">';
 		b += 'table {border-collapse: collapse;}';
-		b += '@font-face {font-family: "Superior"; src: url("http://intranet.salt.ch/static/fonts/superior/SuperiorTitle-Black.woff") format("woff"); font-weight: normal;}';
-		b += '@font-face {font-family: "Univers"; src: url("http://intranet.salt.ch/static/fonts/univers/ecf89914-1896-43f6-a0a0-fe733d1db6e7.woff") format("woff"); font-weight: normal;}';
-		b += 'h3,h4,h5,h5 {color: #65a63c;}';
+		b += '@font-face {font-family: "Superior"; src: url("https://qook.test.ch/tm/css/SuperiorTitleBlack.woff2") format("woff2"); font-weight: normal;}';
+		b += '@font-face {font-family: "Univers"; src: url("https://qook.test.ch/tm/css/open_sans.woff2") format("woff2"); font-weight: normal;}';
+		b += 'h3,h5,h6 {color: #65a63c;}';
+		b += 'h4 {color: #94AFB0;}';
 		b += 'body, table, td, li, span, h3,h4,h5,h5  {font-family: "Univers", Arial, Helvetica, sans-serif !important;}';
 		b += 'h2{color: #000000; font-family: "Superior" !important;}';
 		b += 'li{font-size: 11pt !important; padding-top:8px !important;  margin-top:8px !important;}';

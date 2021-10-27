@@ -1,10 +1,14 @@
-MAIN_TITLE;TransactionMonitoring
-AGREE;Agree
-DISAGREE;Disagree
+MAIN_TITLE;Transaction Monitoring
+AGREE;Passed
+DISAGREE;Failed
 NA;n/a
 ERROR;Error
 FORM_HELP;Select the type of transaction that you are obeserving
-APPLY_YOURSELF;Come on {0}... apply yourself !
+DIALOG_APPLY_YOURSELF;Come on {0}... apply yourself !
+DIALOG_MSG_SUCCESS_TRUE;All good. e-mail successfully sent
+DIALOG_MSG_SUCCESS_FALSE;Not successfull. Something went wrong :(
+DIALOG_TITLE_SUCCESS_TRUE;Monitoring e-mail and tracking
+DIALOG_TITLE_SUCCESS_FALSE;Monitoring e-mail and tracking
 ALERT_AGENT_NOT_SEARCHED;You haven't selected a person to monitor
 ALERT_AGENT_NOT_FOUND;Agent was not found in the Active directory.
 ALERT_MONITORING_SUMMARY;Monitoring summary is incomplete.
@@ -16,14 +20,18 @@ ALERT_ADD_ARGUEMENT_WHEN_DISAGREE;Please, argue why you don't agree where it app
 ALERT_TRANSACTION_DATE_NOT_SET;You did not set a date for the transaction.
 ALERT_TRANSACTION_ID_NOT_SET;How will we be able to verify your assertions if can't identify the transaction ?
 TRANSACTION_SUMMARY;Transaction summary
-TRANSACTION_SUMMARY_HELP;A litle summary of what happend. The customer use case, the process applied etc.
+TRANSACTION_SUMMARY_HELP;Note that this will be sent to the agent
+TRANSACTION_SUMMARY_PLACEHOLDER;Write here a little summary of the customer's use case.
+TRANSACTION_TYPE;Type
+TRANSACTION_WHEN_HELP;Date and time when the transaction occured
 TRANSACTION_WHEN_DATE;Date
 TRANSACTION_WHEN_TIME;Time
 TRANSACTION_ID;Identificator
 TRANSACTION_ID_HELP;Enter here a clear identificator of the transaction:\n- SO ticket ID\n- call recording ID\n- email subject\netc... 
 SELECT_DATE; Pick a date
 MONITORING_SUMMARY;Observation summary
-MONITORING_SUMMARY_HELP;Write here a little summary of your observations
+MONITORING_SUMMARY_HELP;Note that this will be sent to the agent
+MONITORING_SUMMARY_PLACEHOLDER;Write here a little summary of your observations on how the agents handled the transaction
 MONITORED_BY;Observed by
 TRANSACTION_AGENT;Agent
 TRANSACTION_AGENT_HELP;Enter agents NT.\nIf found his email will display
@@ -39,7 +47,7 @@ MONITORING_REASON_FOCUS;Focus
 MONITORING_REASON_FOCUS_HELP;Additional monitoring after critical errors (+2 following month)
 MONITORING_REASON_SPEAKOUT;Better together
 MONITORING_REASON_SPEAKOUT_HELP;Monitoring agent to agent
-MONITORING_REASON_CALLIBRATION;Callibration
+MONITORING_REASON_CALLIBRATION;Callib°
 MONITORING_REASON_CALLIBRATION_HELP;Callibrations are not sent to the monitoree/agent
 MONITORING_TYPE;Type 
 MONITORING_TYPE_HELP;How are you performning this observation ?
@@ -47,3 +55,13 @@ MONITORING_TYPE_REMOTE;Remotely
 MONITORING_TYPE_REMOTE_HELP;Observed agent is not by your side
 MONITORING_TYPE_SIDEBYSIDE;Side by side
 MONITORING_TYPE_SIDEBYSIDE_HELP;Observed agent is by your side
+
+passed_placeholder;Comment if you wish
+failed_placeholder;You must tell us why
+
+SEND_ALL_TOOLTIP;Choose to send either all topics ({{AGREE}}, {{DISAGREE}} and {{NA}}), or {{DISAGREE}} only
+
+LOGIN_USERNAME;Username
+LOGIN_PASSWORD;Password
+LOGIN_BTN;Let's coach!
+SHOW_PWD;Click me to show the entered password

@@ -1,4 +1,0 @@
-<vbox id="inbound" width="80%" height="100%">
-	<import resource="assets/ui/common/compliance.xml" />
-	<import resource="assets/ui/content/inbound.xml" />
-</vbox>

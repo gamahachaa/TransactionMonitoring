@@ -1,4 +1,0 @@
-<!--<hbox width="100%">-->
-<hbox width="100%" >
-	<label text="Version 0.5" textAlign="center" width="100%" id="version"></label>
-</hbox>

@@ -1,36 +1,41 @@
+<!--<scrollview width="100%" height="100%" contentWidth="100%">-->
 <vbox id="mail"
-	  width="80%"
-	  height="100%"
 	  styleName="content"
+	  width="100%"
 	  >
-	<vbox id="compliance"
-		  width="75%"
-		  styleName="contentBlocks compliance"
-		  >
-		<import resource="assets/ui/content/common/compliance.xml" />
+    <!--label styleName="h2"
+		   text="{{MAIL}}"
+		   id="mailTitle"
+		   /-->
+	<vbox styleName="contentBlocks opening"
+		  id="opening">
+		<label htmlText="{{common.opening}}" styleName="h2"/>
+		<import resource="assets/ui/content/1_opening/common.xml"
+				omitRoot="true"
+				/>
+
 	</vbox>
-	<hbox width="90%">
-		<vbox width="50%"
-			  styleName="contentBlocks customer"
-			  id="customer"
-			  >
-			<import resource="assets/ui/content/common/customer.xml"
-					omitRoot="true"
-					/>
-			<import resource="assets/ui/content/custom/mail/customer.xml"
-					omitRoot="true"
-					/>
-		</vbox>
-		<vbox width="50%"
-			  styleName="contentBlocks business"
-			  id="business"
-			  >
-			<import resource="assets/ui/content/common/business.xml"
-					omitRoot="true"
-					/>
-			<import resource="assets/ui/content/custom/mail/business.xml"
-					omitRoot="true"
-					/>
-		</vbox>
-	</hbox>
+	<vbox styleName="contentBlocks resolution"
+		  id="resolution">
+		<label htmlText="{{common.resolution}}" styleName="h2"/>
+		<import resource="assets/ui/content/2_resolution/common.xml"
+				omitRoot="true" />
+
+	</vbox>
+	<vbox styleName="contentBlocks communication"
+		  id="communication">
+		<label htmlText="{{common.communication}}" styleName="h2"/>
+		<import resource="assets/ui/content/3_communication/common.xml"
+				omitRoot="true" />
+
+	</vbox>
+	<vbox styleName="contentBlocks closing"
+		  id="closing">
+		<label htmlText="{{common.closing}}" styleName="h2"/>
+
+		<import resource="assets/ui/content/4_closing/common.xml"
+				omitRoot="true" />
+
+	</vbox>
+
 </vbox>

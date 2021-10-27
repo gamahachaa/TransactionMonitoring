@@ -2,9 +2,12 @@
 <vbox width="100%"
 	  height="100%"
 	  id="logger"
+	  verticalAlign="center"
+	  horizontalAlign="center"
 	  >
+	<style source="../css/main.css" />
 		<label text="{{MAIN_TITLE}}"
-			   styleName="title"
+			   styleName="h1"
 			   />
 	<grid id="credentials"
 		  width="100%"
@@ -17,8 +20,8 @@
 		<!-- 1 -->
 		
 		<!-- 2 -->
-		<label text="Username"
-			   styleName="subtitle"
+		<label text="{{LOGIN_USERNAME}}"
+			   styleName="h2meta"
 			   tooltip="Use your NT credentials\n Expl: gclooney\nWh@tEls3"
 			   />
 		<textfield id="username"
@@ -26,8 +29,8 @@
 				   />
 		<box />
 		<!-- 3 -->
-		<label text="Password"
-			   styleName="subtitle"
+		<label text="{{LOGIN_PASSWORD}}"
+			   styleName="h2meta"
 			   tooltip="Use your NT credentials\n Expl: gclooney\nWh@tEls3"
 			   />
 		<textfield 
@@ -35,10 +38,10 @@
 					text=""
 			allowFocus="true"
 				   />
-		<image text="show" resource="images/eye.png" id="showPwd" width="40px" />
+		<image text="show" resource="images/eye.png" id="showPwd" width="40px" tooltip="{{SHOW_PWD}}" />
 		<!-- 4 -->
 		<box />
-		<button text="Let's coach !"
+		<button text="{{LOGIN_BTN}}"
 				id="login"
 				/>
 		<label id="feedback">
