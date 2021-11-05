@@ -55,24 +55,6 @@ rem add new JS MAP
     "exit"
 rem ADD FONTS
 
-rem ------------------- LOCALES ---------------------
-rem "C:\_mesProgs\WinSCP\WinSCP.com" ^
-rem  /log="%cd%\WinSCP.log" /ini=nul ^
-rem  /command ^
-rem    "open sftp://qook:uU155cy54IGQf0M4Jek6@10.193.14.13/ -hostkey=""ssh-rsa 2048 wS00k9P56QO60lm1NS8bO+nPtjNA0htnzu/XzCyhfQg=""" ^
-rem    "lcd %ASSETSDIR%locales" ^
-rem    "cd /home/qook/app/qook/%serverFolderName%/assets/locales" ^
-rem     "put -nopreservetime *" ^
-rem    "exit"
-rem "C:\_mesProgs\WinSCP\WinSCP.com" ^
-rem  /log="%cd%\WinSCP.log" /ini=nul ^
-rem  /command ^
-rem    "open sftp://qook:uU155cy54IGQf0M4Jek6@10.193.14.13/ -hostkey=""ssh-rsa 2048 wS00k9P56QO60lm1NS8bO+nPtjNA0htnzu/XzCyhfQg=""" ^
-rem    "lcd %ASSETSDIR%images" ^
-rem    "cd /home/qook/app/qook/%serverFolderName%/assets/images" ^
-rem     "put -nopreservetime *" ^
-rem    "exit"
-rem ------------------- ---------------------
 rem index
 "C:\_mesProgs\WinSCP\WinSCP.com" ^
   /log="%cd%\WinSCP.log" /ini=nul ^

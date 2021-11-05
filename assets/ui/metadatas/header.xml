@@ -6,6 +6,11 @@
 		   layout="horizontal"
 		   width="20%"
 		   >
+		<optionbox value="en-GB"
+				   text="en"
+				   id="en"
+				   selected="true"
+				   />
 		<optionbox value="fr-FR"
 				   text="fr"
 				   id="fr"
@@ -14,11 +19,7 @@
 				   text="de"
 				   id="de"
 				   />
-		<optionbox value="en-GB"
-				   text="en"
-				   id="en"
-				   selected="true"
-				   />
+		
 		<optionbox value="it-IT"
 				   text="it"
 				   id="it"

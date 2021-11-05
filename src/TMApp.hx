@@ -1,11 +1,11 @@
 package;
 import haxe.Exception;
 import haxe.ui.HaxeUIApp;
-import haxe.ui.Toolkit;
+//import haxe.ui.Toolkit;
 import haxe.ui.components.CheckBox;
 import haxe.ui.components.Image;
 import haxe.ui.components.Stepper;
-import haxe.ui.focus.FocusManager;
+//import haxe.ui.focus.FocusManager;
 //import haxe.ui.Toolkit;
 //import haxe.ui.ToolkitAssets;
 //import haxe.ui.assets.AssetPlugin;
@@ -100,7 +100,7 @@ class TMApp
 	var tracker:Tracker;
 	var transaction:Transaction;
 	var monitoring:Monitoring;
-	var lang:String;
+	public static var lang:String;
 	var transactionDateComp:DropDown;
 	var transcationHourComp:Stepper;
 	var transcationMinutesComp:Stepper;
@@ -109,7 +109,9 @@ class TMApp
 	var monitoringType:Group;
 	var monitoringReason:Group;
 	var agentLabel:Label;
+	//var agentLabel:Label;
 	var agentOK:Image;
+	var agentBtn:Label;
 	//var info:Component;
 	public function new()
 	{
@@ -148,7 +150,7 @@ class TMApp
 		//tmMetadatas = new Map<String, String>();
 
 		init = false;
-		logger = new LoginHelper("https://qook.test.salt.ch/commonlibs/login/index.php");
+		logger = new LoginHelper(comonLibs+"login/index.php");
 		logger.successSignal.add(onLoginSuccess);
 		//logger.statusSignal.add((e)->(trace(e)));
 		app.ready(function()
@@ -182,7 +184,7 @@ class TMApp
 			catch (e:Exception)
 			{
 				#if debug
-				trace("Main::Main::e", e );
+				//trace("Main::Main::e", e );
 				#end
 				prepareLogin( monitoring.coach );
 				app.addComponent(loginApp);
@@ -309,6 +311,7 @@ class TMApp
 			if (agent.authorised)
 			{
 				monitoring.coach  = cast(agent, Coach);
+				
 				cookie.flush(version, monitoring.coach );
 				loadContent();
 			}
@@ -323,8 +326,15 @@ class TMApp
 			transaction.monitoree = cast(agent, Monitoree);
 
 			resetAgent();
+			#if debug
+			//trace("TMApp::onLoginSuccess::agentLabel.hidden", agentLabel.hidden );
+			//trace("TMApp::onLoginSuccess::agentLabel.text", agentLabel.htmlText);
+			#end
 			if (transaction.monitoree.authorised)
 			{
+				#if debug
+				//trace("TMApp::onLoginSuccess transaction.monitoree.authorised", transaction.monitoree.authorised);
+				#end
 				agentLabel.htmlText = '<strong class="correct">${StringTools.replace(transaction.monitoree.mbox, "mailto:","")}</strong>\n${transaction.monitoree.title}';
 				/*agentLabel.color = 0x65a63c;*/
 				agentLabel.addClass("correct");
@@ -334,13 +344,20 @@ class TMApp
 			}
 			else
 			{
+				#if debug
+				//trace("TMApp::onLoginSuccess transaction.monitoree.authorised", transaction.monitoree.authorised);
+				#end
 				agentOK.hidden = false;
 				agentOK.resource = "images/check-red-icon.png";
 				agentLabel.htmlText = '{{ERROR}} \n<strong class="error">${transaction.monitoree.name}</strong>';
 				agentLabel.addClass("error");
 				/*agentLabel.color = 0xFF0000;*/
 			}
-
+             #if debug
+			//trace("TMApp::onLoginSuccess::agentLabel.hidden", agentLabel.hidden );
+			//trace("TMApp::onLoginSuccess::agentLabel.text", agentLabel.htmlText);
+			#end
+			agentLabel.updateComponentDisplay();
 		}
 	}
     function resetAgent(?fromscratch:Bool=false)
@@ -351,8 +368,7 @@ class TMApp
 		agentOK.hidden = true;
 		if (fromscratch) {
 			agentTF.text = "";
-			agentLabel.text = "";
-			
+			agentLabel.htmlText = "";
 		}
 	}
 	function loadContent()
@@ -380,8 +396,8 @@ class TMApp
 
 		transactionDateComp = mainApp.findComponent("TRANSACTION_WHEN", DropDown);
 		#if debug
-		trace("TMApp::prepareMetadatas::transactionDateComp selectedIndex", transactionDateComp.selectedIndex  );
-		trace("TMApp::prepareMetadatas::transactionDateComp selectedItem", transactionDateComp.selectedItem);
+		//trace("TMApp::prepareMetadatas::transactionDateComp selectedIndex", transactionDateComp.selectedIndex  );
+		//trace("TMApp::prepareMetadatas::transactionDateComp selectedItem", transactionDateComp.selectedItem);
 		#end
 		transactionDateComp.onChange = (e)->(prepareTransactionDate());
 		transcationHourComp = mainApp.findComponent("TRANSACTION_WHEN_HOURS", Stepper);
@@ -389,8 +405,10 @@ class TMApp
 		transcationMinutesComp = mainApp.findComponent("TRANSACTION_WHEN_MINUTES", Stepper);
 		transcationMinutesComp.onChange = (e)->(prepareTransactionDate());
 
+		agentBtn = mainApp.findComponent("agentBtn");
 		agentTF = mainApp.findComponent("agentNt");
 		agentTF.registerEvent(FocusEvent.FOCUS_OUT, onAgentFilledIn);
+		agentBtn.onClick = onAgentClicked;
 
 		coachEmail = mainApp.findComponent("coachemail", Label);
 		coachEmail.htmlText = '<strong>${StringTools.replace(monitoring.coach.mbox, "mailto:","")}</strong>\n${monitoring.coach.title}';
@@ -443,7 +461,7 @@ class TMApp
 
 		langSwitcher = mainApp.findComponent("langSwitcher", null, true);
 		langSwitcher.onChange = onLangChanged;
-		langSwitcher.disabled = true;
+		//langSwitcher.disabled = true;
 
 		sendBtn.onClick = onSend;
 		whatToSend = mainApp.findComponent("sendAll", CheckBox);
@@ -469,7 +487,15 @@ class TMApp
 		versionLabel.text = "v " + version;
 	}
 
+	function onAgentClicked(e:MouseEvent):Void
+	{
+		checkAgent();
+	}
 	function onAgentFilledIn(e:FocusEvent):Void
+	{
+		checkAgent();
+	}
+	 function checkAgent():Void
 	{
 		#if debug
 		if (_mainDebug)
@@ -553,7 +579,7 @@ class TMApp
 		else
 		{
 			//if (message.length > 3 ) message.unshift('Come on ${coachAgent.firstName} apply yourself !');
-			trace("not good yet");
+			//trace("not good yet");
 			if (message.length > 3 ) message.unshift(LocaleManager.instance.lookupString("DIALOG_APPLY_YOURSELF",  monitoring.coach.firstName));
 			dialog.message = message.join("\n\n");
 			dialog.showDialog(true);
@@ -582,7 +608,7 @@ class TMApp
 		}
 		else{
 			#if debug
-			trace("TMApp::validateMetadatas::transactionIdTF.text", transactionIdTF.text );
+			//trace("TMApp::validateMetadatas::transactionIdTF.text", transactionIdTF.text );
 			#end
 			transaction.id = transactionIdTF.text;
 		}
@@ -599,8 +625,8 @@ class TMApp
 		}
 		else{
 			#if debug
-			trace("TMApp::validateMetadatas::agentTF.text", agentTF.text );
-			trace("TMApp::validateMetadatas::agentTF.text",transaction.monitoree );
+			//trace("TMApp::validateMetadatas::agentTF.text", agentTF.text );
+			//trace("TMApp::validateMetadatas::agentTF.text",transaction.monitoree );
 			#end
 		}
 		if (transaction.date == null || transaction.date.getFullYear() == 2000)
@@ -610,7 +636,7 @@ class TMApp
 		}
 		else{
 			#if debug
-			trace("TMApp::validateMetadatas::transactionDateComp.value", transaction.date );
+			//trace("TMApp::validateMetadatas::transactionDateComp.value", transaction.date );
 			#end
 			//transaction.data.set(Transaction.TRANSACTION_DATE, transaction.getDateISO());
 		}
@@ -648,7 +674,7 @@ class TMApp
 		}
 		else{
 			#if debug
-			trace("TMApp::validateMetadatas::monitoring.data.exists(Monitoring.MONITORING_REASON)", monitoring.data.exists(Monitoring.MONITORING_REASON) );
+			//trace("TMApp::validateMetadatas::monitoring.data.exists(Monitoring.MONITORING_REASON)", monitoring.data.exists(Monitoring.MONITORING_REASON) );
 			#end
 		}
 		if (!monitoring.data.exists(Monitoring.MONITORING_TYPE))
@@ -658,7 +684,7 @@ class TMApp
 		}
 		else{
 			#if debug
-			trace("TMApp::validateMetadatas::monitoring.data.exists(Monitoring.MONITORING_TYPE)", monitoring.data.exists(Monitoring.MONITORING_TYPE) );
+			//trace("TMApp::validateMetadatas::monitoring.data.exists(Monitoring.MONITORING_TYPE)", monitoring.data.exists(Monitoring.MONITORING_TYPE) );
 			#end
 		}
 		return {canSubmit:canSubmit, message: message};
@@ -672,10 +698,12 @@ class TMApp
 		Question.INFO.reset();
 		transaction.type = id;
 		currentForm = forms.get(id);
-		content.removeComponentAt(0);
+		content.removeComponentAt(0,false);
 		content.addComponentAt(currentForm, 0 );
 		content.hidden = false;
 		Question.GET_ALL(currentForm);
+		LocaleManager.instance.language = "en";
+		LocaleManager.instance.language = lang;
 	}
 
 	function onLangChanged(e:UIEvent)
@@ -689,7 +717,7 @@ class TMApp
 	function sendEmailToBoth(?previousStatement:StatementRef):Void
 	{
 		#if debug
-		trace("TMApp::sendEmailToBoth");
+		//trace("TMApp::sendEmailToBoth");
 		#end
 		mailComposer.transaction = transaction;
 		mailComposer.monitoring = monitoring;

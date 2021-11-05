@@ -1,32 +1,96 @@
 <module id="my-module">
 	<resources>
-        <resource path="/assets/images" prefix="images" />
-        <resource path="/assets/locales" prefix="locale" />
-    </resources>
+		<resource path="/assets/images"
+				  prefix="images"
+				  />
+		<resource path="/assets/locales"
+				  prefix="locale"
+				  />
+	</resources>
 	<locales path="locale/">
-        <locale id="en">
-			<resource path="locale/en-GB/tm_en.csv" prefix="main" />
-			<resource path="locale/en-GB/mailer_en.properties" prefix="mailer" />
-			<resource path="locale/en-GB/all_en.csv" prefix="common" />
-			<resource path="locale/en-GB/inbound_en.properties" prefix="inbound" />
-			<resource path="locale/en-GB/mail_en.properties" prefix="mail" />
-			<resource path="locale/en-GB/case_en.properties" prefix="case" />
-
-			
+		<locale id="en">
+			<resource path="locale/en-GB/tm_en.csv"
+					  prefix="main"
+					  />
+			<resource path="locale/en-GB/mailer_en.csv"
+					  prefix="mailer"
+					  />
+			<resource path="locale/en-GB/all_en.csv"
+					  prefix="common"
+					  />
+			<resource path="locale/en-GB/inbound_en.properties"
+					  prefix="inbound"
+					  />
+			<resource path="locale/en-GB/mail_en.properties"
+					  prefix="mail"
+					  />
+			<resource path="locale/en-GB/case_en.properties"
+					  prefix="case"
+					  />
 		</locale>
 		<locale id="fr">
-			<resource path="locale/en-GB/tm_fr.csv" prefix="main" />
-			<resource path="locale/en-GB/mailer_fr.properties" prefix="mailer" />
-			<resource path="locale/en-GB/all_fr.csv" prefix="common" />
-			<resource path="locale/en-GB/inbound_fr.properties" prefix="inbound" />
-			<resource path="locale/en-GB/mail_fr.properties" prefix="mail" />
-			<resource path="locale/en-GB/case_fr.properties" prefix="case" />
-
-			
+			<resource path="locale/fr-FR/tm_fr.csv"
+					  prefix="main"
+					  />
+			<resource path="locale/fr-FR/mailer_fr.csv"
+					  prefix="mailer"
+					  />
+			<resource path="locale/fr-FR/all_fr.csv"
+					  prefix="common"
+					  />
+			<resource path="locale/fr-FR/inbound_fr.properties"
+					  prefix="inbound"
+					  />
+			<resource path="locale/fr-FR/mail_fr.properties"
+					  prefix="mail"
+					  />
+			<resource path="locale/fr-FR/case_fr.properties"
+					  prefix="case"
+					  />
 		</locale>
-        <!--<locale id="en" resource="locale/en-GB/tm_en.properties" />-->
-        <!--<locale id="de" resource="locale/de-DE/tm_de.txt" />-->
-        <!--<locale id="fr" resource="locale/fr-FR/tm_fr.txt" />-->
-        <!--<locale id="it" resource="locale/it-IT/tm_it.txt" />-->
-    </locales>
+		<locale id="de">
+			<resource path="locale/de-DE/tm_de.csv"
+					  prefix="main"
+					  />
+			<resource path="locale/de-DE/mailer_de.csv"
+					  prefix="mailer"
+					  />
+			<resource path="locale/de-DE/all_de.csv"
+					  prefix="common"
+					  />
+			<resource path="locale/de-DE/inbound_de.properties"
+					  prefix="inbound"
+					  />
+			<resource path="locale/de-DE/mail_de.properties"
+					  prefix="mail"
+					  />
+			<resource path="locale/de-DE/case_de.properties"
+					  prefix="case"
+					  />
+		</locale>
+		<locale id="it">
+			<resource path="locale/it-IT/tm_it.csv"
+					  prefix="main"
+					  />
+			<resource path="locale/it-IT/mailer_it.csv"
+					  prefix="mailer"
+					  />
+			<resource path="locale/it-IT/all_it.csv"
+					  prefix="common"
+					  />
+			<resource path="locale/it-IT/inbound_it.properties"
+					  prefix="inbound"
+					  />
+			<resource path="locale/it-IT/mail_it.properties"
+					  prefix="mail"
+					  />
+			<resource path="locale/it-IT/case_it.properties"
+					  prefix="case"
+					  />
+		</locale>
+		<!--<locale id="en" resource="locale/en-GB/tm_en.properties" />-->
+		<!--<locale id="de" resource="locale/de-DE/tm_de.txt" />-->
+		<!--<locale id="fr" resource="locale/fr-FR/tm_fr.txt" />-->
+		<!--<locale id="it" resource="locale/it-IT/tm_it.txt" />-->
+	</locales>
 </module>

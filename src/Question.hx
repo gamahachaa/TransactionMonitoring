@@ -263,6 +263,8 @@ class Question
 			INFO.questionDesc.htmlText = "{{" + id + ".desc}}";
 			INFO.passedDesc.htmlText = "{{" + id + ".passed}}";
 			INFO.failedDesc.htmlText = "{{" + id + ".failed}}";
+			LocaleManager.instance.language = "en";
+			LocaleManager.instance.language = TMApp.lang;
 		}
 		//anim.run(()->trace("finished"));
 	}

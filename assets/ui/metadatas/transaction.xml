@@ -22,6 +22,7 @@
 			   verticalAlign="center"
 			   tooltip="{{TRANSACTION_AGENT_HELP}}"
 			   styleName="h2meta"
+			   id="agentBtn"
 			   />
 		<textfield id="agentNt"
 			   placeholder="agent"
@@ -49,9 +50,7 @@
 				  id="TRANSACTION_WHEN"
 				  allowFocus="true"
 				  />
-		<label text="{{TRANSACTION_WHEN_TIME}}"
-			   styleName="h2meta"
-			   />
+		<label text="H" styleName="h2meta"/>
 		<number-stepper pos="00"
 						step="1"
 						min="00"
@@ -60,7 +59,9 @@
 						id="TRANSACTION_WHEN_HOURS"
 						allowFocus="true"
 						/>
-		<label text=":" />
+		<label text="S"
+			   styleName="h2meta"
+			   />
 		<number-stepper pos="00"
 						step="5"
 						min="00"
@@ -69,6 +70,7 @@
 						id="TRANSACTION_WHEN_MINUTES"
 						allowFocus="true"
 						/>
+		
 	</hbox>
 	
 	<hbox>

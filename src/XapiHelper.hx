@@ -198,7 +198,7 @@ class XapiHelper extends Http
 	
 	function onMyData(data:String)
 	{
-		//trace(data);
+		trace(data);
 		try
 		{
 			var d = Json.parse(data);

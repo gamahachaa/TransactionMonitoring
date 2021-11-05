@@ -1,0 +1,16 @@
+KEY;VALUE
+INBOUND;Inbound
+MAIL;E-Mail
+CASE;Fall
+FAILED_ONLY;Sende nur {{DISAGREE}}
+ALL;Sende alle Themen
+FROM;von
+TO;an
+BY;von
+OF;von
+HELLO;Hallo
+OVERALL_SCORE;Gesamtpunktzahl
+CRITICAL_MISTAKES;Kritische(r) Fehler
+CRITICAL_ICON;"&#x02A3B;"
+LEGEND;"<span class=""critical"">&#x02A3B;</span> &#61; Kritisches Thema"
+SUBMIT;ABSENDEN

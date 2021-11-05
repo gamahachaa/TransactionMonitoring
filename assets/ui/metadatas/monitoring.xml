@@ -27,17 +27,17 @@
 			   id="reason"
 			   verticalAlign="center"
 			   >
-			<optionbox text="{{MONITORING_REASON_BASIC}}"
+			<optionbox text="Basic"
 					   id="basic"
 					   tooltip="{{MONITORING_REASON_BASIC_HELP}}"
 					   styleName="metaLabels"
 					   />
-			<optionbox text="{{MONITORING_REASON_EXTRA}}"
+			<optionbox text="Extra"
 					   id="extra"
 					   tooltip="{{MONITORING_REASON_EXTRA_HELP}}"
 					   styleName="metaLabels"
 					   />
-			<optionbox text="{{MONITORING_REASON_FOCUS}}"
+			<optionbox text="Focus"
 					   id="focus"
 					   tooltip="{{MONITORING_REASON_FOCUS_HELP}}"
 					   styleName="metaLabels"

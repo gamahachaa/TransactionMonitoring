@@ -41,7 +41,7 @@
 				  >
 				<label text="{{AGREE}}"
 					   styleName="h4"
-					   width="8%"
+					   width="9%"
 					   />
 				<label id="passedDesc"
 					   htmlText="passed blah blah"
@@ -55,7 +55,7 @@
 				  >
 				<label text="{{DISAGREE}}"
 					   styleName="h4"
-					   width="8%"
+					   width="9%"
 					   />
 				<label id="failedDesc"
 					   htmlText="failed blah blah"

@@ -1,0 +1,16 @@
+KEY;VALUE
+INBOUND;Inbound
+MAIL;E-mail
+CASE;Caso
+FAILED_ONLY;Invia solo {{DISAGREE}}
+ALL;Invia tutti gli argomenti
+FROM;da
+TO;a
+BY;da
+OF;per
+HELLO;Salve
+OVERALL_SCORE;Punteggio complessivo
+CRITICAL_MISTAKES;Errore(i) critico(i)
+CRITICAL_ICON;"&#x02A3B;"
+LEGEND;"<span class=""critical"">&#x02A3B;</span> &#61; Argomento critico"
+SUBMIT;INVIA

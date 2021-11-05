@@ -2,7 +2,7 @@
 
 @echo off
 
-set DEV=1
+set DEV=0
 
 rem PREPARE DATESTAMP ------------------------------------------------------------------------------------------------------------------------------
 for /f "tokens=2 delims==" %%a in ('wmic OS Get localdatetime /value') do set "dt=%%a"
@@ -73,7 +73,7 @@ if "%1"=="debug" goto :NOTMINIFY
 echo MINIFY
 powershell -Command "(gc %BINDIR%/index.html) -replace '%oldScriptName%[0-9a-z_.]*\.js', '%newScriptNameMin%.js' | Out-File -encoding UTF8 %BINDIR%/index.html"
 powershell -Command "Rename-Item -Path "%BINDIR%/%mainScript%.min.js" -NewName %newScriptNameMin%.js"
-goto :DEAD
+goto :EXPORT
 
 :NOTMINIFY
 echo MINIFY_NOT

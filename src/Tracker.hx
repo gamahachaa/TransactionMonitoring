@@ -22,6 +22,9 @@ class Tracker
 		dispatcher = new Signal1<Int>();
 		xapi = new XapiHelper(url);
 		xapi.dispatcher.add(onStatemeentSent);
+		#if debug
+		trace("Tracker::Tracker::url", url );
+		#end
 		start();
 	}
 

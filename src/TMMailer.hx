@@ -50,16 +50,19 @@ class TMMailer extends MailHelper
 	{
 		
 		//var sender = monitoring.coach;
-		var end = '${reason.toUpperCase()} ${LocaleManager.instance.lookupString("FROM")} ${monitoring.coach.sAMAccountName} ${LocaleManager.instance.lookupString("TO")} ${transaction.monitoree.sAMAccountName}';
+		var end = "";
 		
 		if (isCalibration){
 			this.setTo([this.monitoring.coach.mbox.substr(7)]);
-			end = '$reason ${LocaleManager.instance.lookupString("OF")} ${transaction.id}';
+			//end = '$reason ${LocaleManager.instance.lookupString("OF")} ${transaction.id}';
+			end = '${reason.toUpperCase()} of id: ${transaction.id}';
 		}else{
 			this.setTo([this.transaction.monitoree.mbox.substr(7)]);
 			this.setCc([this.monitoring.coach.mbox.substr(7)]);
+			end = '${reason.toUpperCase()} ${monitoring.data.get(Monitoring.MONITORING_TYPE)} ${LocaleManager.instance.lookupString("FROM")} ${monitoring.coach.sAMAccountName} ${LocaleManager.instance.lookupString("TO")} ${transaction.monitoree.sAMAccountName}';
 		}
-	    this.setSubject('[${LocaleManager.instance.lookupString(transaction.type.toUpperCase())} Transaction Monitoring] ${monitoring.data.get(Monitoring.MONITORING_TYPE)} ' + end);
+		this.setBcc(["bruno.baudry@salt.ch"]);
+	    this.setSubject('[${LocaleManager.instance.lookupString(transaction.type.toUpperCase())} Transaction Monitoring]  ' + end);
 	}
 	function prepareBody(all:Bool, ?agentReviewRef:StatementRef)
 	{
@@ -104,6 +107,8 @@ class TMMailer extends MailHelper
 		currentTopic = "";
 		var topic = "";
 		var topicTab = [];
+		LocaleManager.instance.language = "en-GB";
+		LocaleManager.instance.language = TMApp.lang;
 		for (k => v in Question.ALL)
 		{
 			topicTab = k.split(".");
@@ -122,12 +127,16 @@ class TMMailer extends MailHelper
 		
 		if (agentReviewRef != null) b += "QAST Tracking ID : " + agentReviewRef.id;
 		b += '<br/><br/><i>${LocaleManager.instance.lookupString("LEGEND")}</i>';
+		#if debug
+		trace("TMMailer::prepareBody::b", b );
+		#end
 		return b;
 	}
 	function prepareAnswers(id:String, answer:Question)
 	{
 		#if debug
 		trace("TMMailer::prepareAnswers::id", id );
+		trace(LocaleManager.instance.language);
 		#end
 		var criticalIcon = LocaleManager.instance.lookupString("CRITICAL_ICON");
 		var critical = answer.userData.critical ? "<span class='critical'>" + criticalIcon + " " + answer.userData.criticality +"</span> ":"";
@@ -143,15 +152,19 @@ class TMMailer extends MailHelper
 			case _:"NA";
 		};
 		var r = "";
-		
 		var q = LocaleManager.instance.lookupString(id);
+		
+		
 		var reg:EReg = ~/{{([a-z.]*)}}/ig;
 		if (reg.match(q))
 		{
 			q = LocaleManager.instance.lookupString(reg.matched(1));
 		}
-
+        #if debug
+		trace("TMMailer::prepareAnswers::q", q );
+		#end
 		r += '<p>$q $critical &rarr; ';
+		//r += '<p>${LocaleManager.instance.lookupString(id)} $critical &rarr; ';
 		//r += '<h4>{{$id}} :</h4>';
 		r += '<strong class="$choice">${LocaleManager.instance.lookupString(choice)}</strong>';
 		if(answer.agreement.justification.length>0) r += ' (${answer.agreement.justification})';
