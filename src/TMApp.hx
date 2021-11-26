@@ -1,10 +1,11 @@
 package;
 import haxe.Exception;
 import haxe.ui.HaxeUIApp;
+import haxe.ui.components.NumberStepper;
 //import haxe.ui.Toolkit;
 import haxe.ui.components.CheckBox;
 import haxe.ui.components.Image;
-import haxe.ui.components.Stepper;
+//import haxe.ui.components.Stepper;
 //import haxe.ui.focus.FocusManager;
 //import haxe.ui.Toolkit;
 //import haxe.ui.ToolkitAssets;
@@ -14,11 +15,11 @@ import haxe.ui.components.Label;
 import haxe.ui.components.OptionBox;
 import haxe.ui.components.DropDown;
 //import haxe.ui.components.Slider;
-import haxe.ui.components.Switch;
+//import haxe.ui.components.Switch;
 import haxe.ui.components.TextArea;
 import haxe.ui.components.TextField;
 import haxe.ui.containers.Group;
-import haxe.ui.containers.dialogs.Dialog;
+//import haxe.ui.containers.dialogs.Dialog;
 import haxe.ui.containers.dialogs.MessageBox;
 import haxe.ui.core.Component;
 import haxe.ui.events.FocusEvent;
@@ -102,8 +103,8 @@ class TMApp
 	var monitoring:Monitoring;
 	public static var lang:String;
 	var transactionDateComp:DropDown;
-	var transcationHourComp:Stepper;
-	var transcationMinutesComp:Stepper;
+	var transcationHourComp:NumberStepper;
+	var transcationMinutesComp:NumberStepper;
 	//var transactionDate:Date;
 	var transactionIdTF:TextField;
 	var monitoringType:Group;
@@ -116,6 +117,7 @@ class TMApp
 	var preloader:haxe.ui.components.Image;
 	var cctl_text:Label;
 	var debounce:Bool;
+	
 	//var info:Component;
 	public function new()
 	{
@@ -126,9 +128,18 @@ class TMApp
 		currentForm = null;
 		forms = new Map<String, Component>();
 		_mainDebug = Browser.location.origin.indexOf("salt.ch") > -1;
-		comonLibs = Browser.location.origin + "/commonlibs/";
+		init = false;
+		comonLibs = Browser.location.origin + "/commonlibs/";		
+		/******************************************************
+		 * INIT AJX HElpers
+		 * ****************************************************/
+		
+		logger = new LoginHelper(comonLibs+"login/index.php");
+		logger.successSignal.add(onLoginSuccess);
+		//
 		tracker = new Tracker(comonLibs + "xapi/index.php");
 		tracker.dispatcher.add(onTracking);
+		//
 		mailComposer = new TMMailer(comonLibs + "mail/index.php");
 		mailComposer.successSignal.add(onMailSucces);
 		#if debug
@@ -144,24 +155,13 @@ class TMApp
 		LocaleManager.instance.language = "en";		
 		
 		app = new HaxeUIApp();
-
-		
-
-		transaction = new Transaction();
-		monitoring = new Monitoring();
-
-		//tmMetadatas = new Map<String, String>();
-
-		init = false;
-		logger = new LoginHelper(comonLibs+"login/index.php");
-		logger.successSignal.add(onLoginSuccess);
-		//logger.statusSignal.add((e)->(trace(e)));
-
 		
 		app.ready(function()
 		{
-			
 			ToolTipManager.defaultDelay = 100;
+			transaction = new Transaction();
+			monitoring = new Monitoring();
+			
 			dialog = new MessageBox();
 			dialog.type = MessageBoxType.TYPE_WARNING;
 			dialog.width = 560;
@@ -174,26 +174,23 @@ class TMApp
 		preloader.resource = "images/loader3.gif";
 			try
 			{
-				#if debug
-				//if (_mainDebug) coachAgent = cookie.retrieve(version);
-				if (_mainDebug) monitoring.coach = cookie.retrieve(version);
-				else monitoring.coach = Coach.CREATE_DUMMY();
-				//else coachAgent = Coach.CREATE_DUMMY();
-				//Toolkit.screen.actualHeight;
-
-				#else
-				//coachAgent = cookie.retrieve(version);
-				monitoring.coach = cookie.retrieve(version);
-				#end
+				monitoring.coach = cookie.retrieve();
 				loadContent();
 			}
 			catch (e:Exception)
 			{
+
 				#if debug
 				//trace("Main::Main::e", e );
+                // get coach from cookie or create a dummy
+				if (!_mainDebug) monitoring.coach = Coach.CREATE_DUMMY();
+
+				#else
+				//coachAgent = cookie.retrieve(version);
+				
 				#end
 				prepareLogin( monitoring.coach );
-				app.addComponent(loginApp);
+				
 			}
 			//prepareLogin(coachAgent);
 
@@ -289,10 +286,9 @@ class TMApp
 	function prepareLogin( coach:Coach )
 	{
 		#if debug
-		trace("TMApp::prepareLogin", loginApp.disabled, loginApp.isComponentInvalid(), loginApp.numComponents, loginApp.depth);
-		
-		
+		//trace("TMApp::prepareLogin", loginApp.disabled, loginApp.isComponentInvalid(), loginApp.numComponents, loginApp.depth);
 		#end
+		
 		versionLabel = loginApp.findComponent("version", Label);
 		versionLabel.text = "v " + version;
 		loginBtn = loginApp.findComponent("login", Button);
@@ -304,13 +300,12 @@ class TMApp
 		var showPWD:Image = loginApp.findComponent("showPwd", Image);
 		showPWD.onClick = onShowChange;
 		loginFeedback = loginApp.findComponent("feedback", Label);
-		#if debug
-		if (_mainDebug) loginBtn.onClick = onLoginClicked;
-		else loginBtn.onClick = (e)->(onLoginSuccess(monitoring.coach));
-		//else loginBtn.onClick = (e)->(onLoginSuccess(coachAgent));
-		#else
 		loginBtn.onClick = onLoginClicked;
+		#if debug
+		if (!_mainDebug) loginBtn.onClick = (e)->(onLoginSuccess(monitoring.coach));
 		#end
+		// SHOW the LOGIN PAGE
+		app.addComponent(loginApp);
 	}
 
 	function onShowChange(e)
@@ -426,13 +421,13 @@ class TMApp
 		//trace("TMApp::prepareMetadatas::transactionDateComp selectedItem", transactionDateComp.selectedItem);
 		#end
 		transactionDateComp.onChange = (e)->(prepareTransactionDate());
-		transcationHourComp = mainApp.findComponent("TRANSACTIONWHENHOURS", Stepper, true, "id");
+		transcationHourComp = mainApp.findComponent("TRANSACTIONWHENHOURS", NumberStepper, true, "id");
 		#if debug
 		var testTHour  = transcationHourComp == null;
 		trace("TMApp::prepareMetadatas::transcationHourComp", testTHour );
 		#end
 		transcationHourComp.onChange = (e)->(prepareTransactionDate());
-		transcationMinutesComp = mainApp.findComponent("TRANSACTION_WHEN_MINUTES", Stepper);
+		transcationMinutesComp = mainApp.findComponent("TRANSACTION_WHEN_MINUTES", NumberStepper);
 		#if debug
 		//trace("TMApp::prepareMetadatas::transcationMinutesComp", transcationMinutesComp, transcationMinutesComp == null );
 		#end
@@ -615,7 +610,7 @@ class TMApp
 					transaction.type,
 					tmMetadatas,
 					score,
-					(Question.FAILED_CRITICAL.length == 0 || Question.GET_SCORE().scaled>.79),
+					(Question.FAILED_CRITICAL.length == 0 || Question.GET_SCORE().scaled>Question.MIN_PERCENTAGE_BEFORE_FAILLING),
 					questionExtensions,
 					lang);
 			}

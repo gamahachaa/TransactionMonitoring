@@ -36,11 +36,12 @@ class CookieHelper
 	{
 		CookieBB.remove(name, loc.pathname, loc.hostname);
 	}
-	public function retrieve(name:String)
+	public function retrieve(?name:String="")
 	{
-		if (CookieBB.exists(name))
+		var _name = name == "" ?this.name: name;
+		if (CookieBB.exists(_name))
 		{
-			var d = new Unserializer(CookieBB.get(name));
+			var d = new Unserializer(CookieBB.get(_name));
 			return d.unserialize();
 		}
 		else{
