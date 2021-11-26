@@ -2,6 +2,12 @@ package;
 import haxe.Exception;
 import haxe.ui.HaxeUIApp;
 import haxe.ui.components.NumberStepper;
+import http.LoginHelper;
+import http.MailHelper;
+import http.VersionHelper;
+import http.XapiHelper;
+import ui.Communicator;
+import ui.Login;
 //import haxe.ui.Toolkit;
 import haxe.ui.components.CheckBox;
 import haxe.ui.components.Image;
@@ -37,7 +43,7 @@ import haxe.ui.parsers.locale.LocaleParser;
 import js.Browser;
 //import haxe.ui.parsers.locale.TSVParser;
 import haxe.ui.tooltips.ToolTipManager;
-import MailHelper.Result;
+import http.MailHelper.Result;
 using StringTools;
 
 /**
@@ -63,16 +69,16 @@ class TMApp
 	var tmMetadatas:Map<String, Dynamic>;
 	var justifications:Array<TextArea>;
 	var app:haxe.ui.HaxeUIApp;
-	var dialog:MessageBox;
+	var communicator:MessageBox;
 	//var criticals:Array<String>;
 	//var video:js.html.VideoElement;
 	var sendBtn:Button;
 	var agentTF:TextField;
-	var logger:LoginHelper;
-	var loginFeedback:Label;
+	var logger:http.LoginHelper;
+	/*var loginFeedback:Label;
 	var coachPWD:TextField;
 	var coachUsername:TextField;
-	var loginBtn:Button;
+	var loginBtn:Button;        */
 	//var coachAgent:Coach;
 	var versionLabel:Label;
 	var version:String;
@@ -96,7 +102,7 @@ class TMApp
 	//var whatToSendLabel:Label;
 	var _mainDebug:Bool;
 	var comonLibs:String;
-	var xapi:XapiHelper;
+	var xapi:http.XapiHelper;
 	//var form_id:String;
 	var tracker:Tracker;
 	var transaction:Transaction;
@@ -134,7 +140,7 @@ class TMApp
 		 * INIT AJX HElpers
 		 * ****************************************************/
 		
-		logger = new LoginHelper(comonLibs+"login/index.php");
+		logger = new http.LoginHelper(comonLibs+"login/index.php");
 		logger.successSignal.add(onLoginSuccess);
 		//
 		tracker = new Tracker(comonLibs + "xapi/index.php");
@@ -145,7 +151,7 @@ class TMApp
 		#if debug
 		version = "TM_COOKIE";
 		#else
-		version = VersionHelper.getVersion("TM").replace("TM_", "");
+		version = http.VersionHelper.getVersion("TM").replace("TM_", "");
 		#end
 		cookie = new CookieHelper(version);
 		/***********************************************************
@@ -162,14 +168,9 @@ class TMApp
 			transaction = new Transaction();
 			monitoring = new Monitoring();
 			
-			dialog = new MessageBox();
-			dialog.type = MessageBoxType.TYPE_WARNING;
-			dialog.width = 560;
-			dialog.height = 560;
-			dialog.draggable = false;
-			dialog.destroyOnClose = false;
-			mainApp = ComponentMacros.buildComponent("assets/ui/main.xml");
-			loginApp = ComponentMacros.buildComponent("assets/ui/login.xml");
+			communicator = new Communicator();
+			
+			
             preloader = new Image();
 		preloader.resource = "images/loader3.gif";
 			try
@@ -189,7 +190,9 @@ class TMApp
 				//coachAgent = cookie.retrieve(version);
 				
 				#end
-				prepareLogin( monitoring.coach );
+				//prepareLogin();
+				loginApp = new Login(logger);
+				app.addComponent(loginApp);
 				
 			}
 			//prepareLogin(coachAgent);
@@ -282,18 +285,18 @@ class TMApp
 		Question.RESET();
 		
 	}
-
-	function prepareLogin( coach:Coach )
+    /*
+	function prepareLogin()
 	{
 		#if debug
 		//trace("TMApp::prepareLogin", loginApp.disabled, loginApp.isComponentInvalid(), loginApp.numComponents, loginApp.depth);
 		#end
 		
-		versionLabel = loginApp.findComponent("version", Label);
-		versionLabel.text = "v " + version;
+		//versionLabel = loginApp.findComponent("version", Label);
+		//versionLabel.text = "v " + version;
 		loginBtn = loginApp.findComponent("login", Button);
 		coachUsername = loginApp.findComponent("username", TextField);
-		coachUsername.text = coach == null ? "" : coach.sAMAccountName;
+		//coachUsername.text = coach == null ? "" : coach.sAMAccountName;
 		coachPWD = loginApp.findComponent("pwd", TextField);
 		coachPWD.password = true;
 		coachPWD.text = "";
@@ -307,7 +310,7 @@ class TMApp
 		// SHOW the LOGIN PAGE
 		app.addComponent(loginApp);
 	}
-
+    */
 	function onShowChange(e)
 	{
 		coachPWD.password = !coachPWD.password;
@@ -387,7 +390,8 @@ class TMApp
 	}
 	function loadContent()
 	{
-		app.removeComponent(loginApp,false);
+		if (loginApp != null) app.removeComponent(loginApp);
+		mainApp = ComponentMacros.buildComponent("assets/ui/main.xml");
 		app.addComponent(mainApp);
 
 		//
@@ -558,7 +562,7 @@ class TMApp
 		}
 		#end
 	}
-
+    /**
 	function onLoginClicked(e:MouseEvent)
 	{
 		loginFeedback.removeClass("error");
@@ -578,7 +582,7 @@ class TMApp
 			loginFeedback.text = e.message;
 		}
 	}
-
+     **/
 	function onSend(e)
 	{
 		//var resultCheck = prepareResults();
@@ -619,8 +623,8 @@ class TMApp
 		else
 		{
 			if (message.length > 3 ) message.unshift(LocaleManager.instance.lookupString("DIALOG_APPLY_YOURSELF",  monitoring.coach.firstName));
-			dialog.message = message.join("\n\n");
-			dialog.showDialog(true);
+			communicator.message = message.join("\n\n");
+			communicator.showDialog(true);
 		}
 	}
 	function prepareTransactionDate()

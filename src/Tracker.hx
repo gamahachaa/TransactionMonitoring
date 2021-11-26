@@ -1,4 +1,5 @@
 package;
+import http.XapiHelper;
 import js.Browser;
 import xapi.Agent;
 import xapi.Verb;
@@ -11,7 +12,7 @@ import xapi.types.StatementRef;
  */
 class Tracker
 {
-	var xapi:XapiHelper;
+	var xapi:http.XapiHelper;
 	var duration:Float;
 	var stage:Int;
 	public var dispatcher(get, null):signals.Signal1<Int>;
@@ -20,7 +21,7 @@ class Tracker
 	public function new(url:String)
 	{
 		dispatcher = new Signal1<Int>();
-		xapi = new XapiHelper(url);
+		xapi = new http.XapiHelper(url);
 		xapi.dispatcher.add(onStatemeentSent);
 		#if debug
 		trace("Tracker::Tracker::url", url );

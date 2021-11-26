@@ -1,5 +1,6 @@
 package;
 import haxe.ui.locale.LocaleManager;
+import http.MailHelper;
 import xapi.types.StatementRef;
 
 /**
@@ -12,7 +13,7 @@ import xapi.types.StatementRef;
 	var justification:String;
 	var critical:Bool;
 }*/
-class TMMailer extends MailHelper
+class TMMailer extends http.MailHelper
 {
 	static inline var CUSTOM_RULES:String = ".critical{color:#EC9A29;} .AGREE{color:#81c14b;} .DISAGREE{color:#f05365;}";
 	var reason:String;

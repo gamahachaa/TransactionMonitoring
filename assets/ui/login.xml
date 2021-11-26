@@ -46,14 +46,4 @@
 		<label id="feedback">
 		</label>
 	</grid>
-	<hbox width="100%"
-		  height="5%"
-		  >
-		<label text="Version 0.5"
-			   textAlign="center"
-			   width="100%"
-			   id="version"
-			   >
-		</label>
-	</hbox>
 </vbox>
