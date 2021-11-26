@@ -1,9 +1,10 @@
 KEY;VALUE
 INBOUND;Inbound
 MAIL;E-Mail
-CASE;Fall
+CASE;Case
 FAILED_ONLY;Sende nur {{DISAGREE}}
 ALL;Sende alle Themen
+CC_TM_TL;cc an 
 FROM;von
 TO;an
 BY;von
@@ -14,3 +15,4 @@ CRITICAL_MISTAKES;Kritische(r) Fehler
 CRITICAL_ICON;"&#x02A3B;"
 LEGEND;"<span class=""critical"">&#x02A3B;</span> &#61; Kritisches Thema"
 SUBMIT;ABSENDEN
+DISCLAIMER;Dies ist eine automatische E-Mail, die von der qook-Mailbox gesendet wird. Es ist nicht nötig, auf diese E-Mail zu antworten, da qook sie nicht bearbeiten wird. Wenn du jedoch einen Kommentar an den Bewerter richten möchtest, leite bitte stattdessen die E-Mail weiter.

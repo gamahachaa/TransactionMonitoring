@@ -29,14 +29,14 @@ TRANSACTION_WHEN_DATE;Date
 TRANSACTION_WHEN_DATE_HELP;Choisir une date
 TRANSACTION_WHEN_TIME;Heure
 TRANSACTION_ID;Identifiant
-TRANSACTION_ID_HELP;Saisissez ici un identifiant spécifique de transaction : \n- ID du ticket\n ID de l'enregistrement de l'appel \n- objet de l'e-mail \n-etc. 
+TRANSACTION_ID_HELP;Saisissez ici un identifiant spécifique de transaction :  - ID du ticket  ID de l'enregistrement de l'appel  - objet de l'e-mail  -etc. 
 SELECT_DATE;Choisir...
 MONITORING_SUMMARY;Résumé de l'observation
 MONITORING_SUMMARY_HELP;Notez que ceci sera envoyé à l'agent
 MONITORING_SUMMARY_PLACEHOLDER;Rédigez ici un petit résumé de vos observations sur la façon dont les agents ont traité la transaction
 MONITORED_BY;Observé par
 TRANSACTION_AGENT;Agent
-TRANSACTION_AGENT_HELP;Saisissez le NT de l'agent.\nS'il a été trouvé, son e-mail s'affichera
+TRANSACTION_AGENT_HELP;Saisissez le NT de l'agent. S'il a été trouvé, son e-mail s'affichera
 MONITORING_COACH_HELP;Ce devrait être vous
 MONITORING_COACH_LOGMEOUT;Ce n'est pas moi... déconnecte-moi !
 MONITORING_REASON;Raison

@@ -29,14 +29,14 @@ TRANSACTION_WHEN_DATE;Date
 TRANSACTION_WHEN_DATE_HELP;Pick a date
 TRANSACTION_WHEN_TIME;Time
 TRANSACTION_ID;Identifier
-TRANSACTION_ID_HELP;Enter here a clear transaction identifier:\n- SO ticket ID\n- call recording ID\n- email subject\netc... 
+TRANSACTION_ID_HELP;Enter here a clear transaction identifier: - SO ticket ID - call recording ID - email subject etc... 
 SELECT_DATE;Pick...
 MONITORING_SUMMARY;Monitoring summary
 MONITORING_SUMMARY_HELP;Note that this will be sent to the agent
 MONITORING_SUMMARY_PLACEHOLDER;Briefly summarize your observations on how the agents handled the transaction here.
 MONITORED_BY;Observed by
 TRANSACTION_AGENT;Agent
-TRANSACTION_AGENT_HELP;Enter agent's NT.\nIf found, the email will be displayed
+TRANSACTION_AGENT_HELP;Enter agent's NT. If found, the email will be displayed
 MONITORING_COACH_HELP;This should be you
 MONITORING_COACH_LOGMEOUT;Not me... log me out!
 MONITORING_REASON;Reason

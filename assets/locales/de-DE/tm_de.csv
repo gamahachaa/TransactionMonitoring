@@ -29,14 +29,14 @@ TRANSACTION_WHEN_DATE;Datum
 TRANSACTION_WHEN_DATE_HELP;Wähle ein Datum
 TRANSACTION_WHEN_TIME;Uhrzeit
 TRANSACTION_ID;Kennung
-TRANSACTION_ID_HELP;Gib hier eine eindeutige Transaktionskennung ein:\n- SO-Ticket-ID\n- Anrufaufzeichnungs-ID\n- E-Mail-Betreff\nusw. 
+TRANSACTION_ID_HELP;Gib hier eine eindeutige Transaktionskennung ein: - SO-Ticket-ID - Anrufaufzeichnungs-ID - E-Mail-Betreff usw. 
 SELECT_DATE;Wähle...
 MONITORING_SUMMARY;Zusammenfassung der Beobachtung
 MONITORING_SUMMARY_HELP;Hinweis: Dies wird an den Agenten gesendet
 MONITORING_SUMMARY_PLACEHOLDER;Fasse hier kurz deine Beobachtung bezüglich der Art und Weise, wie die Agenten die Transaktion gehandhabt haben, zusammen.
 MONITORED_BY;Beobachtet von
 TRANSACTION_AGENT;Agent
-TRANSACTION_AGENT_HELP;NT des Agenten eingeben.\nWenn gefunden, wird die E-Mail-Adresse angezeigt.
+TRANSACTION_AGENT_HELP;NT des Agenten eingeben. Wenn gefunden, wird die E-Mail-Adresse angezeigt.
 MONITORING_COACH_HELP;Das solltest du sein
 MONITORING_COACH_LOGMEOUT;Das bin nicht ich ... melde mich bitte ab!
 MONITORING_REASON;Grund

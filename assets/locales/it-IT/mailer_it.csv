@@ -1,16 +1,18 @@
 KEY;VALUE
 INBOUND;Inbound
 MAIL;E-mail
-CASE;Caso
+CASE;Case
 FAILED_ONLY;Invia solo {{DISAGREE}}
 ALL;Invia tutti gli argomenti
+CC_TM_TL;cc al 
 FROM;da
 TO;a
 BY;da
 OF;per
 HELLO;Salve
 OVERALL_SCORE;Punteggio complessivo
-CRITICAL_MISTAKES;Errore(i) critico(i)
+CRITICAL_MISTAKES;Errore/i critico/i
 CRITICAL_ICON;"&#x02A3B;"
 LEGEND;"<span class=""critical"">&#x02A3B;</span> &#61; Argomento critico"
 SUBMIT;INVIA
+DISCLAIMER;Questa è un'e-mail automatica inviata dalla casella di posta di qook. Non occorre rispondere a questa e-mail, poiché non sarà trattata da qook. Tuttavia, se desideri inviare un commento alla persona che ha effettuato la valutazione, ti consigliamo di inoltrare l'e-mail.

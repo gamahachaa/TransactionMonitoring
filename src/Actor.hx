@@ -11,6 +11,7 @@ import xapi.Agent;
  */
 class Actor extends Agent
 {
+	public var manager(get, null):Actor;
 	public var authorised(get, null):Bool;
 	//var adminFile:Csv;
 
@@ -22,7 +23,8 @@ class Actor extends Agent
 	public var workLocation(get, null):String;
 	public var division(get, null):String;
 	public var department(get, null):String;
-	public var directReports(get, null):String;
+	//public var directReports(get, null):String;
+	public var distinguishedName(get, null):String;
 	public var accountExpires(get, null):String; //@todo Date
 
 	public var title(get, null):String;
@@ -39,9 +41,11 @@ class Actor extends Agent
 		this.authorised = authorised;
 		canDispach = authorised;
 		statement = "";
+		
 		if (jsonUser != null )
 		{
 			super(jsonUser.mail, jsonUser.samaccountname);
+			manager = jsonUser.boss == null ? null : new Actor(jsonUser.boss, false);
 			sAMAccountName = jsonUser.samaccountname ==null?"":jsonUser.samaccountname ;
 			firstName = jsonUser.givenname  == null ? "":jsonUser.givenname ;
 			sirName = jsonUser.sn == null ? "" :jsonUser.sn;
@@ -50,7 +54,8 @@ class Actor extends Agent
 			workLocation = jsonUser.l == null ? "": jsonUser.l;
 			division = jsonUser.division == null ? "": jsonUser.division;
 			department = jsonUser.department = null ? "": jsonUser.department;
-			directReports = jsonUser.directreports == null ? "": jsonUser.directreports;
+			//directReports = jsonUser.directreports == null ? "": jsonUser.directreports;
+			distinguishedName = jsonUser.distinguishedname == null ? "": jsonUser.distinguishedname;
 			accountExpires = jsonUser.accountexpires == null ? "": jsonUser.accountexpires; //@todo Date
 			mainLanguage = jsonUser.msexchuserculture  == null ? "en-GB": jsonUser.msexchuserculture;
 			title = jsonUser.title == null ? "" : jsonUser.title;
@@ -119,10 +124,10 @@ class Actor extends Agent
 		return department;
 	}
 
-	function get_directReports():String
+	/*function get_directReports():String
 	{
 		return directReports;
-	}
+	}*/
 
 	function get_mainLanguage():String
 	{
@@ -177,6 +182,17 @@ class Actor extends Agent
 	{
 		return statement = value;
 	}
+	
+	function get_manager():Actor 
+	{
+		return manager;
+	}
+	
+	function get_distinguishedName():String 
+	{
+		return distinguishedName;
+	}
+	
 	inline public static function CREATE_DUMMY():Actor
 	{
 		return new Actor({
@@ -189,12 +205,14 @@ class Actor extends Agent
 			l : "Biel", 
 			division : "Customer Operations", 
 			department : "Process & Quality", 
-			directreports : "CN=qook,OU=Domain-Generic-Accounts,DC=ad,DC=salt,DC=ch", 
+			distinguishedname : "CN=Baudry Bruno,OU=Domain-Generic-Accounts,DC=ad,DC=salt,DC=ch", 
 			accountexpires : "0", 
 			msexchuserculture : "fr-FR", 
 			title : "Manager Knowledge & Learning", 
 			initials : "BB", 
-			memberof : ["Microsoft - Teams Members - Standard","Customer Operations - Training","RA-PulseSecure-Laptops-Salt","SG-PasswordSync","RA-EasyConnect-Web-Mobile-Qook","Customer Operations - Knowledge - Management","Customer Operations - Direct Reports","Customer Operations - Fiber Back Office","DOLPHIN_REC","Application-GIT_SALT-Operator","Application-GIT_SALT-Visitor","SG-OCH-WLAN_Users","SG-OCH-EnterpriseVault_DefaultProvisioningGroup","Entrust_SMS","MIS Mobile Users","GI-EBU-OR-CH-MobileUsers","Floor Marshalls Biel","CO_Knowledge And Translation Mgmt","co training admin_ud","Exchange_Customer Operations Management_ud","Exchange_CustomerCareServiceDesign_ud"]
+			memberof : ["Microsoft - Teams Members - Standard", "Customer Operations - Training", "RA-PulseSecure-Laptops-Salt", "SG-PasswordSync", "RA-EasyConnect-Web-Mobile-Qook", "Customer Operations - Knowledge - Management", "Customer Operations - Direct Reports", "Customer Operations - Fiber Back Office", "DOLPHIN_REC", "Application-GIT_SALT-Operator", "Application-GIT_SALT-Visitor", "SG-OCH-WLAN_Users", "SG-OCH-EnterpriseVault_DefaultProvisioningGroup", "Entrust_SMS", "MIS Mobile Users", "GI-EBU-OR-CH-MobileUsers", "Floor Marshalls Biel", "CO_Knowledge And Translation Mgmt", "co training admin_ud", "Exchange_Customer Operations Management_ud", "Exchange_CustomerCareServiceDesign_ud"],
+			boss:{mail : "fabien.reanard@salt.ch", 
+			samaccountname : "frenard",distinguishedname : "CN=Renard Fabien,OU=Domain-Generic-Accounts,DC=ad,DC=salt,DC=ch"}
 		}, true);
 	}
 }

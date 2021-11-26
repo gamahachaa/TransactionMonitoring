@@ -22,13 +22,14 @@
 			   verticalAlign="center"
 			   tooltip="{{TRANSACTION_AGENT_HELP}}"
 			   styleName="h2meta"
-			   id="agentBtn"
 			   />
+		
 		<textfield id="agentNt"
 			   placeholder="agent"
 			   allowFocus="true"
 			   tooltip="{{TRANSACTION_AGENT_HELP}}"
 			   />
+		<image resource="images/search_btn.png" id="agentBtn"></image>
 		<image resource="images/check-green-icon.png" id="agewntOK" hidden="true"/>
 		
 	</hbox>
@@ -56,7 +57,7 @@
 						min="00"
 						max="23"
 						width="38px"
-						id="TRANSACTION_WHEN_HOURS"
+						id="TRANSACTIONWHENHOURS"
 						allowFocus="true"
 						/>
 		<label text="S"
@@ -111,7 +112,9 @@
 			  styleName="summarries"
 			  allowFocus="true"
 			  placeholder="{{TRANSACTION_SUMMARY_PLACEHOLDER}}"
-			   width="100%"
+			  width="100%"
+			  height="150"
+			  autoScrollToBottom="true"
 			  />
 
 </vbox>

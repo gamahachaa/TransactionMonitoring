@@ -113,6 +113,11 @@ textarea, #agentNt, #transactionID, #credentials #username, #credentials #pwd{
 	/*border-radius: 16px;
 	border-width: 2px;*/
 }
+#transactionsummary, #monitoringsummary{
+	height: 150px;
+	font-family:"Arial";
+	font-size:12px;
+}
 .simple
 {
 	 /*width: 230px;*/
@@ -151,8 +156,13 @@ textarea, #agentNt, #transactionID, #credentials #username, #credentials #pwd{
 	   right:0;
    }
 
-.metaLabels, #sendAll{
+.metaLabels, #sendAll, #cctl, #cctl_text{
 	 color: #94AFB0;
+}
+
+#agentBtn{
+	cursor:pointer;
+	vertical-align:middle;
 }
 #agentlabel, #coachemail
 {

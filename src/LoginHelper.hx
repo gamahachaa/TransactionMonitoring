@@ -47,13 +47,17 @@ class LoginHelper extends Http
 	function onMySearch(data:String) 
 	{
 		var d = Json.parse(data);
-		var searched = d.search;
+		#if debug
+		trace("LoginHelper::onMySearch::d", d );
+		#end
+		var searched = d.attributes;
 		
 		if (searched.error != null)
 		{
 			successSignal.dispatch( Monitoree.CREATE_ERROR(searched.error));
 		}
 		else{
+			if(d.boss !=null && d.boss.error == null) searched.boss = d.boss;
 			successSignal.dispatch( new Monitoree(searched));
 		}
 	}
@@ -90,13 +94,16 @@ class LoginHelper extends Http
 		}
 		this.setParameter("username", username);
 		this.setParameter("pwd", Base64.encode(Bytes.ofString(pwd)));
+		
 		canRequest = true;
 	}
 	public function search(nt:String)
 	{
+		this.params = [];
 		if (nt != null && nt != "")
 		{
 			this.setParameter("search", nt);
+			this.setParameter("manager", "");
 			this.onData = onMySearch;
 			this.request( true );
 		}

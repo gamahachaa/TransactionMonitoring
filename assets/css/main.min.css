@@ -9,13 +9,15 @@
 #failed .chapters{border-color:#f05365;;}
 #description .chapters{border-color:#4fd1d9;}
 textarea,#agentNt,#transactionID,#credentials #username,#credentials #pwd{}
+#transactionsummary,#monitoringsummary{height:150px;font-family:"Arial";font-size:12px;}
 .simple{}
 .contentBlocks{width:100%;}
 .questions{width:100%;margin-bottom:3px;padding-bottom:3px;}
 #iconInfo{cursor:help;}
 #info{background-color:#fafafa;padding:8px;border-radius:8px;filter:drop-shadow(0,45,#393E41,.7,4,4,3,3,false);}
 #closeBtn{right:0;}
-.metaLabels,#sendAll{color:#94AFB0;}
+.metaLabels,#sendAll,#cctl,#cctl_text{color:#94AFB0;}
+#agentBtn{cursor:pointer;vertical-align:middle;}
 #agentlabel,#coachemail{color:#81c14b;border-color:#94AFB0;border-width:2px;}
 #coachemail{cursor:no-drop;}
 .h1{font-size:36px;font-family:"serif";}

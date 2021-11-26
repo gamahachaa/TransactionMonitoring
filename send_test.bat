@@ -1,7 +1,7 @@
 @echo off
  echo from sub bat TEST
 
-set serverFolderName=tm
+set serverFolderName=tm-test
 set BINDIR=bin
 
 echo %cd%

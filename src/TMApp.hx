@@ -30,9 +30,9 @@ import haxe.ui.locale.LocaleManager;
 import haxe.ui.macros.ComponentMacros;
 import haxe.ui.parsers.locale.CSVParser;
 import haxe.ui.parsers.locale.LocaleParser;
-import js.Browser;
-import js.Cookie;
-import js.Lib;
+//import js.Browser;
+//import js.Cookie;
+//import js.Lib;
 import js.Browser;
 //import haxe.ui.parsers.locale.TSVParser;
 import haxe.ui.tooltips.ToolTipManager;
@@ -56,14 +56,14 @@ class TMApp
 	var mail:Component;
 	var ticket:Component;
 	var forms:Map<String, Component>;
-	var agreements:Array<Group>;
+	//var agreements:Array<Group>;
 	var currentForm:Component;
 
 	var tmMetadatas:Map<String, Dynamic>;
 	var justifications:Array<TextArea>;
 	var app:haxe.ui.HaxeUIApp;
 	var dialog:MessageBox;
-	var criticals:Array<String>;
+	//var criticals:Array<String>;
 	//var video:js.html.VideoElement;
 	var sendBtn:Button;
 	var agentTF:TextField;
@@ -112,37 +112,40 @@ class TMApp
 	//var agentLabel:Label;
 	var agentOK:Image;
 	var agentBtn:Label;
+	var cctl:CheckBox;
+	var preloader:haxe.ui.components.Image;
+	var cctl_text:Label;
+	var debounce:Bool;
 	//var info:Component;
 	public function new()
 	{
+		/*********************
+		 * INIT BASIC APP VARS
+		 * ********************/
+		debounce = true;
+		currentForm = null;
+		forms = new Map<String, Component>();
 		_mainDebug = Browser.location.origin.indexOf("salt.ch") > -1;
 		comonLibs = Browser.location.origin + "/commonlibs/";
+		tracker = new Tracker(comonLibs + "xapi/index.php");
+		tracker.dispatcher.add(onTracking);
+		mailComposer = new TMMailer(comonLibs + "mail/index.php");
+		mailComposer.successSignal.add(onMailSucces);
 		#if debug
 		version = "TM_COOKIE";
 		#else
 		version = VersionHelper.getVersion("TM").replace("TM_", "");
 		#end
-		LocaleParser.register("csv", CSVParser);
-		version = VersionHelper.getVersion("TM").replace("TM_", "");
-		//xapi = new XapiHelper(comonLibs + "xapi.php");
-		tracker = new Tracker(comonLibs + "xapi/index.php");
-		tracker.dispatcher.add(onTracking);
-
-		mailComposer = new TMMailer(comonLibs + "mail/index.php");
-		mailComposer.successSignal.add(onMailSucces);
 		cookie = new CookieHelper(version);
+		/***********************************************************
+		 * INIT LOCALIZATION
+		 * *********************************************************/
+		LocaleParser.register("csv", CSVParser);
+		LocaleManager.instance.language = "en";		
+		
 		app = new HaxeUIApp();
 
-		LocaleManager.instance.language = "en";
 		
-
-		//dialog.icon = "";
-		//dialog.iconImage = null;
-		criticals = [];
-		agreements = [];
-		currentForm = null;
-
-		forms = new Map<String, Component>();
 
 		transaction = new Transaction();
 		monitoring = new Monitoring();
@@ -153,6 +156,8 @@ class TMApp
 		logger = new LoginHelper(comonLibs+"login/index.php");
 		logger.successSignal.add(onLoginSuccess);
 		//logger.statusSignal.add((e)->(trace(e)));
+
+		
 		app.ready(function()
 		{
 			
@@ -165,7 +170,8 @@ class TMApp
 			dialog.destroyOnClose = false;
 			mainApp = ComponentMacros.buildComponent("assets/ui/main.xml");
 			loginApp = ComponentMacros.buildComponent("assets/ui/login.xml");
-
+            preloader = new Image();
+		preloader.resource = "images/loader3.gif";
 			try
 			{
 				#if debug
@@ -207,6 +213,7 @@ class TMApp
 		if (stage == -1)
 		{
 			trace("errror with the XAPI");
+			debounce = true;
 		}
 		else if (stage == 1)
 		{
@@ -217,15 +224,17 @@ class TMApp
 		else if (stage == 2)
 		{
 			sendEmailToBoth(tracker.coachRecieved);
+			
 		}
 	}
 
 	function onMailSucces(r:Result)
 	{
-		/**
-		 * @todo add tracking here
-		 */
+
+		debounce = true;
+		mainApp.removeComponent(preloader,false);
         var dialogEnd = new MessageBox();
+		
 		if (r.status == "success")
 		{
 			
@@ -279,6 +288,11 @@ class TMApp
 
 	function prepareLogin( coach:Coach )
 	{
+		#if debug
+		trace("TMApp::prepareLogin", loginApp.disabled, loginApp.isComponentInvalid(), loginApp.numComponents, loginApp.depth);
+		
+		
+		#end
 		versionLabel = loginApp.findComponent("version", Label);
 		versionLabel.text = "v " + version;
 		loginBtn = loginApp.findComponent("login", Button);
@@ -326,27 +340,30 @@ class TMApp
 			transaction.monitoree = cast(agent, Monitoree);
 
 			resetAgent();
-			#if debug
-			//trace("TMApp::onLoginSuccess::agentLabel.hidden", agentLabel.hidden );
-			//trace("TMApp::onLoginSuccess::agentLabel.text", agentLabel.htmlText);
-			#end
 			if (transaction.monitoree.authorised)
 			{
-				#if debug
-				//trace("TMApp::onLoginSuccess transaction.monitoree.authorised", transaction.monitoree.authorised);
-				#end
+				
 				agentLabel.htmlText = '<strong class="correct">${StringTools.replace(transaction.monitoree.mbox, "mailto:","")}</strong>\n${transaction.monitoree.title}';
 				/*agentLabel.color = 0x65a63c;*/
 				agentLabel.addClass("correct");
 				agentOK.resource = "images/check-green-icon.png";
 				agentOK.hidden = false;
+				
+				if (transaction.monitoree.manager != null)
+				{
+					cctl_text.text = StringTools.replace(transaction.monitoree.manager.mbox, "mailto:", "");
+					cctl.hidden = false;
+					cctl_text.hidden = false;
+				}else{
+					cctl.hidden = true;
+					cctl_text.hidden = true;
+				}
+				
 				tracker.start();
 			}
 			else
 			{
-				#if debug
-				//trace("TMApp::onLoginSuccess transaction.monitoree.authorised", transaction.monitoree.authorised);
-				#end
+				
 				agentOK.hidden = false;
 				agentOK.resource = "images/check-red-icon.png";
 				agentLabel.htmlText = '{{ERROR}} \n<strong class="error">${transaction.monitoree.name}</strong>';
@@ -362,7 +379,9 @@ class TMApp
 	}
     function resetAgent(?fromscratch:Bool=false)
 	{
-		
+		cctl.hidden = true;
+		cctl_text.hidden = true;
+		cctl.selected = false;
 		agentLabel.removeClass("error");
 		agentLabel.removeClass("correct");
 		agentOK.hidden = true;
@@ -373,7 +392,7 @@ class TMApp
 	}
 	function loadContent()
 	{
-		app.removeComponent(loginApp);
+		app.removeComponent(loginApp,false);
 		app.addComponent(mainApp);
 
 		//
@@ -388,6 +407,9 @@ class TMApp
 
 	function prepareMetadatas()
 	{
+		#if debug
+		trace("TMApp::prepareMetadatas");
+		#end
         agentLabel = mainApp.findComponent("agentlabel", Label);
 		agentOK = mainApp.findComponent("agewntOK", Image);
 		formSwitcher = mainApp.findComponent("formSwitcher", null, true);
@@ -396,13 +418,24 @@ class TMApp
 
 		transactionDateComp = mainApp.findComponent("TRANSACTION_WHEN", DropDown);
 		#if debug
+		var testTDate  = transactionDateComp == null;
+		trace("TMApp::prepareMetadatas::transactionDateComp", testTDate );
+		#end
+		#if debug
 		//trace("TMApp::prepareMetadatas::transactionDateComp selectedIndex", transactionDateComp.selectedIndex  );
 		//trace("TMApp::prepareMetadatas::transactionDateComp selectedItem", transactionDateComp.selectedItem);
 		#end
 		transactionDateComp.onChange = (e)->(prepareTransactionDate());
-		transcationHourComp = mainApp.findComponent("TRANSACTION_WHEN_HOURS", Stepper);
+		transcationHourComp = mainApp.findComponent("TRANSACTIONWHENHOURS", Stepper, true, "id");
+		#if debug
+		var testTHour  = transcationHourComp == null;
+		trace("TMApp::prepareMetadatas::transcationHourComp", testTHour );
+		#end
 		transcationHourComp.onChange = (e)->(prepareTransactionDate());
 		transcationMinutesComp = mainApp.findComponent("TRANSACTION_WHEN_MINUTES", Stepper);
+		#if debug
+		//trace("TMApp::prepareMetadatas::transcationMinutesComp", transcationMinutesComp, transcationMinutesComp == null );
+		#end
 		transcationMinutesComp.onChange = (e)->(prepareTransactionDate());
 
 		agentBtn = mainApp.findComponent("agentBtn");
@@ -414,13 +447,20 @@ class TMApp
 		coachEmail.htmlText = '<strong>${StringTools.replace(monitoring.coach.mbox, "mailto:","")}</strong>\n${monitoring.coach.title}';
 		coachEmail.onClick = onCoachClicked;
 		transactionSummary =  mainApp.findComponent("transactionsummary", TextArea);
+		
 		monitoringSummary =  mainApp.findComponent("monitoringsummary", TextArea);
 		monitoringType = mainApp.findComponent("type", Group);
 		monitoringReason = mainApp.findComponent("reason", Group);
 		//monitoringType.onChange = (e)->(monitoringTypeValue = (e.target.id));
 		monitoringType.onChange = (e)->(monitoring.data.set( Monitoring.MONITORING_TYPE, e.target.id));
-		//monitoringReason.onChange = (e)->(monitoringReasonValue = (e.target.id));
-		monitoringReason.onChange = (e)->(monitoring.data.set(Monitoring.MONITORING_REASON,e.target.id));
+		//monitoringReason.onChange = (e)->(monitoring.data.set(Monitoring.MONITORING_REASON,e.target.id));
+		monitoringReason.onChange = onMonitoringReasonChanged;
+	}
+    function onMonitoringReasonChanged(e)
+	{
+		var id = cast(e.target, Component).id;
+		cctl.hidden = cctl_text.hidden = (id == "calibration" || transaction.monitoree == null || transaction.monitoree.manager ==null );
+		monitoring.data.set(Monitoring.MONITORING_REASON, id);
 	}
 	function resetMonitoring()
 	{
@@ -442,6 +482,7 @@ class TMApp
 		transcationMinutesComp.value = null;
 		transactionIdTF.text = "";
 		transactionSummary.text = "";
+		//transactionSummary.au
 		
 		resetAgent(true);
 		
@@ -465,6 +506,8 @@ class TMApp
 
 		sendBtn.onClick = onSend;
 		whatToSend = mainApp.findComponent("sendAll", CheckBox);
+		cctl = mainApp.findComponent("cctl", CheckBox);
+		cctl_text = mainApp.findComponent("cctl_text", Label);
 		//whatToSendLabel = mainApp.findComponent("slider2", Label);
 		whatToSend.onChange = (e)->(whatToSend.text = whatToSend.selected? "{{ALL}}" : "{{FAILED_ONLY}}");
 	}
@@ -544,12 +587,14 @@ class TMApp
 	function onSend(e)
 	{
 		//var resultCheck = prepareResults();
+		if (!debounce) return;
 		var resultCheck = Question.PREPARE_RESULTS();
 		var metaCheck = validateMetadatas();
 		var message:Array<String> = metaCheck.message.concat(resultCheck.message);
 		if (resultCheck.canSubmit && metaCheck.canSubmit)
 		{
 			//prepareTransactionDate();
+			debounce = false;
 			transaction.prepareData();
 			var criticalMap = Utils.stringyfyMap(Question.CRITICALITY_MAP);
 			var metadataMap = Utils.mergeMaps(transaction.data, monitoring.data);
@@ -578,8 +623,6 @@ class TMApp
 		}
 		else
 		{
-			//if (message.length > 3 ) message.unshift('Come on ${coachAgent.firstName} apply yourself !');
-			//trace("not good yet");
 			if (message.length > 3 ) message.unshift(LocaleManager.instance.lookupString("DIALOG_APPLY_YOURSELF",  monitoring.coach.firstName));
 			dialog.message = message.join("\n\n");
 			dialog.showDialog(true);
@@ -696,6 +739,7 @@ class TMApp
 	function setCurrentForm(id:String)
 	{
 		Question.INFO.reset();
+		
 		transaction.type = id;
 		currentForm = forms.get(id);
 		content.removeComponentAt(0,false);
@@ -719,9 +763,19 @@ class TMApp
 		#if debug
 		//trace("TMApp::sendEmailToBoth");
 		#end
+		//dialog.message = "Wait...";
+		//dialog.showDialog(true);
+		Question.INFO.reset();
+		preloader.width = 250;
+		preloader.height = 140;
+		preloader.verticalAlign ="center";
+		
+		mainApp.addComponent(preloader);
+		
+		mailComposer.cctl = cctl.selected;
 		mailComposer.transaction = transaction;
 		mailComposer.monitoring = monitoring;
-		mailComposer.build(whatToSend.selected, previousStatement);
+		mailComposer.build(whatToSend.selected, previousStatement, version);
 		mailComposer.send( Browser.location.origin.indexOf("salt.ch") > -1 );
 	}
 

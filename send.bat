@@ -10,6 +10,7 @@ set "YY=%dt:~2,2%" & set "YYYY=%dt:~0,4%" & set "MM=%dt:~4,2%" & set "DD=%dt:~6,
 set "HH=%dt:~8,2%" & set "Min=%dt:~10,2%" & set "Sec=%dt:~12,2%"
 set "datestamp=%YYYY%%MM%%DD%" & set "timestamp=%HH%%Min%%Sec%"
 set "fullstamp=%YYYY%%MM%%DD%_%HH%%Min%%Sec%"
+
 rem ------------------ DEFINE FILE NAMES ------------------------------------------------------------------------
 :: COPY TO SUB
 set serverFolderName=tm
@@ -20,6 +21,14 @@ set newScriptName=%mainScript%_%fullstamp%
 set newScriptNameMin=%mainScript%_%fullstamp%.min
 
 set newMapName=%mainScript%_%fullstamp%.js.map
+
+rem set oldmeta=^<meta name^=\"description\" content=\"\" \/^>
+set oldmeta="`<meta name="description" content="" /`>"
+set newmeta="`<meta name="description" content="" /`>`<link rel="icon" type="image/png" href="favicon.png"`>"
+
+echo %oldmeta%
+echo %newmeta%
+
 rem PREPARE and CLEAR OLD FILE removal  -------------------------------------------------------------------------
 :: COPY TO SUB
 rem set BINDIR=%cd%\bin\
@@ -34,6 +43,7 @@ rem DELETE  --------------------------------------------------------------------
 rem if "%1"=="debug" goto :next
 del /F %FILESDELETE%
 
+rem powershell -Command "(gc %BINDIR%/index.html) -replace '%oldmeta%', '%newmeta%' | Out-File -encoding UTF8 %BINDIR%/index.html"
 
 echo "START"
 if %DEV%==1 (
@@ -64,9 +74,13 @@ rem powershell -Command "(gc %BINDIR%/index.html) -replace '%HOWL_TARGET%', '%HO
 
 echo "DEV=%DEV%"
 
+
+
 if "%1"=="release" goto :minify
 	rem powershell -Command "(gc %BINDIR%/index.html) -replace '%oldScriptName%[0-9a-z_.]*\.js', '%newScriptName%.js' | Out-File -encoding UTF8 %BINDIR%/index.html"
 if "%1"=="debug" goto :NOTMINIFY
+
+
 
 
 :minify
@@ -82,6 +96,8 @@ powershell -Command "Rename-Item -Path "%BINDIR%/%mainScript%.js" -NewName %newS
 rem powershell -Command "Rename-Item -Path "%BINDIR%/%mainScript%.js.map" -NewName %newMapName%"
 
 :EXPORT
+
+
 
 if %DEV%==1 (
 	if "%1"=="" goto :dead

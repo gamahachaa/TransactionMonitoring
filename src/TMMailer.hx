@@ -18,19 +18,11 @@ class TMMailer extends MailHelper
 	var reason:String;
 	var isCalibration:Bool;
 	var currentTopic:String;
-	//public var reason:String;
-	//public var transactionType:String;
-	//public var sender:Actor;
-	//public var reciepient:Actor;
+	public var cctl(default, set):Bool;
 	public var transaction:Transaction;
 	public var monitoring:Monitoring;
-	//public var type:String;
-	//public var transactionSummary:String;
-	//public var monitoringSummary:String;
-	//public var criticalFailed:Float;
-	//public var score:Float;
-	//public var failed:Float;
-	//public var answers:Map<String,Question>;
+
+	
 
 	public function new(url:String, ?transaction:Transaction, ?monitoring:Monitoring)
 	{
@@ -39,32 +31,52 @@ class TMMailer extends MailHelper
 		this.monitoring = monitoring;
 		
 	}
-	public function build(all:Bool, ?previousStatement:StatementRef)
+	public function build(all:Bool, ?previousStatement:StatementRef, ?version:String="")
 	{
 		reason = monitoring.data.get(Monitoring.MONITORING_REASON);
 		isCalibration = reason == "calibration" ;
 		prepareHeader();
-		setBody(prepareBody(all, previousStatement), true, CUSTOM_RULES);
+		setBody(prepareBody(all, previousStatement,version), true, CUSTOM_RULES);
 	}
     function prepareHeader()
 	{
 		
 		//var sender = monitoring.coach;
 		var end = "";
-		
+		var ccs = [];
 		if (isCalibration){
 			this.setTo([this.monitoring.coach.mbox.substr(7)]);
 			//end = '$reason ${LocaleManager.instance.lookupString("OF")} ${transaction.id}';
 			end = '${reason.toUpperCase()} of id: ${transaction.id}';
 		}else{
 			this.setTo([this.transaction.monitoree.mbox.substr(7)]);
+			ccs.push(this.monitoring.coach.mbox.substr(7));
 			this.setCc([this.monitoring.coach.mbox.substr(7)]);
+			if (this.transaction.monitoree.manager != null && cctl)
+			{
+				ccs.push(this.transaction.monitoree.manager.mbox.substr(7));
+				//this.setCc([this.transaction.monitoree.manager.mbox.substr(7)]);
+				#if debug
+				
+				trace("TMMailer::prepareHeader::this.transaction.monitoree.manager.mbox.substr(7)", this.transaction.monitoree.manager.mbox.substr(7) );
+				#end
+			}
+			else{
+				#if debug
+				trace("TMMailer::prepareHeader::this.transaction.monitoree.manager != null", this.transaction.monitoree.manager != null );
+				#end
+			}
+			
 			end = '${reason.toUpperCase()} ${monitoring.data.get(Monitoring.MONITORING_TYPE)} ${LocaleManager.instance.lookupString("FROM")} ${monitoring.coach.sAMAccountName} ${LocaleManager.instance.lookupString("TO")} ${transaction.monitoree.sAMAccountName}';
 		}
+		#if debug
+		trace("TMMailer::prepareHeader::ccs", ccs );
+		#end
+		this.setCc(ccs);
 		this.setBcc(["bruno.baudry@salt.ch"]);
 	    this.setSubject('[${LocaleManager.instance.lookupString(transaction.type.toUpperCase())} Transaction Monitoring]  ' + end);
 	}
-	function prepareBody(all:Bool, ?agentReviewRef:StatementRef)
+	function prepareBody(all:Bool, ?agentReviewRef:StatementRef, ?version:String="")
 	{
 		var reciepient = isCalibration ? monitoring.coach : transaction.monitoree;
 		var transactionSummary = transaction.data.get(Transaction.TRANSACTION_SUMMARY);
@@ -75,12 +87,14 @@ class TMMailer extends MailHelper
 		var descaled = Math.round(score.scaled * 100);
 		var formatedTransactionDate = DateTools.format(transaction.date, "%d.%m.%Y %H:%M");
 		var b = "";
+		b += "<em>"+ LocaleManager.instance.lookupString("DISCLAIMER") + "<em/>";
 		if (isCalibration)
 		{
 			b = '<h1>${LocaleManager.instance.lookupString("CALLIBRATION")} ${LocaleManager.instance.lookupString("BY")},</h1>';
 			b += monitoring.coach.buildEmailBody();
 		}else{
-			b = '<h1>${LocaleManager.instance.lookupString("HELLO")} ${reciepient.firstName},</h1>';
+			b = "<em>"+ LocaleManager.instance.lookupString("DISCLAIMER") + "</em>";
+			b += '<h1>${LocaleManager.instance.lookupString("HELLO")} ${reciepient.firstName},</h1>';
 			b += '${LocaleManager.instance.lookupString(transaction.type.toUpperCase())} Transaction Monitoring ${monitoring.data.get(Monitoring.MONITORING_TYPE)} <strong>${monitoring.data.get(Monitoring.MONITORING_REASON)}</strong> ${LocaleManager.instance.lookupString("FROM")} ${monitoring.coach.firstName} ${monitoring.coach.sirName}';
 		}
 		
@@ -94,11 +108,11 @@ class TMMailer extends MailHelper
 		b += '<p>$monitoringSummary</p>';
 		if (success) {
 			b += '<h3 class="AGREE">$criticalFailed ${LocaleManager.instance.lookupString("CRITICAL_MISTAKES")}, ';
-			b += 'Score: $descaled /100 &rarr; ${LocaleManager.instance.lookupString("AGREE")}</h3>';
+			b += '${LocaleManager.instance.lookupString("OVERALL_SCORE")}: $descaled /100 &rarr; ${LocaleManager.instance.lookupString("AGREE")}</h3>';
 		}
 		else {
 			b += '<h3 class="DISAGREE">$criticalFailed ${LocaleManager.instance.lookupString("CRITICAL_MISTAKES")}, ';
-			b += 'Score: $descaled /100 &rarr; ${LocaleManager.instance.lookupString("DISAGREE")}</h3>';
+			b += '${LocaleManager.instance.lookupString("OVERALL_SCORE")}: $descaled /100 &rarr; ${LocaleManager.instance.lookupString("DISAGREE")}</h3>';
 		}
 			
 		
@@ -126,6 +140,7 @@ class TMMailer extends MailHelper
 		b += isCalibration ? "" :  '<h3>${LocaleManager.instance.lookupString("MONITORED_BY")}</h3>'+ monitoring.coach.buildEmailBody();
 		
 		if (agentReviewRef != null) b += "QAST Tracking ID : " + agentReviewRef.id;
+		if (version != "") b += "<br/>App version : " + version;
 		b += '<br/><br/><i>${LocaleManager.instance.lookupString("LEGEND")}</i>';
 		#if debug
 		trace("TMMailer::prepareBody::b", b );
@@ -172,6 +187,11 @@ class TMMailer extends MailHelper
 		r += "</p>";
 		
 		return r;
+	}
+	
+	function set_cctl(value:Bool):Bool 
+	{
+		return cctl = value;
 	}
 
 }

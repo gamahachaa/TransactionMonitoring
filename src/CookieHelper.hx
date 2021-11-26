@@ -3,7 +3,8 @@ import haxe.Exception;
 import haxe.Serializer;
 import haxe.Unserializer;
 import js.Browser;
-import js.Cookie;
+//import js.Cookie;
+import tstool.utils.CookieBB;
 import js.html.Location;
 
 /**
@@ -18,7 +19,7 @@ class CookieHelper
 	var loc:Location;
 	var expire:Int;
 
-	public function new(name:String, ?expire:Int = 86400 * 15) 
+	public function new(name:String, ?expire:Int = 86400 * 7) 
 	{
 		this.name = name;
 		this.expire = expire;
@@ -29,17 +30,17 @@ class CookieHelper
 	public function flush(name:String, o:Dynamic)
 	{
 		s.serialize(o);
-		Cookie.set(name, s.toString(), expire, loc.pathname, loc.hostname);
+		CookieBB.set(name, s.toString(), expire, loc.pathname, loc.hostname);
 	}
 	public function clearCockie(name:String)
 	{
-		Cookie.remove(name, loc.pathname, loc.hostname);
+		CookieBB.remove(name, loc.pathname, loc.hostname);
 	}
 	public function retrieve(name:String)
 	{
-		if (Cookie.exists(name))
+		if (CookieBB.exists(name))
 		{
-			var d = new Unserializer(Cookie.get(name));
+			var d = new Unserializer(CookieBB.get(name));
 			return d.unserialize();
 		}
 		else{

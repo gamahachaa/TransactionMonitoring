@@ -1,9 +1,10 @@
 KEY;VALUE
 INBOUND;Inbound
 MAIL;E-mail
-CASE;Cas
+CASE;Case
 FAILED_ONLY;Envoyer uniquement {{DISAGRE}}
 ALL;Envoyer tous les sujets
+CC_TM_TL;cc à 
 FROM;de
 TO;à
 BY;par
@@ -14,3 +15,4 @@ CRITICAL_MISTAKES;Erreur(s) critique(s)
 CRITICAL_ICON;"&#x02A3B;"
 LEGEND;"<span class=""critical"">&#x02A3B;</span> &#61; Sujet critique"
 SUBMIT;ENVOYER
+DISCLAIMER;Ceci est un email automatique envoyé depuis la boîte mail de qook. Il est inutile de répondre à ce mail car qook ne le traitera pas. En revanche, si tu souhaites faire un commentaire à l'évaluateur, fais plutôt un transfert (Forward) d'email.

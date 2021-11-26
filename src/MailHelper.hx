@@ -78,7 +78,7 @@ class MailHelper extends Http
 		 */
 	public function setCc(recipient:Array<String>)
 	{
-		values.set(cc_email, recipient[0]);
+		values.set(cc_email, recipient.length ==1 ? recipient[0]: recipient.join(","));
 	}
 	/**
 		 * @todo allow multiple (now we are passing an array but then passing only recipient[0])
@@ -86,7 +86,7 @@ class MailHelper extends Http
 		 */
 	public function setBcc(recipient:Array<String>)
 	{
-		values.set(bcc_email, recipient[0]);
+		values.set(bcc_email, recipient.length ==1 ? recipient[0]: recipient.join(","));
 	}
 	public function setBody(content:String, ?addCommonStyle:Bool=true, ?customeStyle:String="")
 	{
@@ -126,7 +126,7 @@ class MailHelper extends Http
 	{
 		//#if debug
 		//trace("MailHelper::send::dispatch", dispatch );
-		//trace(values);
+		trace(values);
 		//#end
 		prepareParams();
 		if (dispatch){
