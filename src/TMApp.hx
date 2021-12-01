@@ -1,4 +1,6 @@
 package;
+import data.Monitoring;
+import data.Transaction;
 import haxe.Exception;
 import haxe.ui.HaxeUIApp;
 import haxe.ui.components.NumberStepper;
@@ -8,6 +10,7 @@ import http.VersionHelper;
 import http.XapiHelper;
 import ui.Communicator;
 import ui.Login;
+import ui.metadatas.TransactionUI;
 //import haxe.ui.Toolkit;
 import haxe.ui.components.CheckBox;
 import haxe.ui.components.Image;
@@ -55,7 +58,7 @@ class TMApp
 	var mainApp:Component;
 	var loginApp:Login;
 	var langSwitcher:Group;
-	var formSwitcher: DropDown;
+
 	var content:Component;
 	var init:Bool;
 	var inbound:Component;
@@ -74,7 +77,7 @@ class TMApp
 	//var criticals:Array<String>;
 	//var video:js.html.VideoElement;
 	var sendBtn:Button;
-	var agentTF:TextField;
+
 	var logger:http.LoginHelper;
 	/*var loginFeedback:Label;
 	var coachPWD:TextField;
@@ -88,13 +91,9 @@ class TMApp
 	var coachEmail:Label;
 	var summaries:Array<TextArea>;
 	//var monitoree:Monitoree;
-	var monitoringReasonValue:String;
-	var monitoringTypeValue:String;
-	var monitoringSummaryValue:String;
-	var transactionSummaryValue:String;
+
 	var cookie:CookieHelper;
-	var transactionSummary:TextArea;
-	var monitoringSummary:TextArea;
+	
 	var failedCriticals:Float;
 	var mailComposer:TMMailer;
 	var failedOverall:Float;
@@ -106,24 +105,34 @@ class TMApp
 	var xapi:http.XapiHelper;
 	//var form_id:String;
 	var tracker:Tracker;
-	var transaction:Transaction;
-	var monitoring:Monitoring;
+///////////////////////////////////////////////////////////	
+	var monitoringReasonValue:String;
+	var monitoringTypeValue:String;
+	var monitoringSummaryValue:String;
+	var transactionSummaryValue:String;
+///////////////////////////////////////////////////////////	
+	var formSwitcher: Group;
+	var agentTF:TextField;
+	var transactionData:data.Transaction;
+	var monitoringData:data.Monitoring;
 	public static var lang:String;
+	var transactionSummary:TextArea;
+	var monitoringSummary:TextArea;
 	var transactionDateComp:DropDown;
 	var transcationHourComp:NumberStepper;
 	var transcationMinutesComp:NumberStepper;
-	//var transactionDate:Date;
 	var transactionIdTF:TextField;
 	var monitoringType:Group;
 	var monitoringReason:Group;
+	
 	var agentLabel:Label;
-	//var agentLabel:Label;
 	var agentOK:Image;
 	var agentBtn:Label;
 	var cctl:CheckBox;
 	var preloader:haxe.ui.components.Image;
 	var cctl_text:Label;
 	var debounce:Bool;
+	var transactionUI:Transaction;
 	
 	//var info:Component;
 	public function new()
@@ -166,8 +175,8 @@ class TMApp
 		app.ready(function()
 		{
 			ToolTipManager.defaultDelay = 100;
-			transaction = new Transaction();
-			monitoring = new Monitoring();
+			transactionData = new data.Transaction();
+			monitoringData = new data.Monitoring();
 			
 			communicator = new Communicator();
 			
@@ -176,7 +185,7 @@ class TMApp
 		preloader.resource = "images/loader3.gif";
 			try
 			{
-				monitoring.coach = cookie.retrieve();
+				monitoringData.coach = cookie.retrieve();
 				loadContent();
 			}
 			catch (e:Exception)
@@ -185,7 +194,7 @@ class TMApp
 				#if debug
 				//trace("Main::Main::e", e );
                 // get coach from cookie or create a dummy
-				if (!_mainDebug) monitoring.coach = Coach.CREATE_DUMMY();
+				if (!_mainDebug) monitoringData.coach = Coach.CREATE_DUMMY();
 
 				#else
 				//coachAgent = cookie.retrieve(version);
@@ -219,7 +228,7 @@ class TMApp
 		else if (stage == 1)
 		{
 			//var score = Question.GET_SCORE();
-			tracker.coachTracking( monitoring.coach,transaction.monitoree, transaction.type, Question.GET_SCORE(), Question.FAILED_CRITICAL.length == 0, lang, tmMetadatas);
+			tracker.coachTracking( monitoringData.coach,transactionData.monitoree, transactionData.type, Question.GET_SCORE(), Question.FAILED_CRITICAL.length == 0, lang, tmMetadatas);
 
 		}
 		else if (stage == 2)
@@ -293,9 +302,9 @@ class TMApp
 		{
 			if (agent.authorised)
 			{
-				monitoring.coach  = cast(agent, Coach);
+				monitoringData.coach  = cast(agent, Coach);
 				
-				cookie.flush(version, monitoring.coach );
+				cookie.flush(version, monitoringData.coach );
 				loadContent();
 			}
 			else
@@ -306,21 +315,21 @@ class TMApp
 		}
 		else if (Std.isOfType(agent, Monitoree ))
 		{
-			transaction.monitoree = cast(agent, Monitoree);
+			transactionData.monitoree = cast(agent, Monitoree);
 
 			resetAgent();
-			if (transaction.monitoree.authorised)
+			if (transactionData.monitoree.authorised)
 			{
 				
-				agentLabel.htmlText = '<strong class="correct">${StringTools.replace(transaction.monitoree.mbox, "mailto:","")}</strong>\n${transaction.monitoree.title}';
+				agentLabel.htmlText = '<strong class="correct">${StringTools.replace(transactionData.monitoree.mbox, "mailto:","")}</strong>\n${transactionData.monitoree.title}';
 				/*agentLabel.color = 0x65a63c;*/
 				agentLabel.addClass("correct");
 				agentOK.resource = "images/check-green-icon.png";
 				agentOK.hidden = false;
 				
-				if (transaction.monitoree.manager != null)
+				if (transactionData.monitoree.manager != null)
 				{
-					cctl_text.text = StringTools.replace(transaction.monitoree.manager.mbox, "mailto:", "");
+					cctl_text.text = StringTools.replace(transactionData.monitoree.manager.mbox, "mailto:", "");
 					cctl.hidden = false;
 					cctl_text.hidden = false;
 				}else{
@@ -335,7 +344,7 @@ class TMApp
 				
 				agentOK.hidden = false;
 				agentOK.resource = "images/check-red-icon.png";
-				agentLabel.htmlText = '{{ERROR}} \n<strong class="error">${transaction.monitoree.name}</strong>';
+				agentLabel.htmlText = '{{ERROR}} \n<strong class="error">${transactionData.monitoree.name}</strong>';
 				agentLabel.addClass("error");
 				/*agentLabel.color = 0xFF0000;*/
 			}
@@ -377,6 +386,9 @@ class TMApp
 
 	function prepareMetadatas()
 	{
+		var transactionUI:TransactionUI = cast(mainApp.findComponent("transaction"), TransactionUI);
+		transactionUI.formSignal.add((s)->(trace(s)));
+		/*
 		#if debug
 		trace("TMApp::prepareMetadatas");
 		#end
@@ -391,10 +403,7 @@ class TMApp
 		var testTDate  = transactionDateComp == null;
 		trace("TMApp::prepareMetadatas::transactionDateComp", testTDate );
 		#end
-		#if debug
-		//trace("TMApp::prepareMetadatas::transactionDateComp selectedIndex", transactionDateComp.selectedIndex  );
-		//trace("TMApp::prepareMetadatas::transactionDateComp selectedItem", transactionDateComp.selectedItem);
-		#end
+
 		transactionDateComp.onChange = (e)->(prepareTransactionDate());
 		transcationHourComp = mainApp.findComponent("TRANSACTIONWHENHOURS", NumberStepper, true, "id");
 		#if debug
@@ -403,9 +412,7 @@ class TMApp
 		#end
 		transcationHourComp.onChange = (e)->(prepareTransactionDate());
 		transcationMinutesComp = mainApp.findComponent("TRANSACTION_WHEN_MINUTES", NumberStepper);
-		#if debug
-		//trace("TMApp::prepareMetadatas::transcationMinutesComp", transcationMinutesComp, transcationMinutesComp == null );
-		#end
+
 		transcationMinutesComp.onChange = (e)->(prepareTransactionDate());
 
 		agentBtn = mainApp.findComponent("agentBtn");
@@ -422,15 +429,16 @@ class TMApp
 		monitoringType = mainApp.findComponent("type", Group);
 		monitoringReason = mainApp.findComponent("reason", Group);
 		//monitoringType.onChange = (e)->(monitoringTypeValue = (e.target.id));
-		monitoringType.onChange = (e)->(monitoring.data.set( Monitoring.MONITORING_TYPE, e.target.id));
+		monitoringType.onChange = (e)->(monitoring.data.set( data.Monitoring.MONITORING_TYPE, e.target.id));
 		//monitoringReason.onChange = (e)->(monitoring.data.set(Monitoring.MONITORING_REASON,e.target.id));
 		monitoringReason.onChange = onMonitoringReasonChanged;
+		*/
 	}
     function onMonitoringReasonChanged(e)
 	{
 		var id = cast(e.target, Component).id;
-		cctl.hidden = cctl_text.hidden = (id == "calibration" || transaction.monitoree == null || transaction.monitoree.manager ==null );
-		monitoring.data.set(Monitoring.MONITORING_REASON, id);
+		cctl.hidden = cctl_text.hidden = (id == "calibration" || transactionData.monitoree == null || transactionData.monitoree.manager ==null );
+		monitoringData.data.set(data.Monitoring.MONITORING_REASON, id);
 	}
 	function resetMonitoring()
 	{
@@ -438,12 +446,12 @@ class TMApp
 		cast(monitoringReason.getComponentAt(0), OptionBox).resetGroup();
 		cast(monitoringType.getComponentAt(0), OptionBox).resetGroup();
 		monitoringSummary.text = "";
-		monitoring.reset();
+		monitoringData.reset();
 	}
 
 	function resetTransaction()
 	{
-		transaction.reset();
+		transactionData.reset();
 		transactionDateComp.value = null;
 		transactionDateComp.selectedIndex = -1;
 		transactionDateComp.selectedItem= null;
@@ -517,7 +525,7 @@ class TMApp
 		{
 			if ( agentTF.text != null && agentTF.text != "")
 			{
-				transaction.monitoree = null;
+				transactionData.monitoree = null;
 				logger.search(agentTF.text);
 			}
 		}
@@ -530,7 +538,7 @@ class TMApp
 		#else
 		if ( agentTF.text != null && agentTF.text != "" )
 		{
-			transaction.monitoree = null;
+			transactionData.monitoree = null;
 			logger.search(agentTF.text);
 		}
 		#end
@@ -567,24 +575,24 @@ class TMApp
 		{
 			//prepareTransactionDate();
 			debounce = false;
-			transaction.prepareData();
+			transactionData.prepareData();
 			var criticalMap = Utils.stringyfyMap(Question.CRITICALITY_MAP);
-			var metadataMap = Utils.mergeMaps(transaction.data, monitoring.data);
+			var metadataMap = Utils.mergeMaps(transactionData.data, monitoringData.data);
 			metadataMap =  Utils.mergeMaps( metadataMap , criticalMap);
 			tmMetadatas = Utils.addPrefixKey(Browser.location.origin +Browser.location.pathname, metadataMap );
 			var score = Question.GET_SCORE();
 			var questionExtensions:Map<String,String> = Utils.addPrefixKey(Browser.location.origin+Browser.location.pathname, Question.RESULT_MAP);
-			if (monitoring.data.get(Monitoring.MONITORING_REASON) == "calibration")
+			if (monitoringData.data.get(data.Monitoring.MONITORING_REASON) == "calibration")
 			{
-				tracker.callibrationTracking(monitoring.coach, transaction.type, tmMetadatas, transaction.monitoree, score, Question.FAILED_CRITICAL.length == 0, lang, questionExtensions);
+				tracker.callibrationTracking(monitoringData.coach, transactionData.type, tmMetadatas, transactionData.monitoree, score, Question.FAILED_CRITICAL.length == 0, lang, questionExtensions);
 
 			}
 			else
 			{
 				tracker.agentTracking(
-					transaction.monitoree,
-					monitoring.coach,
-					transaction.type,
+					transactionData.monitoree,
+					monitoringData.coach,
+					transactionData.type,
 					tmMetadatas,
 					score,
 					(Question.FAILED_CRITICAL.length == 0 || Question.GET_SCORE().scaled>Question.MIN_PERCENTAGE_BEFORE_FAILLING),
@@ -595,7 +603,7 @@ class TMApp
 		}
 		else
 		{
-			if (message.length > 3 ) message.unshift(LocaleManager.instance.lookupString("DIALOG_APPLY_YOURSELF",  monitoring.coach.firstName));
+			if (message.length > 3 ) message.unshift(LocaleManager.instance.lookupString("DIALOG_APPLY_YOURSELF",  monitoringData.coach.firstName));
 			communicator.message = message.join("\n\n");
 			communicator.showDialog(true);
 		}
@@ -606,7 +614,7 @@ class TMApp
 		if (tmp != null)
 		{
 			//transactionDate = Date.fromTime(tmp.getTime() + (transcationHourComp.value * 3600000) + (transcationMinutesComp.value * 60000));
-			transaction.date = Date.fromTime(tmp.getTime() + (transcationHourComp.value * 3600000) + (transcationMinutesComp.value * 60000));
+			transactionData.date = Date.fromTime(tmp.getTime() + (transcationHourComp.value * 3600000) + (transcationMinutesComp.value * 60000));
 		}
 		//trace(tmp);
 		//trace(transactionDate);
@@ -625,7 +633,7 @@ class TMApp
 			#if debug
 			//trace("TMApp::validateMetadatas::transactionIdTF.text", transactionIdTF.text );
 			#end
-			transaction.id = transactionIdTF.text;
+			transactionData.id = transactionIdTF.text;
 		}
 		if (agentTF.text == null || agentTF.text.trim() =="")
 		{
@@ -633,7 +641,7 @@ class TMApp
 			canSubmit = false;
 			message.push("{{ALERT_AGENT_NOT_SEARCHED}}");
 		}
-		else if (transaction.monitoree == null || transaction.monitoree.mbox.indexOf("error@salt.ch") > -1)
+		else if (transactionData.monitoree == null || transactionData.monitoree.mbox.indexOf("error@salt.ch") > -1)
 		{
 			canSubmit = false;
 			message.push("{{ALERT_AGENT_NOT_FOUND}} ("+agentTF.text+")");
@@ -644,7 +652,7 @@ class TMApp
 			//trace("TMApp::validateMetadatas::agentTF.text",transaction.monitoree );
 			#end
 		}
-		if (transaction.date == null || transaction.date.getFullYear() == 2000)
+		if (transactionData.date == null || transactionData.date.getFullYear() == 2000)
 		{
 			canSubmit = false;
 			message.push("{{ALERT_TRANSACTION_DATE_NOT_SET}}");
@@ -662,7 +670,7 @@ class TMApp
 			message.push("{{ALERT_TRANSACTION_SUMMARY}}");
 		}
 		else{
-			this.transaction.summary = transactionSummary.text.trim();
+			this.transactionData.summary = transactionSummary.text.trim();
 		}
 
 		/*if (transactionSummary.text == null || transactionSummary.text.trim() == "")
@@ -679,10 +687,10 @@ class TMApp
 			message.push("{{ALERT_MONITORING_SUMMARY}}");
 		}
 		else{
-			monitoring.data.set(Monitoring.MONITORING_SUMMARY,monitoringSummary.text.trim());
+			monitoringData.data.set(data.Monitoring.MONITORING_SUMMARY,monitoringSummary.text.trim());
 		}
 
-		if (!monitoring.data.exists(Monitoring.MONITORING_REASON))
+		if (!monitoringData.data.exists(data.Monitoring.MONITORING_REASON))
 		{
 			canSubmit = false;
 			message.push("{{ALERT_MONITORING_REASON}}");
@@ -692,7 +700,7 @@ class TMApp
 			//trace("TMApp::validateMetadatas::monitoring.data.exists(Monitoring.MONITORING_REASON)", monitoring.data.exists(Monitoring.MONITORING_REASON) );
 			#end
 		}
-		if (!monitoring.data.exists(Monitoring.MONITORING_TYPE))
+		if (!monitoringData.data.exists(data.Monitoring.MONITORING_TYPE))
 		{
 			canSubmit = false;
 			message.push("{{ALERT_MONITORING_TYPE}}");
@@ -712,7 +720,7 @@ class TMApp
 	{
 		Question.INFO.reset();
 		
-		transaction.type = id;
+		transactionData.type = id;
 		currentForm = forms.get(id);
 		content.removeComponentAt(0,false);
 		content.addComponentAt(currentForm, 0 );
@@ -745,8 +753,8 @@ class TMApp
 		mainApp.addComponent(preloader);
 		
 		mailComposer.cctl = cctl.selected;
-		mailComposer.transaction = transaction;
-		mailComposer.monitoring = monitoring;
+		mailComposer.transaction = transactionData;
+		mailComposer.monitoring = monitoringData;
 		mailComposer.build(whatToSend.selected, previousStatement, version);
 		mailComposer.send( Browser.location.origin.indexOf("salt.ch") > -1 );
 	}

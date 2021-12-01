@@ -1,4 +1,6 @@
 package;
+import data.Monitoring;
+import data.Transaction;
 import haxe.ui.locale.LocaleManager;
 import http.MailHelper;
 import xapi.types.StatementRef;
@@ -20,12 +22,12 @@ class TMMailer extends http.MailHelper
 	var isCalibration:Bool;
 	var currentTopic:String;
 	public var cctl(default, set):Bool;
-	public var transaction:Transaction;
-	public var monitoring:Monitoring;
+	public var transaction:data.Transaction;
+	public var monitoring:data.Monitoring;
 
 	
 
-	public function new(url:String, ?transaction:Transaction, ?monitoring:Monitoring)
+	public function new(url:String, ?transaction:data.Transaction, ?monitoring:data.Monitoring)
 	{
 		super(url);
 		this.transaction = transaction;
@@ -34,7 +36,7 @@ class TMMailer extends http.MailHelper
 	}
 	public function build(all:Bool, ?previousStatement:StatementRef, ?version:String="")
 	{
-		reason = monitoring.data.get(Monitoring.MONITORING_REASON);
+		reason = monitoring.data.get(data.Monitoring.MONITORING_REASON);
 		isCalibration = reason == "calibration" ;
 		prepareHeader();
 		setBody(prepareBody(all, previousStatement,version), true, CUSTOM_RULES);
@@ -80,8 +82,8 @@ class TMMailer extends http.MailHelper
 	function prepareBody(all:Bool, ?agentReviewRef:StatementRef, ?version:String="")
 	{
 		var reciepient = isCalibration ? monitoring.coach : transaction.monitoree;
-		var transactionSummary = transaction.data.get(Transaction.TRANSACTION_SUMMARY);
-		var monitoringSummary = monitoring.data.get(Monitoring.MONITORING_SUMMARY);
+		var transactionSummary = transaction.data.get(data.Transaction.TRANSACTION_SUMMARY);
+		var monitoringSummary = monitoring.data.get(data.Monitoring.MONITORING_SUMMARY);
 		var criticalFailed = Question.FAILED_CRITICAL.length;
 		var score = Question.GET_SCORE();
 		var success = (Question.FAILED_CRITICAL.length == 0 || score.scaled > Question.MIN_PERCENTAGE_BEFORE_FAILLING);
