@@ -21,7 +21,11 @@ class Login extends VBox
 		login.onClick = onLoginClicked;
 		showPwd.onClick = onShowChange;
 	}
-	
+	public function feedErrorBack(txt:String)
+	{
+		feedback.addClass("error");
+		feedback.text = txt;
+	}
 	function onLoginClicked(e:MouseEvent) 
 	{
 		#if debug
@@ -33,6 +37,8 @@ class Login extends VBox
 		{
 			#if !debug
 			_logger.prepareCredentials(username.text, pwd.text);
+			#else
+			if(TMApp._mainDebug) _logger.prepareCredentials(username.text, pwd.text);
 			#end
 			_logger.send();
 		}

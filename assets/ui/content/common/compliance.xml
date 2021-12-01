@@ -1,5 +1,0 @@
-<box>
-	<hbox id="compliance" width="100%" styleName="questions">
-	<import resource="assets/ui/components/question_agree_na_critical.xml"omitRoot="true" />
-</hbox>
-</box>

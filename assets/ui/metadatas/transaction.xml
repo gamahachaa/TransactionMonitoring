@@ -78,7 +78,7 @@
 		<label text="{{TRANSACTION_TYPE}}"
 			   styleName="h2meta"
 			   />
-	<group layout="horizontal"
+	<group
 			   id="formSwitcher"
 		   verticalAlign="center"
 			   >
@@ -90,9 +90,9 @@
 					   text="mail"
 					   styleName="metaLabels"
 					   />
-			<optionbox id="outbound"
-					   text="outbound"
-					   hidden="true"
+			<optionbox id="telesales"
+					   text="telesales"
+					   hidden="false"
 					   styleName="metaLabels"
 					   />
 			<optionbox id="case"

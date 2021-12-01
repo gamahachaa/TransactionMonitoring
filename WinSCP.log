@@ -23192,3 +23192,2608 @@
 . 2021-11-26 16:21:02.111 Session sent command exit status 0
 . 2021-11-26 16:21:02.111 Main session channel closed
 . 2021-11-26 16:21:02.112 All channels closed
+. 2021-11-29 17:01:14.824 --------------------------------------------------------------------------
+. 2021-11-29 17:01:14.824 WinSCP Version 5.19.4 (Build 11829 2021-10-24) (OS 10.0.19042 - Windows 10 Enterprise N)
+. 2021-11-29 17:01:14.824 Configuration: nul
+. 2021-11-29 17:01:14.824 Log level: Normal
+. 2021-11-29 17:01:14.824 Local account: SALT\bbaudry
+. 2021-11-29 17:01:14.824 Working directory: C:\_mesDocs\_git\TM
+. 2021-11-29 17:01:14.824 Process ID: 35508
+. 2021-11-29 17:01:14.852 Ancestor processes: WinSCP, cmd, fdbuild, FlashDevelop, explorer, ...
+. 2021-11-29 17:01:14.852 Command-line: "C:\_mesProgs\WinSCP\WinSCP.exe" /console=5.19.4 /consoleinstance=_42444_828 "/log=C:\_mesDocs\_git\TM\WinSCP.log" "/ini=nul" "/command" "open sftp://qook:***@10.193.14.13/ -hostkey=""ssh-rsa 2048 wS00k9P56QO60lm1NS8bO+nPtjNA0htnzu/XzCyhfQg=""" "cd /home/qook/app/qook/tm-test/" "rm *.js" "exit"
+. 2021-11-29 17:01:14.853 Time zone: Current: GMT+1, Standard: GMT+1 (W. Europe Standard Time), DST: GMT+2 (W. Europe Daylight Time), DST Start: 28.03.2021, DST End: 31.10.2021
+. 2021-11-29 17:01:14.853 Login time: Monday, 29 November 2021 17:01:14
+. 2021-11-29 17:01:14.853 --------------------------------------------------------------------------
+. 2021-11-29 17:01:14.853 Script: Retrospectively logging previous script records:
+> 2021-11-29 17:01:14.853 Script: open sftp://qook:***@10.193.14.13/ -hostkey="ssh-rsa 2048 wS00k9P56QO60lm1NS8bO+nPtjNA0htnzu/XzCyhfQg="
+. 2021-11-29 17:01:14.853 --------------------------------------------------------------------------
+. 2021-11-29 17:01:14.853 Session name: qook@10.193.14.13 (Ad-Hoc site)
+. 2021-11-29 17:01:14.853 Host name: 10.193.14.13 (Port: 22)
+. 2021-11-29 17:01:14.853 User name: qook (Password: Yes, Key file: No, Passphrase: No)
+. 2021-11-29 17:01:14.853 Tunnel: No
+. 2021-11-29 17:01:14.853 Transfer Protocol: SFTP
+. 2021-11-29 17:01:14.853 Ping type: Off, Ping interval: 30 sec; Timeout: 15 sec
+. 2021-11-29 17:01:14.853 Disable Nagle: No
+. 2021-11-29 17:01:14.853 Proxy: None
+. 2021-11-29 17:01:14.853 Send buffer: 262144
+. 2021-11-29 17:01:14.853 SSH protocol version: 2; Compression: No
+. 2021-11-29 17:01:14.853 Bypass authentication: No
+. 2021-11-29 17:01:14.853 Try agent: Yes; Agent forwarding: No; TIS/CryptoCard: No; KI: Yes; GSSAPI: Yes
+. 2021-11-29 17:01:14.853 GSSAPI: KEX: No; Forwarding: No; Libs: gssapi32,sspi,custom; Custom: 
+. 2021-11-29 17:01:14.853 Ciphers: aes,chacha20,blowfish,3des,WARN,arcfour,des; Ssh2DES: No
+. 2021-11-29 17:01:14.853 KEX: ecdh,dh-gex-sha1,dh-group14-sha1,rsa,WARN,dh-group1-sha1
+. 2021-11-29 17:01:14.853 SSH Bugs: Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto
+. 2021-11-29 17:01:14.853 Simple channel: Yes
+. 2021-11-29 17:01:14.853 Return code variable: Autodetect; Lookup user groups: Auto
+. 2021-11-29 17:01:14.853 Shell: default
+. 2021-11-29 17:01:14.853 EOL: LF, UTF: Auto
+. 2021-11-29 17:01:14.853 Clear aliases: Yes, Unset nat.vars: Yes, Resolve symlinks: Yes; Follow directory symlinks: No
+. 2021-11-29 17:01:14.853 LS: ls -la, Ign LS warn: Yes, Scp1 Comp: No; Exit code 1 is error: No
+. 2021-11-29 17:01:14.853 SFTP Bugs: Auto,Auto
+. 2021-11-29 17:01:14.853 SFTP Server: default
+. 2021-11-29 17:01:14.853 Local directory: default, Remote directory: home, Update: Yes, Cache: Yes
+. 2021-11-29 17:01:14.853 Cache directory changes: Yes, Permanent: Yes
+. 2021-11-29 17:01:14.853 Recycle bin: Delete to: No, Overwritten to: No, Bin path: 
+. 2021-11-29 17:01:14.853 DST mode: Unix
+. 2021-11-29 17:01:14.853 --------------------------------------------------------------------------
+< 2021-11-29 17:01:14.853 Script: Searching for host...
+. 2021-11-29 17:01:14.854 Looking up host "10.193.14.13" for SSH connection
+. 2021-11-29 17:01:14.854 Connecting to 10.193.14.13 port 22
+< 2021-11-29 17:01:14.880 Script: Connecting to host...
+. 2021-11-29 17:01:14.880 We claim version: SSH-2.0-WinSCP_release_5.19.4
+. 2021-11-29 17:01:14.959 Remote version: SSH-2.0-OpenSSH_7.4
+. 2021-11-29 17:01:14.959 Using SSH protocol version 2
+. 2021-11-29 17:01:14.959 Have a known host key of type rsa2
+. 2021-11-29 17:01:14.981 Doing ECDH key exchange with curve Curve25519 and hash SHA-256
+. 2021-11-29 17:01:15.055 Server also has ssh-ed25519/ecdsa-sha2-nistp256 host keys, but we don't know any of them
+. 2021-11-29 17:01:15.056 Host key fingerprint is:
+. 2021-11-29 17:01:15.056 ssh-rsa 2048 7e:cd:40:9e:ab:68:2a:63:3a:66:84:3b:b6:6c:3f:70 wS00k9P56QO60lm1NS8bO+nPtjNA0htnzu/XzCyhfQg=
+< 2021-11-29 17:01:15.056 Script: Authenticating...
+. 2021-11-29 17:01:15.056 Host key matches configured key fingerprint
+. 2021-11-29 17:01:15.056 Initialised AES-256 SDCTR (AES-NI accelerated) [aes256-ctr] outbound encryption
+. 2021-11-29 17:01:15.056 Initialised HMAC-SHA-256 outbound MAC algorithm
+. 2021-11-29 17:01:15.056 Initialised AES-256 SDCTR (AES-NI accelerated) [aes256-ctr] inbound encryption
+. 2021-11-29 17:01:15.056 Initialised HMAC-SHA-256 inbound MAC algorithm
+! 2021-11-29 17:01:15.074 Using username "qook".
+< 2021-11-29 17:01:15.074 Script: Using username "qook".
+. 2021-11-29 17:01:15.110 Server offered these authentication methods: publickey,gssapi-keyex,gssapi-with-mic,password
+. 2021-11-29 17:01:15.110 Using SSPI from SECUR32.DLL
+. 2021-11-29 17:01:15.110 Trying gssapi-with-mic...
+. 2021-11-29 17:01:15.110 Attempting GSSAPI authentication
+. 2021-11-29 17:01:15.134 GSSAPI authentication request refused
+. 2021-11-29 17:01:15.134 Server offered these authentication methods: publickey,gssapi-keyex,gssapi-with-mic,password
+. 2021-11-29 17:01:15.134 Prompt (password, "SSH password", <no instructions>, "&Password: ")
+. 2021-11-29 17:01:15.134 Using stored password.
+< 2021-11-29 17:01:15.134 Script: Authenticating with pre-entered password.
+. 2021-11-29 17:01:15.135 Sent password
+. 2021-11-29 17:01:15.343 Access granted
+. 2021-11-29 17:01:15.343 Opening main session channel
+. 2021-11-29 17:01:15.558 Opened main channel
+. 2021-11-29 17:01:15.635 Started a shell/command
+< 2021-11-29 17:01:15.635 Script: Authenticated.
+. 2021-11-29 17:01:15.636 --------------------------------------------------------------------------
+. 2021-11-29 17:01:15.636 Using SFTP protocol.
+. 2021-11-29 17:01:15.636 Doing startup conversation with host.
+< 2021-11-29 17:01:15.636 Script: Starting the session...
+> 2021-11-29 17:01:15.636 Type: SSH_FXP_INIT, Size: 5, Number: -1
+< 2021-11-29 17:01:16.265 Type: SSH_FXP_VERSION, Size: 150, Number: -1
+. 2021-11-29 17:01:16.265 SFTP version 3 negotiated.
+. 2021-11-29 17:01:16.265 Unknown server extension posix-rename@openssh.com="1"
+. 2021-11-29 17:01:16.265 Supports statvfs@openssh.com extension version "2"
+. 2021-11-29 17:01:16.265 Unknown server extension fstatvfs@openssh.com="2"
+. 2021-11-29 17:01:16.265 Supports hardlink@openssh.com extension version "1"
+. 2021-11-29 17:01:16.265 Unknown server extension fsync@openssh.com="1"
+. 2021-11-29 17:01:16.265 We believe the server has signed timestamps bug
+. 2021-11-29 17:01:16.265 We will use UTF-8 strings until server sends an invalid UTF-8 string as with SFTP version 3 and older UTF-8 strings are not mandatory
+. 2021-11-29 17:01:16.265 Limiting packet size to OpenSSH sftp-server limit of 262148 bytes
+. 2021-11-29 17:01:16.265 Getting current directory name.
+. 2021-11-29 17:01:16.265 Getting real path for '.'
+> 2021-11-29 17:01:16.265 Type: SSH_FXP_REALPATH, Size: 10, Number: 16
+< 2021-11-29 17:01:16.294 Type: SSH_FXP_NAME, Size: 41, Number: 16
+. 2021-11-29 17:01:16.295 Real path is '/home/qook'
+. 2021-11-29 17:01:16.295 Startup conversation with host finished.
+< 2021-11-29 17:01:16.295 Script: Session started.
+< 2021-11-29 17:01:16.295 Script: Active session: [1] qook@10.193.14.13
+> 2021-11-29 17:01:16.296 Script: cd /home/qook/app/qook/tm-test/
+. 2021-11-29 17:01:16.296 Changing directory to "/home/qook/app/qook/tm-test/".
+. 2021-11-29 17:01:16.296 Getting real path for '/home/qook/app/qook/tm-test/'
+> 2021-11-29 17:01:16.296 Type: SSH_FXP_REALPATH, Size: 37, Number: 272
+< 2021-11-29 17:01:16.311 Type: SSH_FXP_NAME, Size: 75, Number: 272
+. 2021-11-29 17:01:16.311 Real path is '/home/qook/app/qook/tm-test'
+. 2021-11-29 17:01:16.311 Trying to open directory "/home/qook/app/qook/tm-test".
+> 2021-11-29 17:01:16.311 Type: SSH_FXP_LSTAT, Size: 36, Number: 519
+< 2021-11-29 17:01:16.341 Type: SSH_FXP_ATTRS, Size: 37, Number: 519
+. 2021-11-29 17:01:16.342 Getting current directory name.
+< 2021-11-29 17:01:16.342 Script: /home/qook/app/qook/tm-test
+> 2021-11-29 17:01:16.343 Script: rm *.js
+. 2021-11-29 17:01:16.343 Listing directory "/home/qook/app/qook/tm-test".
+> 2021-11-29 17:01:16.343 Type: SSH_FXP_OPENDIR, Size: 36, Number: 779
+< 2021-11-29 17:01:16.364 Type: SSH_FXP_HANDLE, Size: 13, Number: 779
+> 2021-11-29 17:01:16.364 Type: SSH_FXP_READDIR, Size: 13, Number: 1036
+< 2021-11-29 17:01:16.410 Type: SSH_FXP_NAME, Size: 1223, Number: 1036
+> 2021-11-29 17:01:16.410 Type: SSH_FXP_READDIR, Size: 13, Number: 1292
+< 2021-11-29 17:01:16.431 Type: SSH_FXP_STATUS, Size: 28, Number: 1292
+< 2021-11-29 17:01:16.432 Status code: 1
+> 2021-11-29 17:01:16.432 Type: SSH_FXP_CLOSE, Size: 13, Number: 1540
+. 2021-11-29 17:01:16.432 .;d;0;2021-11-26T15:21:00.000Z;3;"qook" [1006];"apache" [48];rwxrwxr-x;0
+. 2021-11-29 17:01:16.432 ..;d;0;2021-11-11T15:40:45.000Z;3;"qook" [1006];"apache" [48];rwsrwsr-x;0
+. 2021-11-29 17:01:16.432 css;d;0;2021-09-30T08:41:29.000Z;3;"qook" [1006];"qook" [1007];rwxrwxr-x;0
+. 2021-11-29 17:01:16.432 lib;d;0;2021-06-11T14:56:25.000Z;3;"qook" [1006];"qook" [1007];rwxrwxr-x;0
+. 2021-11-29 17:01:16.432 manifest;d;0;2021-06-11T14:56:25.000Z;3;"qook" [1006];"qook" [1007];rwxrwxr-x;0
+. 2021-11-29 17:01:16.432 ui;d;0;2021-06-11T14:56:27.000Z;3;"qook" [1006];"qook" [1007];rwxrwxr-x;0
+. 2021-11-29 17:01:16.432 index.html;-;736;2021-11-26T15:21:02.000Z;3;"qook" [1006];"qook" [1007];rw-rw-r--;0
+. 2021-11-29 17:01:16.432 favicon.png;-;6105;2021-11-11T15:40:15.000Z;3;"qook" [1006];"qook" [1007];rw-rw-r--;0
+. 2021-11-29 17:01:16.432 TM_20211126_162046.js;-;6835766;2021-11-26T15:20:56.000Z;3;"qook" [1006];"qook" [1007];rw-rw-r--;0
+. 2021-11-29 17:01:16.432 TM.js.map;-;773983;2021-11-26T15:21:00.000Z;3;"qook" [1006];"qook" [1007];rw-rw-r--;0
+. 2021-11-29 17:01:16.432 TM.min.js;-;6086586;2021-11-26T15:20:53.000Z;3;"qook" [1006];"qook" [1007];rw-rw-r--;0
+. 2021-11-29 17:01:16.432 Deleting file "TM_20211126_162046.js".
+> 2021-11-29 17:01:16.432 Type: SSH_FXP_REMOVE, Size: 58, Number: 1805
+< 2021-11-29 17:01:16.451 Type: SSH_FXP_STATUS, Size: 24, Number: 1540
+. 2021-11-29 17:01:16.451 Discarding reserved response
+< 2021-11-29 17:01:16.481 Type: SSH_FXP_STATUS, Size: 24, Number: 1805
+< 2021-11-29 17:01:16.481 Status code: 0
+< 2021-11-29 17:01:16.482 Script: TM_20211126_162046.js
+. 2021-11-29 17:01:16.482 Deleting file "TM.min.js".
+> 2021-11-29 17:01:16.482 Type: SSH_FXP_REMOVE, Size: 46, Number: 2061
+< 2021-11-29 17:01:16.518 Type: SSH_FXP_STATUS, Size: 24, Number: 2061
+< 2021-11-29 17:01:16.518 Status code: 0
+< 2021-11-29 17:01:16.518 Script: TM.min.js
+> 2021-11-29 17:01:16.518 Script: exit
+. 2021-11-29 17:01:16.518 Script: Exit code: 0
+. 2021-11-29 17:01:16.518 Closing connection.
+. 2021-11-29 17:01:16.518 Sending special code: 1
+. 2021-11-29 17:01:16.541 Session sent command exit status 0
+. 2021-11-29 17:01:16.541 Main session channel closed
+. 2021-11-29 17:01:16.542 All channels closed
+. 2021-11-29 17:01:16.786 --------------------------------------------------------------------------
+. 2021-11-29 17:01:16.786 WinSCP Version 5.19.4 (Build 11829 2021-10-24) (OS 10.0.19042 - Windows 10 Enterprise N)
+. 2021-11-29 17:01:16.786 Configuration: nul
+. 2021-11-29 17:01:16.786 Log level: Normal
+. 2021-11-29 17:01:16.786 Local account: SALT\bbaudry
+. 2021-11-29 17:01:16.786 Working directory: C:\_mesDocs\_git\TM
+. 2021-11-29 17:01:16.786 Process ID: 38740
+. 2021-11-29 17:01:16.811 Ancestor processes: WinSCP, cmd, fdbuild, FlashDevelop, explorer, ...
+. 2021-11-29 17:01:16.811 Command-line: "C:\_mesProgs\WinSCP\WinSCP.exe" /console=5.19.4 /consoleinstance=_44408_683 "/log=C:\_mesDocs\_git\TM\WinSCP.log" "/ini=nul" "/command" "open sftp://qook:***@10.193.14.13/ -hostkey=""ssh-rsa 2048 wS00k9P56QO60lm1NS8bO+nPtjNA0htnzu/XzCyhfQg=""" "lcd bin\" "cd /home/qook/app/qook/tm-test/" "put -nopreservetime *.js" "exit"
+. 2021-11-29 17:01:16.811 Time zone: Current: GMT+1, Standard: GMT+1 (W. Europe Standard Time), DST: GMT+2 (W. Europe Daylight Time), DST Start: 28.03.2021, DST End: 31.10.2021
+. 2021-11-29 17:01:16.811 Login time: Monday, 29 November 2021 17:01:16
+. 2021-11-29 17:01:16.811 --------------------------------------------------------------------------
+. 2021-11-29 17:01:16.811 Script: Retrospectively logging previous script records:
+> 2021-11-29 17:01:16.811 Script: open sftp://qook:***@10.193.14.13/ -hostkey="ssh-rsa 2048 wS00k9P56QO60lm1NS8bO+nPtjNA0htnzu/XzCyhfQg="
+. 2021-11-29 17:01:16.811 --------------------------------------------------------------------------
+. 2021-11-29 17:01:16.811 Session name: qook@10.193.14.13 (Ad-Hoc site)
+. 2021-11-29 17:01:16.811 Host name: 10.193.14.13 (Port: 22)
+. 2021-11-29 17:01:16.811 User name: qook (Password: Yes, Key file: No, Passphrase: No)
+. 2021-11-29 17:01:16.811 Tunnel: No
+. 2021-11-29 17:01:16.811 Transfer Protocol: SFTP
+. 2021-11-29 17:01:16.812 Ping type: Off, Ping interval: 30 sec; Timeout: 15 sec
+. 2021-11-29 17:01:16.812 Disable Nagle: No
+. 2021-11-29 17:01:16.812 Proxy: None
+. 2021-11-29 17:01:16.812 Send buffer: 262144
+. 2021-11-29 17:01:16.812 SSH protocol version: 2; Compression: No
+. 2021-11-29 17:01:16.812 Bypass authentication: No
+. 2021-11-29 17:01:16.812 Try agent: Yes; Agent forwarding: No; TIS/CryptoCard: No; KI: Yes; GSSAPI: Yes
+. 2021-11-29 17:01:16.812 GSSAPI: KEX: No; Forwarding: No; Libs: gssapi32,sspi,custom; Custom: 
+. 2021-11-29 17:01:16.812 Ciphers: aes,chacha20,blowfish,3des,WARN,arcfour,des; Ssh2DES: No
+. 2021-11-29 17:01:16.812 KEX: ecdh,dh-gex-sha1,dh-group14-sha1,rsa,WARN,dh-group1-sha1
+. 2021-11-29 17:01:16.812 SSH Bugs: Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto
+. 2021-11-29 17:01:16.812 Simple channel: Yes
+. 2021-11-29 17:01:16.812 Return code variable: Autodetect; Lookup user groups: Auto
+. 2021-11-29 17:01:16.812 Shell: default
+. 2021-11-29 17:01:16.812 EOL: LF, UTF: Auto
+. 2021-11-29 17:01:16.812 Clear aliases: Yes, Unset nat.vars: Yes, Resolve symlinks: Yes; Follow directory symlinks: No
+. 2021-11-29 17:01:16.812 LS: ls -la, Ign LS warn: Yes, Scp1 Comp: No; Exit code 1 is error: No
+. 2021-11-29 17:01:16.812 SFTP Bugs: Auto,Auto
+. 2021-11-29 17:01:16.812 SFTP Server: default
+. 2021-11-29 17:01:16.812 Local directory: default, Remote directory: home, Update: Yes, Cache: Yes
+. 2021-11-29 17:01:16.812 Cache directory changes: Yes, Permanent: Yes
+. 2021-11-29 17:01:16.812 Recycle bin: Delete to: No, Overwritten to: No, Bin path: 
+. 2021-11-29 17:01:16.812 DST mode: Unix
+. 2021-11-29 17:01:16.812 --------------------------------------------------------------------------
+< 2021-11-29 17:01:16.812 Script: Searching for host...
+. 2021-11-29 17:01:16.812 Looking up host "10.193.14.13" for SSH connection
+. 2021-11-29 17:01:16.812 Connecting to 10.193.14.13 port 22
+< 2021-11-29 17:01:16.833 Script: Connecting to host...
+. 2021-11-29 17:01:16.833 We claim version: SSH-2.0-WinSCP_release_5.19.4
+. 2021-11-29 17:01:16.886 Remote version: SSH-2.0-OpenSSH_7.4
+. 2021-11-29 17:01:16.886 Using SSH protocol version 2
+. 2021-11-29 17:01:16.887 Have a known host key of type rsa2
+. 2021-11-29 17:01:16.924 Doing ECDH key exchange with curve Curve25519 and hash SHA-256
+. 2021-11-29 17:01:16.996 Server also has ssh-ed25519/ecdsa-sha2-nistp256 host keys, but we don't know any of them
+. 2021-11-29 17:01:16.996 Host key fingerprint is:
+. 2021-11-29 17:01:16.996 ssh-rsa 2048 7e:cd:40:9e:ab:68:2a:63:3a:66:84:3b:b6:6c:3f:70 wS00k9P56QO60lm1NS8bO+nPtjNA0htnzu/XzCyhfQg=
+< 2021-11-29 17:01:16.996 Script: Authenticating...
+. 2021-11-29 17:01:16.997 Host key matches configured key fingerprint
+. 2021-11-29 17:01:16.997 Initialised AES-256 SDCTR (AES-NI accelerated) [aes256-ctr] outbound encryption
+. 2021-11-29 17:01:16.997 Initialised HMAC-SHA-256 outbound MAC algorithm
+. 2021-11-29 17:01:16.997 Initialised AES-256 SDCTR (AES-NI accelerated) [aes256-ctr] inbound encryption
+. 2021-11-29 17:01:16.997 Initialised HMAC-SHA-256 inbound MAC algorithm
+! 2021-11-29 17:01:17.020 Using username "qook".
+< 2021-11-29 17:01:17.020 Script: Using username "qook".
+. 2021-11-29 17:01:17.049 Server offered these authentication methods: publickey,gssapi-keyex,gssapi-with-mic,password
+. 2021-11-29 17:01:17.049 Using SSPI from SECUR32.DLL
+. 2021-11-29 17:01:17.049 Trying gssapi-with-mic...
+. 2021-11-29 17:01:17.049 Attempting GSSAPI authentication
+. 2021-11-29 17:01:17.070 GSSAPI authentication request refused
+. 2021-11-29 17:01:17.070 Server offered these authentication methods: publickey,gssapi-keyex,gssapi-with-mic,password
+. 2021-11-29 17:01:17.070 Prompt (password, "SSH password", <no instructions>, "&Password: ")
+. 2021-11-29 17:01:17.070 Using stored password.
+< 2021-11-29 17:01:17.070 Script: Authenticating with pre-entered password.
+. 2021-11-29 17:01:17.071 Sent password
+. 2021-11-29 17:01:17.241 Access granted
+. 2021-11-29 17:01:17.242 Opening main session channel
+. 2021-11-29 17:01:17.404 Opened main channel
+. 2021-11-29 17:01:17.451 Started a shell/command
+< 2021-11-29 17:01:17.451 Script: Authenticated.
+. 2021-11-29 17:01:17.451 --------------------------------------------------------------------------
+. 2021-11-29 17:01:17.451 Using SFTP protocol.
+. 2021-11-29 17:01:17.451 Doing startup conversation with host.
+< 2021-11-29 17:01:17.451 Script: Starting the session...
+> 2021-11-29 17:01:17.451 Type: SSH_FXP_INIT, Size: 5, Number: -1
+< 2021-11-29 17:01:17.898 Type: SSH_FXP_VERSION, Size: 150, Number: -1
+. 2021-11-29 17:01:17.899 SFTP version 3 negotiated.
+. 2021-11-29 17:01:17.899 Unknown server extension posix-rename@openssh.com="1"
+. 2021-11-29 17:01:17.899 Supports statvfs@openssh.com extension version "2"
+. 2021-11-29 17:01:17.899 Unknown server extension fstatvfs@openssh.com="2"
+. 2021-11-29 17:01:17.899 Supports hardlink@openssh.com extension version "1"
+. 2021-11-29 17:01:17.899 Unknown server extension fsync@openssh.com="1"
+. 2021-11-29 17:01:17.899 We believe the server has signed timestamps bug
+. 2021-11-29 17:01:17.899 We will use UTF-8 strings until server sends an invalid UTF-8 string as with SFTP version 3 and older UTF-8 strings are not mandatory
+. 2021-11-29 17:01:17.899 Limiting packet size to OpenSSH sftp-server limit of 262148 bytes
+. 2021-11-29 17:01:17.899 Getting current directory name.
+. 2021-11-29 17:01:17.899 Getting real path for '.'
+> 2021-11-29 17:01:17.899 Type: SSH_FXP_REALPATH, Size: 10, Number: 16
+< 2021-11-29 17:01:17.928 Type: SSH_FXP_NAME, Size: 41, Number: 16
+. 2021-11-29 17:01:17.928 Real path is '/home/qook'
+. 2021-11-29 17:01:17.928 Startup conversation with host finished.
+< 2021-11-29 17:01:17.928 Script: Session started.
+< 2021-11-29 17:01:17.928 Script: Active session: [1] qook@10.193.14.13
+> 2021-11-29 17:01:17.929 Script: lcd bin\
+< 2021-11-29 17:01:17.930 Script: C:\_mesDocs\_git\TM\bin
+> 2021-11-29 17:01:17.930 Script: cd /home/qook/app/qook/tm-test/
+. 2021-11-29 17:01:17.930 Changing directory to "/home/qook/app/qook/tm-test/".
+. 2021-11-29 17:01:17.930 Getting real path for '/home/qook/app/qook/tm-test/'
+> 2021-11-29 17:01:17.931 Type: SSH_FXP_REALPATH, Size: 37, Number: 272
+< 2021-11-29 17:01:17.955 Type: SSH_FXP_NAME, Size: 75, Number: 272
+. 2021-11-29 17:01:17.955 Real path is '/home/qook/app/qook/tm-test'
+. 2021-11-29 17:01:17.955 Trying to open directory "/home/qook/app/qook/tm-test".
+> 2021-11-29 17:01:17.955 Type: SSH_FXP_LSTAT, Size: 36, Number: 519
+< 2021-11-29 17:01:17.978 Type: SSH_FXP_ATTRS, Size: 37, Number: 519
+. 2021-11-29 17:01:17.978 Getting current directory name.
+< 2021-11-29 17:01:17.978 Script: /home/qook/app/qook/tm-test
+> 2021-11-29 17:01:17.979 Script: put -nopreservetime *.js
+. 2021-11-29 17:01:17.980 Copying 2 files/directories to remote directory "/home/qook/app/qook/tm-test" - total size: 13'075'501
+. 2021-11-29 17:01:17.980   PrTime: No; PrRO: No; Rght: rw-r--r--; PrR: No (No); FnCs: N; RIC: 0100; Resume: S (102400); CalcS: No; Mask: 
+. 2021-11-29 17:01:17.980   TM: B; ClAr: No; RemEOF: No; RemBOM: No; CPS: 0; NewerOnly: No; EncryptNewFiles: Yes; ExcludeHiddenFiles: No; ExcludeEmptyDirectories: No; InclM: ; ResumeL: 0
+. 2021-11-29 17:01:17.980   AscM: *.*html; *.htm; *.txt; *.php; *.php3; *.cgi; *.c; *.cpp; *.h; *.pas; *.bas; *.tex; *.pl; *.js; .htaccess; *.xtml; *.css; *.cfg; *.ini; *.sh; *.xml
+. 2021-11-29 17:01:17.980 File: 'TM.min.js' [2021-11-29T16:01:13.045Z] [6157918]
+. 2021-11-29 17:01:17.982 Copying "TM.min.js" to remote directory started.
+. 2021-11-29 17:01:17.982 Binary transfer mode selected.
+. 2021-11-29 17:01:17.982 Checking existence of file.
+> 2021-11-29 17:01:17.982 Type: SSH_FXP_LSTAT, Size: 46, Number: 775
+< 2021-11-29 17:01:18.008 Type: SSH_FXP_STATUS, Size: 29, Number: 775
+< 2021-11-29 17:01:18.008 Status code: 2
+. 2021-11-29 17:01:18.008 Checking existence of partially transferred file.
+> 2021-11-29 17:01:18.008 Type: SSH_FXP_LSTAT, Size: 55, Number: 1031
+< 2021-11-29 17:01:18.034 Type: SSH_FXP_STATUS, Size: 29, Number: 1031
+< 2021-11-29 17:01:18.035 Status code: 2
+. 2021-11-29 17:01:18.035 Opening remote file.
+> 2021-11-29 17:01:18.035 Type: SSH_FXP_OPEN, Size: 71, Number: 1283
+< 2021-11-29 17:01:18.057 Type: SSH_FXP_HANDLE, Size: 13, Number: 1283
+> 2021-11-29 17:01:18.057 Type: SSH_FXP_WRITE, Size: 32761, Number: 1798
+. 2021-11-29 17:01:19.996 363 skipped SSH_FXP_WRITE, SSH_FXP_READ, SSH_FXP_DATA and SSH_FXP_STATUS packets.
+> 2021-11-29 17:01:19.997 Type: SSH_FXP_CLOSE, Size: 13, Number: 50180
+< 2021-11-29 17:01:19.997 Type: SSH_FXP_STATUS, Size: 24, Number: 46598
+< 2021-11-29 17:01:19.997 Status code: 0
+< 2021-11-29 17:01:20.008 Type: SSH_FXP_STATUS, Size: 24, Number: 46854
+< 2021-11-29 17:01:20.008 Status code: 0
+< 2021-11-29 17:01:20.016 Type: SSH_FXP_STATUS, Size: 24, Number: 47110
+< 2021-11-29 17:01:20.016 Status code: 0
+< 2021-11-29 17:01:20.028 Type: SSH_FXP_STATUS, Size: 24, Number: 47366
+< 2021-11-29 17:01:20.028 Status code: 0
+< 2021-11-29 17:01:20.040 Type: SSH_FXP_STATUS, Size: 24, Number: 47622
+< 2021-11-29 17:01:20.040 Status code: 0
+< 2021-11-29 17:01:20.048 Type: SSH_FXP_STATUS, Size: 24, Number: 47878
+< 2021-11-29 17:01:20.048 Status code: 0
+< 2021-11-29 17:01:20.060 Type: SSH_FXP_STATUS, Size: 24, Number: 48134
+< 2021-11-29 17:01:20.060 Status code: 0
+< 2021-11-29 17:01:20.075 Type: SSH_FXP_STATUS, Size: 24, Number: 48390
+< 2021-11-29 17:01:20.075 Status code: 0
+< 2021-11-29 17:01:20.085 Type: SSH_FXP_STATUS, Size: 24, Number: 48646
+< 2021-11-29 17:01:20.085 Status code: 0
+< 2021-11-29 17:01:20.096 Type: SSH_FXP_STATUS, Size: 24, Number: 48902
+< 2021-11-29 17:01:20.096 Status code: 0
+< 2021-11-29 17:01:20.107 Type: SSH_FXP_STATUS, Size: 24, Number: 49158
+< 2021-11-29 17:01:20.107 Status code: 0
+< 2021-11-29 17:01:20.123 Type: SSH_FXP_STATUS, Size: 24, Number: 49414
+< 2021-11-29 17:01:20.123 Status code: 0
+< 2021-11-29 17:01:20.124 Type: SSH_FXP_STATUS, Size: 24, Number: 49670
+< 2021-11-29 17:01:20.124 Status code: 0
+< 2021-11-29 17:01:20.124 Type: SSH_FXP_STATUS, Size: 24, Number: 49926
+< 2021-11-29 17:01:20.124 Status code: 0
+< 2021-11-29 17:01:20.124 Type: SSH_FXP_STATUS, Size: 24, Number: 50180
+< 2021-11-29 17:01:20.124 Status code: 0
+> 2021-11-29 17:01:20.124 Type: SSH_FXP_RENAME, Size: 96, Number: 50450
+< 2021-11-29 17:01:20.146 Type: SSH_FXP_STATUS, Size: 24, Number: 50450
+< 2021-11-29 17:01:20.146 Status code: 0
+. 2021-11-29 17:01:20.146 Transfer done: 'TM.min.js' => '/home/qook/app/qook/tm-test/TM.min.js' [6157918]
+. 2021-11-29 17:01:20.147 File: 'TM_20211129_170113.js' [2021-11-29T16:01:03.388Z] [6917583]
+. 2021-11-29 17:01:20.186 Copying "TM_20211129_170113.js" to remote directory started.
+. 2021-11-29 17:01:20.186 Binary transfer mode selected.
+. 2021-11-29 17:01:20.186 Checking existence of file.
+> 2021-11-29 17:01:20.186 Type: SSH_FXP_LSTAT, Size: 58, Number: 50695
+< 2021-11-29 17:01:20.210 Type: SSH_FXP_STATUS, Size: 29, Number: 50695
+< 2021-11-29 17:01:20.210 Status code: 2
+. 2021-11-29 17:01:20.210 Checking existence of partially transferred file.
+> 2021-11-29 17:01:20.210 Type: SSH_FXP_LSTAT, Size: 67, Number: 50951
+< 2021-11-29 17:01:20.231 Type: SSH_FXP_STATUS, Size: 29, Number: 50951
+< 2021-11-29 17:01:20.231 Status code: 2
+. 2021-11-29 17:01:20.231 Opening remote file.
+> 2021-11-29 17:01:20.231 Type: SSH_FXP_OPEN, Size: 83, Number: 51203
+< 2021-11-29 17:01:20.255 Type: SSH_FXP_HANDLE, Size: 13, Number: 51203
+> 2021-11-29 17:01:20.255 Type: SSH_FXP_WRITE, Size: 32761, Number: 51718
+. 2021-11-29 17:01:22.426 410 skipped SSH_FXP_WRITE, SSH_FXP_READ, SSH_FXP_DATA and SSH_FXP_STATUS packets.
+> 2021-11-29 17:01:22.426 Type: SSH_FXP_CLOSE, Size: 13, Number: 105988
+< 2021-11-29 17:01:22.427 Type: SSH_FXP_STATUS, Size: 24, Number: 102662
+< 2021-11-29 17:01:22.427 Status code: 0
+< 2021-11-29 17:01:22.442 Type: SSH_FXP_STATUS, Size: 24, Number: 102918
+< 2021-11-29 17:01:22.442 Status code: 0
+< 2021-11-29 17:01:22.453 Type: SSH_FXP_STATUS, Size: 24, Number: 103174
+< 2021-11-29 17:01:22.453 Status code: 0
+< 2021-11-29 17:01:22.478 Type: SSH_FXP_STATUS, Size: 24, Number: 103430
+< 2021-11-29 17:01:22.478 Status code: 0
+< 2021-11-29 17:01:22.479 Type: SSH_FXP_STATUS, Size: 24, Number: 103686
+< 2021-11-29 17:01:22.479 Status code: 0
+< 2021-11-29 17:01:22.490 Type: SSH_FXP_STATUS, Size: 24, Number: 103942
+< 2021-11-29 17:01:22.490 Status code: 0
+< 2021-11-29 17:01:22.491 Type: SSH_FXP_STATUS, Size: 24, Number: 104198
+< 2021-11-29 17:01:22.491 Status code: 0
+< 2021-11-29 17:01:22.506 Type: SSH_FXP_STATUS, Size: 24, Number: 104454
+< 2021-11-29 17:01:22.506 Status code: 0
+< 2021-11-29 17:01:22.516 Type: SSH_FXP_STATUS, Size: 24, Number: 104710
+< 2021-11-29 17:01:22.516 Status code: 0
+< 2021-11-29 17:01:22.526 Type: SSH_FXP_STATUS, Size: 24, Number: 104966
+< 2021-11-29 17:01:22.526 Status code: 0
+< 2021-11-29 17:01:22.538 Type: SSH_FXP_STATUS, Size: 24, Number: 105222
+< 2021-11-29 17:01:22.538 Status code: 0
+< 2021-11-29 17:01:22.549 Type: SSH_FXP_STATUS, Size: 24, Number: 105478
+< 2021-11-29 17:01:22.550 Status code: 0
+< 2021-11-29 17:01:22.550 Type: SSH_FXP_STATUS, Size: 24, Number: 105734
+< 2021-11-29 17:01:22.550 Status code: 0
+< 2021-11-29 17:01:22.550 Type: SSH_FXP_STATUS, Size: 24, Number: 105988
+< 2021-11-29 17:01:22.550 Status code: 0
+> 2021-11-29 17:01:22.550 Type: SSH_FXP_RENAME, Size: 120, Number: 106258
+< 2021-11-29 17:01:22.582 Type: SSH_FXP_STATUS, Size: 24, Number: 106258
+< 2021-11-29 17:01:22.582 Status code: 0
+. 2021-11-29 17:01:22.582 Transfer done: 'TM_20211129_170113.js' => '/home/qook/app/qook/tm-test/TM_20211129_170113.js' [6917583]
+. 2021-11-29 17:01:22.582 Copying finished: Transferred: 13'075'501, Elapsed: 0:00:04, CPS: 2'878'562/s
+> 2021-11-29 17:01:22.582 Script: exit
+. 2021-11-29 17:01:22.582 Script: Exit code: 0
+. 2021-11-29 17:01:22.582 Closing connection.
+. 2021-11-29 17:01:22.582 Sending special code: 1
+. 2021-11-29 17:01:22.615 Session sent command exit status 0
+. 2021-11-29 17:01:22.615 Main session channel closed
+. 2021-11-29 17:01:22.616 All channels closed
+. 2021-11-29 17:01:22.843 --------------------------------------------------------------------------
+. 2021-11-29 17:01:22.843 WinSCP Version 5.19.4 (Build 11829 2021-10-24) (OS 10.0.19042 - Windows 10 Enterprise N)
+. 2021-11-29 17:01:22.843 Configuration: nul
+. 2021-11-29 17:01:22.843 Log level: Normal
+. 2021-11-29 17:01:22.843 Local account: SALT\bbaudry
+. 2021-11-29 17:01:22.843 Working directory: C:\_mesDocs\_git\TM
+. 2021-11-29 17:01:22.843 Process ID: 43044
+. 2021-11-29 17:01:22.868 Ancestor processes: WinSCP, cmd, fdbuild, FlashDevelop, explorer, ...
+. 2021-11-29 17:01:22.868 Command-line: "C:\_mesProgs\WinSCP\WinSCP.exe" /console=5.19.4 /consoleinstance=_868_248 "/log=C:\_mesDocs\_git\TM\WinSCP.log" "/ini=nul" "/command" "open sftp://qook:***@10.193.14.13/ -hostkey=""ssh-rsa 2048 wS00k9P56QO60lm1NS8bO+nPtjNA0htnzu/XzCyhfQg=""" "cd /home/qook/app/qook/tm-test" "rm *.js.map" "exit"
+. 2021-11-29 17:01:22.868 Time zone: Current: GMT+1, Standard: GMT+1 (W. Europe Standard Time), DST: GMT+2 (W. Europe Daylight Time), DST Start: 28.03.2021, DST End: 31.10.2021
+. 2021-11-29 17:01:22.869 Login time: Monday, 29 November 2021 17:01:22
+. 2021-11-29 17:01:22.869 --------------------------------------------------------------------------
+. 2021-11-29 17:01:22.869 Script: Retrospectively logging previous script records:
+> 2021-11-29 17:01:22.869 Script: open sftp://qook:***@10.193.14.13/ -hostkey="ssh-rsa 2048 wS00k9P56QO60lm1NS8bO+nPtjNA0htnzu/XzCyhfQg="
+. 2021-11-29 17:01:22.869 --------------------------------------------------------------------------
+. 2021-11-29 17:01:22.869 Session name: qook@10.193.14.13 (Ad-Hoc site)
+. 2021-11-29 17:01:22.869 Host name: 10.193.14.13 (Port: 22)
+. 2021-11-29 17:01:22.869 User name: qook (Password: Yes, Key file: No, Passphrase: No)
+. 2021-11-29 17:01:22.869 Tunnel: No
+. 2021-11-29 17:01:22.869 Transfer Protocol: SFTP
+. 2021-11-29 17:01:22.869 Ping type: Off, Ping interval: 30 sec; Timeout: 15 sec
+. 2021-11-29 17:01:22.869 Disable Nagle: No
+. 2021-11-29 17:01:22.869 Proxy: None
+. 2021-11-29 17:01:22.869 Send buffer: 262144
+. 2021-11-29 17:01:22.869 SSH protocol version: 2; Compression: No
+. 2021-11-29 17:01:22.869 Bypass authentication: No
+. 2021-11-29 17:01:22.869 Try agent: Yes; Agent forwarding: No; TIS/CryptoCard: No; KI: Yes; GSSAPI: Yes
+. 2021-11-29 17:01:22.869 GSSAPI: KEX: No; Forwarding: No; Libs: gssapi32,sspi,custom; Custom: 
+. 2021-11-29 17:01:22.869 Ciphers: aes,chacha20,blowfish,3des,WARN,arcfour,des; Ssh2DES: No
+. 2021-11-29 17:01:22.869 KEX: ecdh,dh-gex-sha1,dh-group14-sha1,rsa,WARN,dh-group1-sha1
+. 2021-11-29 17:01:22.869 SSH Bugs: Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto
+. 2021-11-29 17:01:22.869 Simple channel: Yes
+. 2021-11-29 17:01:22.869 Return code variable: Autodetect; Lookup user groups: Auto
+. 2021-11-29 17:01:22.869 Shell: default
+. 2021-11-29 17:01:22.869 EOL: LF, UTF: Auto
+. 2021-11-29 17:01:22.869 Clear aliases: Yes, Unset nat.vars: Yes, Resolve symlinks: Yes; Follow directory symlinks: No
+. 2021-11-29 17:01:22.869 LS: ls -la, Ign LS warn: Yes, Scp1 Comp: No; Exit code 1 is error: No
+. 2021-11-29 17:01:22.869 SFTP Bugs: Auto,Auto
+. 2021-11-29 17:01:22.869 SFTP Server: default
+. 2021-11-29 17:01:22.869 Local directory: default, Remote directory: home, Update: Yes, Cache: Yes
+. 2021-11-29 17:01:22.869 Cache directory changes: Yes, Permanent: Yes
+. 2021-11-29 17:01:22.869 Recycle bin: Delete to: No, Overwritten to: No, Bin path: 
+. 2021-11-29 17:01:22.869 DST mode: Unix
+. 2021-11-29 17:01:22.869 --------------------------------------------------------------------------
+< 2021-11-29 17:01:22.869 Script: Searching for host...
+. 2021-11-29 17:01:22.870 Looking up host "10.193.14.13" for SSH connection
+. 2021-11-29 17:01:22.870 Connecting to 10.193.14.13 port 22
+< 2021-11-29 17:01:22.888 Script: Connecting to host...
+. 2021-11-29 17:01:22.888 We claim version: SSH-2.0-WinSCP_release_5.19.4
+. 2021-11-29 17:01:22.975 Remote version: SSH-2.0-OpenSSH_7.4
+. 2021-11-29 17:01:22.976 Using SSH protocol version 2
+. 2021-11-29 17:01:22.977 Have a known host key of type rsa2
+. 2021-11-29 17:01:22.996 Doing ECDH key exchange with curve Curve25519 and hash SHA-256
+. 2021-11-29 17:01:23.076 Server also has ssh-ed25519/ecdsa-sha2-nistp256 host keys, but we don't know any of them
+. 2021-11-29 17:01:23.076 Host key fingerprint is:
+. 2021-11-29 17:01:23.076 ssh-rsa 2048 7e:cd:40:9e:ab:68:2a:63:3a:66:84:3b:b6:6c:3f:70 wS00k9P56QO60lm1NS8bO+nPtjNA0htnzu/XzCyhfQg=
+< 2021-11-29 17:01:23.076 Script: Authenticating...
+. 2021-11-29 17:01:23.077 Host key matches configured key fingerprint
+. 2021-11-29 17:01:23.077 Initialised AES-256 SDCTR (AES-NI accelerated) [aes256-ctr] outbound encryption
+. 2021-11-29 17:01:23.077 Initialised HMAC-SHA-256 outbound MAC algorithm
+. 2021-11-29 17:01:23.077 Initialised AES-256 SDCTR (AES-NI accelerated) [aes256-ctr] inbound encryption
+. 2021-11-29 17:01:23.078 Initialised HMAC-SHA-256 inbound MAC algorithm
+! 2021-11-29 17:01:23.107 Using username "qook".
+< 2021-11-29 17:01:23.107 Script: Using username "qook".
+. 2021-11-29 17:01:23.157 Server offered these authentication methods: publickey,gssapi-keyex,gssapi-with-mic,password
+. 2021-11-29 17:01:23.158 Using SSPI from SECUR32.DLL
+. 2021-11-29 17:01:23.158 Trying gssapi-with-mic...
+. 2021-11-29 17:01:23.158 Attempting GSSAPI authentication
+. 2021-11-29 17:01:23.177 GSSAPI authentication request refused
+. 2021-11-29 17:01:23.177 Server offered these authentication methods: publickey,gssapi-keyex,gssapi-with-mic,password
+. 2021-11-29 17:01:23.177 Prompt (password, "SSH password", <no instructions>, "&Password: ")
+. 2021-11-29 17:01:23.177 Using stored password.
+< 2021-11-29 17:01:23.177 Script: Authenticating with pre-entered password.
+. 2021-11-29 17:01:23.177 Sent password
+. 2021-11-29 17:01:23.318 Access granted
+. 2021-11-29 17:01:23.318 Opening main session channel
+. 2021-11-29 17:01:23.436 Opened main channel
+. 2021-11-29 17:01:23.485 Started a shell/command
+< 2021-11-29 17:01:23.485 Script: Authenticated.
+. 2021-11-29 17:01:23.485 --------------------------------------------------------------------------
+. 2021-11-29 17:01:23.485 Using SFTP protocol.
+. 2021-11-29 17:01:23.485 Doing startup conversation with host.
+< 2021-11-29 17:01:23.485 Script: Starting the session...
+> 2021-11-29 17:01:23.485 Type: SSH_FXP_INIT, Size: 5, Number: -1
+< 2021-11-29 17:01:24.122 Type: SSH_FXP_VERSION, Size: 150, Number: -1
+. 2021-11-29 17:01:24.122 SFTP version 3 negotiated.
+. 2021-11-29 17:01:24.122 Unknown server extension posix-rename@openssh.com="1"
+. 2021-11-29 17:01:24.122 Supports statvfs@openssh.com extension version "2"
+. 2021-11-29 17:01:24.122 Unknown server extension fstatvfs@openssh.com="2"
+. 2021-11-29 17:01:24.122 Supports hardlink@openssh.com extension version "1"
+. 2021-11-29 17:01:24.122 Unknown server extension fsync@openssh.com="1"
+. 2021-11-29 17:01:24.122 We believe the server has signed timestamps bug
+. 2021-11-29 17:01:24.122 We will use UTF-8 strings until server sends an invalid UTF-8 string as with SFTP version 3 and older UTF-8 strings are not mandatory
+. 2021-11-29 17:01:24.122 Limiting packet size to OpenSSH sftp-server limit of 262148 bytes
+. 2021-11-29 17:01:24.122 Getting current directory name.
+. 2021-11-29 17:01:24.122 Getting real path for '.'
+> 2021-11-29 17:01:24.122 Type: SSH_FXP_REALPATH, Size: 10, Number: 16
+< 2021-11-29 17:01:24.145 Type: SSH_FXP_NAME, Size: 41, Number: 16
+. 2021-11-29 17:01:24.145 Real path is '/home/qook'
+. 2021-11-29 17:01:24.145 Startup conversation with host finished.
+< 2021-11-29 17:01:24.145 Script: Session started.
+< 2021-11-29 17:01:24.145 Script: Active session: [1] qook@10.193.14.13
+> 2021-11-29 17:01:24.145 Script: cd /home/qook/app/qook/tm-test
+. 2021-11-29 17:01:24.146 Changing directory to "/home/qook/app/qook/tm-test".
+. 2021-11-29 17:01:24.146 Getting real path for '/home/qook/app/qook/tm-test'
+> 2021-11-29 17:01:24.146 Type: SSH_FXP_REALPATH, Size: 36, Number: 272
+< 2021-11-29 17:01:24.168 Type: SSH_FXP_NAME, Size: 75, Number: 272
+. 2021-11-29 17:01:24.168 Real path is '/home/qook/app/qook/tm-test'
+. 2021-11-29 17:01:24.168 Trying to open directory "/home/qook/app/qook/tm-test".
+> 2021-11-29 17:01:24.168 Type: SSH_FXP_LSTAT, Size: 36, Number: 519
+< 2021-11-29 17:01:24.188 Type: SSH_FXP_ATTRS, Size: 37, Number: 519
+. 2021-11-29 17:01:24.189 Getting current directory name.
+< 2021-11-29 17:01:24.189 Script: /home/qook/app/qook/tm-test
+> 2021-11-29 17:01:24.189 Script: rm *.js.map
+. 2021-11-29 17:01:24.189 Listing directory "/home/qook/app/qook/tm-test".
+> 2021-11-29 17:01:24.189 Type: SSH_FXP_OPENDIR, Size: 36, Number: 779
+< 2021-11-29 17:01:24.207 Type: SSH_FXP_HANDLE, Size: 13, Number: 779
+> 2021-11-29 17:01:24.207 Type: SSH_FXP_READDIR, Size: 13, Number: 1036
+< 2021-11-29 17:01:24.225 Type: SSH_FXP_NAME, Size: 1223, Number: 1036
+> 2021-11-29 17:01:24.225 Type: SSH_FXP_READDIR, Size: 13, Number: 1292
+< 2021-11-29 17:01:24.243 Type: SSH_FXP_STATUS, Size: 28, Number: 1292
+< 2021-11-29 17:01:24.243 Status code: 1
+> 2021-11-29 17:01:24.243 Type: SSH_FXP_CLOSE, Size: 13, Number: 1540
+. 2021-11-29 17:01:24.243 .;d;0;2021-11-29T16:01:22.000Z;3;"qook" [1006];"apache" [48];rwxrwxr-x;0
+. 2021-11-29 17:01:24.243 ..;d;0;2021-11-11T15:40:45.000Z;3;"qook" [1006];"apache" [48];rwsrwsr-x;0
+. 2021-11-29 17:01:24.243 css;d;0;2021-09-30T08:41:29.000Z;3;"qook" [1006];"qook" [1007];rwxrwxr-x;0
+. 2021-11-29 17:01:24.243 lib;d;0;2021-06-11T14:56:25.000Z;3;"qook" [1006];"qook" [1007];rwxrwxr-x;0
+. 2021-11-29 17:01:24.243 manifest;d;0;2021-06-11T14:56:25.000Z;3;"qook" [1006];"qook" [1007];rwxrwxr-x;0
+. 2021-11-29 17:01:24.244 ui;d;0;2021-06-11T14:56:27.000Z;3;"qook" [1006];"qook" [1007];rwxrwxr-x;0
+. 2021-11-29 17:01:24.244 index.html;-;736;2021-11-26T15:21:02.000Z;3;"qook" [1006];"qook" [1007];rw-rw-r--;0
+. 2021-11-29 17:01:24.244 favicon.png;-;6105;2021-11-11T15:40:15.000Z;3;"qook" [1006];"qook" [1007];rw-rw-r--;0
+. 2021-11-29 17:01:24.244 TM.js.map;-;773983;2021-11-26T15:21:00.000Z;3;"qook" [1006];"qook" [1007];rw-rw-r--;0
+. 2021-11-29 17:01:24.244 TM.min.js;-;6157918;2021-11-29T16:01:20.000Z;3;"qook" [1006];"qook" [1007];rw-rw-r--;0
+. 2021-11-29 17:01:24.244 TM_20211129_170113.js;-;6917583;2021-11-29T16:01:22.000Z;3;"qook" [1006];"qook" [1007];rw-rw-r--;0
+. 2021-11-29 17:01:24.244 Deleting file "TM.js.map".
+> 2021-11-29 17:01:24.244 Type: SSH_FXP_REMOVE, Size: 46, Number: 1805
+< 2021-11-29 17:01:24.266 Type: SSH_FXP_STATUS, Size: 24, Number: 1540
+. 2021-11-29 17:01:24.266 Discarding reserved response
+< 2021-11-29 17:01:24.266 Type: SSH_FXP_STATUS, Size: 24, Number: 1805
+< 2021-11-29 17:01:24.266 Status code: 0
+< 2021-11-29 17:01:24.266 Script: TM.js.map
+> 2021-11-29 17:01:24.267 Script: exit
+. 2021-11-29 17:01:24.267 Script: Exit code: 0
+. 2021-11-29 17:01:24.267 Closing connection.
+. 2021-11-29 17:01:24.267 Sending special code: 1
+. 2021-11-29 17:01:24.285 Session sent command exit status 0
+. 2021-11-29 17:01:24.285 Main session channel closed
+. 2021-11-29 17:01:24.285 All channels closed
+. 2021-11-29 17:01:24.512 --------------------------------------------------------------------------
+. 2021-11-29 17:01:24.512 WinSCP Version 5.19.4 (Build 11829 2021-10-24) (OS 10.0.19042 - Windows 10 Enterprise N)
+. 2021-11-29 17:01:24.512 Configuration: nul
+. 2021-11-29 17:01:24.512 Log level: Normal
+. 2021-11-29 17:01:24.512 Local account: SALT\bbaudry
+. 2021-11-29 17:01:24.512 Working directory: C:\_mesDocs\_git\TM
+. 2021-11-29 17:01:24.512 Process ID: 43200
+. 2021-11-29 17:01:24.536 Ancestor processes: WinSCP, cmd, fdbuild, FlashDevelop, explorer, ...
+. 2021-11-29 17:01:24.536 Command-line: "C:\_mesProgs\WinSCP\WinSCP.exe" /console=5.19.4 /consoleinstance=_40164_103 "/log=C:\_mesDocs\_git\TM\WinSCP.log" "/ini=nul" "/command" "open sftp://qook:***@10.193.14.13/ -hostkey=""ssh-rsa 2048 wS00k9P56QO60lm1NS8bO+nPtjNA0htnzu/XzCyhfQg=""" "lcd bin\" "cd /home/qook/app/qook/tm-test" "put -nopreservetime *.js.map" "exit"
+. 2021-11-29 17:01:24.536 Time zone: Current: GMT+1, Standard: GMT+1 (W. Europe Standard Time), DST: GMT+2 (W. Europe Daylight Time), DST Start: 28.03.2021, DST End: 31.10.2021
+. 2021-11-29 17:01:24.537 Login time: Monday, 29 November 2021 17:01:24
+. 2021-11-29 17:01:24.537 --------------------------------------------------------------------------
+. 2021-11-29 17:01:24.537 Script: Retrospectively logging previous script records:
+> 2021-11-29 17:01:24.537 Script: open sftp://qook:***@10.193.14.13/ -hostkey="ssh-rsa 2048 wS00k9P56QO60lm1NS8bO+nPtjNA0htnzu/XzCyhfQg="
+. 2021-11-29 17:01:24.537 --------------------------------------------------------------------------
+. 2021-11-29 17:01:24.537 Session name: qook@10.193.14.13 (Ad-Hoc site)
+. 2021-11-29 17:01:24.537 Host name: 10.193.14.13 (Port: 22)
+. 2021-11-29 17:01:24.537 User name: qook (Password: Yes, Key file: No, Passphrase: No)
+. 2021-11-29 17:01:24.537 Tunnel: No
+. 2021-11-29 17:01:24.537 Transfer Protocol: SFTP
+. 2021-11-29 17:01:24.537 Ping type: Off, Ping interval: 30 sec; Timeout: 15 sec
+. 2021-11-29 17:01:24.537 Disable Nagle: No
+. 2021-11-29 17:01:24.537 Proxy: None
+. 2021-11-29 17:01:24.537 Send buffer: 262144
+. 2021-11-29 17:01:24.537 SSH protocol version: 2; Compression: No
+. 2021-11-29 17:01:24.537 Bypass authentication: No
+. 2021-11-29 17:01:24.537 Try agent: Yes; Agent forwarding: No; TIS/CryptoCard: No; KI: Yes; GSSAPI: Yes
+. 2021-11-29 17:01:24.537 GSSAPI: KEX: No; Forwarding: No; Libs: gssapi32,sspi,custom; Custom: 
+. 2021-11-29 17:01:24.537 Ciphers: aes,chacha20,blowfish,3des,WARN,arcfour,des; Ssh2DES: No
+. 2021-11-29 17:01:24.537 KEX: ecdh,dh-gex-sha1,dh-group14-sha1,rsa,WARN,dh-group1-sha1
+. 2021-11-29 17:01:24.537 SSH Bugs: Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto
+. 2021-11-29 17:01:24.537 Simple channel: Yes
+. 2021-11-29 17:01:24.537 Return code variable: Autodetect; Lookup user groups: Auto
+. 2021-11-29 17:01:24.537 Shell: default
+. 2021-11-29 17:01:24.537 EOL: LF, UTF: Auto
+. 2021-11-29 17:01:24.537 Clear aliases: Yes, Unset nat.vars: Yes, Resolve symlinks: Yes; Follow directory symlinks: No
+. 2021-11-29 17:01:24.537 LS: ls -la, Ign LS warn: Yes, Scp1 Comp: No; Exit code 1 is error: No
+. 2021-11-29 17:01:24.537 SFTP Bugs: Auto,Auto
+. 2021-11-29 17:01:24.538 SFTP Server: default
+. 2021-11-29 17:01:24.538 Local directory: default, Remote directory: home, Update: Yes, Cache: Yes
+. 2021-11-29 17:01:24.538 Cache directory changes: Yes, Permanent: Yes
+. 2021-11-29 17:01:24.538 Recycle bin: Delete to: No, Overwritten to: No, Bin path: 
+. 2021-11-29 17:01:24.538 DST mode: Unix
+. 2021-11-29 17:01:24.538 --------------------------------------------------------------------------
+< 2021-11-29 17:01:24.538 Script: Searching for host...
+. 2021-11-29 17:01:24.538 Looking up host "10.193.14.13" for SSH connection
+. 2021-11-29 17:01:24.538 Connecting to 10.193.14.13 port 22
+< 2021-11-29 17:01:24.561 Script: Connecting to host...
+. 2021-11-29 17:01:24.562 We claim version: SSH-2.0-WinSCP_release_5.19.4
+. 2021-11-29 17:01:24.625 Remote version: SSH-2.0-OpenSSH_7.4
+. 2021-11-29 17:01:24.625 Using SSH protocol version 2
+. 2021-11-29 17:01:24.626 Have a known host key of type rsa2
+. 2021-11-29 17:01:24.681 Doing ECDH key exchange with curve Curve25519 and hash SHA-256
+. 2021-11-29 17:01:24.789 Server also has ssh-ed25519/ecdsa-sha2-nistp256 host keys, but we don't know any of them
+. 2021-11-29 17:01:24.789 Host key fingerprint is:
+. 2021-11-29 17:01:24.789 ssh-rsa 2048 7e:cd:40:9e:ab:68:2a:63:3a:66:84:3b:b6:6c:3f:70 wS00k9P56QO60lm1NS8bO+nPtjNA0htnzu/XzCyhfQg=
+< 2021-11-29 17:01:24.789 Script: Authenticating...
+. 2021-11-29 17:01:24.789 Host key matches configured key fingerprint
+. 2021-11-29 17:01:24.790 Initialised AES-256 SDCTR (AES-NI accelerated) [aes256-ctr] outbound encryption
+. 2021-11-29 17:01:24.790 Initialised HMAC-SHA-256 outbound MAC algorithm
+. 2021-11-29 17:01:24.790 Initialised AES-256 SDCTR (AES-NI accelerated) [aes256-ctr] inbound encryption
+. 2021-11-29 17:01:24.790 Initialised HMAC-SHA-256 inbound MAC algorithm
+! 2021-11-29 17:01:24.809 Using username "qook".
+< 2021-11-29 17:01:24.809 Script: Using username "qook".
+. 2021-11-29 17:01:24.844 Server offered these authentication methods: publickey,gssapi-keyex,gssapi-with-mic,password
+. 2021-11-29 17:01:24.844 Using SSPI from SECUR32.DLL
+. 2021-11-29 17:01:24.844 Trying gssapi-with-mic...
+. 2021-11-29 17:01:24.844 Attempting GSSAPI authentication
+. 2021-11-29 17:01:24.870 GSSAPI authentication request refused
+. 2021-11-29 17:01:24.870 Server offered these authentication methods: publickey,gssapi-keyex,gssapi-with-mic,password
+. 2021-11-29 17:01:24.870 Prompt (password, "SSH password", <no instructions>, "&Password: ")
+. 2021-11-29 17:01:24.870 Using stored password.
+< 2021-11-29 17:01:24.870 Script: Authenticating with pre-entered password.
+. 2021-11-29 17:01:24.870 Sent password
+. 2021-11-29 17:01:25.007 Access granted
+. 2021-11-29 17:01:25.008 Opening main session channel
+. 2021-11-29 17:01:25.175 Opened main channel
+. 2021-11-29 17:01:25.222 Started a shell/command
+< 2021-11-29 17:01:25.223 Script: Authenticated.
+. 2021-11-29 17:01:25.223 --------------------------------------------------------------------------
+. 2021-11-29 17:01:25.223 Using SFTP protocol.
+. 2021-11-29 17:01:25.223 Doing startup conversation with host.
+< 2021-11-29 17:01:25.223 Script: Starting the session...
+> 2021-11-29 17:01:25.223 Type: SSH_FXP_INIT, Size: 5, Number: -1
+< 2021-11-29 17:01:26.018 Type: SSH_FXP_VERSION, Size: 150, Number: -1
+. 2021-11-29 17:01:26.018 SFTP version 3 negotiated.
+. 2021-11-29 17:01:26.018 Unknown server extension posix-rename@openssh.com="1"
+. 2021-11-29 17:01:26.018 Supports statvfs@openssh.com extension version "2"
+. 2021-11-29 17:01:26.018 Unknown server extension fstatvfs@openssh.com="2"
+. 2021-11-29 17:01:26.018 Supports hardlink@openssh.com extension version "1"
+. 2021-11-29 17:01:26.018 Unknown server extension fsync@openssh.com="1"
+. 2021-11-29 17:01:26.018 We believe the server has signed timestamps bug
+. 2021-11-29 17:01:26.018 We will use UTF-8 strings until server sends an invalid UTF-8 string as with SFTP version 3 and older UTF-8 strings are not mandatory
+. 2021-11-29 17:01:26.018 Limiting packet size to OpenSSH sftp-server limit of 262148 bytes
+. 2021-11-29 17:01:26.018 Getting current directory name.
+. 2021-11-29 17:01:26.018 Getting real path for '.'
+> 2021-11-29 17:01:26.018 Type: SSH_FXP_REALPATH, Size: 10, Number: 16
+< 2021-11-29 17:01:26.043 Type: SSH_FXP_NAME, Size: 41, Number: 16
+. 2021-11-29 17:01:26.043 Real path is '/home/qook'
+. 2021-11-29 17:01:26.043 Startup conversation with host finished.
+< 2021-11-29 17:01:26.043 Script: Session started.
+< 2021-11-29 17:01:26.043 Script: Active session: [1] qook@10.193.14.13
+> 2021-11-29 17:01:26.044 Script: lcd bin\
+< 2021-11-29 17:01:26.045 Script: C:\_mesDocs\_git\TM\bin
+> 2021-11-29 17:01:26.045 Script: cd /home/qook/app/qook/tm-test
+. 2021-11-29 17:01:26.045 Changing directory to "/home/qook/app/qook/tm-test".
+. 2021-11-29 17:01:26.045 Getting real path for '/home/qook/app/qook/tm-test'
+> 2021-11-29 17:01:26.045 Type: SSH_FXP_REALPATH, Size: 36, Number: 272
+< 2021-11-29 17:01:26.064 Type: SSH_FXP_NAME, Size: 75, Number: 272
+. 2021-11-29 17:01:26.064 Real path is '/home/qook/app/qook/tm-test'
+. 2021-11-29 17:01:26.064 Trying to open directory "/home/qook/app/qook/tm-test".
+> 2021-11-29 17:01:26.064 Type: SSH_FXP_LSTAT, Size: 36, Number: 519
+< 2021-11-29 17:01:26.096 Type: SSH_FXP_ATTRS, Size: 37, Number: 519
+. 2021-11-29 17:01:26.096 Getting current directory name.
+< 2021-11-29 17:01:26.096 Script: /home/qook/app/qook/tm-test
+> 2021-11-29 17:01:26.097 Script: put -nopreservetime *.js.map
+. 2021-11-29 17:01:26.098 Copying 1 files/directories to remote directory "/home/qook/app/qook/tm-test" - total size: 787'758
+. 2021-11-29 17:01:26.098   PrTime: No; PrRO: No; Rght: rw-r--r--; PrR: No (No); FnCs: N; RIC: 0100; Resume: S (102400); CalcS: No; Mask: 
+. 2021-11-29 17:01:26.098   TM: B; ClAr: No; RemEOF: No; RemBOM: No; CPS: 0; NewerOnly: No; EncryptNewFiles: Yes; ExcludeHiddenFiles: No; ExcludeEmptyDirectories: No; InclM: ; ResumeL: 0
+. 2021-11-29 17:01:26.098   AscM: *.*html; *.htm; *.txt; *.php; *.php3; *.cgi; *.c; *.cpp; *.h; *.pas; *.bas; *.tex; *.pl; *.js; .htaccess; *.xtml; *.css; *.cfg; *.ini; *.sh; *.xml
+. 2021-11-29 17:01:26.098 File: 'TM.js.map' [2021-11-29T16:01:03.377Z] [787758]
+. 2021-11-29 17:01:26.099 Copying "TM.js.map" to remote directory started.
+. 2021-11-29 17:01:26.099 Binary transfer mode selected.
+. 2021-11-29 17:01:26.099 Checking existence of file.
+> 2021-11-29 17:01:26.099 Type: SSH_FXP_LSTAT, Size: 46, Number: 775
+< 2021-11-29 17:01:26.127 Type: SSH_FXP_STATUS, Size: 29, Number: 775
+< 2021-11-29 17:01:26.127 Status code: 2
+. 2021-11-29 17:01:26.127 Checking existence of partially transferred file.
+> 2021-11-29 17:01:26.127 Type: SSH_FXP_LSTAT, Size: 55, Number: 1031
+< 2021-11-29 17:01:26.143 Type: SSH_FXP_STATUS, Size: 29, Number: 1031
+< 2021-11-29 17:01:26.143 Status code: 2
+. 2021-11-29 17:01:26.143 Opening remote file.
+> 2021-11-29 17:01:26.143 Type: SSH_FXP_OPEN, Size: 71, Number: 1283
+< 2021-11-29 17:01:26.164 Type: SSH_FXP_HANDLE, Size: 13, Number: 1283
+> 2021-11-29 17:01:26.164 Type: SSH_FXP_WRITE, Size: 32761, Number: 1798
+. 2021-11-29 17:01:26.389 36 skipped SSH_FXP_WRITE, SSH_FXP_READ, SSH_FXP_DATA and SSH_FXP_STATUS packets.
+> 2021-11-29 17:01:26.389 Type: SSH_FXP_CLOSE, Size: 13, Number: 8196
+< 2021-11-29 17:01:26.391 Type: SSH_FXP_STATUS, Size: 24, Number: 4870
+< 2021-11-29 17:01:26.391 Status code: 0
+< 2021-11-29 17:01:26.391 Type: SSH_FXP_STATUS, Size: 24, Number: 5126
+< 2021-11-29 17:01:26.391 Status code: 0
+< 2021-11-29 17:01:26.403 Type: SSH_FXP_STATUS, Size: 24, Number: 5382
+< 2021-11-29 17:01:26.403 Status code: 0
+< 2021-11-29 17:01:26.417 Type: SSH_FXP_STATUS, Size: 24, Number: 5638
+< 2021-11-29 17:01:26.417 Status code: 0
+< 2021-11-29 17:01:26.418 Type: SSH_FXP_STATUS, Size: 24, Number: 5894
+< 2021-11-29 17:01:26.418 Status code: 0
+< 2021-11-29 17:01:26.418 Type: SSH_FXP_STATUS, Size: 24, Number: 6150
+< 2021-11-29 17:01:26.418 Status code: 0
+< 2021-11-29 17:01:26.418 Type: SSH_FXP_STATUS, Size: 24, Number: 6406
+< 2021-11-29 17:01:26.418 Status code: 0
+< 2021-11-29 17:01:26.841 Type: SSH_FXP_STATUS, Size: 24, Number: 6662
+< 2021-11-29 17:01:26.841 Status code: 0
+< 2021-11-29 17:01:26.841 Type: SSH_FXP_STATUS, Size: 24, Number: 6918
+< 2021-11-29 17:01:26.841 Status code: 0
+< 2021-11-29 17:01:26.853 Type: SSH_FXP_STATUS, Size: 24, Number: 7174
+< 2021-11-29 17:01:26.853 Status code: 0
+< 2021-11-29 17:01:26.864 Type: SSH_FXP_STATUS, Size: 24, Number: 7430
+< 2021-11-29 17:01:26.864 Status code: 0
+< 2021-11-29 17:01:26.865 Type: SSH_FXP_STATUS, Size: 24, Number: 7686
+< 2021-11-29 17:01:26.865 Status code: 0
+< 2021-11-29 17:01:26.865 Type: SSH_FXP_STATUS, Size: 24, Number: 7942
+< 2021-11-29 17:01:26.865 Status code: 0
+< 2021-11-29 17:01:26.865 Type: SSH_FXP_STATUS, Size: 24, Number: 8196
+< 2021-11-29 17:01:26.865 Status code: 0
+> 2021-11-29 17:01:26.865 Type: SSH_FXP_RENAME, Size: 96, Number: 8466
+< 2021-11-29 17:01:26.901 Type: SSH_FXP_STATUS, Size: 24, Number: 8466
+< 2021-11-29 17:01:26.902 Status code: 0
+. 2021-11-29 17:01:26.902 Transfer done: 'TM.js.map' => '/home/qook/app/qook/tm-test/TM.js.map' [787758]
+. 2021-11-29 17:01:26.902 Copying finished: Transferred: 787'758, Elapsed: 0:00:00, CPS: 1'028'640/s
+> 2021-11-29 17:01:26.903 Script: exit
+. 2021-11-29 17:01:26.903 Script: Exit code: 0
+. 2021-11-29 17:01:26.903 Closing connection.
+. 2021-11-29 17:01:26.903 Sending special code: 1
+. 2021-11-29 17:01:26.924 Session sent command exit status 0
+. 2021-11-29 17:01:26.924 Main session channel closed
+. 2021-11-29 17:01:26.924 All channels closed
+. 2021-11-29 17:01:27.155 --------------------------------------------------------------------------
+. 2021-11-29 17:01:27.156 WinSCP Version 5.19.4 (Build 11829 2021-10-24) (OS 10.0.19042 - Windows 10 Enterprise N)
+. 2021-11-29 17:01:27.156 Configuration: nul
+. 2021-11-29 17:01:27.156 Log level: Normal
+. 2021-11-29 17:01:27.156 Local account: SALT\bbaudry
+. 2021-11-29 17:01:27.156 Working directory: C:\_mesDocs\_git\TM
+. 2021-11-29 17:01:27.156 Process ID: 39824
+. 2021-11-29 17:01:27.182 Ancestor processes: WinSCP, cmd, fdbuild, FlashDevelop, explorer, ...
+. 2021-11-29 17:01:27.182 Command-line: "C:\_mesProgs\WinSCP\WinSCP.exe" /console=5.19.4 /consoleinstance=_42244_885 "/log=C:\_mesDocs\_git\TM\WinSCP.log" "/ini=nul" "/command" "open sftp://qook:***@10.193.14.13/ -hostkey=""ssh-rsa 2048 wS00k9P56QO60lm1NS8bO+nPtjNA0htnzu/XzCyhfQg=""" "lcd bin\" "cd /home/qook/app/qook/tm-test" "put -nopreservetime index.html" "exit"
+. 2021-11-29 17:01:27.182 Time zone: Current: GMT+1, Standard: GMT+1 (W. Europe Standard Time), DST: GMT+2 (W. Europe Daylight Time), DST Start: 28.03.2021, DST End: 31.10.2021
+. 2021-11-29 17:01:27.182 Login time: Monday, 29 November 2021 17:01:27
+. 2021-11-29 17:01:27.182 --------------------------------------------------------------------------
+. 2021-11-29 17:01:27.182 Script: Retrospectively logging previous script records:
+> 2021-11-29 17:01:27.182 Script: open sftp://qook:***@10.193.14.13/ -hostkey="ssh-rsa 2048 wS00k9P56QO60lm1NS8bO+nPtjNA0htnzu/XzCyhfQg="
+. 2021-11-29 17:01:27.182 --------------------------------------------------------------------------
+. 2021-11-29 17:01:27.182 Session name: qook@10.193.14.13 (Ad-Hoc site)
+. 2021-11-29 17:01:27.182 Host name: 10.193.14.13 (Port: 22)
+. 2021-11-29 17:01:27.182 User name: qook (Password: Yes, Key file: No, Passphrase: No)
+. 2021-11-29 17:01:27.182 Tunnel: No
+. 2021-11-29 17:01:27.182 Transfer Protocol: SFTP
+. 2021-11-29 17:01:27.182 Ping type: Off, Ping interval: 30 sec; Timeout: 15 sec
+. 2021-11-29 17:01:27.182 Disable Nagle: No
+. 2021-11-29 17:01:27.182 Proxy: None
+. 2021-11-29 17:01:27.182 Send buffer: 262144
+. 2021-11-29 17:01:27.182 SSH protocol version: 2; Compression: No
+. 2021-11-29 17:01:27.182 Bypass authentication: No
+. 2021-11-29 17:01:27.182 Try agent: Yes; Agent forwarding: No; TIS/CryptoCard: No; KI: Yes; GSSAPI: Yes
+. 2021-11-29 17:01:27.182 GSSAPI: KEX: No; Forwarding: No; Libs: gssapi32,sspi,custom; Custom: 
+. 2021-11-29 17:01:27.182 Ciphers: aes,chacha20,blowfish,3des,WARN,arcfour,des; Ssh2DES: No
+. 2021-11-29 17:01:27.182 KEX: ecdh,dh-gex-sha1,dh-group14-sha1,rsa,WARN,dh-group1-sha1
+. 2021-11-29 17:01:27.182 SSH Bugs: Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto
+. 2021-11-29 17:01:27.182 Simple channel: Yes
+. 2021-11-29 17:01:27.182 Return code variable: Autodetect; Lookup user groups: Auto
+. 2021-11-29 17:01:27.182 Shell: default
+. 2021-11-29 17:01:27.182 EOL: LF, UTF: Auto
+. 2021-11-29 17:01:27.182 Clear aliases: Yes, Unset nat.vars: Yes, Resolve symlinks: Yes; Follow directory symlinks: No
+. 2021-11-29 17:01:27.182 LS: ls -la, Ign LS warn: Yes, Scp1 Comp: No; Exit code 1 is error: No
+. 2021-11-29 17:01:27.182 SFTP Bugs: Auto,Auto
+. 2021-11-29 17:01:27.182 SFTP Server: default
+. 2021-11-29 17:01:27.182 Local directory: default, Remote directory: home, Update: Yes, Cache: Yes
+. 2021-11-29 17:01:27.182 Cache directory changes: Yes, Permanent: Yes
+. 2021-11-29 17:01:27.182 Recycle bin: Delete to: No, Overwritten to: No, Bin path: 
+. 2021-11-29 17:01:27.182 DST mode: Unix
+. 2021-11-29 17:01:27.182 --------------------------------------------------------------------------
+< 2021-11-29 17:01:27.183 Script: Searching for host...
+. 2021-11-29 17:01:27.183 Looking up host "10.193.14.13" for SSH connection
+. 2021-11-29 17:01:27.183 Connecting to 10.193.14.13 port 22
+< 2021-11-29 17:01:27.204 Script: Connecting to host...
+. 2021-11-29 17:01:27.204 We claim version: SSH-2.0-WinSCP_release_5.19.4
+. 2021-11-29 17:01:27.328 Remote version: SSH-2.0-OpenSSH_7.4
+. 2021-11-29 17:01:27.328 Using SSH protocol version 2
+. 2021-11-29 17:01:27.329 Have a known host key of type rsa2
+. 2021-11-29 17:01:27.348 Doing ECDH key exchange with curve Curve25519 and hash SHA-256
+. 2021-11-29 17:01:27.417 Server also has ssh-ed25519/ecdsa-sha2-nistp256 host keys, but we don't know any of them
+. 2021-11-29 17:01:27.418 Host key fingerprint is:
+. 2021-11-29 17:01:27.418 ssh-rsa 2048 7e:cd:40:9e:ab:68:2a:63:3a:66:84:3b:b6:6c:3f:70 wS00k9P56QO60lm1NS8bO+nPtjNA0htnzu/XzCyhfQg=
+< 2021-11-29 17:01:27.418 Script: Authenticating...
+. 2021-11-29 17:01:27.418 Host key matches configured key fingerprint
+. 2021-11-29 17:01:27.418 Initialised AES-256 SDCTR (AES-NI accelerated) [aes256-ctr] outbound encryption
+. 2021-11-29 17:01:27.418 Initialised HMAC-SHA-256 outbound MAC algorithm
+. 2021-11-29 17:01:27.418 Initialised AES-256 SDCTR (AES-NI accelerated) [aes256-ctr] inbound encryption
+. 2021-11-29 17:01:27.418 Initialised HMAC-SHA-256 inbound MAC algorithm
+! 2021-11-29 17:01:27.447 Using username "qook".
+< 2021-11-29 17:01:27.447 Script: Using username "qook".
+. 2021-11-29 17:01:27.481 Server offered these authentication methods: publickey,gssapi-keyex,gssapi-with-mic,password
+. 2021-11-29 17:01:27.481 Using SSPI from SECUR32.DLL
+. 2021-11-29 17:01:27.481 Trying gssapi-with-mic...
+. 2021-11-29 17:01:27.481 Attempting GSSAPI authentication
+. 2021-11-29 17:01:27.502 GSSAPI authentication request refused
+. 2021-11-29 17:01:27.502 Server offered these authentication methods: publickey,gssapi-keyex,gssapi-with-mic,password
+. 2021-11-29 17:01:27.502 Prompt (password, "SSH password", <no instructions>, "&Password: ")
+. 2021-11-29 17:01:27.502 Using stored password.
+< 2021-11-29 17:01:27.502 Script: Authenticating with pre-entered password.
+. 2021-11-29 17:01:27.502 Sent password
+. 2021-11-29 17:01:27.667 Access granted
+. 2021-11-29 17:01:27.667 Opening main session channel
+. 2021-11-29 17:01:27.761 Opened main channel
+. 2021-11-29 17:01:27.854 Started a shell/command
+< 2021-11-29 17:01:27.854 Script: Authenticated.
+. 2021-11-29 17:01:27.854 --------------------------------------------------------------------------
+. 2021-11-29 17:01:27.854 Using SFTP protocol.
+. 2021-11-29 17:01:27.854 Doing startup conversation with host.
+< 2021-11-29 17:01:27.854 Script: Starting the session...
+> 2021-11-29 17:01:27.854 Type: SSH_FXP_INIT, Size: 5, Number: -1
+< 2021-11-29 17:01:28.457 Type: SSH_FXP_VERSION, Size: 150, Number: -1
+. 2021-11-29 17:01:28.458 SFTP version 3 negotiated.
+. 2021-11-29 17:01:28.458 Unknown server extension posix-rename@openssh.com="1"
+. 2021-11-29 17:01:28.458 Supports statvfs@openssh.com extension version "2"
+. 2021-11-29 17:01:28.458 Unknown server extension fstatvfs@openssh.com="2"
+. 2021-11-29 17:01:28.458 Supports hardlink@openssh.com extension version "1"
+. 2021-11-29 17:01:28.458 Unknown server extension fsync@openssh.com="1"
+. 2021-11-29 17:01:28.458 We believe the server has signed timestamps bug
+. 2021-11-29 17:01:28.458 We will use UTF-8 strings until server sends an invalid UTF-8 string as with SFTP version 3 and older UTF-8 strings are not mandatory
+. 2021-11-29 17:01:28.458 Limiting packet size to OpenSSH sftp-server limit of 262148 bytes
+. 2021-11-29 17:01:28.458 Getting current directory name.
+. 2021-11-29 17:01:28.458 Getting real path for '.'
+> 2021-11-29 17:01:28.458 Type: SSH_FXP_REALPATH, Size: 10, Number: 16
+< 2021-11-29 17:01:28.474 Type: SSH_FXP_NAME, Size: 41, Number: 16
+. 2021-11-29 17:01:28.474 Real path is '/home/qook'
+. 2021-11-29 17:01:28.474 Startup conversation with host finished.
+< 2021-11-29 17:01:28.474 Script: Session started.
+< 2021-11-29 17:01:28.474 Script: Active session: [1] qook@10.193.14.13
+> 2021-11-29 17:01:28.475 Script: lcd bin\
+< 2021-11-29 17:01:28.475 Script: C:\_mesDocs\_git\TM\bin
+> 2021-11-29 17:01:28.475 Script: cd /home/qook/app/qook/tm-test
+. 2021-11-29 17:01:28.475 Changing directory to "/home/qook/app/qook/tm-test".
+. 2021-11-29 17:01:28.475 Getting real path for '/home/qook/app/qook/tm-test'
+> 2021-11-29 17:01:28.475 Type: SSH_FXP_REALPATH, Size: 36, Number: 272
+< 2021-11-29 17:01:28.496 Type: SSH_FXP_NAME, Size: 75, Number: 272
+. 2021-11-29 17:01:28.496 Real path is '/home/qook/app/qook/tm-test'
+. 2021-11-29 17:01:28.496 Trying to open directory "/home/qook/app/qook/tm-test".
+> 2021-11-29 17:01:28.496 Type: SSH_FXP_LSTAT, Size: 36, Number: 519
+< 2021-11-29 17:01:28.517 Type: SSH_FXP_ATTRS, Size: 37, Number: 519
+. 2021-11-29 17:01:28.517 Getting current directory name.
+< 2021-11-29 17:01:28.517 Script: /home/qook/app/qook/tm-test
+> 2021-11-29 17:01:28.518 Script: put -nopreservetime index.html
+. 2021-11-29 17:01:28.518 Copying 1 files/directories to remote directory "/home/qook/app/qook/tm-test" - total size: 736
+. 2021-11-29 17:01:28.518   PrTime: No; PrRO: No; Rght: rw-r--r--; PrR: No (No); FnCs: N; RIC: 0100; Resume: S (102400); CalcS: No; Mask: 
+. 2021-11-29 17:01:28.518   TM: B; ClAr: No; RemEOF: No; RemBOM: No; CPS: 0; NewerOnly: No; EncryptNewFiles: Yes; ExcludeHiddenFiles: No; ExcludeEmptyDirectories: No; InclM: ; ResumeL: 0
+. 2021-11-29 17:01:28.518   AscM: *.*html; *.htm; *.txt; *.php; *.php3; *.cgi; *.c; *.cpp; *.h; *.pas; *.bas; *.tex; *.pl; *.js; .htaccess; *.xtml; *.css; *.cfg; *.ini; *.sh; *.xml
+. 2021-11-29 17:01:28.518 File: 'index.html' [2021-11-29T16:01:13.959Z] [736]
+. 2021-11-29 17:01:28.519 Copying "index.html" to remote directory started.
+. 2021-11-29 17:01:28.520 Binary transfer mode selected.
+. 2021-11-29 17:01:28.520 Opening remote file.
+> 2021-11-29 17:01:28.520 Type: SSH_FXP_OPEN, Size: 63, Number: 771
+< 2021-11-29 17:01:28.561 Type: SSH_FXP_HANDLE, Size: 13, Number: 771
+> 2021-11-29 17:01:28.562 Type: SSH_FXP_WRITE, Size: 761, Number: 1286
+> 2021-11-29 17:01:28.562 Type: SSH_FXP_CLOSE, Size: 13, Number: 1540
+< 2021-11-29 17:01:28.588 Type: SSH_FXP_STATUS, Size: 24, Number: 1286
+< 2021-11-29 17:01:28.588 Status code: 0
+< 2021-11-29 17:01:28.588 Type: SSH_FXP_STATUS, Size: 24, Number: 1540
+< 2021-11-29 17:01:28.588 Status code: 0
+. 2021-11-29 17:01:28.588 Transfer done: 'index.html' => '/home/qook/app/qook/tm-test/index.html' [736]
+. 2021-11-29 17:01:28.588 Copying finished: Transferred: 736, Elapsed: 0:00:00, CPS: 0/s
+> 2021-11-29 17:01:28.588 Script: exit
+. 2021-11-29 17:01:28.589 Script: Exit code: 0
+. 2021-11-29 17:01:28.589 Closing connection.
+. 2021-11-29 17:01:28.589 Sending special code: 1
+. 2021-11-29 17:01:28.612 Session sent command exit status 0
+. 2021-11-29 17:01:28.612 Main session channel closed
+. 2021-11-29 17:01:28.612 All channels closed
+. 2021-11-29 17:08:16.007 --------------------------------------------------------------------------
+. 2021-11-29 17:08:16.007 WinSCP Version 5.19.4 (Build 11829 2021-10-24) (OS 10.0.19042 - Windows 10 Enterprise N)
+. 2021-11-29 17:08:16.007 Configuration: nul
+. 2021-11-29 17:08:16.008 Log level: Normal
+. 2021-11-29 17:08:16.008 Local account: SALT\bbaudry
+. 2021-11-29 17:08:16.008 Working directory: C:\_mesDocs\_git\TM
+. 2021-11-29 17:08:16.008 Process ID: 16248
+. 2021-11-29 17:08:16.032 Ancestor processes: WinSCP, cmd, fdbuild, FlashDevelop, explorer, ...
+. 2021-11-29 17:08:16.032 Command-line: "C:\_mesProgs\WinSCP\WinSCP.exe" /console=5.19.4 /consoleinstance=_1000_350 "/log=C:\_mesDocs\_git\TM\WinSCP.log" "/ini=nul" "/command" "open sftp://qook:***@10.193.14.13/ -hostkey=""ssh-rsa 2048 wS00k9P56QO60lm1NS8bO+nPtjNA0htnzu/XzCyhfQg=""" "cd /home/qook/app/qook/tm-test/" "rm *.js" "exit"
+. 2021-11-29 17:08:16.033 Time zone: Current: GMT+1, Standard: GMT+1 (W. Europe Standard Time), DST: GMT+2 (W. Europe Daylight Time), DST Start: 28.03.2021, DST End: 31.10.2021
+. 2021-11-29 17:08:16.033 Login time: Monday, 29 November 2021 17:08:16
+. 2021-11-29 17:08:16.033 --------------------------------------------------------------------------
+. 2021-11-29 17:08:16.033 Script: Retrospectively logging previous script records:
+> 2021-11-29 17:08:16.033 Script: open sftp://qook:***@10.193.14.13/ -hostkey="ssh-rsa 2048 wS00k9P56QO60lm1NS8bO+nPtjNA0htnzu/XzCyhfQg="
+. 2021-11-29 17:08:16.033 --------------------------------------------------------------------------
+. 2021-11-29 17:08:16.033 Session name: qook@10.193.14.13 (Ad-Hoc site)
+. 2021-11-29 17:08:16.033 Host name: 10.193.14.13 (Port: 22)
+. 2021-11-29 17:08:16.033 User name: qook (Password: Yes, Key file: No, Passphrase: No)
+. 2021-11-29 17:08:16.033 Tunnel: No
+. 2021-11-29 17:08:16.033 Transfer Protocol: SFTP
+. 2021-11-29 17:08:16.033 Ping type: Off, Ping interval: 30 sec; Timeout: 15 sec
+. 2021-11-29 17:08:16.033 Disable Nagle: No
+. 2021-11-29 17:08:16.033 Proxy: None
+. 2021-11-29 17:08:16.033 Send buffer: 262144
+. 2021-11-29 17:08:16.033 SSH protocol version: 2; Compression: No
+. 2021-11-29 17:08:16.033 Bypass authentication: No
+. 2021-11-29 17:08:16.033 Try agent: Yes; Agent forwarding: No; TIS/CryptoCard: No; KI: Yes; GSSAPI: Yes
+. 2021-11-29 17:08:16.033 GSSAPI: KEX: No; Forwarding: No; Libs: gssapi32,sspi,custom; Custom: 
+. 2021-11-29 17:08:16.033 Ciphers: aes,chacha20,blowfish,3des,WARN,arcfour,des; Ssh2DES: No
+. 2021-11-29 17:08:16.033 KEX: ecdh,dh-gex-sha1,dh-group14-sha1,rsa,WARN,dh-group1-sha1
+. 2021-11-29 17:08:16.033 SSH Bugs: Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto
+. 2021-11-29 17:08:16.033 Simple channel: Yes
+. 2021-11-29 17:08:16.033 Return code variable: Autodetect; Lookup user groups: Auto
+. 2021-11-29 17:08:16.033 Shell: default
+. 2021-11-29 17:08:16.033 EOL: LF, UTF: Auto
+. 2021-11-29 17:08:16.033 Clear aliases: Yes, Unset nat.vars: Yes, Resolve symlinks: Yes; Follow directory symlinks: No
+. 2021-11-29 17:08:16.033 LS: ls -la, Ign LS warn: Yes, Scp1 Comp: No; Exit code 1 is error: No
+. 2021-11-29 17:08:16.033 SFTP Bugs: Auto,Auto
+. 2021-11-29 17:08:16.033 SFTP Server: default
+. 2021-11-29 17:08:16.033 Local directory: default, Remote directory: home, Update: Yes, Cache: Yes
+. 2021-11-29 17:08:16.033 Cache directory changes: Yes, Permanent: Yes
+. 2021-11-29 17:08:16.033 Recycle bin: Delete to: No, Overwritten to: No, Bin path: 
+. 2021-11-29 17:08:16.033 DST mode: Unix
+. 2021-11-29 17:08:16.033 --------------------------------------------------------------------------
+< 2021-11-29 17:08:16.033 Script: Searching for host...
+. 2021-11-29 17:08:16.034 Looking up host "10.193.14.13" for SSH connection
+. 2021-11-29 17:08:16.034 Connecting to 10.193.14.13 port 22
+< 2021-11-29 17:08:16.054 Script: Connecting to host...
+. 2021-11-29 17:08:16.054 We claim version: SSH-2.0-WinSCP_release_5.19.4
+. 2021-11-29 17:08:16.135 Remote version: SSH-2.0-OpenSSH_7.4
+. 2021-11-29 17:08:16.135 Using SSH protocol version 2
+. 2021-11-29 17:08:16.135 Have a known host key of type rsa2
+. 2021-11-29 17:08:16.153 Doing ECDH key exchange with curve Curve25519 and hash SHA-256
+. 2021-11-29 17:08:16.214 Server also has ssh-ed25519/ecdsa-sha2-nistp256 host keys, but we don't know any of them
+. 2021-11-29 17:08:16.214 Host key fingerprint is:
+. 2021-11-29 17:08:16.214 ssh-rsa 2048 7e:cd:40:9e:ab:68:2a:63:3a:66:84:3b:b6:6c:3f:70 wS00k9P56QO60lm1NS8bO+nPtjNA0htnzu/XzCyhfQg=
+< 2021-11-29 17:08:16.214 Script: Authenticating...
+. 2021-11-29 17:08:16.215 Host key matches configured key fingerprint
+. 2021-11-29 17:08:16.215 Initialised AES-256 SDCTR (AES-NI accelerated) [aes256-ctr] outbound encryption
+. 2021-11-29 17:08:16.215 Initialised HMAC-SHA-256 outbound MAC algorithm
+. 2021-11-29 17:08:16.215 Initialised AES-256 SDCTR (AES-NI accelerated) [aes256-ctr] inbound encryption
+. 2021-11-29 17:08:16.215 Initialised HMAC-SHA-256 inbound MAC algorithm
+! 2021-11-29 17:08:16.234 Using username "qook".
+< 2021-11-29 17:08:16.234 Script: Using username "qook".
+. 2021-11-29 17:08:16.279 Server offered these authentication methods: publickey,gssapi-keyex,gssapi-with-mic,password
+. 2021-11-29 17:08:16.279 Using SSPI from SECUR32.DLL
+. 2021-11-29 17:08:16.279 Trying gssapi-with-mic...
+. 2021-11-29 17:08:16.279 Attempting GSSAPI authentication
+. 2021-11-29 17:08:16.302 GSSAPI authentication request refused
+. 2021-11-29 17:08:16.302 Server offered these authentication methods: publickey,gssapi-keyex,gssapi-with-mic,password
+. 2021-11-29 17:08:16.302 Prompt (password, "SSH password", <no instructions>, "&Password: ")
+. 2021-11-29 17:08:16.302 Using stored password.
+< 2021-11-29 17:08:16.302 Script: Authenticating with pre-entered password.
+. 2021-11-29 17:08:16.303 Sent password
+. 2021-11-29 17:08:16.438 Access granted
+. 2021-11-29 17:08:16.439 Opening main session channel
+. 2021-11-29 17:08:16.630 Opened main channel
+. 2021-11-29 17:08:16.699 Started a shell/command
+< 2021-11-29 17:08:16.699 Script: Authenticated.
+. 2021-11-29 17:08:16.699 --------------------------------------------------------------------------
+. 2021-11-29 17:08:16.699 Using SFTP protocol.
+. 2021-11-29 17:08:16.699 Doing startup conversation with host.
+< 2021-11-29 17:08:16.699 Script: Starting the session...
+> 2021-11-29 17:08:16.701 Type: SSH_FXP_INIT, Size: 5, Number: -1
+< 2021-11-29 17:08:17.287 Type: SSH_FXP_VERSION, Size: 150, Number: -1
+. 2021-11-29 17:08:17.287 SFTP version 3 negotiated.
+. 2021-11-29 17:08:17.287 Unknown server extension posix-rename@openssh.com="1"
+. 2021-11-29 17:08:17.287 Supports statvfs@openssh.com extension version "2"
+. 2021-11-29 17:08:17.287 Unknown server extension fstatvfs@openssh.com="2"
+. 2021-11-29 17:08:17.287 Supports hardlink@openssh.com extension version "1"
+. 2021-11-29 17:08:17.287 Unknown server extension fsync@openssh.com="1"
+. 2021-11-29 17:08:17.287 We believe the server has signed timestamps bug
+. 2021-11-29 17:08:17.287 We will use UTF-8 strings until server sends an invalid UTF-8 string as with SFTP version 3 and older UTF-8 strings are not mandatory
+. 2021-11-29 17:08:17.287 Limiting packet size to OpenSSH sftp-server limit of 262148 bytes
+. 2021-11-29 17:08:17.287 Getting current directory name.
+. 2021-11-29 17:08:17.287 Getting real path for '.'
+> 2021-11-29 17:08:17.287 Type: SSH_FXP_REALPATH, Size: 10, Number: 16
+< 2021-11-29 17:08:17.311 Type: SSH_FXP_NAME, Size: 41, Number: 16
+. 2021-11-29 17:08:17.311 Real path is '/home/qook'
+. 2021-11-29 17:08:17.311 Startup conversation with host finished.
+< 2021-11-29 17:08:17.311 Script: Session started.
+< 2021-11-29 17:08:17.311 Script: Active session: [1] qook@10.193.14.13
+> 2021-11-29 17:08:17.312 Script: cd /home/qook/app/qook/tm-test/
+. 2021-11-29 17:08:17.312 Changing directory to "/home/qook/app/qook/tm-test/".
+. 2021-11-29 17:08:17.312 Getting real path for '/home/qook/app/qook/tm-test/'
+> 2021-11-29 17:08:17.312 Type: SSH_FXP_REALPATH, Size: 37, Number: 272
+< 2021-11-29 17:08:17.334 Type: SSH_FXP_NAME, Size: 75, Number: 272
+. 2021-11-29 17:08:17.334 Real path is '/home/qook/app/qook/tm-test'
+. 2021-11-29 17:08:17.334 Trying to open directory "/home/qook/app/qook/tm-test".
+> 2021-11-29 17:08:17.334 Type: SSH_FXP_LSTAT, Size: 36, Number: 519
+< 2021-11-29 17:08:17.358 Type: SSH_FXP_ATTRS, Size: 37, Number: 519
+. 2021-11-29 17:08:17.358 Getting current directory name.
+< 2021-11-29 17:08:17.358 Script: /home/qook/app/qook/tm-test
+> 2021-11-29 17:08:17.359 Script: rm *.js
+. 2021-11-29 17:08:17.359 Listing directory "/home/qook/app/qook/tm-test".
+> 2021-11-29 17:08:17.359 Type: SSH_FXP_OPENDIR, Size: 36, Number: 779
+< 2021-11-29 17:08:17.382 Type: SSH_FXP_HANDLE, Size: 13, Number: 779
+> 2021-11-29 17:08:17.382 Type: SSH_FXP_READDIR, Size: 13, Number: 1036
+< 2021-11-29 17:08:17.411 Type: SSH_FXP_NAME, Size: 1223, Number: 1036
+> 2021-11-29 17:08:17.411 Type: SSH_FXP_READDIR, Size: 13, Number: 1292
+< 2021-11-29 17:08:17.436 Type: SSH_FXP_STATUS, Size: 28, Number: 1292
+< 2021-11-29 17:08:17.436 Status code: 1
+> 2021-11-29 17:08:17.436 Type: SSH_FXP_CLOSE, Size: 13, Number: 1540
+. 2021-11-29 17:08:17.436 .;d;0;2021-11-29T16:01:26.000Z;3;"qook" [1006];"apache" [48];rwxrwxr-x;0
+. 2021-11-29 17:08:17.436 ..;d;0;2021-11-11T15:40:45.000Z;3;"qook" [1006];"apache" [48];rwsrwsr-x;0
+. 2021-11-29 17:08:17.436 css;d;0;2021-09-30T08:41:29.000Z;3;"qook" [1006];"qook" [1007];rwxrwxr-x;0
+. 2021-11-29 17:08:17.436 lib;d;0;2021-06-11T14:56:25.000Z;3;"qook" [1006];"qook" [1007];rwxrwxr-x;0
+. 2021-11-29 17:08:17.436 manifest;d;0;2021-06-11T14:56:25.000Z;3;"qook" [1006];"qook" [1007];rwxrwxr-x;0
+. 2021-11-29 17:08:17.436 ui;d;0;2021-06-11T14:56:27.000Z;3;"qook" [1006];"qook" [1007];rwxrwxr-x;0
+. 2021-11-29 17:08:17.436 index.html;-;736;2021-11-29T16:01:28.000Z;3;"qook" [1006];"qook" [1007];rw-rw-r--;0
+. 2021-11-29 17:08:17.436 favicon.png;-;6105;2021-11-11T15:40:15.000Z;3;"qook" [1006];"qook" [1007];rw-rw-r--;0
+. 2021-11-29 17:08:17.436 TM.min.js;-;6157918;2021-11-29T16:01:20.000Z;3;"qook" [1006];"qook" [1007];rw-rw-r--;0
+. 2021-11-29 17:08:17.436 TM_20211129_170113.js;-;6917583;2021-11-29T16:01:22.000Z;3;"qook" [1006];"qook" [1007];rw-rw-r--;0
+. 2021-11-29 17:08:17.436 TM.js.map;-;787758;2021-11-29T16:01:26.000Z;3;"qook" [1006];"qook" [1007];rw-rw-r--;0
+. 2021-11-29 17:08:17.436 Deleting file "TM.min.js".
+> 2021-11-29 17:08:17.436 Type: SSH_FXP_REMOVE, Size: 46, Number: 1805
+< 2021-11-29 17:08:17.470 Type: SSH_FXP_STATUS, Size: 24, Number: 1540
+. 2021-11-29 17:08:17.470 Discarding reserved response
+< 2021-11-29 17:08:17.470 Type: SSH_FXP_STATUS, Size: 24, Number: 1805
+< 2021-11-29 17:08:17.470 Status code: 0
+< 2021-11-29 17:08:17.470 Script: TM.min.js
+. 2021-11-29 17:08:17.470 Deleting file "TM_20211129_170113.js".
+> 2021-11-29 17:08:17.470 Type: SSH_FXP_REMOVE, Size: 58, Number: 2061
+< 2021-11-29 17:08:17.496 Type: SSH_FXP_STATUS, Size: 24, Number: 2061
+< 2021-11-29 17:08:17.496 Status code: 0
+< 2021-11-29 17:08:17.496 Script: TM_20211129_170113.js
+> 2021-11-29 17:08:17.496 Script: exit
+. 2021-11-29 17:08:17.496 Script: Exit code: 0
+. 2021-11-29 17:08:17.496 Closing connection.
+. 2021-11-29 17:08:17.496 Sending special code: 1
+. 2021-11-29 17:08:17.532 Session sent command exit status 0
+. 2021-11-29 17:08:17.532 Main session channel closed
+. 2021-11-29 17:08:17.532 All channels closed
+. 2021-11-29 17:08:17.748 --------------------------------------------------------------------------
+. 2021-11-29 17:08:17.749 WinSCP Version 5.19.4 (Build 11829 2021-10-24) (OS 10.0.19042 - Windows 10 Enterprise N)
+. 2021-11-29 17:08:17.749 Configuration: nul
+. 2021-11-29 17:08:17.749 Log level: Normal
+. 2021-11-29 17:08:17.749 Local account: SALT\bbaudry
+. 2021-11-29 17:08:17.749 Working directory: C:\_mesDocs\_git\TM
+. 2021-11-29 17:08:17.749 Process ID: 21832
+. 2021-11-29 17:08:17.775 Ancestor processes: WinSCP, cmd, fdbuild, FlashDevelop, explorer, ...
+. 2021-11-29 17:08:17.775 Command-line: "C:\_mesProgs\WinSCP\WinSCP.exe" /console=5.19.4 /consoleinstance=_13532_205 "/log=C:\_mesDocs\_git\TM\WinSCP.log" "/ini=nul" "/command" "open sftp://qook:***@10.193.14.13/ -hostkey=""ssh-rsa 2048 wS00k9P56QO60lm1NS8bO+nPtjNA0htnzu/XzCyhfQg=""" "lcd bin\" "cd /home/qook/app/qook/tm-test/" "put -nopreservetime *.js" "exit"
+. 2021-11-29 17:08:17.775 Time zone: Current: GMT+1, Standard: GMT+1 (W. Europe Standard Time), DST: GMT+2 (W. Europe Daylight Time), DST Start: 28.03.2021, DST End: 31.10.2021
+. 2021-11-29 17:08:17.776 Login time: Monday, 29 November 2021 17:08:17
+. 2021-11-29 17:08:17.776 --------------------------------------------------------------------------
+. 2021-11-29 17:08:17.776 Script: Retrospectively logging previous script records:
+> 2021-11-29 17:08:17.776 Script: open sftp://qook:***@10.193.14.13/ -hostkey="ssh-rsa 2048 wS00k9P56QO60lm1NS8bO+nPtjNA0htnzu/XzCyhfQg="
+. 2021-11-29 17:08:17.776 --------------------------------------------------------------------------
+. 2021-11-29 17:08:17.776 Session name: qook@10.193.14.13 (Ad-Hoc site)
+. 2021-11-29 17:08:17.776 Host name: 10.193.14.13 (Port: 22)
+. 2021-11-29 17:08:17.776 User name: qook (Password: Yes, Key file: No, Passphrase: No)
+. 2021-11-29 17:08:17.776 Tunnel: No
+. 2021-11-29 17:08:17.776 Transfer Protocol: SFTP
+. 2021-11-29 17:08:17.776 Ping type: Off, Ping interval: 30 sec; Timeout: 15 sec
+. 2021-11-29 17:08:17.776 Disable Nagle: No
+. 2021-11-29 17:08:17.776 Proxy: None
+. 2021-11-29 17:08:17.776 Send buffer: 262144
+. 2021-11-29 17:08:17.776 SSH protocol version: 2; Compression: No
+. 2021-11-29 17:08:17.776 Bypass authentication: No
+. 2021-11-29 17:08:17.776 Try agent: Yes; Agent forwarding: No; TIS/CryptoCard: No; KI: Yes; GSSAPI: Yes
+. 2021-11-29 17:08:17.776 GSSAPI: KEX: No; Forwarding: No; Libs: gssapi32,sspi,custom; Custom: 
+. 2021-11-29 17:08:17.776 Ciphers: aes,chacha20,blowfish,3des,WARN,arcfour,des; Ssh2DES: No
+. 2021-11-29 17:08:17.776 KEX: ecdh,dh-gex-sha1,dh-group14-sha1,rsa,WARN,dh-group1-sha1
+. 2021-11-29 17:08:17.776 SSH Bugs: Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto
+. 2021-11-29 17:08:17.776 Simple channel: Yes
+. 2021-11-29 17:08:17.776 Return code variable: Autodetect; Lookup user groups: Auto
+. 2021-11-29 17:08:17.776 Shell: default
+. 2021-11-29 17:08:17.776 EOL: LF, UTF: Auto
+. 2021-11-29 17:08:17.776 Clear aliases: Yes, Unset nat.vars: Yes, Resolve symlinks: Yes; Follow directory symlinks: No
+. 2021-11-29 17:08:17.776 LS: ls -la, Ign LS warn: Yes, Scp1 Comp: No; Exit code 1 is error: No
+. 2021-11-29 17:08:17.776 SFTP Bugs: Auto,Auto
+. 2021-11-29 17:08:17.776 SFTP Server: default
+. 2021-11-29 17:08:17.776 Local directory: default, Remote directory: home, Update: Yes, Cache: Yes
+. 2021-11-29 17:08:17.776 Cache directory changes: Yes, Permanent: Yes
+. 2021-11-29 17:08:17.776 Recycle bin: Delete to: No, Overwritten to: No, Bin path: 
+. 2021-11-29 17:08:17.776 DST mode: Unix
+. 2021-11-29 17:08:17.776 --------------------------------------------------------------------------
+< 2021-11-29 17:08:17.776 Script: Searching for host...
+. 2021-11-29 17:08:17.777 Looking up host "10.193.14.13" for SSH connection
+. 2021-11-29 17:08:17.777 Connecting to 10.193.14.13 port 22
+< 2021-11-29 17:08:17.798 Script: Connecting to host...
+. 2021-11-29 17:08:17.798 We claim version: SSH-2.0-WinSCP_release_5.19.4
+. 2021-11-29 17:08:17.892 Remote version: SSH-2.0-OpenSSH_7.4
+. 2021-11-29 17:08:17.892 Using SSH protocol version 2
+. 2021-11-29 17:08:17.893 Have a known host key of type rsa2
+. 2021-11-29 17:08:17.929 Doing ECDH key exchange with curve Curve25519 and hash SHA-256
+. 2021-11-29 17:08:17.999 Server also has ssh-ed25519/ecdsa-sha2-nistp256 host keys, but we don't know any of them
+. 2021-11-29 17:08:17.999 Host key fingerprint is:
+. 2021-11-29 17:08:17.999 ssh-rsa 2048 7e:cd:40:9e:ab:68:2a:63:3a:66:84:3b:b6:6c:3f:70 wS00k9P56QO60lm1NS8bO+nPtjNA0htnzu/XzCyhfQg=
+< 2021-11-29 17:08:17.999 Script: Authenticating...
+. 2021-11-29 17:08:17.999 Host key matches configured key fingerprint
+. 2021-11-29 17:08:18.000 Initialised AES-256 SDCTR (AES-NI accelerated) [aes256-ctr] outbound encryption
+. 2021-11-29 17:08:18.000 Initialised HMAC-SHA-256 outbound MAC algorithm
+. 2021-11-29 17:08:18.000 Initialised AES-256 SDCTR (AES-NI accelerated) [aes256-ctr] inbound encryption
+. 2021-11-29 17:08:18.000 Initialised HMAC-SHA-256 inbound MAC algorithm
+! 2021-11-29 17:08:18.023 Using username "qook".
+< 2021-11-29 17:08:18.023 Script: Using username "qook".
+. 2021-11-29 17:08:18.060 Server offered these authentication methods: publickey,gssapi-keyex,gssapi-with-mic,password
+. 2021-11-29 17:08:18.060 Using SSPI from SECUR32.DLL
+. 2021-11-29 17:08:18.060 Trying gssapi-with-mic...
+. 2021-11-29 17:08:18.060 Attempting GSSAPI authentication
+. 2021-11-29 17:08:18.086 GSSAPI authentication request refused
+. 2021-11-29 17:08:18.086 Server offered these authentication methods: publickey,gssapi-keyex,gssapi-with-mic,password
+. 2021-11-29 17:08:18.087 Prompt (password, "SSH password", <no instructions>, "&Password: ")
+. 2021-11-29 17:08:18.087 Using stored password.
+< 2021-11-29 17:08:18.087 Script: Authenticating with pre-entered password.
+. 2021-11-29 17:08:18.087 Sent password
+. 2021-11-29 17:08:18.195 Access granted
+. 2021-11-29 17:08:18.195 Opening main session channel
+. 2021-11-29 17:08:18.360 Opened main channel
+. 2021-11-29 17:08:18.415 Started a shell/command
+< 2021-11-29 17:08:18.415 Script: Authenticated.
+. 2021-11-29 17:08:18.415 --------------------------------------------------------------------------
+. 2021-11-29 17:08:18.415 Using SFTP protocol.
+. 2021-11-29 17:08:18.415 Doing startup conversation with host.
+< 2021-11-29 17:08:18.415 Script: Starting the session...
+> 2021-11-29 17:08:18.416 Type: SSH_FXP_INIT, Size: 5, Number: -1
+< 2021-11-29 17:08:18.518 Type: SSH_FXP_VERSION, Size: 150, Number: -1
+. 2021-11-29 17:08:18.518 SFTP version 3 negotiated.
+. 2021-11-29 17:08:18.518 Unknown server extension posix-rename@openssh.com="1"
+. 2021-11-29 17:08:18.518 Supports statvfs@openssh.com extension version "2"
+. 2021-11-29 17:08:18.518 Unknown server extension fstatvfs@openssh.com="2"
+. 2021-11-29 17:08:18.518 Supports hardlink@openssh.com extension version "1"
+. 2021-11-29 17:08:18.518 Unknown server extension fsync@openssh.com="1"
+. 2021-11-29 17:08:18.518 We believe the server has signed timestamps bug
+. 2021-11-29 17:08:18.518 We will use UTF-8 strings until server sends an invalid UTF-8 string as with SFTP version 3 and older UTF-8 strings are not mandatory
+. 2021-11-29 17:08:18.518 Limiting packet size to OpenSSH sftp-server limit of 262148 bytes
+. 2021-11-29 17:08:18.518 Getting current directory name.
+. 2021-11-29 17:08:18.518 Getting real path for '.'
+> 2021-11-29 17:08:18.518 Type: SSH_FXP_REALPATH, Size: 10, Number: 16
+< 2021-11-29 17:08:18.535 Type: SSH_FXP_NAME, Size: 41, Number: 16
+. 2021-11-29 17:08:18.535 Real path is '/home/qook'
+. 2021-11-29 17:08:18.535 Startup conversation with host finished.
+< 2021-11-29 17:08:18.535 Script: Session started.
+< 2021-11-29 17:08:18.535 Script: Active session: [1] qook@10.193.14.13
+> 2021-11-29 17:08:18.536 Script: lcd bin\
+< 2021-11-29 17:08:18.536 Script: C:\_mesDocs\_git\TM\bin
+> 2021-11-29 17:08:18.537 Script: cd /home/qook/app/qook/tm-test/
+. 2021-11-29 17:08:18.537 Changing directory to "/home/qook/app/qook/tm-test/".
+. 2021-11-29 17:08:18.537 Getting real path for '/home/qook/app/qook/tm-test/'
+> 2021-11-29 17:08:18.537 Type: SSH_FXP_REALPATH, Size: 37, Number: 272
+< 2021-11-29 17:08:18.554 Type: SSH_FXP_NAME, Size: 75, Number: 272
+. 2021-11-29 17:08:18.554 Real path is '/home/qook/app/qook/tm-test'
+. 2021-11-29 17:08:18.554 Trying to open directory "/home/qook/app/qook/tm-test".
+> 2021-11-29 17:08:18.554 Type: SSH_FXP_LSTAT, Size: 36, Number: 519
+< 2021-11-29 17:08:18.574 Type: SSH_FXP_ATTRS, Size: 37, Number: 519
+. 2021-11-29 17:08:18.574 Getting current directory name.
+< 2021-11-29 17:08:18.574 Script: /home/qook/app/qook/tm-test
+> 2021-11-29 17:08:18.574 Script: put -nopreservetime *.js
+. 2021-11-29 17:08:18.575 Copying 2 files/directories to remote directory "/home/qook/app/qook/tm-test" - total size: 13'075'667
+. 2021-11-29 17:08:18.575   PrTime: No; PrRO: No; Rght: rw-r--r--; PrR: No (No); FnCs: N; RIC: 0100; Resume: S (102400); CalcS: No; Mask: 
+. 2021-11-29 17:08:18.575   TM: B; ClAr: No; RemEOF: No; RemBOM: No; CPS: 0; NewerOnly: No; EncryptNewFiles: Yes; ExcludeHiddenFiles: No; ExcludeEmptyDirectories: No; InclM: ; ResumeL: 0
+. 2021-11-29 17:08:18.575   AscM: *.*html; *.htm; *.txt; *.php; *.php3; *.cgi; *.c; *.cpp; *.h; *.pas; *.bas; *.tex; *.pl; *.js; .htaccess; *.xtml; *.css; *.cfg; *.ini; *.sh; *.xml
+. 2021-11-29 17:08:18.575 File: 'TM.min.js' [2021-11-29T16:08:14.487Z] [6157988]
+. 2021-11-29 17:08:18.577 Copying "TM.min.js" to remote directory started.
+. 2021-11-29 17:08:18.577 Binary transfer mode selected.
+. 2021-11-29 17:08:18.577 Checking existence of file.
+> 2021-11-29 17:08:18.577 Type: SSH_FXP_LSTAT, Size: 46, Number: 775
+< 2021-11-29 17:08:18.596 Type: SSH_FXP_STATUS, Size: 29, Number: 775
+< 2021-11-29 17:08:18.597 Status code: 2
+. 2021-11-29 17:08:18.597 Checking existence of partially transferred file.
+> 2021-11-29 17:08:18.597 Type: SSH_FXP_LSTAT, Size: 55, Number: 1031
+< 2021-11-29 17:08:18.622 Type: SSH_FXP_STATUS, Size: 29, Number: 1031
+< 2021-11-29 17:08:18.623 Status code: 2
+. 2021-11-29 17:08:18.623 Opening remote file.
+> 2021-11-29 17:08:18.623 Type: SSH_FXP_OPEN, Size: 71, Number: 1283
+< 2021-11-29 17:08:18.644 Type: SSH_FXP_HANDLE, Size: 13, Number: 1283
+> 2021-11-29 17:08:18.644 Type: SSH_FXP_WRITE, Size: 32761, Number: 1798
+. 2021-11-29 17:08:18.789 Increasing send buffer from 262144 to 524288
+. 2021-11-29 17:08:20.801 357 skipped SSH_FXP_WRITE, SSH_FXP_READ, SSH_FXP_DATA and SSH_FXP_STATUS packets.
+> 2021-11-29 17:08:20.801 Type: SSH_FXP_CLOSE, Size: 13, Number: 50180
+< 2021-11-29 17:08:20.801 Type: SSH_FXP_STATUS, Size: 24, Number: 45062
+< 2021-11-29 17:08:20.801 Status code: 0
+< 2021-11-29 17:08:20.815 Type: SSH_FXP_STATUS, Size: 24, Number: 45318
+< 2021-11-29 17:08:20.815 Status code: 0
+< 2021-11-29 17:08:20.831 Type: SSH_FXP_STATUS, Size: 24, Number: 45574
+< 2021-11-29 17:08:20.831 Status code: 0
+< 2021-11-29 17:08:20.832 Type: SSH_FXP_STATUS, Size: 24, Number: 45830
+< 2021-11-29 17:08:20.832 Status code: 0
+< 2021-11-29 17:08:20.847 Type: SSH_FXP_STATUS, Size: 24, Number: 46086
+< 2021-11-29 17:08:20.847 Status code: 0
+< 2021-11-29 17:08:20.854 Type: SSH_FXP_STATUS, Size: 24, Number: 46342
+< 2021-11-29 17:08:20.854 Status code: 0
+< 2021-11-29 17:08:20.868 Type: SSH_FXP_STATUS, Size: 24, Number: 46598
+< 2021-11-29 17:08:20.868 Status code: 0
+< 2021-11-29 17:08:20.875 Type: SSH_FXP_STATUS, Size: 24, Number: 46854
+< 2021-11-29 17:08:20.875 Status code: 0
+< 2021-11-29 17:08:20.889 Type: SSH_FXP_STATUS, Size: 24, Number: 47110
+< 2021-11-29 17:08:20.889 Status code: 0
+< 2021-11-29 17:08:20.913 Type: SSH_FXP_STATUS, Size: 24, Number: 47366
+< 2021-11-29 17:08:20.913 Status code: 0
+< 2021-11-29 17:08:20.913 Type: SSH_FXP_STATUS, Size: 24, Number: 47622
+< 2021-11-29 17:08:20.913 Status code: 0
+< 2021-11-29 17:08:20.918 Type: SSH_FXP_STATUS, Size: 24, Number: 47878
+< 2021-11-29 17:08:20.918 Status code: 0
+< 2021-11-29 17:08:20.932 Type: SSH_FXP_STATUS, Size: 24, Number: 48134
+< 2021-11-29 17:08:20.933 Status code: 0
+< 2021-11-29 17:08:20.957 Type: SSH_FXP_STATUS, Size: 24, Number: 48390
+< 2021-11-29 17:08:20.957 Status code: 0
+< 2021-11-29 17:08:20.957 Type: SSH_FXP_STATUS, Size: 24, Number: 48646
+< 2021-11-29 17:08:20.957 Status code: 0
+< 2021-11-29 17:08:20.968 Type: SSH_FXP_STATUS, Size: 24, Number: 48902
+< 2021-11-29 17:08:20.968 Status code: 0
+< 2021-11-29 17:08:20.978 Type: SSH_FXP_STATUS, Size: 24, Number: 49158
+< 2021-11-29 17:08:20.978 Status code: 0
+< 2021-11-29 17:08:20.989 Type: SSH_FXP_STATUS, Size: 24, Number: 49414
+< 2021-11-29 17:08:20.989 Status code: 0
+< 2021-11-29 17:08:21.010 Type: SSH_FXP_STATUS, Size: 24, Number: 49670
+< 2021-11-29 17:08:21.010 Status code: 0
+< 2021-11-29 17:08:21.011 Type: SSH_FXP_STATUS, Size: 24, Number: 49926
+< 2021-11-29 17:08:21.011 Status code: 0
+< 2021-11-29 17:08:21.011 Type: SSH_FXP_STATUS, Size: 24, Number: 50180
+< 2021-11-29 17:08:21.011 Status code: 0
+> 2021-11-29 17:08:21.011 Type: SSH_FXP_RENAME, Size: 96, Number: 50450
+< 2021-11-29 17:08:21.038 Type: SSH_FXP_STATUS, Size: 24, Number: 50450
+< 2021-11-29 17:08:21.038 Status code: 0
+. 2021-11-29 17:08:21.038 Transfer done: 'TM.min.js' => '/home/qook/app/qook/tm-test/TM.min.js' [6157988]
+. 2021-11-29 17:08:21.039 File: 'TM_20211129_170814.js' [2021-11-29T16:08:04.881Z] [6917679]
+. 2021-11-29 17:08:21.076 Copying "TM_20211129_170814.js" to remote directory started.
+. 2021-11-29 17:08:21.076 Binary transfer mode selected.
+. 2021-11-29 17:08:21.076 Checking existence of file.
+> 2021-11-29 17:08:21.076 Type: SSH_FXP_LSTAT, Size: 58, Number: 50695
+< 2021-11-29 17:08:21.095 Type: SSH_FXP_STATUS, Size: 29, Number: 50695
+< 2021-11-29 17:08:21.095 Status code: 2
+. 2021-11-29 17:08:21.095 Checking existence of partially transferred file.
+> 2021-11-29 17:08:21.095 Type: SSH_FXP_LSTAT, Size: 67, Number: 50951
+< 2021-11-29 17:08:21.113 Type: SSH_FXP_STATUS, Size: 29, Number: 50951
+< 2021-11-29 17:08:21.114 Status code: 2
+. 2021-11-29 17:08:21.114 Opening remote file.
+> 2021-11-29 17:08:21.114 Type: SSH_FXP_OPEN, Size: 83, Number: 51203
+< 2021-11-29 17:08:21.131 Type: SSH_FXP_HANDLE, Size: 13, Number: 51203
+> 2021-11-29 17:08:21.131 Type: SSH_FXP_WRITE, Size: 32761, Number: 51718
+. 2021-11-29 17:08:23.250 405 skipped SSH_FXP_WRITE, SSH_FXP_READ, SSH_FXP_DATA and SSH_FXP_STATUS packets.
+> 2021-11-29 17:08:23.250 Type: SSH_FXP_CLOSE, Size: 13, Number: 105988
+< 2021-11-29 17:08:23.251 Type: SSH_FXP_STATUS, Size: 24, Number: 101382
+< 2021-11-29 17:08:23.251 Status code: 0
+< 2021-11-29 17:08:23.268 Type: SSH_FXP_STATUS, Size: 24, Number: 101638
+< 2021-11-29 17:08:23.268 Status code: 0
+< 2021-11-29 17:08:23.301 Type: SSH_FXP_STATUS, Size: 24, Number: 101894
+< 2021-11-29 17:08:23.301 Status code: 0
+< 2021-11-29 17:08:23.301 Type: SSH_FXP_STATUS, Size: 24, Number: 102150
+< 2021-11-29 17:08:23.301 Status code: 0
+< 2021-11-29 17:08:23.301 Type: SSH_FXP_STATUS, Size: 24, Number: 102406
+< 2021-11-29 17:08:23.301 Status code: 0
+< 2021-11-29 17:08:23.304 Type: SSH_FXP_STATUS, Size: 24, Number: 102662
+< 2021-11-29 17:08:23.304 Status code: 0
+< 2021-11-29 17:08:23.324 Type: SSH_FXP_STATUS, Size: 24, Number: 102918
+< 2021-11-29 17:08:23.324 Status code: 0
+< 2021-11-29 17:08:23.329 Type: SSH_FXP_STATUS, Size: 24, Number: 103174
+< 2021-11-29 17:08:23.329 Status code: 0
+< 2021-11-29 17:08:23.338 Type: SSH_FXP_STATUS, Size: 24, Number: 103430
+< 2021-11-29 17:08:23.338 Status code: 0
+< 2021-11-29 17:08:23.352 Type: SSH_FXP_STATUS, Size: 24, Number: 103686
+< 2021-11-29 17:08:23.352 Status code: 0
+< 2021-11-29 17:08:23.360 Type: SSH_FXP_STATUS, Size: 24, Number: 103942
+< 2021-11-29 17:08:23.360 Status code: 0
+< 2021-11-29 17:08:23.370 Type: SSH_FXP_STATUS, Size: 24, Number: 104198
+< 2021-11-29 17:08:23.370 Status code: 0
+< 2021-11-29 17:08:23.394 Type: SSH_FXP_STATUS, Size: 24, Number: 104454
+< 2021-11-29 17:08:23.394 Status code: 0
+< 2021-11-29 17:08:23.394 Type: SSH_FXP_STATUS, Size: 24, Number: 104710
+< 2021-11-29 17:08:23.394 Status code: 0
+< 2021-11-29 17:08:23.406 Type: SSH_FXP_STATUS, Size: 24, Number: 104966
+< 2021-11-29 17:08:23.406 Status code: 0
+< 2021-11-29 17:08:23.413 Type: SSH_FXP_STATUS, Size: 24, Number: 105222
+< 2021-11-29 17:08:23.413 Status code: 0
+< 2021-11-29 17:08:23.426 Type: SSH_FXP_STATUS, Size: 24, Number: 105478
+< 2021-11-29 17:08:23.426 Status code: 0
+< 2021-11-29 17:08:23.428 Type: SSH_FXP_STATUS, Size: 24, Number: 105734
+< 2021-11-29 17:08:23.428 Status code: 0
+< 2021-11-29 17:08:23.428 Type: SSH_FXP_STATUS, Size: 24, Number: 105988
+< 2021-11-29 17:08:23.428 Status code: 0
+> 2021-11-29 17:08:23.428 Type: SSH_FXP_RENAME, Size: 120, Number: 106258
+< 2021-11-29 17:08:23.448 Type: SSH_FXP_STATUS, Size: 24, Number: 106258
+< 2021-11-29 17:08:23.448 Status code: 0
+. 2021-11-29 17:08:23.448 Transfer done: 'TM_20211129_170814.js' => '/home/qook/app/qook/tm-test/TM_20211129_170814.js' [6917679]
+. 2021-11-29 17:08:23.448 Copying finished: Transferred: 13'075'667, Elapsed: 0:00:04, CPS: 2'718'976/s
+> 2021-11-29 17:08:23.449 Script: exit
+. 2021-11-29 17:08:23.449 Script: Exit code: 0
+. 2021-11-29 17:08:23.449 Closing connection.
+. 2021-11-29 17:08:23.449 Sending special code: 1
+. 2021-11-29 17:08:23.476 Session sent command exit status 0
+. 2021-11-29 17:08:23.477 Main session channel closed
+. 2021-11-29 17:08:23.477 All channels closed
+. 2021-11-29 17:08:23.701 --------------------------------------------------------------------------
+. 2021-11-29 17:08:23.702 WinSCP Version 5.19.4 (Build 11829 2021-10-24) (OS 10.0.19042 - Windows 10 Enterprise N)
+. 2021-11-29 17:08:23.702 Configuration: nul
+. 2021-11-29 17:08:23.702 Log level: Normal
+. 2021-11-29 17:08:23.702 Local account: SALT\bbaudry
+. 2021-11-29 17:08:23.702 Working directory: C:\_mesDocs\_git\TM
+. 2021-11-29 17:08:23.702 Process ID: 45048
+. 2021-11-29 17:08:23.727 Ancestor processes: WinSCP, cmd, fdbuild, FlashDevelop, explorer, ...
+. 2021-11-29 17:08:23.727 Command-line: "C:\_mesProgs\WinSCP\WinSCP.exe" /console=5.19.4 /consoleinstance=_868_770 "/log=C:\_mesDocs\_git\TM\WinSCP.log" "/ini=nul" "/command" "open sftp://qook:***@10.193.14.13/ -hostkey=""ssh-rsa 2048 wS00k9P56QO60lm1NS8bO+nPtjNA0htnzu/XzCyhfQg=""" "cd /home/qook/app/qook/tm-test" "rm *.js.map" "exit"
+. 2021-11-29 17:08:23.727 Time zone: Current: GMT+1, Standard: GMT+1 (W. Europe Standard Time), DST: GMT+2 (W. Europe Daylight Time), DST Start: 28.03.2021, DST End: 31.10.2021
+. 2021-11-29 17:08:23.727 Login time: Monday, 29 November 2021 17:08:23
+. 2021-11-29 17:08:23.727 --------------------------------------------------------------------------
+. 2021-11-29 17:08:23.727 Script: Retrospectively logging previous script records:
+> 2021-11-29 17:08:23.727 Script: open sftp://qook:***@10.193.14.13/ -hostkey="ssh-rsa 2048 wS00k9P56QO60lm1NS8bO+nPtjNA0htnzu/XzCyhfQg="
+. 2021-11-29 17:08:23.727 --------------------------------------------------------------------------
+. 2021-11-29 17:08:23.727 Session name: qook@10.193.14.13 (Ad-Hoc site)
+. 2021-11-29 17:08:23.727 Host name: 10.193.14.13 (Port: 22)
+. 2021-11-29 17:08:23.727 User name: qook (Password: Yes, Key file: No, Passphrase: No)
+. 2021-11-29 17:08:23.727 Tunnel: No
+. 2021-11-29 17:08:23.727 Transfer Protocol: SFTP
+. 2021-11-29 17:08:23.727 Ping type: Off, Ping interval: 30 sec; Timeout: 15 sec
+. 2021-11-29 17:08:23.728 Disable Nagle: No
+. 2021-11-29 17:08:23.728 Proxy: None
+. 2021-11-29 17:08:23.728 Send buffer: 262144
+. 2021-11-29 17:08:23.728 SSH protocol version: 2; Compression: No
+. 2021-11-29 17:08:23.728 Bypass authentication: No
+. 2021-11-29 17:08:23.728 Try agent: Yes; Agent forwarding: No; TIS/CryptoCard: No; KI: Yes; GSSAPI: Yes
+. 2021-11-29 17:08:23.728 GSSAPI: KEX: No; Forwarding: No; Libs: gssapi32,sspi,custom; Custom: 
+. 2021-11-29 17:08:23.728 Ciphers: aes,chacha20,blowfish,3des,WARN,arcfour,des; Ssh2DES: No
+. 2021-11-29 17:08:23.728 KEX: ecdh,dh-gex-sha1,dh-group14-sha1,rsa,WARN,dh-group1-sha1
+. 2021-11-29 17:08:23.728 SSH Bugs: Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto
+. 2021-11-29 17:08:23.728 Simple channel: Yes
+. 2021-11-29 17:08:23.728 Return code variable: Autodetect; Lookup user groups: Auto
+. 2021-11-29 17:08:23.728 Shell: default
+. 2021-11-29 17:08:23.728 EOL: LF, UTF: Auto
+. 2021-11-29 17:08:23.728 Clear aliases: Yes, Unset nat.vars: Yes, Resolve symlinks: Yes; Follow directory symlinks: No
+. 2021-11-29 17:08:23.728 LS: ls -la, Ign LS warn: Yes, Scp1 Comp: No; Exit code 1 is error: No
+. 2021-11-29 17:08:23.728 SFTP Bugs: Auto,Auto
+. 2021-11-29 17:08:23.728 SFTP Server: default
+. 2021-11-29 17:08:23.728 Local directory: default, Remote directory: home, Update: Yes, Cache: Yes
+. 2021-11-29 17:08:23.728 Cache directory changes: Yes, Permanent: Yes
+. 2021-11-29 17:08:23.728 Recycle bin: Delete to: No, Overwritten to: No, Bin path: 
+. 2021-11-29 17:08:23.728 DST mode: Unix
+. 2021-11-29 17:08:23.728 --------------------------------------------------------------------------
+< 2021-11-29 17:08:23.728 Script: Searching for host...
+. 2021-11-29 17:08:23.729 Looking up host "10.193.14.13" for SSH connection
+. 2021-11-29 17:08:23.729 Connecting to 10.193.14.13 port 22
+< 2021-11-29 17:08:23.749 Script: Connecting to host...
+. 2021-11-29 17:08:23.749 We claim version: SSH-2.0-WinSCP_release_5.19.4
+. 2021-11-29 17:08:23.869 Remote version: SSH-2.0-OpenSSH_7.4
+. 2021-11-29 17:08:23.869 Using SSH protocol version 2
+. 2021-11-29 17:08:23.869 Have a known host key of type rsa2
+. 2021-11-29 17:08:23.895 Doing ECDH key exchange with curve Curve25519 and hash SHA-256
+. 2021-11-29 17:08:23.963 Server also has ssh-ed25519/ecdsa-sha2-nistp256 host keys, but we don't know any of them
+. 2021-11-29 17:08:23.963 Host key fingerprint is:
+. 2021-11-29 17:08:23.963 ssh-rsa 2048 7e:cd:40:9e:ab:68:2a:63:3a:66:84:3b:b6:6c:3f:70 wS00k9P56QO60lm1NS8bO+nPtjNA0htnzu/XzCyhfQg=
+< 2021-11-29 17:08:23.963 Script: Authenticating...
+. 2021-11-29 17:08:23.964 Host key matches configured key fingerprint
+. 2021-11-29 17:08:23.964 Initialised AES-256 SDCTR (AES-NI accelerated) [aes256-ctr] outbound encryption
+. 2021-11-29 17:08:23.964 Initialised HMAC-SHA-256 outbound MAC algorithm
+. 2021-11-29 17:08:23.964 Initialised AES-256 SDCTR (AES-NI accelerated) [aes256-ctr] inbound encryption
+. 2021-11-29 17:08:23.964 Initialised HMAC-SHA-256 inbound MAC algorithm
+! 2021-11-29 17:08:23.983 Using username "qook".
+< 2021-11-29 17:08:23.983 Script: Using username "qook".
+. 2021-11-29 17:08:24.017 Server offered these authentication methods: publickey,gssapi-keyex,gssapi-with-mic,password
+. 2021-11-29 17:08:24.017 Using SSPI from SECUR32.DLL
+. 2021-11-29 17:08:24.017 Trying gssapi-with-mic...
+. 2021-11-29 17:08:24.017 Attempting GSSAPI authentication
+. 2021-11-29 17:08:24.044 GSSAPI authentication request refused
+. 2021-11-29 17:08:24.044 Server offered these authentication methods: publickey,gssapi-keyex,gssapi-with-mic,password
+. 2021-11-29 17:08:24.044 Prompt (password, "SSH password", <no instructions>, "&Password: ")
+. 2021-11-29 17:08:24.044 Using stored password.
+< 2021-11-29 17:08:24.044 Script: Authenticating with pre-entered password.
+. 2021-11-29 17:08:24.044 Sent password
+. 2021-11-29 17:08:24.202 Access granted
+. 2021-11-29 17:08:24.202 Opening main session channel
+. 2021-11-29 17:08:24.302 Opened main channel
+. 2021-11-29 17:08:24.344 Started a shell/command
+< 2021-11-29 17:08:24.344 Script: Authenticated.
+. 2021-11-29 17:08:24.344 --------------------------------------------------------------------------
+. 2021-11-29 17:08:24.344 Using SFTP protocol.
+. 2021-11-29 17:08:24.345 Doing startup conversation with host.
+< 2021-11-29 17:08:24.345 Script: Starting the session...
+> 2021-11-29 17:08:24.345 Type: SSH_FXP_INIT, Size: 5, Number: -1
+< 2021-11-29 17:08:24.900 Type: SSH_FXP_VERSION, Size: 150, Number: -1
+. 2021-11-29 17:08:24.900 SFTP version 3 negotiated.
+. 2021-11-29 17:08:24.900 Unknown server extension posix-rename@openssh.com="1"
+. 2021-11-29 17:08:24.900 Supports statvfs@openssh.com extension version "2"
+. 2021-11-29 17:08:24.900 Unknown server extension fstatvfs@openssh.com="2"
+. 2021-11-29 17:08:24.900 Supports hardlink@openssh.com extension version "1"
+. 2021-11-29 17:08:24.900 Unknown server extension fsync@openssh.com="1"
+. 2021-11-29 17:08:24.900 We believe the server has signed timestamps bug
+. 2021-11-29 17:08:24.900 We will use UTF-8 strings until server sends an invalid UTF-8 string as with SFTP version 3 and older UTF-8 strings are not mandatory
+. 2021-11-29 17:08:24.900 Limiting packet size to OpenSSH sftp-server limit of 262148 bytes
+. 2021-11-29 17:08:24.900 Getting current directory name.
+. 2021-11-29 17:08:24.900 Getting real path for '.'
+> 2021-11-29 17:08:24.900 Type: SSH_FXP_REALPATH, Size: 10, Number: 16
+< 2021-11-29 17:08:24.927 Type: SSH_FXP_NAME, Size: 41, Number: 16
+. 2021-11-29 17:08:24.927 Real path is '/home/qook'
+. 2021-11-29 17:08:24.927 Startup conversation with host finished.
+< 2021-11-29 17:08:24.927 Script: Session started.
+< 2021-11-29 17:08:24.927 Script: Active session: [1] qook@10.193.14.13
+> 2021-11-29 17:08:24.928 Script: cd /home/qook/app/qook/tm-test
+. 2021-11-29 17:08:24.928 Changing directory to "/home/qook/app/qook/tm-test".
+. 2021-11-29 17:08:24.928 Getting real path for '/home/qook/app/qook/tm-test'
+> 2021-11-29 17:08:24.928 Type: SSH_FXP_REALPATH, Size: 36, Number: 272
+< 2021-11-29 17:08:24.946 Type: SSH_FXP_NAME, Size: 75, Number: 272
+. 2021-11-29 17:08:24.946 Real path is '/home/qook/app/qook/tm-test'
+. 2021-11-29 17:08:24.946 Trying to open directory "/home/qook/app/qook/tm-test".
+> 2021-11-29 17:08:24.946 Type: SSH_FXP_LSTAT, Size: 36, Number: 519
+< 2021-11-29 17:08:24.969 Type: SSH_FXP_ATTRS, Size: 37, Number: 519
+. 2021-11-29 17:08:24.969 Getting current directory name.
+< 2021-11-29 17:08:24.969 Script: /home/qook/app/qook/tm-test
+> 2021-11-29 17:08:24.969 Script: rm *.js.map
+. 2021-11-29 17:08:24.969 Listing directory "/home/qook/app/qook/tm-test".
+> 2021-11-29 17:08:24.969 Type: SSH_FXP_OPENDIR, Size: 36, Number: 779
+< 2021-11-29 17:08:25.003 Type: SSH_FXP_HANDLE, Size: 13, Number: 779
+> 2021-11-29 17:08:25.003 Type: SSH_FXP_READDIR, Size: 13, Number: 1036
+< 2021-11-29 17:08:25.024 Type: SSH_FXP_NAME, Size: 1223, Number: 1036
+> 2021-11-29 17:08:25.024 Type: SSH_FXP_READDIR, Size: 13, Number: 1292
+< 2021-11-29 17:08:25.048 Type: SSH_FXP_STATUS, Size: 28, Number: 1292
+< 2021-11-29 17:08:25.048 Status code: 1
+> 2021-11-29 17:08:25.048 Type: SSH_FXP_CLOSE, Size: 13, Number: 1540
+. 2021-11-29 17:08:25.048 .;d;0;2021-11-29T16:08:23.000Z;3;"qook" [1006];"apache" [48];rwxrwxr-x;0
+. 2021-11-29 17:08:25.048 ..;d;0;2021-11-11T15:40:45.000Z;3;"qook" [1006];"apache" [48];rwsrwsr-x;0
+. 2021-11-29 17:08:25.048 css;d;0;2021-09-30T08:41:29.000Z;3;"qook" [1006];"qook" [1007];rwxrwxr-x;0
+. 2021-11-29 17:08:25.048 lib;d;0;2021-06-11T14:56:25.000Z;3;"qook" [1006];"qook" [1007];rwxrwxr-x;0
+. 2021-11-29 17:08:25.048 manifest;d;0;2021-06-11T14:56:25.000Z;3;"qook" [1006];"qook" [1007];rwxrwxr-x;0
+. 2021-11-29 17:08:25.048 ui;d;0;2021-06-11T14:56:27.000Z;3;"qook" [1006];"qook" [1007];rwxrwxr-x;0
+. 2021-11-29 17:08:25.048 index.html;-;736;2021-11-29T16:01:28.000Z;3;"qook" [1006];"qook" [1007];rw-rw-r--;0
+. 2021-11-29 17:08:25.048 favicon.png;-;6105;2021-11-11T15:40:15.000Z;3;"qook" [1006];"qook" [1007];rw-rw-r--;0
+. 2021-11-29 17:08:25.048 TM.js.map;-;787758;2021-11-29T16:01:26.000Z;3;"qook" [1006];"qook" [1007];rw-rw-r--;0
+. 2021-11-29 17:08:25.048 TM.min.js;-;6157988;2021-11-29T16:08:21.000Z;3;"qook" [1006];"qook" [1007];rw-rw-r--;0
+. 2021-11-29 17:08:25.048 TM_20211129_170814.js;-;6917679;2021-11-29T16:08:23.000Z;3;"qook" [1006];"qook" [1007];rw-rw-r--;0
+. 2021-11-29 17:08:25.048 Deleting file "TM.js.map".
+> 2021-11-29 17:08:25.048 Type: SSH_FXP_REMOVE, Size: 46, Number: 1805
+< 2021-11-29 17:08:25.070 Type: SSH_FXP_STATUS, Size: 24, Number: 1540
+. 2021-11-29 17:08:25.070 Discarding reserved response
+< 2021-11-29 17:08:25.070 Type: SSH_FXP_STATUS, Size: 24, Number: 1805
+< 2021-11-29 17:08:25.070 Status code: 0
+< 2021-11-29 17:08:25.070 Script: TM.js.map
+> 2021-11-29 17:08:25.071 Script: exit
+. 2021-11-29 17:08:25.071 Script: Exit code: 0
+. 2021-11-29 17:08:25.071 Closing connection.
+. 2021-11-29 17:08:25.071 Sending special code: 1
+. 2021-11-29 17:08:25.096 Session sent command exit status 0
+. 2021-11-29 17:08:25.096 Main session channel closed
+. 2021-11-29 17:08:25.096 All channels closed
+. 2021-11-29 17:08:25.328 --------------------------------------------------------------------------
+. 2021-11-29 17:08:25.328 WinSCP Version 5.19.4 (Build 11829 2021-10-24) (OS 10.0.19042 - Windows 10 Enterprise N)
+. 2021-11-29 17:08:25.328 Configuration: nul
+. 2021-11-29 17:08:25.329 Log level: Normal
+. 2021-11-29 17:08:25.329 Local account: SALT\bbaudry
+. 2021-11-29 17:08:25.329 Working directory: C:\_mesDocs\_git\TM
+. 2021-11-29 17:08:25.329 Process ID: 43040
+. 2021-11-29 17:08:25.355 Ancestor processes: WinSCP, cmd, fdbuild, FlashDevelop, explorer, ...
+. 2021-11-29 17:08:25.355 Command-line: "C:\_mesProgs\WinSCP\WinSCP.exe" /console=5.19.4 /consoleinstance=_32956_625 "/log=C:\_mesDocs\_git\TM\WinSCP.log" "/ini=nul" "/command" "open sftp://qook:***@10.193.14.13/ -hostkey=""ssh-rsa 2048 wS00k9P56QO60lm1NS8bO+nPtjNA0htnzu/XzCyhfQg=""" "lcd bin\" "cd /home/qook/app/qook/tm-test" "put -nopreservetime *.js.map" "exit"
+. 2021-11-29 17:08:25.355 Time zone: Current: GMT+1, Standard: GMT+1 (W. Europe Standard Time), DST: GMT+2 (W. Europe Daylight Time), DST Start: 28.03.2021, DST End: 31.10.2021
+. 2021-11-29 17:08:25.355 Login time: Monday, 29 November 2021 17:08:25
+. 2021-11-29 17:08:25.355 --------------------------------------------------------------------------
+. 2021-11-29 17:08:25.355 Script: Retrospectively logging previous script records:
+> 2021-11-29 17:08:25.355 Script: open sftp://qook:***@10.193.14.13/ -hostkey="ssh-rsa 2048 wS00k9P56QO60lm1NS8bO+nPtjNA0htnzu/XzCyhfQg="
+. 2021-11-29 17:08:25.355 --------------------------------------------------------------------------
+. 2021-11-29 17:08:25.355 Session name: qook@10.193.14.13 (Ad-Hoc site)
+. 2021-11-29 17:08:25.355 Host name: 10.193.14.13 (Port: 22)
+. 2021-11-29 17:08:25.355 User name: qook (Password: Yes, Key file: No, Passphrase: No)
+. 2021-11-29 17:08:25.355 Tunnel: No
+. 2021-11-29 17:08:25.355 Transfer Protocol: SFTP
+. 2021-11-29 17:08:25.355 Ping type: Off, Ping interval: 30 sec; Timeout: 15 sec
+. 2021-11-29 17:08:25.355 Disable Nagle: No
+. 2021-11-29 17:08:25.355 Proxy: None
+. 2021-11-29 17:08:25.355 Send buffer: 262144
+. 2021-11-29 17:08:25.355 SSH protocol version: 2; Compression: No
+. 2021-11-29 17:08:25.355 Bypass authentication: No
+. 2021-11-29 17:08:25.355 Try agent: Yes; Agent forwarding: No; TIS/CryptoCard: No; KI: Yes; GSSAPI: Yes
+. 2021-11-29 17:08:25.355 GSSAPI: KEX: No; Forwarding: No; Libs: gssapi32,sspi,custom; Custom: 
+. 2021-11-29 17:08:25.355 Ciphers: aes,chacha20,blowfish,3des,WARN,arcfour,des; Ssh2DES: No
+. 2021-11-29 17:08:25.355 KEX: ecdh,dh-gex-sha1,dh-group14-sha1,rsa,WARN,dh-group1-sha1
+. 2021-11-29 17:08:25.355 SSH Bugs: Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto
+. 2021-11-29 17:08:25.355 Simple channel: Yes
+. 2021-11-29 17:08:25.355 Return code variable: Autodetect; Lookup user groups: Auto
+. 2021-11-29 17:08:25.355 Shell: default
+. 2021-11-29 17:08:25.355 EOL: LF, UTF: Auto
+. 2021-11-29 17:08:25.355 Clear aliases: Yes, Unset nat.vars: Yes, Resolve symlinks: Yes; Follow directory symlinks: No
+. 2021-11-29 17:08:25.356 LS: ls -la, Ign LS warn: Yes, Scp1 Comp: No; Exit code 1 is error: No
+. 2021-11-29 17:08:25.356 SFTP Bugs: Auto,Auto
+. 2021-11-29 17:08:25.356 SFTP Server: default
+. 2021-11-29 17:08:25.356 Local directory: default, Remote directory: home, Update: Yes, Cache: Yes
+. 2021-11-29 17:08:25.356 Cache directory changes: Yes, Permanent: Yes
+. 2021-11-29 17:08:25.356 Recycle bin: Delete to: No, Overwritten to: No, Bin path: 
+. 2021-11-29 17:08:25.356 DST mode: Unix
+. 2021-11-29 17:08:25.356 --------------------------------------------------------------------------
+< 2021-11-29 17:08:25.356 Script: Searching for host...
+. 2021-11-29 17:08:25.356 Looking up host "10.193.14.13" for SSH connection
+. 2021-11-29 17:08:25.356 Connecting to 10.193.14.13 port 22
+< 2021-11-29 17:08:25.376 Script: Connecting to host...
+. 2021-11-29 17:08:25.376 We claim version: SSH-2.0-WinSCP_release_5.19.4
+. 2021-11-29 17:08:25.454 Remote version: SSH-2.0-OpenSSH_7.4
+. 2021-11-29 17:08:25.454 Using SSH protocol version 2
+. 2021-11-29 17:08:25.455 Have a known host key of type rsa2
+. 2021-11-29 17:08:25.518 Doing ECDH key exchange with curve Curve25519 and hash SHA-256
+. 2021-11-29 17:08:25.598 Server also has ssh-ed25519/ecdsa-sha2-nistp256 host keys, but we don't know any of them
+. 2021-11-29 17:08:25.598 Host key fingerprint is:
+. 2021-11-29 17:08:25.598 ssh-rsa 2048 7e:cd:40:9e:ab:68:2a:63:3a:66:84:3b:b6:6c:3f:70 wS00k9P56QO60lm1NS8bO+nPtjNA0htnzu/XzCyhfQg=
+< 2021-11-29 17:08:25.598 Script: Authenticating...
+. 2021-11-29 17:08:25.598 Host key matches configured key fingerprint
+. 2021-11-29 17:08:25.598 Initialised AES-256 SDCTR (AES-NI accelerated) [aes256-ctr] outbound encryption
+. 2021-11-29 17:08:25.598 Initialised HMAC-SHA-256 outbound MAC algorithm
+. 2021-11-29 17:08:25.598 Initialised AES-256 SDCTR (AES-NI accelerated) [aes256-ctr] inbound encryption
+. 2021-11-29 17:08:25.598 Initialised HMAC-SHA-256 inbound MAC algorithm
+! 2021-11-29 17:08:25.619 Using username "qook".
+< 2021-11-29 17:08:25.619 Script: Using username "qook".
+. 2021-11-29 17:08:25.661 Server offered these authentication methods: publickey,gssapi-keyex,gssapi-with-mic,password
+. 2021-11-29 17:08:25.661 Using SSPI from SECUR32.DLL
+. 2021-11-29 17:08:25.661 Trying gssapi-with-mic...
+. 2021-11-29 17:08:25.661 Attempting GSSAPI authentication
+. 2021-11-29 17:08:25.687 GSSAPI authentication request refused
+. 2021-11-29 17:08:25.687 Server offered these authentication methods: publickey,gssapi-keyex,gssapi-with-mic,password
+. 2021-11-29 17:08:25.687 Prompt (password, "SSH password", <no instructions>, "&Password: ")
+. 2021-11-29 17:08:25.687 Using stored password.
+< 2021-11-29 17:08:25.687 Script: Authenticating with pre-entered password.
+. 2021-11-29 17:08:25.687 Sent password
+. 2021-11-29 17:08:25.849 Access granted
+. 2021-11-29 17:08:25.849 Opening main session channel
+. 2021-11-29 17:08:25.945 Opened main channel
+. 2021-11-29 17:08:25.996 Started a shell/command
+< 2021-11-29 17:08:25.996 Script: Authenticated.
+. 2021-11-29 17:08:25.997 --------------------------------------------------------------------------
+. 2021-11-29 17:08:25.998 Using SFTP protocol.
+. 2021-11-29 17:08:25.998 Doing startup conversation with host.
+< 2021-11-29 17:08:25.998 Script: Starting the session...
+> 2021-11-29 17:08:25.998 Type: SSH_FXP_INIT, Size: 5, Number: -1
+< 2021-11-29 17:08:26.848 Type: SSH_FXP_VERSION, Size: 150, Number: -1
+. 2021-11-29 17:08:26.848 SFTP version 3 negotiated.
+. 2021-11-29 17:08:26.848 Unknown server extension posix-rename@openssh.com="1"
+. 2021-11-29 17:08:26.849 Supports statvfs@openssh.com extension version "2"
+. 2021-11-29 17:08:26.849 Unknown server extension fstatvfs@openssh.com="2"
+. 2021-11-29 17:08:26.849 Supports hardlink@openssh.com extension version "1"
+. 2021-11-29 17:08:26.849 Unknown server extension fsync@openssh.com="1"
+. 2021-11-29 17:08:26.849 We believe the server has signed timestamps bug
+. 2021-11-29 17:08:26.849 We will use UTF-8 strings until server sends an invalid UTF-8 string as with SFTP version 3 and older UTF-8 strings are not mandatory
+. 2021-11-29 17:08:26.849 Limiting packet size to OpenSSH sftp-server limit of 262148 bytes
+. 2021-11-29 17:08:26.849 Getting current directory name.
+. 2021-11-29 17:08:26.849 Getting real path for '.'
+> 2021-11-29 17:08:26.849 Type: SSH_FXP_REALPATH, Size: 10, Number: 16
+< 2021-11-29 17:08:26.878 Type: SSH_FXP_NAME, Size: 41, Number: 16
+. 2021-11-29 17:08:26.878 Real path is '/home/qook'
+. 2021-11-29 17:08:26.878 Startup conversation with host finished.
+< 2021-11-29 17:08:26.878 Script: Session started.
+< 2021-11-29 17:08:26.878 Script: Active session: [1] qook@10.193.14.13
+> 2021-11-29 17:08:26.879 Script: lcd bin\
+< 2021-11-29 17:08:26.879 Script: C:\_mesDocs\_git\TM\bin
+> 2021-11-29 17:08:26.879 Script: cd /home/qook/app/qook/tm-test
+. 2021-11-29 17:08:26.879 Changing directory to "/home/qook/app/qook/tm-test".
+. 2021-11-29 17:08:26.879 Getting real path for '/home/qook/app/qook/tm-test'
+> 2021-11-29 17:08:26.879 Type: SSH_FXP_REALPATH, Size: 36, Number: 272
+< 2021-11-29 17:08:26.904 Type: SSH_FXP_NAME, Size: 75, Number: 272
+. 2021-11-29 17:08:26.904 Real path is '/home/qook/app/qook/tm-test'
+. 2021-11-29 17:08:26.904 Trying to open directory "/home/qook/app/qook/tm-test".
+> 2021-11-29 17:08:26.904 Type: SSH_FXP_LSTAT, Size: 36, Number: 519
+< 2021-11-29 17:08:26.931 Type: SSH_FXP_ATTRS, Size: 37, Number: 519
+. 2021-11-29 17:08:26.931 Getting current directory name.
+< 2021-11-29 17:08:26.931 Script: /home/qook/app/qook/tm-test
+> 2021-11-29 17:08:26.932 Script: put -nopreservetime *.js.map
+. 2021-11-29 17:08:26.932 Copying 1 files/directories to remote directory "/home/qook/app/qook/tm-test" - total size: 787'809
+. 2021-11-29 17:08:26.932   PrTime: No; PrRO: No; Rght: rw-r--r--; PrR: No (No); FnCs: N; RIC: 0100; Resume: S (102400); CalcS: No; Mask: 
+. 2021-11-29 17:08:26.932   TM: B; ClAr: No; RemEOF: No; RemBOM: No; CPS: 0; NewerOnly: No; EncryptNewFiles: Yes; ExcludeHiddenFiles: No; ExcludeEmptyDirectories: No; InclM: ; ResumeL: 0
+. 2021-11-29 17:08:26.933   AscM: *.*html; *.htm; *.txt; *.php; *.php3; *.cgi; *.c; *.cpp; *.h; *.pas; *.bas; *.tex; *.pl; *.js; .htaccess; *.xtml; *.css; *.cfg; *.ini; *.sh; *.xml
+. 2021-11-29 17:08:26.933 File: 'TM.js.map' [2021-11-29T16:08:04.871Z] [787809]
+. 2021-11-29 17:08:26.934 Copying "TM.js.map" to remote directory started.
+. 2021-11-29 17:08:26.934 Binary transfer mode selected.
+. 2021-11-29 17:08:26.934 Checking existence of file.
+> 2021-11-29 17:08:26.934 Type: SSH_FXP_LSTAT, Size: 46, Number: 775
+< 2021-11-29 17:08:26.962 Type: SSH_FXP_STATUS, Size: 29, Number: 775
+< 2021-11-29 17:08:26.962 Status code: 2
+. 2021-11-29 17:08:26.962 Checking existence of partially transferred file.
+> 2021-11-29 17:08:26.962 Type: SSH_FXP_LSTAT, Size: 55, Number: 1031
+< 2021-11-29 17:08:26.985 Type: SSH_FXP_STATUS, Size: 29, Number: 1031
+< 2021-11-29 17:08:26.985 Status code: 2
+. 2021-11-29 17:08:26.985 Opening remote file.
+> 2021-11-29 17:08:26.985 Type: SSH_FXP_OPEN, Size: 71, Number: 1283
+< 2021-11-29 17:08:27.006 Type: SSH_FXP_HANDLE, Size: 13, Number: 1283
+> 2021-11-29 17:08:27.006 Type: SSH_FXP_WRITE, Size: 32761, Number: 1798
+. 2021-11-29 17:08:27.212 36 skipped SSH_FXP_WRITE, SSH_FXP_READ, SSH_FXP_DATA and SSH_FXP_STATUS packets.
+> 2021-11-29 17:08:27.212 Type: SSH_FXP_CLOSE, Size: 13, Number: 8196
+< 2021-11-29 17:08:27.223 Type: SSH_FXP_STATUS, Size: 24, Number: 4870
+< 2021-11-29 17:08:27.223 Status code: 0
+< 2021-11-29 17:08:27.223 Type: SSH_FXP_STATUS, Size: 24, Number: 5126
+< 2021-11-29 17:08:27.223 Status code: 0
+< 2021-11-29 17:08:27.223 Type: SSH_FXP_STATUS, Size: 24, Number: 5382
+< 2021-11-29 17:08:27.223 Status code: 0
+< 2021-11-29 17:08:27.223 Type: SSH_FXP_STATUS, Size: 24, Number: 5638
+< 2021-11-29 17:08:27.223 Status code: 0
+< 2021-11-29 17:08:27.223 Type: SSH_FXP_STATUS, Size: 24, Number: 5894
+< 2021-11-29 17:08:27.223 Status code: 0
+< 2021-11-29 17:08:27.235 Type: SSH_FXP_STATUS, Size: 24, Number: 6150
+< 2021-11-29 17:08:27.235 Status code: 0
+< 2021-11-29 17:08:27.253 Type: SSH_FXP_STATUS, Size: 24, Number: 6406
+< 2021-11-29 17:08:27.253 Status code: 0
+< 2021-11-29 17:08:27.264 Type: SSH_FXP_STATUS, Size: 24, Number: 6662
+< 2021-11-29 17:08:27.264 Status code: 0
+< 2021-11-29 17:08:27.264 Type: SSH_FXP_STATUS, Size: 24, Number: 6918
+< 2021-11-29 17:08:27.264 Status code: 0
+< 2021-11-29 17:08:27.444 Type: SSH_FXP_STATUS, Size: 24, Number: 7174
+< 2021-11-29 17:08:27.445 Status code: 0
+< 2021-11-29 17:08:27.445 Type: SSH_FXP_STATUS, Size: 24, Number: 7430
+< 2021-11-29 17:08:27.445 Status code: 0
+< 2021-11-29 17:08:27.445 Type: SSH_FXP_STATUS, Size: 24, Number: 7686
+< 2021-11-29 17:08:27.445 Status code: 0
+< 2021-11-29 17:08:27.445 Type: SSH_FXP_STATUS, Size: 24, Number: 7942
+< 2021-11-29 17:08:27.445 Status code: 0
+< 2021-11-29 17:08:27.445 Type: SSH_FXP_STATUS, Size: 24, Number: 8196
+< 2021-11-29 17:08:27.445 Status code: 0
+> 2021-11-29 17:08:27.445 Type: SSH_FXP_RENAME, Size: 96, Number: 8466
+< 2021-11-29 17:08:27.482 Type: SSH_FXP_STATUS, Size: 24, Number: 8466
+< 2021-11-29 17:08:27.482 Status code: 0
+. 2021-11-29 17:08:27.482 Transfer done: 'TM.js.map' => '/home/qook/app/qook/tm-test/TM.js.map' [787809]
+. 2021-11-29 17:08:27.482 Copying finished: Transferred: 787'809, Elapsed: 0:00:00, CPS: 1'609'963/s
+> 2021-11-29 17:08:27.482 Script: exit
+. 2021-11-29 17:08:27.482 Script: Exit code: 0
+. 2021-11-29 17:08:27.482 Closing connection.
+. 2021-11-29 17:08:27.482 Sending special code: 1
+. 2021-11-29 17:08:27.504 Session sent command exit status 0
+. 2021-11-29 17:08:27.504 Main session channel closed
+. 2021-11-29 17:08:27.504 All channels closed
+. 2021-11-29 17:08:27.753 --------------------------------------------------------------------------
+. 2021-11-29 17:08:27.753 WinSCP Version 5.19.4 (Build 11829 2021-10-24) (OS 10.0.19042 - Windows 10 Enterprise N)
+. 2021-11-29 17:08:27.753 Configuration: nul
+. 2021-11-29 17:08:27.753 Log level: Normal
+. 2021-11-29 17:08:27.753 Local account: SALT\bbaudry
+. 2021-11-29 17:08:27.753 Working directory: C:\_mesDocs\_git\TM
+. 2021-11-29 17:08:27.753 Process ID: 42332
+. 2021-11-29 17:08:27.782 Ancestor processes: WinSCP, cmd, fdbuild, FlashDevelop, explorer, ...
+. 2021-11-29 17:08:27.783 Command-line: "C:\_mesProgs\WinSCP\WinSCP.exe" /console=5.19.4 /consoleinstance=_44480_480 "/log=C:\_mesDocs\_git\TM\WinSCP.log" "/ini=nul" "/command" "open sftp://qook:***@10.193.14.13/ -hostkey=""ssh-rsa 2048 wS00k9P56QO60lm1NS8bO+nPtjNA0htnzu/XzCyhfQg=""" "lcd bin\" "cd /home/qook/app/qook/tm-test" "put -nopreservetime index.html" "exit"
+. 2021-11-29 17:08:27.783 Time zone: Current: GMT+1, Standard: GMT+1 (W. Europe Standard Time), DST: GMT+2 (W. Europe Daylight Time), DST Start: 28.03.2021, DST End: 31.10.2021
+. 2021-11-29 17:08:27.783 Login time: Monday, 29 November 2021 17:08:27
+. 2021-11-29 17:08:27.783 --------------------------------------------------------------------------
+. 2021-11-29 17:08:27.783 Script: Retrospectively logging previous script records:
+> 2021-11-29 17:08:27.783 Script: open sftp://qook:***@10.193.14.13/ -hostkey="ssh-rsa 2048 wS00k9P56QO60lm1NS8bO+nPtjNA0htnzu/XzCyhfQg="
+. 2021-11-29 17:08:27.783 --------------------------------------------------------------------------
+. 2021-11-29 17:08:27.783 Session name: qook@10.193.14.13 (Ad-Hoc site)
+. 2021-11-29 17:08:27.783 Host name: 10.193.14.13 (Port: 22)
+. 2021-11-29 17:08:27.783 User name: qook (Password: Yes, Key file: No, Passphrase: No)
+. 2021-11-29 17:08:27.783 Tunnel: No
+. 2021-11-29 17:08:27.783 Transfer Protocol: SFTP
+. 2021-11-29 17:08:27.783 Ping type: Off, Ping interval: 30 sec; Timeout: 15 sec
+. 2021-11-29 17:08:27.783 Disable Nagle: No
+. 2021-11-29 17:08:27.783 Proxy: None
+. 2021-11-29 17:08:27.783 Send buffer: 262144
+. 2021-11-29 17:08:27.783 SSH protocol version: 2; Compression: No
+. 2021-11-29 17:08:27.783 Bypass authentication: No
+. 2021-11-29 17:08:27.783 Try agent: Yes; Agent forwarding: No; TIS/CryptoCard: No; KI: Yes; GSSAPI: Yes
+. 2021-11-29 17:08:27.783 GSSAPI: KEX: No; Forwarding: No; Libs: gssapi32,sspi,custom; Custom: 
+. 2021-11-29 17:08:27.783 Ciphers: aes,chacha20,blowfish,3des,WARN,arcfour,des; Ssh2DES: No
+. 2021-11-29 17:08:27.783 KEX: ecdh,dh-gex-sha1,dh-group14-sha1,rsa,WARN,dh-group1-sha1
+. 2021-11-29 17:08:27.783 SSH Bugs: Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto
+. 2021-11-29 17:08:27.783 Simple channel: Yes
+. 2021-11-29 17:08:27.783 Return code variable: Autodetect; Lookup user groups: Auto
+. 2021-11-29 17:08:27.783 Shell: default
+. 2021-11-29 17:08:27.783 EOL: LF, UTF: Auto
+. 2021-11-29 17:08:27.783 Clear aliases: Yes, Unset nat.vars: Yes, Resolve symlinks: Yes; Follow directory symlinks: No
+. 2021-11-29 17:08:27.783 LS: ls -la, Ign LS warn: Yes, Scp1 Comp: No; Exit code 1 is error: No
+. 2021-11-29 17:08:27.783 SFTP Bugs: Auto,Auto
+. 2021-11-29 17:08:27.783 SFTP Server: default
+. 2021-11-29 17:08:27.783 Local directory: default, Remote directory: home, Update: Yes, Cache: Yes
+. 2021-11-29 17:08:27.783 Cache directory changes: Yes, Permanent: Yes
+. 2021-11-29 17:08:27.783 Recycle bin: Delete to: No, Overwritten to: No, Bin path: 
+. 2021-11-29 17:08:27.783 DST mode: Unix
+. 2021-11-29 17:08:27.783 --------------------------------------------------------------------------
+< 2021-11-29 17:08:27.783 Script: Searching for host...
+. 2021-11-29 17:08:27.784 Looking up host "10.193.14.13" for SSH connection
+. 2021-11-29 17:08:27.784 Connecting to 10.193.14.13 port 22
+< 2021-11-29 17:08:27.810 Script: Connecting to host...
+. 2021-11-29 17:08:27.810 We claim version: SSH-2.0-WinSCP_release_5.19.4
+. 2021-11-29 17:08:27.878 Remote version: SSH-2.0-OpenSSH_7.4
+. 2021-11-29 17:08:27.878 Using SSH protocol version 2
+. 2021-11-29 17:08:27.879 Have a known host key of type rsa2
+. 2021-11-29 17:08:27.904 Doing ECDH key exchange with curve Curve25519 and hash SHA-256
+. 2021-11-29 17:08:27.973 Server also has ssh-ed25519/ecdsa-sha2-nistp256 host keys, but we don't know any of them
+. 2021-11-29 17:08:27.973 Host key fingerprint is:
+. 2021-11-29 17:08:27.973 ssh-rsa 2048 7e:cd:40:9e:ab:68:2a:63:3a:66:84:3b:b6:6c:3f:70 wS00k9P56QO60lm1NS8bO+nPtjNA0htnzu/XzCyhfQg=
+< 2021-11-29 17:08:27.973 Script: Authenticating...
+. 2021-11-29 17:08:27.973 Host key matches configured key fingerprint
+. 2021-11-29 17:08:27.973 Initialised AES-256 SDCTR (AES-NI accelerated) [aes256-ctr] outbound encryption
+. 2021-11-29 17:08:27.973 Initialised HMAC-SHA-256 outbound MAC algorithm
+. 2021-11-29 17:08:27.973 Initialised AES-256 SDCTR (AES-NI accelerated) [aes256-ctr] inbound encryption
+. 2021-11-29 17:08:27.973 Initialised HMAC-SHA-256 inbound MAC algorithm
+! 2021-11-29 17:08:27.999 Using username "qook".
+< 2021-11-29 17:08:27.999 Script: Using username "qook".
+. 2021-11-29 17:08:28.045 Server offered these authentication methods: publickey,gssapi-keyex,gssapi-with-mic,password
+. 2021-11-29 17:08:28.045 Using SSPI from SECUR32.DLL
+. 2021-11-29 17:08:28.045 Trying gssapi-with-mic...
+. 2021-11-29 17:08:28.045 Attempting GSSAPI authentication
+. 2021-11-29 17:08:28.075 GSSAPI authentication request refused
+. 2021-11-29 17:08:28.075 Server offered these authentication methods: publickey,gssapi-keyex,gssapi-with-mic,password
+. 2021-11-29 17:08:28.075 Prompt (password, "SSH password", <no instructions>, "&Password: ")
+. 2021-11-29 17:08:28.076 Using stored password.
+< 2021-11-29 17:08:28.076 Script: Authenticating with pre-entered password.
+. 2021-11-29 17:08:28.076 Sent password
+. 2021-11-29 17:08:28.207 Access granted
+. 2021-11-29 17:08:28.208 Opening main session channel
+. 2021-11-29 17:08:28.312 Opened main channel
+. 2021-11-29 17:08:28.376 Started a shell/command
+< 2021-11-29 17:08:28.376 Script: Authenticated.
+. 2021-11-29 17:08:28.376 --------------------------------------------------------------------------
+. 2021-11-29 17:08:28.376 Using SFTP protocol.
+. 2021-11-29 17:08:28.376 Doing startup conversation with host.
+< 2021-11-29 17:08:28.376 Script: Starting the session...
+> 2021-11-29 17:08:28.376 Type: SSH_FXP_INIT, Size: 5, Number: -1
+< 2021-11-29 17:08:29.073 Type: SSH_FXP_VERSION, Size: 150, Number: -1
+. 2021-11-29 17:08:29.073 SFTP version 3 negotiated.
+. 2021-11-29 17:08:29.073 Unknown server extension posix-rename@openssh.com="1"
+. 2021-11-29 17:08:29.073 Supports statvfs@openssh.com extension version "2"
+. 2021-11-29 17:08:29.073 Unknown server extension fstatvfs@openssh.com="2"
+. 2021-11-29 17:08:29.073 Supports hardlink@openssh.com extension version "1"
+. 2021-11-29 17:08:29.073 Unknown server extension fsync@openssh.com="1"
+. 2021-11-29 17:08:29.073 We believe the server has signed timestamps bug
+. 2021-11-29 17:08:29.073 We will use UTF-8 strings until server sends an invalid UTF-8 string as with SFTP version 3 and older UTF-8 strings are not mandatory
+. 2021-11-29 17:08:29.073 Limiting packet size to OpenSSH sftp-server limit of 262148 bytes
+. 2021-11-29 17:08:29.073 Getting current directory name.
+. 2021-11-29 17:08:29.073 Getting real path for '.'
+> 2021-11-29 17:08:29.074 Type: SSH_FXP_REALPATH, Size: 10, Number: 16
+< 2021-11-29 17:08:29.097 Type: SSH_FXP_NAME, Size: 41, Number: 16
+. 2021-11-29 17:08:29.097 Real path is '/home/qook'
+. 2021-11-29 17:08:29.098 Startup conversation with host finished.
+< 2021-11-29 17:08:29.098 Script: Session started.
+< 2021-11-29 17:08:29.098 Script: Active session: [1] qook@10.193.14.13
+> 2021-11-29 17:08:29.098 Script: lcd bin\
+< 2021-11-29 17:08:29.099 Script: C:\_mesDocs\_git\TM\bin
+> 2021-11-29 17:08:29.099 Script: cd /home/qook/app/qook/tm-test
+. 2021-11-29 17:08:29.099 Changing directory to "/home/qook/app/qook/tm-test".
+. 2021-11-29 17:08:29.099 Getting real path for '/home/qook/app/qook/tm-test'
+> 2021-11-29 17:08:29.099 Type: SSH_FXP_REALPATH, Size: 36, Number: 272
+< 2021-11-29 17:08:29.117 Type: SSH_FXP_NAME, Size: 75, Number: 272
+. 2021-11-29 17:08:29.117 Real path is '/home/qook/app/qook/tm-test'
+. 2021-11-29 17:08:29.117 Trying to open directory "/home/qook/app/qook/tm-test".
+> 2021-11-29 17:08:29.117 Type: SSH_FXP_LSTAT, Size: 36, Number: 519
+< 2021-11-29 17:08:29.135 Type: SSH_FXP_ATTRS, Size: 37, Number: 519
+. 2021-11-29 17:08:29.135 Getting current directory name.
+< 2021-11-29 17:08:29.135 Script: /home/qook/app/qook/tm-test
+> 2021-11-29 17:08:29.136 Script: put -nopreservetime index.html
+. 2021-11-29 17:08:29.136 Copying 1 files/directories to remote directory "/home/qook/app/qook/tm-test" - total size: 736
+. 2021-11-29 17:08:29.136   PrTime: No; PrRO: No; Rght: rw-r--r--; PrR: No (No); FnCs: N; RIC: 0100; Resume: S (102400); CalcS: No; Mask: 
+. 2021-11-29 17:08:29.136   TM: B; ClAr: No; RemEOF: No; RemBOM: No; CPS: 0; NewerOnly: No; EncryptNewFiles: Yes; ExcludeHiddenFiles: No; ExcludeEmptyDirectories: No; InclM: ; ResumeL: 0
+. 2021-11-29 17:08:29.136   AscM: *.*html; *.htm; *.txt; *.php; *.php3; *.cgi; *.c; *.cpp; *.h; *.pas; *.bas; *.tex; *.pl; *.js; .htaccess; *.xtml; *.css; *.cfg; *.ini; *.sh; *.xml
+. 2021-11-29 17:08:29.136 File: 'index.html' [2021-11-29T16:08:15.419Z] [736]
+. 2021-11-29 17:08:29.138 Copying "index.html" to remote directory started.
+. 2021-11-29 17:08:29.138 Binary transfer mode selected.
+. 2021-11-29 17:08:29.138 Opening remote file.
+> 2021-11-29 17:08:29.138 Type: SSH_FXP_OPEN, Size: 63, Number: 771
+< 2021-11-29 17:08:29.155 Type: SSH_FXP_HANDLE, Size: 13, Number: 771
+> 2021-11-29 17:08:29.155 Type: SSH_FXP_WRITE, Size: 761, Number: 1286
+> 2021-11-29 17:08:29.155 Type: SSH_FXP_CLOSE, Size: 13, Number: 1540
+< 2021-11-29 17:08:29.174 Type: SSH_FXP_STATUS, Size: 24, Number: 1286
+< 2021-11-29 17:08:29.174 Status code: 0
+< 2021-11-29 17:08:29.174 Type: SSH_FXP_STATUS, Size: 24, Number: 1540
+< 2021-11-29 17:08:29.174 Status code: 0
+. 2021-11-29 17:08:29.174 Transfer done: 'index.html' => '/home/qook/app/qook/tm-test/index.html' [736]
+. 2021-11-29 17:08:29.174 Copying finished: Transferred: 736, Elapsed: 0:00:00, CPS: 0/s
+> 2021-11-29 17:08:29.175 Script: exit
+. 2021-11-29 17:08:29.175 Script: Exit code: 0
+. 2021-11-29 17:08:29.175 Closing connection.
+. 2021-11-29 17:08:29.175 Sending special code: 1
+. 2021-11-29 17:08:29.195 Session sent command exit status 0
+. 2021-11-29 17:08:29.195 Main session channel closed
+. 2021-11-29 17:08:29.195 All channels closed
+. 2021-12-01 11:13:42.949 --------------------------------------------------------------------------
+. 2021-12-01 11:13:42.950 WinSCP Version 5.19.4 (Build 11829 2021-10-24) (OS 10.0.19042 - Windows 10 Enterprise N)
+. 2021-12-01 11:13:42.950 Configuration: nul
+. 2021-12-01 11:13:42.950 Log level: Normal
+. 2021-12-01 11:13:42.950 Local account: SALT\bbaudry
+. 2021-12-01 11:13:42.950 Working directory: C:\_mesDocs\_git\TM
+. 2021-12-01 11:13:42.950 Process ID: 26308
+. 2021-12-01 11:13:42.969 Ancestor processes: WinSCP, cmd, fdbuild, FlashDevelop, explorer, ...
+. 2021-12-01 11:13:42.971 Command-line: "C:\_mesProgs\WinSCP\WinSCP.exe" /console=5.19.4 /consoleinstance=_25748_67 "/log=C:\_mesDocs\_git\TM\WinSCP.log" "/ini=nul" "/command" "open sftp://qook:***@10.193.14.13/ -hostkey=""ssh-rsa 2048 wS00k9P56QO60lm1NS8bO+nPtjNA0htnzu/XzCyhfQg=""" "cd /home/qook/app/qook/tm-test/" "rm *.js" "exit"
+. 2021-12-01 11:13:42.971 Time zone: Current: GMT+1, Standard: GMT+1 (W. Europe Standard Time), DST: GMT+2 (W. Europe Daylight Time), DST Start: 28.03.2021, DST End: 31.10.2021
+. 2021-12-01 11:13:42.971 Login time: Wednesday, 01 December 2021 11:13:42
+. 2021-12-01 11:13:42.971 --------------------------------------------------------------------------
+. 2021-12-01 11:13:42.971 Script: Retrospectively logging previous script records:
+> 2021-12-01 11:13:42.971 Script: open sftp://qook:***@10.193.14.13/ -hostkey="ssh-rsa 2048 wS00k9P56QO60lm1NS8bO+nPtjNA0htnzu/XzCyhfQg="
+. 2021-12-01 11:13:42.971 --------------------------------------------------------------------------
+. 2021-12-01 11:13:42.971 Session name: qook@10.193.14.13 (Ad-Hoc site)
+. 2021-12-01 11:13:42.971 Host name: 10.193.14.13 (Port: 22)
+. 2021-12-01 11:13:42.971 User name: qook (Password: Yes, Key file: No, Passphrase: No)
+. 2021-12-01 11:13:42.971 Tunnel: No
+. 2021-12-01 11:13:42.971 Transfer Protocol: SFTP
+. 2021-12-01 11:13:42.971 Ping type: Off, Ping interval: 30 sec; Timeout: 15 sec
+. 2021-12-01 11:13:42.971 Disable Nagle: No
+. 2021-12-01 11:13:42.971 Proxy: None
+. 2021-12-01 11:13:42.971 Send buffer: 262144
+. 2021-12-01 11:13:42.971 SSH protocol version: 2; Compression: No
+. 2021-12-01 11:13:42.971 Bypass authentication: No
+. 2021-12-01 11:13:42.971 Try agent: Yes; Agent forwarding: No; TIS/CryptoCard: No; KI: Yes; GSSAPI: Yes
+. 2021-12-01 11:13:42.971 GSSAPI: KEX: No; Forwarding: No; Libs: gssapi32,sspi,custom; Custom: 
+. 2021-12-01 11:13:42.971 Ciphers: aes,chacha20,blowfish,3des,WARN,arcfour,des; Ssh2DES: No
+. 2021-12-01 11:13:42.971 KEX: ecdh,dh-gex-sha1,dh-group14-sha1,rsa,WARN,dh-group1-sha1
+. 2021-12-01 11:13:42.971 SSH Bugs: Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto
+. 2021-12-01 11:13:42.971 Simple channel: Yes
+. 2021-12-01 11:13:42.971 Return code variable: Autodetect; Lookup user groups: Auto
+. 2021-12-01 11:13:42.971 Shell: default
+. 2021-12-01 11:13:42.971 EOL: LF, UTF: Auto
+. 2021-12-01 11:13:42.971 Clear aliases: Yes, Unset nat.vars: Yes, Resolve symlinks: Yes; Follow directory symlinks: No
+. 2021-12-01 11:13:42.971 LS: ls -la, Ign LS warn: Yes, Scp1 Comp: No; Exit code 1 is error: No
+. 2021-12-01 11:13:42.971 SFTP Bugs: Auto,Auto
+. 2021-12-01 11:13:42.971 SFTP Server: default
+. 2021-12-01 11:13:42.971 Local directory: default, Remote directory: home, Update: Yes, Cache: Yes
+. 2021-12-01 11:13:42.971 Cache directory changes: Yes, Permanent: Yes
+. 2021-12-01 11:13:42.971 Recycle bin: Delete to: No, Overwritten to: No, Bin path: 
+. 2021-12-01 11:13:42.971 DST mode: Unix
+. 2021-12-01 11:13:42.971 --------------------------------------------------------------------------
+< 2021-12-01 11:13:42.971 Script: Searching for host...
+. 2021-12-01 11:13:42.972 Looking up host "10.193.14.13" for SSH connection
+. 2021-12-01 11:13:42.972 Connecting to 10.193.14.13 port 22
+< 2021-12-01 11:13:42.993 Script: Connecting to host...
+. 2021-12-01 11:13:42.993 We claim version: SSH-2.0-WinSCP_release_5.19.4
+. 2021-12-01 11:13:43.039 Remote version: SSH-2.0-OpenSSH_7.4
+. 2021-12-01 11:13:43.039 Using SSH protocol version 2
+. 2021-12-01 11:13:43.039 Have a known host key of type rsa2
+. 2021-12-01 11:13:43.068 Doing ECDH key exchange with curve Curve25519 and hash SHA-256
+. 2021-12-01 11:13:43.131 Server also has ssh-ed25519/ecdsa-sha2-nistp256 host keys, but we don't know any of them
+. 2021-12-01 11:13:43.131 Host key fingerprint is:
+. 2021-12-01 11:13:43.131 ssh-rsa 2048 7e:cd:40:9e:ab:68:2a:63:3a:66:84:3b:b6:6c:3f:70 wS00k9P56QO60lm1NS8bO+nPtjNA0htnzu/XzCyhfQg=
+< 2021-12-01 11:13:43.131 Script: Authenticating...
+. 2021-12-01 11:13:43.132 Host key matches configured key fingerprint
+. 2021-12-01 11:13:43.132 Initialised AES-256 SDCTR (AES-NI accelerated) [aes256-ctr] outbound encryption
+. 2021-12-01 11:13:43.132 Initialised HMAC-SHA-256 outbound MAC algorithm
+. 2021-12-01 11:13:43.132 Initialised AES-256 SDCTR (AES-NI accelerated) [aes256-ctr] inbound encryption
+. 2021-12-01 11:13:43.132 Initialised HMAC-SHA-256 inbound MAC algorithm
+! 2021-12-01 11:13:43.154 Using username "qook".
+< 2021-12-01 11:13:43.154 Script: Using username "qook".
+. 2021-12-01 11:13:43.196 Server offered these authentication methods: publickey,gssapi-keyex,gssapi-with-mic,password
+. 2021-12-01 11:13:43.196 Using SSPI from SECUR32.DLL
+. 2021-12-01 11:13:43.196 Trying gssapi-with-mic...
+. 2021-12-01 11:13:43.196 Attempting GSSAPI authentication
+. 2021-12-01 11:13:43.223 GSSAPI authentication request refused
+. 2021-12-01 11:13:43.223 Server offered these authentication methods: publickey,gssapi-keyex,gssapi-with-mic,password
+. 2021-12-01 11:13:43.223 Prompt (password, "SSH password", <no instructions>, "&Password: ")
+. 2021-12-01 11:13:43.223 Using stored password.
+< 2021-12-01 11:13:43.223 Script: Authenticating with pre-entered password.
+. 2021-12-01 11:13:43.224 Sent password
+. 2021-12-01 11:13:43.327 Access granted
+. 2021-12-01 11:13:43.327 Opening main session channel
+. 2021-12-01 11:13:43.496 Opened main channel
+. 2021-12-01 11:13:43.570 Started a shell/command
+< 2021-12-01 11:13:43.570 Script: Authenticated.
+. 2021-12-01 11:13:43.570 --------------------------------------------------------------------------
+. 2021-12-01 11:13:43.570 Using SFTP protocol.
+. 2021-12-01 11:13:43.570 Doing startup conversation with host.
+< 2021-12-01 11:13:43.570 Script: Starting the session...
+> 2021-12-01 11:13:43.571 Type: SSH_FXP_INIT, Size: 5, Number: -1
+< 2021-12-01 11:13:44.491 Type: SSH_FXP_VERSION, Size: 150, Number: -1
+. 2021-12-01 11:13:44.491 SFTP version 3 negotiated.
+. 2021-12-01 11:13:44.491 Unknown server extension posix-rename@openssh.com="1"
+. 2021-12-01 11:13:44.491 Supports statvfs@openssh.com extension version "2"
+. 2021-12-01 11:13:44.491 Unknown server extension fstatvfs@openssh.com="2"
+. 2021-12-01 11:13:44.491 Supports hardlink@openssh.com extension version "1"
+. 2021-12-01 11:13:44.491 Unknown server extension fsync@openssh.com="1"
+. 2021-12-01 11:13:44.491 We believe the server has signed timestamps bug
+. 2021-12-01 11:13:44.491 We will use UTF-8 strings until server sends an invalid UTF-8 string as with SFTP version 3 and older UTF-8 strings are not mandatory
+. 2021-12-01 11:13:44.491 Limiting packet size to OpenSSH sftp-server limit of 262148 bytes
+. 2021-12-01 11:13:44.491 Getting current directory name.
+. 2021-12-01 11:13:44.491 Getting real path for '.'
+> 2021-12-01 11:13:44.491 Type: SSH_FXP_REALPATH, Size: 10, Number: 16
+< 2021-12-01 11:13:44.512 Type: SSH_FXP_NAME, Size: 41, Number: 16
+. 2021-12-01 11:13:44.512 Real path is '/home/qook'
+. 2021-12-01 11:13:44.512 Startup conversation with host finished.
+< 2021-12-01 11:13:44.512 Script: Session started.
+< 2021-12-01 11:13:44.513 Script: Active session: [1] qook@10.193.14.13
+> 2021-12-01 11:13:44.513 Script: cd /home/qook/app/qook/tm-test/
+. 2021-12-01 11:13:44.513 Changing directory to "/home/qook/app/qook/tm-test/".
+. 2021-12-01 11:13:44.513 Getting real path for '/home/qook/app/qook/tm-test/'
+> 2021-12-01 11:13:44.513 Type: SSH_FXP_REALPATH, Size: 37, Number: 272
+< 2021-12-01 11:13:44.534 Type: SSH_FXP_NAME, Size: 75, Number: 272
+. 2021-12-01 11:13:44.534 Real path is '/home/qook/app/qook/tm-test'
+. 2021-12-01 11:13:44.534 Trying to open directory "/home/qook/app/qook/tm-test".
+> 2021-12-01 11:13:44.534 Type: SSH_FXP_LSTAT, Size: 36, Number: 519
+< 2021-12-01 11:13:44.557 Type: SSH_FXP_ATTRS, Size: 37, Number: 519
+. 2021-12-01 11:13:44.557 Getting current directory name.
+< 2021-12-01 11:13:44.557 Script: /home/qook/app/qook/tm-test
+> 2021-12-01 11:13:44.557 Script: rm *.js
+. 2021-12-01 11:13:44.557 Listing directory "/home/qook/app/qook/tm-test".
+> 2021-12-01 11:13:44.557 Type: SSH_FXP_OPENDIR, Size: 36, Number: 779
+< 2021-12-01 11:13:44.585 Type: SSH_FXP_HANDLE, Size: 13, Number: 779
+> 2021-12-01 11:13:44.585 Type: SSH_FXP_READDIR, Size: 13, Number: 1036
+< 2021-12-01 11:13:44.625 Type: SSH_FXP_NAME, Size: 1223, Number: 1036
+> 2021-12-01 11:13:44.628 Type: SSH_FXP_READDIR, Size: 13, Number: 1292
+< 2021-12-01 11:13:44.652 Type: SSH_FXP_STATUS, Size: 28, Number: 1292
+< 2021-12-01 11:13:44.652 Status code: 1
+> 2021-12-01 11:13:44.652 Type: SSH_FXP_CLOSE, Size: 13, Number: 1540
+. 2021-12-01 11:13:44.652 .;d;0;2021-11-29T16:08:27.000Z;3;"qook" [1006];"apache" [48];rwxrwxr-x;0
+. 2021-12-01 11:13:44.652 ..;d;0;2021-11-11T15:40:45.000Z;3;"qook" [1006];"apache" [48];rwsrwsr-x;0
+. 2021-12-01 11:13:44.652 css;d;0;2021-09-30T08:41:29.000Z;3;"qook" [1006];"qook" [1007];rwxrwxr-x;0
+. 2021-12-01 11:13:44.652 lib;d;0;2021-06-11T14:56:25.000Z;3;"qook" [1006];"qook" [1007];rwxrwxr-x;0
+. 2021-12-01 11:13:44.652 manifest;d;0;2021-06-11T14:56:25.000Z;3;"qook" [1006];"qook" [1007];rwxrwxr-x;0
+. 2021-12-01 11:13:44.652 ui;d;0;2021-06-11T14:56:27.000Z;3;"qook" [1006];"qook" [1007];rwxrwxr-x;0
+. 2021-12-01 11:13:44.652 index.html;-;736;2021-11-29T16:08:29.000Z;3;"qook" [1006];"qook" [1007];rw-rw-r--;0
+. 2021-12-01 11:13:44.652 favicon.png;-;6105;2021-11-11T15:40:15.000Z;3;"qook" [1006];"qook" [1007];rw-rw-r--;0
+. 2021-12-01 11:13:44.652 TM.min.js;-;6157988;2021-11-29T16:08:21.000Z;3;"qook" [1006];"qook" [1007];rw-rw-r--;0
+. 2021-12-01 11:13:44.652 TM_20211129_170814.js;-;6917679;2021-11-29T16:08:23.000Z;3;"qook" [1006];"qook" [1007];rw-rw-r--;0
+. 2021-12-01 11:13:44.652 TM.js.map;-;787809;2021-11-29T16:08:27.000Z;3;"qook" [1006];"qook" [1007];rw-rw-r--;0
+. 2021-12-01 11:13:44.652 Deleting file "TM.min.js".
+> 2021-12-01 11:13:44.652 Type: SSH_FXP_REMOVE, Size: 46, Number: 1805
+< 2021-12-01 11:13:44.673 Type: SSH_FXP_STATUS, Size: 24, Number: 1540
+. 2021-12-01 11:13:44.673 Discarding reserved response
+< 2021-12-01 11:13:44.713 Type: SSH_FXP_STATUS, Size: 24, Number: 1805
+< 2021-12-01 11:13:44.713 Status code: 0
+< 2021-12-01 11:13:44.713 Script: TM.min.js
+. 2021-12-01 11:13:44.713 Deleting file "TM_20211129_170814.js".
+> 2021-12-01 11:13:44.714 Type: SSH_FXP_REMOVE, Size: 58, Number: 2061
+< 2021-12-01 11:13:44.736 Type: SSH_FXP_STATUS, Size: 24, Number: 2061
+< 2021-12-01 11:13:44.736 Status code: 0
+< 2021-12-01 11:13:44.736 Script: TM_20211129_170814.js
+> 2021-12-01 11:13:44.748 Script: exit
+. 2021-12-01 11:13:44.749 Script: Exit code: 0
+. 2021-12-01 11:13:44.749 Closing connection.
+. 2021-12-01 11:13:44.749 Sending special code: 1
+. 2021-12-01 11:13:44.773 Session sent command exit status 0
+. 2021-12-01 11:13:44.773 Main session channel closed
+. 2021-12-01 11:13:44.773 All channels closed
+. 2021-12-01 11:13:45.059 --------------------------------------------------------------------------
+. 2021-12-01 11:13:45.059 WinSCP Version 5.19.4 (Build 11829 2021-10-24) (OS 10.0.19042 - Windows 10 Enterprise N)
+. 2021-12-01 11:13:45.059 Configuration: nul
+. 2021-12-01 11:13:45.059 Log level: Normal
+. 2021-12-01 11:13:45.059 Local account: SALT\bbaudry
+. 2021-12-01 11:13:45.059 Working directory: C:\_mesDocs\_git\TM
+. 2021-12-01 11:13:45.059 Process ID: 24892
+. 2021-12-01 11:13:45.086 Ancestor processes: WinSCP, cmd, fdbuild, FlashDevelop, explorer, ...
+. 2021-12-01 11:13:45.087 Command-line: "C:\_mesProgs\WinSCP\WinSCP.exe" /console=5.19.4 /consoleinstance=_16564_922 "/log=C:\_mesDocs\_git\TM\WinSCP.log" "/ini=nul" "/command" "open sftp://qook:***@10.193.14.13/ -hostkey=""ssh-rsa 2048 wS00k9P56QO60lm1NS8bO+nPtjNA0htnzu/XzCyhfQg=""" "lcd bin\" "cd /home/qook/app/qook/tm-test/" "put -nopreservetime *.js" "exit"
+. 2021-12-01 11:13:45.087 Time zone: Current: GMT+1, Standard: GMT+1 (W. Europe Standard Time), DST: GMT+2 (W. Europe Daylight Time), DST Start: 28.03.2021, DST End: 31.10.2021
+. 2021-12-01 11:13:45.087 Login time: Wednesday, 01 December 2021 11:13:45
+. 2021-12-01 11:13:45.087 --------------------------------------------------------------------------
+. 2021-12-01 11:13:45.087 Script: Retrospectively logging previous script records:
+> 2021-12-01 11:13:45.087 Script: open sftp://qook:***@10.193.14.13/ -hostkey="ssh-rsa 2048 wS00k9P56QO60lm1NS8bO+nPtjNA0htnzu/XzCyhfQg="
+. 2021-12-01 11:13:45.087 --------------------------------------------------------------------------
+. 2021-12-01 11:13:45.087 Session name: qook@10.193.14.13 (Ad-Hoc site)
+. 2021-12-01 11:13:45.087 Host name: 10.193.14.13 (Port: 22)
+. 2021-12-01 11:13:45.087 User name: qook (Password: Yes, Key file: No, Passphrase: No)
+. 2021-12-01 11:13:45.087 Tunnel: No
+. 2021-12-01 11:13:45.087 Transfer Protocol: SFTP
+. 2021-12-01 11:13:45.087 Ping type: Off, Ping interval: 30 sec; Timeout: 15 sec
+. 2021-12-01 11:13:45.087 Disable Nagle: No
+. 2021-12-01 11:13:45.087 Proxy: None
+. 2021-12-01 11:13:45.087 Send buffer: 262144
+. 2021-12-01 11:13:45.087 SSH protocol version: 2; Compression: No
+. 2021-12-01 11:13:45.087 Bypass authentication: No
+. 2021-12-01 11:13:45.087 Try agent: Yes; Agent forwarding: No; TIS/CryptoCard: No; KI: Yes; GSSAPI: Yes
+. 2021-12-01 11:13:45.087 GSSAPI: KEX: No; Forwarding: No; Libs: gssapi32,sspi,custom; Custom: 
+. 2021-12-01 11:13:45.087 Ciphers: aes,chacha20,blowfish,3des,WARN,arcfour,des; Ssh2DES: No
+. 2021-12-01 11:13:45.087 KEX: ecdh,dh-gex-sha1,dh-group14-sha1,rsa,WARN,dh-group1-sha1
+. 2021-12-01 11:13:45.087 SSH Bugs: Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto
+. 2021-12-01 11:13:45.087 Simple channel: Yes
+. 2021-12-01 11:13:45.087 Return code variable: Autodetect; Lookup user groups: Auto
+. 2021-12-01 11:13:45.087 Shell: default
+. 2021-12-01 11:13:45.087 EOL: LF, UTF: Auto
+. 2021-12-01 11:13:45.087 Clear aliases: Yes, Unset nat.vars: Yes, Resolve symlinks: Yes; Follow directory symlinks: No
+. 2021-12-01 11:13:45.087 LS: ls -la, Ign LS warn: Yes, Scp1 Comp: No; Exit code 1 is error: No
+. 2021-12-01 11:13:45.087 SFTP Bugs: Auto,Auto
+. 2021-12-01 11:13:45.087 SFTP Server: default
+. 2021-12-01 11:13:45.087 Local directory: default, Remote directory: home, Update: Yes, Cache: Yes
+. 2021-12-01 11:13:45.087 Cache directory changes: Yes, Permanent: Yes
+. 2021-12-01 11:13:45.087 Recycle bin: Delete to: No, Overwritten to: No, Bin path: 
+. 2021-12-01 11:13:45.087 DST mode: Unix
+. 2021-12-01 11:13:45.087 --------------------------------------------------------------------------
+< 2021-12-01 11:13:45.087 Script: Searching for host...
+. 2021-12-01 11:13:45.088 Looking up host "10.193.14.13" for SSH connection
+. 2021-12-01 11:13:45.088 Connecting to 10.193.14.13 port 22
+< 2021-12-01 11:13:45.110 Script: Connecting to host...
+. 2021-12-01 11:13:45.110 We claim version: SSH-2.0-WinSCP_release_5.19.4
+. 2021-12-01 11:13:45.175 Remote version: SSH-2.0-OpenSSH_7.4
+. 2021-12-01 11:13:45.175 Using SSH protocol version 2
+. 2021-12-01 11:13:45.176 Have a known host key of type rsa2
+. 2021-12-01 11:13:45.283 Doing ECDH key exchange with curve Curve25519 and hash SHA-256
+. 2021-12-01 11:13:45.364 Server also has ssh-ed25519/ecdsa-sha2-nistp256 host keys, but we don't know any of them
+. 2021-12-01 11:13:45.364 Host key fingerprint is:
+. 2021-12-01 11:13:45.364 ssh-rsa 2048 7e:cd:40:9e:ab:68:2a:63:3a:66:84:3b:b6:6c:3f:70 wS00k9P56QO60lm1NS8bO+nPtjNA0htnzu/XzCyhfQg=
+< 2021-12-01 11:13:45.364 Script: Authenticating...
+. 2021-12-01 11:13:45.364 Host key matches configured key fingerprint
+. 2021-12-01 11:13:45.364 Initialised AES-256 SDCTR (AES-NI accelerated) [aes256-ctr] outbound encryption
+. 2021-12-01 11:13:45.364 Initialised HMAC-SHA-256 outbound MAC algorithm
+. 2021-12-01 11:13:45.364 Initialised AES-256 SDCTR (AES-NI accelerated) [aes256-ctr] inbound encryption
+. 2021-12-01 11:13:45.364 Initialised HMAC-SHA-256 inbound MAC algorithm
+! 2021-12-01 11:13:45.380 Using username "qook".
+< 2021-12-01 11:13:45.380 Script: Using username "qook".
+. 2021-12-01 11:13:45.420 Server offered these authentication methods: publickey,gssapi-keyex,gssapi-with-mic,password
+. 2021-12-01 11:13:45.420 Using SSPI from SECUR32.DLL
+. 2021-12-01 11:13:45.420 Trying gssapi-with-mic...
+. 2021-12-01 11:13:45.420 Attempting GSSAPI authentication
+. 2021-12-01 11:13:45.443 GSSAPI authentication request refused
+. 2021-12-01 11:13:45.443 Server offered these authentication methods: publickey,gssapi-keyex,gssapi-with-mic,password
+. 2021-12-01 11:13:45.443 Prompt (password, "SSH password", <no instructions>, "&Password: ")
+. 2021-12-01 11:13:45.443 Using stored password.
+< 2021-12-01 11:13:45.443 Script: Authenticating with pre-entered password.
+. 2021-12-01 11:13:45.444 Sent password
+. 2021-12-01 11:13:45.584 Access granted
+. 2021-12-01 11:13:45.585 Opening main session channel
+. 2021-12-01 11:13:45.693 Opened main channel
+. 2021-12-01 11:13:45.740 Started a shell/command
+< 2021-12-01 11:13:45.740 Script: Authenticated.
+. 2021-12-01 11:13:45.740 --------------------------------------------------------------------------
+. 2021-12-01 11:13:45.740 Using SFTP protocol.
+. 2021-12-01 11:13:45.740 Doing startup conversation with host.
+< 2021-12-01 11:13:45.740 Script: Starting the session...
+> 2021-12-01 11:13:45.741 Type: SSH_FXP_INIT, Size: 5, Number: -1
+< 2021-12-01 11:13:46.247 Type: SSH_FXP_VERSION, Size: 150, Number: -1
+. 2021-12-01 11:13:46.248 SFTP version 3 negotiated.
+. 2021-12-01 11:13:46.248 Unknown server extension posix-rename@openssh.com="1"
+. 2021-12-01 11:13:46.248 Supports statvfs@openssh.com extension version "2"
+. 2021-12-01 11:13:46.248 Unknown server extension fstatvfs@openssh.com="2"
+. 2021-12-01 11:13:46.248 Supports hardlink@openssh.com extension version "1"
+. 2021-12-01 11:13:46.248 Unknown server extension fsync@openssh.com="1"
+. 2021-12-01 11:13:46.248 We believe the server has signed timestamps bug
+. 2021-12-01 11:13:46.248 We will use UTF-8 strings until server sends an invalid UTF-8 string as with SFTP version 3 and older UTF-8 strings are not mandatory
+. 2021-12-01 11:13:46.248 Limiting packet size to OpenSSH sftp-server limit of 262148 bytes
+. 2021-12-01 11:13:46.248 Getting current directory name.
+. 2021-12-01 11:13:46.248 Getting real path for '.'
+> 2021-12-01 11:13:46.248 Type: SSH_FXP_REALPATH, Size: 10, Number: 16
+< 2021-12-01 11:13:46.270 Type: SSH_FXP_NAME, Size: 41, Number: 16
+. 2021-12-01 11:13:46.270 Real path is '/home/qook'
+. 2021-12-01 11:13:46.270 Startup conversation with host finished.
+< 2021-12-01 11:13:46.270 Script: Session started.
+< 2021-12-01 11:13:46.270 Script: Active session: [1] qook@10.193.14.13
+> 2021-12-01 11:13:46.271 Script: lcd bin\
+< 2021-12-01 11:13:46.271 Script: C:\_mesDocs\_git\TM\bin
+> 2021-12-01 11:13:46.272 Script: cd /home/qook/app/qook/tm-test/
+. 2021-12-01 11:13:46.272 Changing directory to "/home/qook/app/qook/tm-test/".
+. 2021-12-01 11:13:46.272 Getting real path for '/home/qook/app/qook/tm-test/'
+> 2021-12-01 11:13:46.272 Type: SSH_FXP_REALPATH, Size: 37, Number: 272
+< 2021-12-01 11:13:46.305 Type: SSH_FXP_NAME, Size: 75, Number: 272
+. 2021-12-01 11:13:46.306 Real path is '/home/qook/app/qook/tm-test'
+. 2021-12-01 11:13:46.306 Trying to open directory "/home/qook/app/qook/tm-test".
+> 2021-12-01 11:13:46.306 Type: SSH_FXP_LSTAT, Size: 36, Number: 519
+< 2021-12-01 11:13:46.327 Type: SSH_FXP_ATTRS, Size: 37, Number: 519
+. 2021-12-01 11:13:46.327 Getting current directory name.
+< 2021-12-01 11:13:46.327 Script: /home/qook/app/qook/tm-test
+> 2021-12-01 11:13:46.328 Script: put -nopreservetime *.js
+. 2021-12-01 11:13:46.329 Copying 2 files/directories to remote directory "/home/qook/app/qook/tm-test" - total size: 13'082'610
+. 2021-12-01 11:13:46.329   PrTime: No; PrRO: No; Rght: rw-r--r--; PrR: No (No); FnCs: N; RIC: 0100; Resume: S (102400); CalcS: No; Mask: 
+. 2021-12-01 11:13:46.329   TM: B; ClAr: No; RemEOF: No; RemBOM: No; CPS: 0; NewerOnly: No; EncryptNewFiles: Yes; ExcludeHiddenFiles: No; ExcludeEmptyDirectories: No; InclM: ; ResumeL: 0
+. 2021-12-01 11:13:46.329   AscM: *.*html; *.htm; *.txt; *.php; *.php3; *.cgi; *.c; *.cpp; *.h; *.pas; *.bas; *.tex; *.pl; *.js; .htaccess; *.xtml; *.css; *.cfg; *.ini; *.sh; *.xml
+. 2021-12-01 11:13:46.329 File: 'TM.min.js' [2021-12-01T10:13:41.108Z] [6161079]
+. 2021-12-01 11:13:46.330 Copying "TM.min.js" to remote directory started.
+. 2021-12-01 11:13:46.330 Binary transfer mode selected.
+. 2021-12-01 11:13:46.330 Checking existence of file.
+> 2021-12-01 11:13:46.330 Type: SSH_FXP_LSTAT, Size: 46, Number: 775
+< 2021-12-01 11:13:46.353 Type: SSH_FXP_STATUS, Size: 29, Number: 775
+< 2021-12-01 11:13:46.353 Status code: 2
+. 2021-12-01 11:13:46.353 Checking existence of partially transferred file.
+> 2021-12-01 11:13:46.353 Type: SSH_FXP_LSTAT, Size: 55, Number: 1031
+< 2021-12-01 11:13:46.374 Type: SSH_FXP_STATUS, Size: 29, Number: 1031
+< 2021-12-01 11:13:46.374 Status code: 2
+. 2021-12-01 11:13:46.374 Opening remote file.
+> 2021-12-01 11:13:46.374 Type: SSH_FXP_OPEN, Size: 71, Number: 1283
+< 2021-12-01 11:13:46.397 Type: SSH_FXP_HANDLE, Size: 13, Number: 1283
+> 2021-12-01 11:13:46.397 Type: SSH_FXP_WRITE, Size: 32761, Number: 1798
+. 2021-12-01 11:13:47.251 Increasing send buffer from 262144 to 524288
+. 2021-12-01 11:13:48.262 355 skipped SSH_FXP_WRITE, SSH_FXP_READ, SSH_FXP_DATA and SSH_FXP_STATUS packets.
+> 2021-12-01 11:13:48.262 Type: SSH_FXP_CLOSE, Size: 13, Number: 50180
+< 2021-12-01 11:13:48.263 Type: SSH_FXP_STATUS, Size: 24, Number: 44550
+< 2021-12-01 11:13:48.264 Status code: 0
+< 2021-12-01 11:13:48.264 Type: SSH_FXP_STATUS, Size: 24, Number: 44806
+< 2021-12-01 11:13:48.264 Status code: 0
+< 2021-12-01 11:13:48.274 Type: SSH_FXP_STATUS, Size: 24, Number: 45062
+< 2021-12-01 11:13:48.274 Status code: 0
+< 2021-12-01 11:13:48.295 Type: SSH_FXP_STATUS, Size: 24, Number: 45318
+< 2021-12-01 11:13:48.295 Status code: 0
+< 2021-12-01 11:13:48.304 Type: SSH_FXP_STATUS, Size: 24, Number: 45574
+< 2021-12-01 11:13:48.304 Status code: 0
+< 2021-12-01 11:13:48.315 Type: SSH_FXP_STATUS, Size: 24, Number: 45830
+< 2021-12-01 11:13:48.316 Status code: 0
+< 2021-12-01 11:13:48.316 Type: SSH_FXP_STATUS, Size: 24, Number: 46086
+< 2021-12-01 11:13:48.316 Status code: 0
+< 2021-12-01 11:13:48.326 Type: SSH_FXP_STATUS, Size: 24, Number: 46342
+< 2021-12-01 11:13:48.326 Status code: 0
+< 2021-12-01 11:13:48.338 Type: SSH_FXP_STATUS, Size: 24, Number: 46598
+< 2021-12-01 11:13:48.338 Status code: 0
+< 2021-12-01 11:13:48.351 Type: SSH_FXP_STATUS, Size: 24, Number: 46854
+< 2021-12-01 11:13:48.351 Status code: 0
+< 2021-12-01 11:13:48.371 Type: SSH_FXP_STATUS, Size: 24, Number: 47110
+< 2021-12-01 11:13:48.371 Status code: 0
+< 2021-12-01 11:13:48.371 Type: SSH_FXP_STATUS, Size: 24, Number: 47366
+< 2021-12-01 11:13:48.371 Status code: 0
+< 2021-12-01 11:13:48.384 Type: SSH_FXP_STATUS, Size: 24, Number: 47622
+< 2021-12-01 11:13:48.384 Status code: 0
+< 2021-12-01 11:13:48.393 Type: SSH_FXP_STATUS, Size: 24, Number: 47878
+< 2021-12-01 11:13:48.393 Status code: 0
+< 2021-12-01 11:13:48.405 Type: SSH_FXP_STATUS, Size: 24, Number: 48134
+< 2021-12-01 11:13:48.405 Status code: 0
+< 2021-12-01 11:13:48.416 Type: SSH_FXP_STATUS, Size: 24, Number: 48390
+< 2021-12-01 11:13:48.416 Status code: 0
+< 2021-12-01 11:13:48.427 Type: SSH_FXP_STATUS, Size: 24, Number: 48646
+< 2021-12-01 11:13:48.427 Status code: 0
+< 2021-12-01 11:13:48.449 Type: SSH_FXP_STATUS, Size: 24, Number: 48902
+< 2021-12-01 11:13:48.449 Status code: 0
+< 2021-12-01 11:13:48.449 Type: SSH_FXP_STATUS, Size: 24, Number: 49158
+< 2021-12-01 11:13:48.449 Status code: 0
+< 2021-12-01 11:13:48.461 Type: SSH_FXP_STATUS, Size: 24, Number: 49414
+< 2021-12-01 11:13:48.461 Status code: 0
+< 2021-12-01 11:13:48.472 Type: SSH_FXP_STATUS, Size: 24, Number: 49670
+< 2021-12-01 11:13:48.472 Status code: 0
+< 2021-12-01 11:13:48.472 Type: SSH_FXP_STATUS, Size: 24, Number: 49926
+< 2021-12-01 11:13:48.472 Status code: 0
+< 2021-12-01 11:13:48.472 Type: SSH_FXP_STATUS, Size: 24, Number: 50180
+< 2021-12-01 11:13:48.472 Status code: 0
+> 2021-12-01 11:13:48.472 Type: SSH_FXP_RENAME, Size: 96, Number: 50450
+< 2021-12-01 11:13:48.508 Type: SSH_FXP_STATUS, Size: 24, Number: 50450
+< 2021-12-01 11:13:48.508 Status code: 0
+. 2021-12-01 11:13:48.508 Transfer done: 'TM.min.js' => '/home/qook/app/qook/tm-test/TM.min.js' [6161079]
+. 2021-12-01 11:13:48.509 File: 'TM_20211201_111341.js' [2021-12-01T10:13:30.915Z] [6921531]
+. 2021-12-01 11:13:48.548 Copying "TM_20211201_111341.js" to remote directory started.
+. 2021-12-01 11:13:48.548 Binary transfer mode selected.
+. 2021-12-01 11:13:48.548 Checking existence of file.
+> 2021-12-01 11:13:48.548 Type: SSH_FXP_LSTAT, Size: 58, Number: 50695
+< 2021-12-01 11:13:48.584 Type: SSH_FXP_STATUS, Size: 29, Number: 50695
+< 2021-12-01 11:13:48.584 Status code: 2
+. 2021-12-01 11:13:48.584 Checking existence of partially transferred file.
+> 2021-12-01 11:13:48.584 Type: SSH_FXP_LSTAT, Size: 67, Number: 50951
+< 2021-12-01 11:13:48.602 Type: SSH_FXP_STATUS, Size: 29, Number: 50951
+< 2021-12-01 11:13:48.602 Status code: 2
+. 2021-12-01 11:13:48.602 Opening remote file.
+> 2021-12-01 11:13:48.602 Type: SSH_FXP_OPEN, Size: 83, Number: 51203
+< 2021-12-01 11:13:48.628 Type: SSH_FXP_HANDLE, Size: 13, Number: 51203
+> 2021-12-01 11:13:48.628 Type: SSH_FXP_WRITE, Size: 32761, Number: 51718
+. 2021-12-01 11:13:50.686 398 skipped SSH_FXP_WRITE, SSH_FXP_READ, SSH_FXP_DATA and SSH_FXP_STATUS packets.
+> 2021-12-01 11:13:50.686 Type: SSH_FXP_CLOSE, Size: 13, Number: 105988
+< 2021-12-01 11:13:50.687 Type: SSH_FXP_STATUS, Size: 24, Number: 99590
+< 2021-12-01 11:13:50.687 Status code: 0
+< 2021-12-01 11:13:50.700 Type: SSH_FXP_STATUS, Size: 24, Number: 99846
+< 2021-12-01 11:13:50.700 Status code: 0
+< 2021-12-01 11:13:50.716 Type: SSH_FXP_STATUS, Size: 24, Number: 100102
+< 2021-12-01 11:13:50.716 Status code: 0
+< 2021-12-01 11:13:50.716 Type: SSH_FXP_STATUS, Size: 24, Number: 100358
+< 2021-12-01 11:13:50.716 Status code: 0
+< 2021-12-01 11:13:50.729 Type: SSH_FXP_STATUS, Size: 24, Number: 100614
+< 2021-12-01 11:13:50.729 Status code: 0
+< 2021-12-01 11:13:50.739 Type: SSH_FXP_STATUS, Size: 24, Number: 100870
+< 2021-12-01 11:13:50.739 Status code: 0
+< 2021-12-01 11:13:50.751 Type: SSH_FXP_STATUS, Size: 24, Number: 101126
+< 2021-12-01 11:13:50.751 Status code: 0
+< 2021-12-01 11:13:50.761 Type: SSH_FXP_STATUS, Size: 24, Number: 101382
+< 2021-12-01 11:13:50.761 Status code: 0
+< 2021-12-01 11:13:50.772 Type: SSH_FXP_STATUS, Size: 24, Number: 101638
+< 2021-12-01 11:13:50.772 Status code: 0
+< 2021-12-01 11:13:50.783 Type: SSH_FXP_STATUS, Size: 24, Number: 101894
+< 2021-12-01 11:13:50.783 Status code: 0
+< 2021-12-01 11:13:50.805 Type: SSH_FXP_STATUS, Size: 24, Number: 102150
+< 2021-12-01 11:13:50.805 Status code: 0
+< 2021-12-01 11:13:50.805 Type: SSH_FXP_STATUS, Size: 24, Number: 102406
+< 2021-12-01 11:13:50.805 Status code: 0
+< 2021-12-01 11:13:50.837 Type: SSH_FXP_STATUS, Size: 24, Number: 102662
+< 2021-12-01 11:13:50.837 Status code: 0
+< 2021-12-01 11:13:50.837 Type: SSH_FXP_STATUS, Size: 24, Number: 102918
+< 2021-12-01 11:13:50.837 Status code: 0
+< 2021-12-01 11:13:50.839 Type: SSH_FXP_STATUS, Size: 24, Number: 103174
+< 2021-12-01 11:13:50.839 Status code: 0
+< 2021-12-01 11:13:50.860 Type: SSH_FXP_STATUS, Size: 24, Number: 103430
+< 2021-12-01 11:13:50.860 Status code: 0
+< 2021-12-01 11:13:50.860 Type: SSH_FXP_STATUS, Size: 24, Number: 103686
+< 2021-12-01 11:13:50.860 Status code: 0
+< 2021-12-01 11:13:50.884 Type: SSH_FXP_STATUS, Size: 24, Number: 103942
+< 2021-12-01 11:13:50.884 Status code: 0
+< 2021-12-01 11:13:50.897 Type: SSH_FXP_STATUS, Size: 24, Number: 104198
+< 2021-12-01 11:13:50.897 Status code: 0
+< 2021-12-01 11:13:50.907 Type: SSH_FXP_STATUS, Size: 24, Number: 104454
+< 2021-12-01 11:13:50.907 Status code: 0
+< 2021-12-01 11:13:50.918 Type: SSH_FXP_STATUS, Size: 24, Number: 104710
+< 2021-12-01 11:13:50.918 Status code: 0
+< 2021-12-01 11:13:50.929 Type: SSH_FXP_STATUS, Size: 24, Number: 104966
+< 2021-12-01 11:13:50.929 Status code: 0
+< 2021-12-01 11:13:50.940 Type: SSH_FXP_STATUS, Size: 24, Number: 105222
+< 2021-12-01 11:13:50.940 Status code: 0
+< 2021-12-01 11:13:50.952 Type: SSH_FXP_STATUS, Size: 24, Number: 105478
+< 2021-12-01 11:13:50.952 Status code: 0
+< 2021-12-01 11:13:50.952 Type: SSH_FXP_STATUS, Size: 24, Number: 105734
+< 2021-12-01 11:13:50.952 Status code: 0
+< 2021-12-01 11:13:50.952 Type: SSH_FXP_STATUS, Size: 24, Number: 105988
+< 2021-12-01 11:13:50.952 Status code: 0
+> 2021-12-01 11:13:50.952 Type: SSH_FXP_RENAME, Size: 120, Number: 106258
+< 2021-12-01 11:13:50.991 Type: SSH_FXP_STATUS, Size: 24, Number: 106258
+< 2021-12-01 11:13:50.991 Status code: 0
+. 2021-12-01 11:13:50.991 Transfer done: 'TM_20211201_111341.js' => '/home/qook/app/qook/tm-test/TM_20211201_111341.js' [6921531]
+. 2021-12-01 11:13:50.992 Copying finished: Transferred: 13'082'610, Elapsed: 0:00:04, CPS: 2'840'634/s
+> 2021-12-01 11:13:50.992 Script: exit
+. 2021-12-01 11:13:50.993 Script: Exit code: 0
+. 2021-12-01 11:13:50.993 Closing connection.
+. 2021-12-01 11:13:50.993 Sending special code: 1
+. 2021-12-01 11:13:51.014 Session sent command exit status 0
+. 2021-12-01 11:13:51.014 Main session channel closed
+. 2021-12-01 11:13:51.015 All channels closed
+. 2021-12-01 11:13:51.280 --------------------------------------------------------------------------
+. 2021-12-01 11:13:51.280 WinSCP Version 5.19.4 (Build 11829 2021-10-24) (OS 10.0.19042 - Windows 10 Enterprise N)
+. 2021-12-01 11:13:51.281 Configuration: nul
+. 2021-12-01 11:13:51.281 Log level: Normal
+. 2021-12-01 11:13:51.281 Local account: SALT\bbaudry
+. 2021-12-01 11:13:51.281 Working directory: C:\_mesDocs\_git\TM
+. 2021-12-01 11:13:51.281 Process ID: 24932
+. 2021-12-01 11:13:51.300 Ancestor processes: WinSCP, cmd, fdbuild, FlashDevelop, explorer, ...
+. 2021-12-01 11:13:51.300 Command-line: "C:\_mesProgs\WinSCP\WinSCP.exe" /console=5.19.4 /consoleinstance=_26468_414 "/log=C:\_mesDocs\_git\TM\WinSCP.log" "/ini=nul" "/command" "open sftp://qook:***@10.193.14.13/ -hostkey=""ssh-rsa 2048 wS00k9P56QO60lm1NS8bO+nPtjNA0htnzu/XzCyhfQg=""" "cd /home/qook/app/qook/tm-test" "rm *.js.map" "exit"
+. 2021-12-01 11:13:51.300 Time zone: Current: GMT+1, Standard: GMT+1 (W. Europe Standard Time), DST: GMT+2 (W. Europe Daylight Time), DST Start: 28.03.2021, DST End: 31.10.2021
+. 2021-12-01 11:13:51.300 Login time: Wednesday, 01 December 2021 11:13:51
+. 2021-12-01 11:13:51.300 --------------------------------------------------------------------------
+. 2021-12-01 11:13:51.300 Script: Retrospectively logging previous script records:
+> 2021-12-01 11:13:51.300 Script: open sftp://qook:***@10.193.14.13/ -hostkey="ssh-rsa 2048 wS00k9P56QO60lm1NS8bO+nPtjNA0htnzu/XzCyhfQg="
+. 2021-12-01 11:13:51.300 --------------------------------------------------------------------------
+. 2021-12-01 11:13:51.300 Session name: qook@10.193.14.13 (Ad-Hoc site)
+. 2021-12-01 11:13:51.300 Host name: 10.193.14.13 (Port: 22)
+. 2021-12-01 11:13:51.300 User name: qook (Password: Yes, Key file: No, Passphrase: No)
+. 2021-12-01 11:13:51.300 Tunnel: No
+. 2021-12-01 11:13:51.300 Transfer Protocol: SFTP
+. 2021-12-01 11:13:51.300 Ping type: Off, Ping interval: 30 sec; Timeout: 15 sec
+. 2021-12-01 11:13:51.300 Disable Nagle: No
+. 2021-12-01 11:13:51.300 Proxy: None
+. 2021-12-01 11:13:51.300 Send buffer: 262144
+. 2021-12-01 11:13:51.300 SSH protocol version: 2; Compression: No
+. 2021-12-01 11:13:51.300 Bypass authentication: No
+. 2021-12-01 11:13:51.300 Try agent: Yes; Agent forwarding: No; TIS/CryptoCard: No; KI: Yes; GSSAPI: Yes
+. 2021-12-01 11:13:51.300 GSSAPI: KEX: No; Forwarding: No; Libs: gssapi32,sspi,custom; Custom: 
+. 2021-12-01 11:13:51.300 Ciphers: aes,chacha20,blowfish,3des,WARN,arcfour,des; Ssh2DES: No
+. 2021-12-01 11:13:51.300 KEX: ecdh,dh-gex-sha1,dh-group14-sha1,rsa,WARN,dh-group1-sha1
+. 2021-12-01 11:13:51.300 SSH Bugs: Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto
+. 2021-12-01 11:13:51.301 Simple channel: Yes
+. 2021-12-01 11:13:51.301 Return code variable: Autodetect; Lookup user groups: Auto
+. 2021-12-01 11:13:51.301 Shell: default
+. 2021-12-01 11:13:51.301 EOL: LF, UTF: Auto
+. 2021-12-01 11:13:51.301 Clear aliases: Yes, Unset nat.vars: Yes, Resolve symlinks: Yes; Follow directory symlinks: No
+. 2021-12-01 11:13:51.301 LS: ls -la, Ign LS warn: Yes, Scp1 Comp: No; Exit code 1 is error: No
+. 2021-12-01 11:13:51.301 SFTP Bugs: Auto,Auto
+. 2021-12-01 11:13:51.301 SFTP Server: default
+. 2021-12-01 11:13:51.301 Local directory: default, Remote directory: home, Update: Yes, Cache: Yes
+. 2021-12-01 11:13:51.301 Cache directory changes: Yes, Permanent: Yes
+. 2021-12-01 11:13:51.301 Recycle bin: Delete to: No, Overwritten to: No, Bin path: 
+. 2021-12-01 11:13:51.301 DST mode: Unix
+. 2021-12-01 11:13:51.301 --------------------------------------------------------------------------
+< 2021-12-01 11:13:51.301 Script: Searching for host...
+. 2021-12-01 11:13:51.302 Looking up host "10.193.14.13" for SSH connection
+. 2021-12-01 11:13:51.302 Connecting to 10.193.14.13 port 22
+< 2021-12-01 11:13:51.320 Script: Connecting to host...
+. 2021-12-01 11:13:51.320 We claim version: SSH-2.0-WinSCP_release_5.19.4
+. 2021-12-01 11:13:51.434 Remote version: SSH-2.0-OpenSSH_7.4
+. 2021-12-01 11:13:51.434 Using SSH protocol version 2
+. 2021-12-01 11:13:51.436 Have a known host key of type rsa2
+. 2021-12-01 11:13:51.469 Doing ECDH key exchange with curve Curve25519 and hash SHA-256
+. 2021-12-01 11:13:51.538 Server also has ssh-ed25519/ecdsa-sha2-nistp256 host keys, but we don't know any of them
+. 2021-12-01 11:13:51.538 Host key fingerprint is:
+. 2021-12-01 11:13:51.538 ssh-rsa 2048 7e:cd:40:9e:ab:68:2a:63:3a:66:84:3b:b6:6c:3f:70 wS00k9P56QO60lm1NS8bO+nPtjNA0htnzu/XzCyhfQg=
+< 2021-12-01 11:13:51.538 Script: Authenticating...
+. 2021-12-01 11:13:51.539 Host key matches configured key fingerprint
+. 2021-12-01 11:13:51.540 Initialised AES-256 SDCTR (AES-NI accelerated) [aes256-ctr] outbound encryption
+. 2021-12-01 11:13:51.540 Initialised HMAC-SHA-256 outbound MAC algorithm
+. 2021-12-01 11:13:51.540 Initialised AES-256 SDCTR (AES-NI accelerated) [aes256-ctr] inbound encryption
+. 2021-12-01 11:13:51.540 Initialised HMAC-SHA-256 inbound MAC algorithm
+! 2021-12-01 11:13:51.573 Using username "qook".
+< 2021-12-01 11:13:51.573 Script: Using username "qook".
+. 2021-12-01 11:13:51.600 Server offered these authentication methods: publickey,gssapi-keyex,gssapi-with-mic,password
+. 2021-12-01 11:13:51.600 Using SSPI from SECUR32.DLL
+. 2021-12-01 11:13:51.600 Trying gssapi-with-mic...
+. 2021-12-01 11:13:51.600 Attempting GSSAPI authentication
+. 2021-12-01 11:13:51.622 GSSAPI authentication request refused
+. 2021-12-01 11:13:51.622 Server offered these authentication methods: publickey,gssapi-keyex,gssapi-with-mic,password
+. 2021-12-01 11:13:51.622 Prompt (password, "SSH password", <no instructions>, "&Password: ")
+. 2021-12-01 11:13:51.622 Using stored password.
+< 2021-12-01 11:13:51.622 Script: Authenticating with pre-entered password.
+. 2021-12-01 11:13:51.622 Sent password
+. 2021-12-01 11:13:51.792 Access granted
+. 2021-12-01 11:13:51.792 Opening main session channel
+. 2021-12-01 11:13:51.944 Opened main channel
+. 2021-12-01 11:13:52.016 Started a shell/command
+< 2021-12-01 11:13:52.016 Script: Authenticated.
+. 2021-12-01 11:13:52.016 --------------------------------------------------------------------------
+. 2021-12-01 11:13:52.016 Using SFTP protocol.
+. 2021-12-01 11:13:52.016 Doing startup conversation with host.
+< 2021-12-01 11:13:52.016 Script: Starting the session...
+> 2021-12-01 11:13:52.016 Type: SSH_FXP_INIT, Size: 5, Number: -1
+< 2021-12-01 11:13:52.888 Type: SSH_FXP_VERSION, Size: 150, Number: -1
+. 2021-12-01 11:13:52.888 SFTP version 3 negotiated.
+. 2021-12-01 11:13:52.888 Unknown server extension posix-rename@openssh.com="1"
+. 2021-12-01 11:13:52.888 Supports statvfs@openssh.com extension version "2"
+. 2021-12-01 11:13:52.888 Unknown server extension fstatvfs@openssh.com="2"
+. 2021-12-01 11:13:52.888 Supports hardlink@openssh.com extension version "1"
+. 2021-12-01 11:13:52.888 Unknown server extension fsync@openssh.com="1"
+. 2021-12-01 11:13:52.888 We believe the server has signed timestamps bug
+. 2021-12-01 11:13:52.888 We will use UTF-8 strings until server sends an invalid UTF-8 string as with SFTP version 3 and older UTF-8 strings are not mandatory
+. 2021-12-01 11:13:52.888 Limiting packet size to OpenSSH sftp-server limit of 262148 bytes
+. 2021-12-01 11:13:52.888 Getting current directory name.
+. 2021-12-01 11:13:52.888 Getting real path for '.'
+> 2021-12-01 11:13:52.888 Type: SSH_FXP_REALPATH, Size: 10, Number: 16
+< 2021-12-01 11:13:52.914 Type: SSH_FXP_NAME, Size: 41, Number: 16
+. 2021-12-01 11:13:52.914 Real path is '/home/qook'
+. 2021-12-01 11:13:52.914 Startup conversation with host finished.
+< 2021-12-01 11:13:52.914 Script: Session started.
+< 2021-12-01 11:13:52.916 Script: Active session: [1] qook@10.193.14.13
+> 2021-12-01 11:13:52.916 Script: cd /home/qook/app/qook/tm-test
+. 2021-12-01 11:13:52.916 Changing directory to "/home/qook/app/qook/tm-test".
+. 2021-12-01 11:13:52.916 Getting real path for '/home/qook/app/qook/tm-test'
+> 2021-12-01 11:13:52.916 Type: SSH_FXP_REALPATH, Size: 36, Number: 272
+< 2021-12-01 11:13:52.944 Type: SSH_FXP_NAME, Size: 75, Number: 272
+. 2021-12-01 11:13:52.944 Real path is '/home/qook/app/qook/tm-test'
+. 2021-12-01 11:13:52.944 Trying to open directory "/home/qook/app/qook/tm-test".
+> 2021-12-01 11:13:52.944 Type: SSH_FXP_LSTAT, Size: 36, Number: 519
+< 2021-12-01 11:13:52.961 Type: SSH_FXP_ATTRS, Size: 37, Number: 519
+. 2021-12-01 11:13:52.961 Getting current directory name.
+< 2021-12-01 11:13:52.961 Script: /home/qook/app/qook/tm-test
+> 2021-12-01 11:13:52.962 Script: rm *.js.map
+. 2021-12-01 11:13:52.962 Listing directory "/home/qook/app/qook/tm-test".
+> 2021-12-01 11:13:52.962 Type: SSH_FXP_OPENDIR, Size: 36, Number: 779
+< 2021-12-01 11:13:52.989 Type: SSH_FXP_HANDLE, Size: 13, Number: 779
+> 2021-12-01 11:13:52.989 Type: SSH_FXP_READDIR, Size: 13, Number: 1036
+< 2021-12-01 11:13:53.016 Type: SSH_FXP_NAME, Size: 1223, Number: 1036
+> 2021-12-01 11:13:53.016 Type: SSH_FXP_READDIR, Size: 13, Number: 1292
+< 2021-12-01 11:13:53.033 Type: SSH_FXP_STATUS, Size: 28, Number: 1292
+< 2021-12-01 11:13:53.033 Status code: 1
+> 2021-12-01 11:13:53.033 Type: SSH_FXP_CLOSE, Size: 13, Number: 1540
+. 2021-12-01 11:13:53.033 .;d;0;2021-12-01T10:13:50.000Z;3;"qook" [1006];"apache" [48];rwxrwxr-x;0
+. 2021-12-01 11:13:53.033 ..;d;0;2021-11-11T15:40:45.000Z;3;"qook" [1006];"apache" [48];rwsrwsr-x;0
+. 2021-12-01 11:13:53.033 css;d;0;2021-09-30T08:41:29.000Z;3;"qook" [1006];"qook" [1007];rwxrwxr-x;0
+. 2021-12-01 11:13:53.033 lib;d;0;2021-06-11T14:56:25.000Z;3;"qook" [1006];"qook" [1007];rwxrwxr-x;0
+. 2021-12-01 11:13:53.033 manifest;d;0;2021-06-11T14:56:25.000Z;3;"qook" [1006];"qook" [1007];rwxrwxr-x;0
+. 2021-12-01 11:13:53.033 ui;d;0;2021-06-11T14:56:27.000Z;3;"qook" [1006];"qook" [1007];rwxrwxr-x;0
+. 2021-12-01 11:13:53.033 index.html;-;736;2021-11-29T16:08:29.000Z;3;"qook" [1006];"qook" [1007];rw-rw-r--;0
+. 2021-12-01 11:13:53.033 favicon.png;-;6105;2021-11-11T15:40:15.000Z;3;"qook" [1006];"qook" [1007];rw-rw-r--;0
+. 2021-12-01 11:13:53.033 TM.js.map;-;787809;2021-11-29T16:08:27.000Z;3;"qook" [1006];"qook" [1007];rw-rw-r--;0
+. 2021-12-01 11:13:53.033 TM.min.js;-;6161079;2021-12-01T10:13:48.000Z;3;"qook" [1006];"qook" [1007];rw-rw-r--;0
+. 2021-12-01 11:13:53.033 TM_20211201_111341.js;-;6921531;2021-12-01T10:13:50.000Z;3;"qook" [1006];"qook" [1007];rw-rw-r--;0
+. 2021-12-01 11:13:53.033 Deleting file "TM.js.map".
+> 2021-12-01 11:13:53.033 Type: SSH_FXP_REMOVE, Size: 46, Number: 1805
+< 2021-12-01 11:13:53.052 Type: SSH_FXP_STATUS, Size: 24, Number: 1540
+. 2021-12-01 11:13:53.052 Discarding reserved response
+< 2021-12-01 11:13:53.052 Type: SSH_FXP_STATUS, Size: 24, Number: 1805
+< 2021-12-01 11:13:53.052 Status code: 0
+< 2021-12-01 11:13:53.052 Script: TM.js.map
+> 2021-12-01 11:13:53.053 Script: exit
+. 2021-12-01 11:13:53.053 Script: Exit code: 0
+. 2021-12-01 11:13:53.053 Closing connection.
+. 2021-12-01 11:13:53.053 Sending special code: 1
+. 2021-12-01 11:13:53.081 Session sent command exit status 0
+. 2021-12-01 11:13:53.081 Main session channel closed
+. 2021-12-01 11:13:53.081 All channels closed
+. 2021-12-01 11:13:53.361 --------------------------------------------------------------------------
+. 2021-12-01 11:13:53.361 WinSCP Version 5.19.4 (Build 11829 2021-10-24) (OS 10.0.19042 - Windows 10 Enterprise N)
+. 2021-12-01 11:13:53.361 Configuration: nul
+. 2021-12-01 11:13:53.361 Log level: Normal
+. 2021-12-01 11:13:53.361 Local account: SALT\bbaudry
+. 2021-12-01 11:13:53.361 Working directory: C:\_mesDocs\_git\TM
+. 2021-12-01 11:13:53.361 Process ID: 20120
+. 2021-12-01 11:13:53.385 Ancestor processes: WinSCP, cmd, fdbuild, FlashDevelop, explorer, ...
+. 2021-12-01 11:13:53.385 Command-line: "C:\_mesProgs\WinSCP\WinSCP.exe" /console=5.19.4 /consoleinstance=_21588_269 "/log=C:\_mesDocs\_git\TM\WinSCP.log" "/ini=nul" "/command" "open sftp://qook:***@10.193.14.13/ -hostkey=""ssh-rsa 2048 wS00k9P56QO60lm1NS8bO+nPtjNA0htnzu/XzCyhfQg=""" "lcd bin\" "cd /home/qook/app/qook/tm-test" "put -nopreservetime *.js.map" "exit"
+. 2021-12-01 11:13:53.385 Time zone: Current: GMT+1, Standard: GMT+1 (W. Europe Standard Time), DST: GMT+2 (W. Europe Daylight Time), DST Start: 28.03.2021, DST End: 31.10.2021
+. 2021-12-01 11:13:53.386 Login time: Wednesday, 01 December 2021 11:13:53
+. 2021-12-01 11:13:53.386 --------------------------------------------------------------------------
+. 2021-12-01 11:13:53.386 Script: Retrospectively logging previous script records:
+> 2021-12-01 11:13:53.386 Script: open sftp://qook:***@10.193.14.13/ -hostkey="ssh-rsa 2048 wS00k9P56QO60lm1NS8bO+nPtjNA0htnzu/XzCyhfQg="
+. 2021-12-01 11:13:53.386 --------------------------------------------------------------------------
+. 2021-12-01 11:13:53.386 Session name: qook@10.193.14.13 (Ad-Hoc site)
+. 2021-12-01 11:13:53.386 Host name: 10.193.14.13 (Port: 22)
+. 2021-12-01 11:13:53.386 User name: qook (Password: Yes, Key file: No, Passphrase: No)
+. 2021-12-01 11:13:53.386 Tunnel: No
+. 2021-12-01 11:13:53.386 Transfer Protocol: SFTP
+. 2021-12-01 11:13:53.386 Ping type: Off, Ping interval: 30 sec; Timeout: 15 sec
+. 2021-12-01 11:13:53.386 Disable Nagle: No
+. 2021-12-01 11:13:53.386 Proxy: None
+. 2021-12-01 11:13:53.386 Send buffer: 262144
+. 2021-12-01 11:13:53.386 SSH protocol version: 2; Compression: No
+. 2021-12-01 11:13:53.386 Bypass authentication: No
+. 2021-12-01 11:13:53.386 Try agent: Yes; Agent forwarding: No; TIS/CryptoCard: No; KI: Yes; GSSAPI: Yes
+. 2021-12-01 11:13:53.386 GSSAPI: KEX: No; Forwarding: No; Libs: gssapi32,sspi,custom; Custom: 
+. 2021-12-01 11:13:53.386 Ciphers: aes,chacha20,blowfish,3des,WARN,arcfour,des; Ssh2DES: No
+. 2021-12-01 11:13:53.386 KEX: ecdh,dh-gex-sha1,dh-group14-sha1,rsa,WARN,dh-group1-sha1
+. 2021-12-01 11:13:53.386 SSH Bugs: Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto
+. 2021-12-01 11:13:53.386 Simple channel: Yes
+. 2021-12-01 11:13:53.386 Return code variable: Autodetect; Lookup user groups: Auto
+. 2021-12-01 11:13:53.386 Shell: default
+. 2021-12-01 11:13:53.386 EOL: LF, UTF: Auto
+. 2021-12-01 11:13:53.386 Clear aliases: Yes, Unset nat.vars: Yes, Resolve symlinks: Yes; Follow directory symlinks: No
+. 2021-12-01 11:13:53.386 LS: ls -la, Ign LS warn: Yes, Scp1 Comp: No; Exit code 1 is error: No
+. 2021-12-01 11:13:53.386 SFTP Bugs: Auto,Auto
+. 2021-12-01 11:13:53.386 SFTP Server: default
+. 2021-12-01 11:13:53.386 Local directory: default, Remote directory: home, Update: Yes, Cache: Yes
+. 2021-12-01 11:13:53.386 Cache directory changes: Yes, Permanent: Yes
+. 2021-12-01 11:13:53.386 Recycle bin: Delete to: No, Overwritten to: No, Bin path: 
+. 2021-12-01 11:13:53.386 DST mode: Unix
+. 2021-12-01 11:13:53.386 --------------------------------------------------------------------------
+< 2021-12-01 11:13:53.386 Script: Searching for host...
+. 2021-12-01 11:13:53.387 Looking up host "10.193.14.13" for SSH connection
+. 2021-12-01 11:13:53.387 Connecting to 10.193.14.13 port 22
+< 2021-12-01 11:13:53.408 Script: Connecting to host...
+. 2021-12-01 11:13:53.408 We claim version: SSH-2.0-WinSCP_release_5.19.4
+. 2021-12-01 11:13:53.501 Remote version: SSH-2.0-OpenSSH_7.4
+. 2021-12-01 11:13:53.501 Using SSH protocol version 2
+. 2021-12-01 11:13:53.502 Have a known host key of type rsa2
+. 2021-12-01 11:13:53.543 Doing ECDH key exchange with curve Curve25519 and hash SHA-256
+. 2021-12-01 11:13:53.610 Server also has ssh-ed25519/ecdsa-sha2-nistp256 host keys, but we don't know any of them
+. 2021-12-01 11:13:53.610 Host key fingerprint is:
+. 2021-12-01 11:13:53.610 ssh-rsa 2048 7e:cd:40:9e:ab:68:2a:63:3a:66:84:3b:b6:6c:3f:70 wS00k9P56QO60lm1NS8bO+nPtjNA0htnzu/XzCyhfQg=
+< 2021-12-01 11:13:53.610 Script: Authenticating...
+. 2021-12-01 11:13:53.610 Host key matches configured key fingerprint
+. 2021-12-01 11:13:53.611 Initialised AES-256 SDCTR (AES-NI accelerated) [aes256-ctr] outbound encryption
+. 2021-12-01 11:13:53.611 Initialised HMAC-SHA-256 outbound MAC algorithm
+. 2021-12-01 11:13:53.611 Initialised AES-256 SDCTR (AES-NI accelerated) [aes256-ctr] inbound encryption
+. 2021-12-01 11:13:53.611 Initialised HMAC-SHA-256 inbound MAC algorithm
+! 2021-12-01 11:13:53.635 Using username "qook".
+< 2021-12-01 11:13:53.635 Script: Using username "qook".
+. 2021-12-01 11:13:53.670 Server offered these authentication methods: publickey,gssapi-keyex,gssapi-with-mic,password
+. 2021-12-01 11:13:53.670 Using SSPI from SECUR32.DLL
+. 2021-12-01 11:13:53.670 Trying gssapi-with-mic...
+. 2021-12-01 11:13:53.670 Attempting GSSAPI authentication
+. 2021-12-01 11:13:53.696 GSSAPI authentication request refused
+. 2021-12-01 11:13:53.696 Server offered these authentication methods: publickey,gssapi-keyex,gssapi-with-mic,password
+. 2021-12-01 11:13:53.696 Prompt (password, "SSH password", <no instructions>, "&Password: ")
+. 2021-12-01 11:13:53.696 Using stored password.
+< 2021-12-01 11:13:53.696 Script: Authenticating with pre-entered password.
+. 2021-12-01 11:13:53.696 Sent password
+. 2021-12-01 11:13:53.838 Access granted
+. 2021-12-01 11:13:53.838 Opening main session channel
+. 2021-12-01 11:13:54.000 Opened main channel
+. 2021-12-01 11:13:54.047 Started a shell/command
+< 2021-12-01 11:13:54.047 Script: Authenticated.
+. 2021-12-01 11:13:54.047 --------------------------------------------------------------------------
+. 2021-12-01 11:13:54.048 Using SFTP protocol.
+. 2021-12-01 11:13:54.048 Doing startup conversation with host.
+< 2021-12-01 11:13:54.048 Script: Starting the session...
+> 2021-12-01 11:13:54.048 Type: SSH_FXP_INIT, Size: 5, Number: -1
+< 2021-12-01 11:13:54.926 Type: SSH_FXP_VERSION, Size: 150, Number: -1
+. 2021-12-01 11:13:54.926 SFTP version 3 negotiated.
+. 2021-12-01 11:13:54.926 Unknown server extension posix-rename@openssh.com="1"
+. 2021-12-01 11:13:54.926 Supports statvfs@openssh.com extension version "2"
+. 2021-12-01 11:13:54.926 Unknown server extension fstatvfs@openssh.com="2"
+. 2021-12-01 11:13:54.926 Supports hardlink@openssh.com extension version "1"
+. 2021-12-01 11:13:54.926 Unknown server extension fsync@openssh.com="1"
+. 2021-12-01 11:13:54.926 We believe the server has signed timestamps bug
+. 2021-12-01 11:13:54.926 We will use UTF-8 strings until server sends an invalid UTF-8 string as with SFTP version 3 and older UTF-8 strings are not mandatory
+. 2021-12-01 11:13:54.926 Limiting packet size to OpenSSH sftp-server limit of 262148 bytes
+. 2021-12-01 11:13:54.926 Getting current directory name.
+. 2021-12-01 11:13:54.926 Getting real path for '.'
+> 2021-12-01 11:13:54.926 Type: SSH_FXP_REALPATH, Size: 10, Number: 16
+< 2021-12-01 11:13:54.948 Type: SSH_FXP_NAME, Size: 41, Number: 16
+. 2021-12-01 11:13:54.948 Real path is '/home/qook'
+. 2021-12-01 11:13:54.948 Startup conversation with host finished.
+< 2021-12-01 11:13:54.948 Script: Session started.
+< 2021-12-01 11:13:54.948 Script: Active session: [1] qook@10.193.14.13
+> 2021-12-01 11:13:54.949 Script: lcd bin\
+< 2021-12-01 11:13:54.949 Script: C:\_mesDocs\_git\TM\bin
+> 2021-12-01 11:13:54.950 Script: cd /home/qook/app/qook/tm-test
+. 2021-12-01 11:13:54.950 Changing directory to "/home/qook/app/qook/tm-test".
+. 2021-12-01 11:13:54.950 Getting real path for '/home/qook/app/qook/tm-test'
+> 2021-12-01 11:13:54.950 Type: SSH_FXP_REALPATH, Size: 36, Number: 272
+< 2021-12-01 11:13:54.970 Type: SSH_FXP_NAME, Size: 75, Number: 272
+. 2021-12-01 11:13:54.970 Real path is '/home/qook/app/qook/tm-test'
+. 2021-12-01 11:13:54.970 Trying to open directory "/home/qook/app/qook/tm-test".
+> 2021-12-01 11:13:54.970 Type: SSH_FXP_LSTAT, Size: 36, Number: 519
+< 2021-12-01 11:13:54.993 Type: SSH_FXP_ATTRS, Size: 37, Number: 519
+. 2021-12-01 11:13:54.993 Getting current directory name.
+< 2021-12-01 11:13:54.993 Script: /home/qook/app/qook/tm-test
+> 2021-12-01 11:13:54.993 Script: put -nopreservetime *.js.map
+. 2021-12-01 11:13:54.994 Copying 1 files/directories to remote directory "/home/qook/app/qook/tm-test" - total size: 788'826
+. 2021-12-01 11:13:54.994   PrTime: No; PrRO: No; Rght: rw-r--r--; PrR: No (No); FnCs: N; RIC: 0100; Resume: S (102400); CalcS: No; Mask: 
+. 2021-12-01 11:13:54.994   TM: B; ClAr: No; RemEOF: No; RemBOM: No; CPS: 0; NewerOnly: No; EncryptNewFiles: Yes; ExcludeHiddenFiles: No; ExcludeEmptyDirectories: No; InclM: ; ResumeL: 0
+. 2021-12-01 11:13:54.994   AscM: *.*html; *.htm; *.txt; *.php; *.php3; *.cgi; *.c; *.cpp; *.h; *.pas; *.bas; *.tex; *.pl; *.js; .htaccess; *.xtml; *.css; *.cfg; *.ini; *.sh; *.xml
+. 2021-12-01 11:13:54.995 File: 'TM.js.map' [2021-12-01T10:13:30.905Z] [788826]
+. 2021-12-01 11:13:54.997 Copying "TM.js.map" to remote directory started.
+. 2021-12-01 11:13:54.997 Binary transfer mode selected.
+. 2021-12-01 11:13:54.997 Checking existence of file.
+> 2021-12-01 11:13:54.997 Type: SSH_FXP_LSTAT, Size: 46, Number: 775
+< 2021-12-01 11:13:55.026 Type: SSH_FXP_STATUS, Size: 29, Number: 775
+< 2021-12-01 11:13:55.026 Status code: 2
+. 2021-12-01 11:13:55.026 Checking existence of partially transferred file.
+> 2021-12-01 11:13:55.026 Type: SSH_FXP_LSTAT, Size: 55, Number: 1031
+< 2021-12-01 11:13:55.048 Type: SSH_FXP_STATUS, Size: 29, Number: 1031
+< 2021-12-01 11:13:55.048 Status code: 2
+. 2021-12-01 11:13:55.048 Opening remote file.
+> 2021-12-01 11:13:55.048 Type: SSH_FXP_OPEN, Size: 71, Number: 1283
+< 2021-12-01 11:13:55.070 Type: SSH_FXP_HANDLE, Size: 13, Number: 1283
+> 2021-12-01 11:13:55.070 Type: SSH_FXP_WRITE, Size: 32761, Number: 1798
+. 2021-12-01 11:13:55.263 36 skipped SSH_FXP_WRITE, SSH_FXP_READ, SSH_FXP_DATA and SSH_FXP_STATUS packets.
+> 2021-12-01 11:13:55.263 Type: SSH_FXP_CLOSE, Size: 13, Number: 8196
+< 2021-12-01 11:13:55.263 Type: SSH_FXP_STATUS, Size: 24, Number: 4870
+< 2021-12-01 11:13:55.263 Status code: 0
+< 2021-12-01 11:13:55.264 Type: SSH_FXP_STATUS, Size: 24, Number: 5126
+< 2021-12-01 11:13:55.264 Status code: 0
+< 2021-12-01 11:13:55.294 Type: SSH_FXP_STATUS, Size: 24, Number: 5382
+< 2021-12-01 11:13:55.294 Status code: 0
+< 2021-12-01 11:13:55.295 Type: SSH_FXP_STATUS, Size: 24, Number: 5638
+< 2021-12-01 11:13:55.295 Status code: 0
+< 2021-12-01 11:13:55.295 Type: SSH_FXP_STATUS, Size: 24, Number: 5894
+< 2021-12-01 11:13:55.295 Status code: 0
+< 2021-12-01 11:13:55.326 Type: SSH_FXP_STATUS, Size: 24, Number: 6150
+< 2021-12-01 11:13:55.326 Status code: 0
+< 2021-12-01 11:13:55.336 Type: SSH_FXP_STATUS, Size: 24, Number: 6406
+< 2021-12-01 11:13:55.336 Status code: 0
+< 2021-12-01 11:13:55.336 Type: SSH_FXP_STATUS, Size: 24, Number: 6662
+< 2021-12-01 11:13:55.336 Status code: 0
+< 2021-12-01 11:13:55.354 Type: SSH_FXP_STATUS, Size: 24, Number: 6918
+< 2021-12-01 11:13:55.354 Status code: 0
+< 2021-12-01 11:13:55.366 Type: SSH_FXP_STATUS, Size: 24, Number: 7174
+< 2021-12-01 11:13:55.367 Status code: 0
+< 2021-12-01 11:13:55.379 Type: SSH_FXP_STATUS, Size: 24, Number: 7430
+< 2021-12-01 11:13:55.379 Status code: 0
+< 2021-12-01 11:13:55.383 Type: SSH_FXP_STATUS, Size: 24, Number: 7686
+< 2021-12-01 11:13:55.383 Status code: 0
+< 2021-12-01 11:13:55.383 Type: SSH_FXP_STATUS, Size: 24, Number: 7942
+< 2021-12-01 11:13:55.383 Status code: 0
+< 2021-12-01 11:13:55.383 Type: SSH_FXP_STATUS, Size: 24, Number: 8196
+< 2021-12-01 11:13:55.383 Status code: 0
+> 2021-12-01 11:13:55.383 Type: SSH_FXP_RENAME, Size: 96, Number: 8466
+< 2021-12-01 11:13:55.405 Type: SSH_FXP_STATUS, Size: 24, Number: 8466
+< 2021-12-01 11:13:55.405 Status code: 0
+. 2021-12-01 11:13:55.405 Transfer done: 'TM.js.map' => '/home/qook/app/qook/tm-test/TM.js.map' [788826]
+. 2021-12-01 11:13:55.405 Copying finished: Transferred: 788'826, Elapsed: 0:00:00, CPS: 2'197'936/s
+> 2021-12-01 11:13:55.405 Script: exit
+. 2021-12-01 11:13:55.405 Script: Exit code: 0
+. 2021-12-01 11:13:55.405 Closing connection.
+. 2021-12-01 11:13:55.405 Sending special code: 1
+. 2021-12-01 11:13:55.427 Session sent command exit status 0
+. 2021-12-01 11:13:55.427 Main session channel closed
+. 2021-12-01 11:13:55.427 All channels closed
+. 2021-12-01 11:13:55.701 --------------------------------------------------------------------------
+. 2021-12-01 11:13:55.701 WinSCP Version 5.19.4 (Build 11829 2021-10-24) (OS 10.0.19042 - Windows 10 Enterprise N)
+. 2021-12-01 11:13:55.701 Configuration: nul
+. 2021-12-01 11:13:55.701 Log level: Normal
+. 2021-12-01 11:13:55.701 Local account: SALT\bbaudry
+. 2021-12-01 11:13:55.701 Working directory: C:\_mesDocs\_git\TM
+. 2021-12-01 11:13:55.701 Process ID: 19092
+. 2021-12-01 11:13:55.721 Ancestor processes: WinSCP, cmd, fdbuild, FlashDevelop, explorer, ...
+. 2021-12-01 11:13:55.721 Command-line: "C:\_mesProgs\WinSCP\WinSCP.exe" /console=5.19.4 /consoleinstance=_26036_124 "/log=C:\_mesDocs\_git\TM\WinSCP.log" "/ini=nul" "/command" "open sftp://qook:***@10.193.14.13/ -hostkey=""ssh-rsa 2048 wS00k9P56QO60lm1NS8bO+nPtjNA0htnzu/XzCyhfQg=""" "lcd bin\" "cd /home/qook/app/qook/tm-test" "put -nopreservetime index.html" "exit"
+. 2021-12-01 11:13:55.721 Time zone: Current: GMT+1, Standard: GMT+1 (W. Europe Standard Time), DST: GMT+2 (W. Europe Daylight Time), DST Start: 28.03.2021, DST End: 31.10.2021
+. 2021-12-01 11:13:55.721 Login time: Wednesday, 01 December 2021 11:13:55
+. 2021-12-01 11:13:55.721 --------------------------------------------------------------------------
+. 2021-12-01 11:13:55.721 Script: Retrospectively logging previous script records:
+> 2021-12-01 11:13:55.721 Script: open sftp://qook:***@10.193.14.13/ -hostkey="ssh-rsa 2048 wS00k9P56QO60lm1NS8bO+nPtjNA0htnzu/XzCyhfQg="
+. 2021-12-01 11:13:55.721 --------------------------------------------------------------------------
+. 2021-12-01 11:13:55.721 Session name: qook@10.193.14.13 (Ad-Hoc site)
+. 2021-12-01 11:13:55.721 Host name: 10.193.14.13 (Port: 22)
+. 2021-12-01 11:13:55.721 User name: qook (Password: Yes, Key file: No, Passphrase: No)
+. 2021-12-01 11:13:55.721 Tunnel: No
+. 2021-12-01 11:13:55.721 Transfer Protocol: SFTP
+. 2021-12-01 11:13:55.721 Ping type: Off, Ping interval: 30 sec; Timeout: 15 sec
+. 2021-12-01 11:13:55.721 Disable Nagle: No
+. 2021-12-01 11:13:55.721 Proxy: None
+. 2021-12-01 11:13:55.721 Send buffer: 262144
+. 2021-12-01 11:13:55.721 SSH protocol version: 2; Compression: No
+. 2021-12-01 11:13:55.721 Bypass authentication: No
+. 2021-12-01 11:13:55.721 Try agent: Yes; Agent forwarding: No; TIS/CryptoCard: No; KI: Yes; GSSAPI: Yes
+. 2021-12-01 11:13:55.721 GSSAPI: KEX: No; Forwarding: No; Libs: gssapi32,sspi,custom; Custom: 
+. 2021-12-01 11:13:55.721 Ciphers: aes,chacha20,blowfish,3des,WARN,arcfour,des; Ssh2DES: No
+. 2021-12-01 11:13:55.721 KEX: ecdh,dh-gex-sha1,dh-group14-sha1,rsa,WARN,dh-group1-sha1
+. 2021-12-01 11:13:55.722 SSH Bugs: Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto
+. 2021-12-01 11:13:55.722 Simple channel: Yes
+. 2021-12-01 11:13:55.722 Return code variable: Autodetect; Lookup user groups: Auto
+. 2021-12-01 11:13:55.722 Shell: default
+. 2021-12-01 11:13:55.722 EOL: LF, UTF: Auto
+. 2021-12-01 11:13:55.722 Clear aliases: Yes, Unset nat.vars: Yes, Resolve symlinks: Yes; Follow directory symlinks: No
+. 2021-12-01 11:13:55.722 LS: ls -la, Ign LS warn: Yes, Scp1 Comp: No; Exit code 1 is error: No
+. 2021-12-01 11:13:55.722 SFTP Bugs: Auto,Auto
+. 2021-12-01 11:13:55.722 SFTP Server: default
+. 2021-12-01 11:13:55.722 Local directory: default, Remote directory: home, Update: Yes, Cache: Yes
+. 2021-12-01 11:13:55.722 Cache directory changes: Yes, Permanent: Yes
+. 2021-12-01 11:13:55.722 Recycle bin: Delete to: No, Overwritten to: No, Bin path: 
+. 2021-12-01 11:13:55.722 DST mode: Unix
+. 2021-12-01 11:13:55.722 --------------------------------------------------------------------------
+< 2021-12-01 11:13:55.722 Script: Searching for host...
+. 2021-12-01 11:13:55.722 Looking up host "10.193.14.13" for SSH connection
+. 2021-12-01 11:13:55.722 Connecting to 10.193.14.13 port 22
+< 2021-12-01 11:13:55.741 Script: Connecting to host...
+. 2021-12-01 11:13:55.741 We claim version: SSH-2.0-WinSCP_release_5.19.4
+. 2021-12-01 11:13:55.802 Remote version: SSH-2.0-OpenSSH_7.4
+. 2021-12-01 11:13:55.802 Using SSH protocol version 2
+. 2021-12-01 11:13:55.802 Have a known host key of type rsa2
+. 2021-12-01 11:13:55.859 Doing ECDH key exchange with curve Curve25519 and hash SHA-256
+. 2021-12-01 11:13:55.931 Server also has ssh-ed25519/ecdsa-sha2-nistp256 host keys, but we don't know any of them
+. 2021-12-01 11:13:55.931 Host key fingerprint is:
+. 2021-12-01 11:13:55.931 ssh-rsa 2048 7e:cd:40:9e:ab:68:2a:63:3a:66:84:3b:b6:6c:3f:70 wS00k9P56QO60lm1NS8bO+nPtjNA0htnzu/XzCyhfQg=
+< 2021-12-01 11:13:55.931 Script: Authenticating...
+. 2021-12-01 11:13:55.931 Host key matches configured key fingerprint
+. 2021-12-01 11:13:55.931 Initialised AES-256 SDCTR (AES-NI accelerated) [aes256-ctr] outbound encryption
+. 2021-12-01 11:13:55.931 Initialised HMAC-SHA-256 outbound MAC algorithm
+. 2021-12-01 11:13:55.931 Initialised AES-256 SDCTR (AES-NI accelerated) [aes256-ctr] inbound encryption
+. 2021-12-01 11:13:55.931 Initialised HMAC-SHA-256 inbound MAC algorithm
+! 2021-12-01 11:13:55.950 Using username "qook".
+< 2021-12-01 11:13:55.950 Script: Using username "qook".
+. 2021-12-01 11:13:55.982 Server offered these authentication methods: publickey,gssapi-keyex,gssapi-with-mic,password
+. 2021-12-01 11:13:55.982 Using SSPI from SECUR32.DLL
+. 2021-12-01 11:13:55.982 Trying gssapi-with-mic...
+. 2021-12-01 11:13:55.982 Attempting GSSAPI authentication
+. 2021-12-01 11:13:56.008 GSSAPI authentication request refused
+. 2021-12-01 11:13:56.008 Server offered these authentication methods: publickey,gssapi-keyex,gssapi-with-mic,password
+. 2021-12-01 11:13:56.008 Prompt (password, "SSH password", <no instructions>, "&Password: ")
+. 2021-12-01 11:13:56.008 Using stored password.
+< 2021-12-01 11:13:56.008 Script: Authenticating with pre-entered password.
+. 2021-12-01 11:13:56.009 Sent password
+. 2021-12-01 11:13:56.155 Access granted
+. 2021-12-01 11:13:56.155 Opening main session channel
+. 2021-12-01 11:13:56.317 Opened main channel
+. 2021-12-01 11:13:56.372 Started a shell/command
+< 2021-12-01 11:13:56.372 Script: Authenticated.
+. 2021-12-01 11:13:56.372 --------------------------------------------------------------------------
+. 2021-12-01 11:13:56.372 Using SFTP protocol.
+. 2021-12-01 11:13:56.372 Doing startup conversation with host.
+< 2021-12-01 11:13:56.372 Script: Starting the session...
+> 2021-12-01 11:13:56.372 Type: SSH_FXP_INIT, Size: 5, Number: -1
+< 2021-12-01 11:13:57.234 Type: SSH_FXP_VERSION, Size: 150, Number: -1
+. 2021-12-01 11:13:57.234 SFTP version 3 negotiated.
+. 2021-12-01 11:13:57.234 Unknown server extension posix-rename@openssh.com="1"
+. 2021-12-01 11:13:57.234 Supports statvfs@openssh.com extension version "2"
+. 2021-12-01 11:13:57.234 Unknown server extension fstatvfs@openssh.com="2"
+. 2021-12-01 11:13:57.234 Supports hardlink@openssh.com extension version "1"
+. 2021-12-01 11:13:57.234 Unknown server extension fsync@openssh.com="1"
+. 2021-12-01 11:13:57.234 We believe the server has signed timestamps bug
+. 2021-12-01 11:13:57.234 We will use UTF-8 strings until server sends an invalid UTF-8 string as with SFTP version 3 and older UTF-8 strings are not mandatory
+. 2021-12-01 11:13:57.234 Limiting packet size to OpenSSH sftp-server limit of 262148 bytes
+. 2021-12-01 11:13:57.234 Getting current directory name.
+. 2021-12-01 11:13:57.236 Getting real path for '.'
+> 2021-12-01 11:13:57.236 Type: SSH_FXP_REALPATH, Size: 10, Number: 16
+< 2021-12-01 11:13:57.257 Type: SSH_FXP_NAME, Size: 41, Number: 16
+. 2021-12-01 11:13:57.257 Real path is '/home/qook'
+. 2021-12-01 11:13:57.257 Startup conversation with host finished.
+< 2021-12-01 11:13:57.257 Script: Session started.
+< 2021-12-01 11:13:57.258 Script: Active session: [1] qook@10.193.14.13
+> 2021-12-01 11:13:57.259 Script: lcd bin\
+< 2021-12-01 11:13:57.259 Script: C:\_mesDocs\_git\TM\bin
+> 2021-12-01 11:13:57.260 Script: cd /home/qook/app/qook/tm-test
+. 2021-12-01 11:13:57.260 Changing directory to "/home/qook/app/qook/tm-test".
+. 2021-12-01 11:13:57.260 Getting real path for '/home/qook/app/qook/tm-test'
+> 2021-12-01 11:13:57.260 Type: SSH_FXP_REALPATH, Size: 36, Number: 272
+< 2021-12-01 11:13:57.290 Type: SSH_FXP_NAME, Size: 75, Number: 272
+. 2021-12-01 11:13:57.290 Real path is '/home/qook/app/qook/tm-test'
+. 2021-12-01 11:13:57.290 Trying to open directory "/home/qook/app/qook/tm-test".
+> 2021-12-01 11:13:57.290 Type: SSH_FXP_LSTAT, Size: 36, Number: 519
+< 2021-12-01 11:13:57.313 Type: SSH_FXP_ATTRS, Size: 37, Number: 519
+. 2021-12-01 11:13:57.313 Getting current directory name.
+< 2021-12-01 11:13:57.313 Script: /home/qook/app/qook/tm-test
+> 2021-12-01 11:13:57.314 Script: put -nopreservetime index.html
+. 2021-12-01 11:13:57.315 Copying 1 files/directories to remote directory "/home/qook/app/qook/tm-test" - total size: 736
+. 2021-12-01 11:13:57.315   PrTime: No; PrRO: No; Rght: rw-r--r--; PrR: No (No); FnCs: N; RIC: 0100; Resume: S (102400); CalcS: No; Mask: 
+. 2021-12-01 11:13:57.315   TM: B; ClAr: No; RemEOF: No; RemBOM: No; CPS: 0; NewerOnly: No; EncryptNewFiles: Yes; ExcludeHiddenFiles: No; ExcludeEmptyDirectories: No; InclM: ; ResumeL: 0
+. 2021-12-01 11:13:57.315   AscM: *.*html; *.htm; *.txt; *.php; *.php3; *.cgi; *.c; *.cpp; *.h; *.pas; *.bas; *.tex; *.pl; *.js; .htaccess; *.xtml; *.css; *.cfg; *.ini; *.sh; *.xml
+. 2021-12-01 11:13:57.315 File: 'index.html' [2021-12-01T10:13:42.119Z] [736]
+. 2021-12-01 11:13:57.317 Copying "index.html" to remote directory started.
+. 2021-12-01 11:13:57.317 Binary transfer mode selected.
+. 2021-12-01 11:13:57.317 Opening remote file.
+> 2021-12-01 11:13:57.317 Type: SSH_FXP_OPEN, Size: 63, Number: 771
+< 2021-12-01 11:13:57.350 Type: SSH_FXP_HANDLE, Size: 13, Number: 771
+> 2021-12-01 11:13:57.350 Type: SSH_FXP_WRITE, Size: 761, Number: 1286
+> 2021-12-01 11:13:57.351 Type: SSH_FXP_CLOSE, Size: 13, Number: 1540
+< 2021-12-01 11:13:57.374 Type: SSH_FXP_STATUS, Size: 24, Number: 1286
+< 2021-12-01 11:13:57.374 Status code: 0
+< 2021-12-01 11:13:57.374 Type: SSH_FXP_STATUS, Size: 24, Number: 1540
+< 2021-12-01 11:13:57.374 Status code: 0
+. 2021-12-01 11:13:57.374 Transfer done: 'index.html' => '/home/qook/app/qook/tm-test/index.html' [736]
+. 2021-12-01 11:13:57.374 Copying finished: Transferred: 736, Elapsed: 0:00:00, CPS: 0/s
+> 2021-12-01 11:13:57.375 Script: exit
+. 2021-12-01 11:13:57.375 Script: Exit code: 0
+. 2021-12-01 11:13:57.375 Closing connection.
+. 2021-12-01 11:13:57.375 Sending special code: 1
+. 2021-12-01 11:13:57.398 Session sent command exit status 0
+. 2021-12-01 11:13:57.398 Main session channel closed
+. 2021-12-01 11:13:57.398 All channels closed

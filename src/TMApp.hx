@@ -53,7 +53,7 @@ using StringTools;
 class TMApp
 {
 	var mainApp:Component;
-	var loginApp:Component;
+	var loginApp:Login;
 	var langSwitcher:Group;
 	var formSwitcher: DropDown;
 	var content:Component;
@@ -62,6 +62,7 @@ class TMApp
 	var outbound:Component;
 	var mail:Component;
 	var ticket:Component;
+	var telesales:Component;
 	var forms:Map<String, Component>;
 	//var agreements:Array<Group>;
 	var currentForm:Component;
@@ -100,7 +101,7 @@ class TMApp
 	var countQuestions:Float;
 	var whatToSend:CheckBox;
 	//var whatToSendLabel:Label;
-	var _mainDebug:Bool;
+	public static var _mainDebug:Bool;
 	var comonLibs:String;
 	var xapi:http.XapiHelper;
 	//var form_id:String;
@@ -223,7 +224,7 @@ class TMApp
 		}
 		else if (stage == 2)
 		{
-			sendEmailToBoth(tracker.coachRecieved);
+			sendEmailToBoth(tracker.monitoreeRecieved);
 			
 		}
 	}
@@ -285,36 +286,6 @@ class TMApp
 		Question.RESET();
 		
 	}
-    /*
-	function prepareLogin()
-	{
-		#if debug
-		//trace("TMApp::prepareLogin", loginApp.disabled, loginApp.isComponentInvalid(), loginApp.numComponents, loginApp.depth);
-		#end
-		
-		//versionLabel = loginApp.findComponent("version", Label);
-		//versionLabel.text = "v " + version;
-		loginBtn = loginApp.findComponent("login", Button);
-		coachUsername = loginApp.findComponent("username", TextField);
-		//coachUsername.text = coach == null ? "" : coach.sAMAccountName;
-		coachPWD = loginApp.findComponent("pwd", TextField);
-		coachPWD.password = true;
-		coachPWD.text = "";
-		var showPWD:Image = loginApp.findComponent("showPwd", Image);
-		showPWD.onClick = onShowChange;
-		loginFeedback = loginApp.findComponent("feedback", Label);
-		loginBtn.onClick = onLoginClicked;
-		#if debug
-		if (!_mainDebug) loginBtn.onClick = (e)->(onLoginSuccess(monitoring.coach));
-		#end
-		// SHOW the LOGIN PAGE
-		app.addComponent(loginApp);
-	}
-    */
-	function onShowChange(e)
-	{
-		coachPWD.password = !coachPWD.password;
-	}
 
 	function onLoginSuccess(agent:Actor)
 	{
@@ -329,8 +300,8 @@ class TMApp
 			}
 			else
 			{
-				loginFeedback.addClass("error");
-				loginFeedback.text = agent.title;
+				//loginFeedback.addClass("error");
+				loginApp.feedErrorBack(agent.title);
 			}
 		}
 		else if (Std.isOfType(agent, Monitoree ))
@@ -518,9 +489,11 @@ class TMApp
 		inbound = ComponentMacros.buildComponent("assets/ui/content/inbound.xml");
 		mail = ComponentMacros.buildComponent("assets/ui/content/mail.xml");
 		ticket = ComponentMacros.buildComponent("assets/ui/content/case.xml");
+		telesales = ComponentMacros.buildComponent("assets/ui/content/telesales.xml");
 		forms.set("inbound", inbound);
 		forms.set("mail", mail);
 		forms.set("case", ticket);
+		forms.set("telesales", telesales);
 	}
 
 	function prepareVersion()
