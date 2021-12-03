@@ -46,7 +46,7 @@ class Question
 	public static var RESULT_MAP:Map<String,String> = [];
 	public static var CRITICALITY_MAP:Map<String,Int> = ["business"=>0,"compliance"=>0,"customer"=>0];
 	public static var INFO:Info;
-	public static inline var MIN_PERCENTAGE_BEFORE_FAILLING:Float = .79;
+	public static inline var MIN_PERCENTAGE_BEFORE_FAILLING:Float = .89;
 	var label:Label;
 	var radioGroup:Group;
 	var justification:TextArea;
@@ -130,10 +130,9 @@ class Question
 			}
 			s.raw = MAX_SCORE-totalFailed;
 			s.max = MAX_SCORE;
-			//return Math.round((MAX_SCORE-totalFailed) / MAX_SCORE * 100);
 		}
+		
 		return s;
-		//return FAILED_CRITICAL.length> 0 ? 0 : Math.round(((COUNT - FAILED_OVERALL.length) / COUNT)*100)/100 ;
 	}
 	/*public static MAP_ALL(extPrefix:String)
 	{

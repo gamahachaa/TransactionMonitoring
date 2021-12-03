@@ -27,6 +27,12 @@
 			<resource path="locale/en-GB/case_en.properties"
 					  prefix="case"
 					  />
+			<resource path="locale/en-GB/telesales_en.csv"
+					  prefix="telesales"
+					  />
+			<resource path="locale/en-GB/telesales_en.properties"
+					  prefix="telesales"
+					  />
 		</locale>
 		<locale id="fr">
 			<resource path="locale/fr-FR/tm_fr.csv"
@@ -41,12 +47,19 @@
 			<resource path="locale/fr-FR/inbound_fr.properties"
 					  prefix="inbound"
 					  />
+			
 			<resource path="locale/fr-FR/mail_fr.properties"
 					  prefix="mail"
 					  />
 			<resource path="locale/fr-FR/case_fr.properties"
 					  prefix="case"
 					  />
+			<resource path="locale/fr-FR/telesales_fr.csv"
+					  prefix="telesales"
+					  />
+			<resource path="locale/fr-FR/telesales_fr.properties"
+					  prefix="telesales"
+					  />			
 		</locale>
 		<locale id="de">
 			<resource path="locale/de-DE/tm_de.csv"
@@ -66,6 +79,12 @@
 					  />
 			<resource path="locale/de-DE/case_de.properties"
 					  prefix="case"
+					  />
+			<resource path="locale/de-DE/telesales_de.csv"
+					  prefix="telesales"
+					  />
+			<resource path="locale/de-DE/telesales_de.properties"
+					  prefix="telesales"
 					  />
 		</locale>
 		<locale id="it">
@@ -87,6 +106,12 @@
 			<resource path="locale/it-IT/case_it.properties"
 					  prefix="case"
 					  />
+			<resource path="locale/it-IT/telesales_it.csv"
+					  prefix="telesales"
+					  />
+			<resource path="locale/it-IT/telesales_it.properties"
+					  prefix="telesales"
+					  />			
 		</locale>
 		<!--<locale id="en" resource="locale/en-GB/tm_en.properties" />-->
 		<!--<locale id="de" resource="locale/de-DE/tm_de.txt" />-->

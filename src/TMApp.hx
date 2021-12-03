@@ -56,6 +56,7 @@ class TMApp
 	var outbound:Component;
 	var mail:Component;
 	var ticket:Component;
+	var telesales:Component;
 	var forms:Map<String, Component>;
 	//var agreements:Array<Group>;
 	var currentForm:Component;
@@ -220,7 +221,7 @@ class TMApp
 		}
 		else if (stage == 2)
 		{
-			sendEmailToBoth(tracker.coachRecieved);
+			sendEmailToBoth(tracker.monitoreeRecieved);
 			
 		}
 	}
@@ -513,10 +514,12 @@ class TMApp
 		Question.INFO = new Info(mainApp.findComponent("info"));
 		inbound = ComponentMacros.buildComponent("assets/ui/content/inbound.xml");
 		mail = ComponentMacros.buildComponent("assets/ui/content/mail.xml");
+		telesales = ComponentMacros.buildComponent("assets/ui/content/telesales.xml");
 		ticket = ComponentMacros.buildComponent("assets/ui/content/case.xml");
 		forms.set("inbound", inbound);
 		forms.set("mail", mail);
 		forms.set("case", ticket);
+		forms.set("telesales", telesales);
 	}
 
 	function prepareVersion()
