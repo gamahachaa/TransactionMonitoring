@@ -46,7 +46,7 @@ class Question
 	public static var RESULT_MAP:Map<String,String> = [];
 	public static var CRITICALITY_MAP:Map<String,Int> = ["business"=>0,"compliance"=>0,"customer"=>0];
 	public static var INFO:Info;
-	public static inline var MIN_PERCENTAGE_BEFORE_FAILLING:Float = .89;
+	public static inline var MIN_PERCENTAGE_BEFORE_FAILLING:Float = .8499;
 	var label:Label;
 	var radioGroup:Group;
 	var justification:TextArea;
