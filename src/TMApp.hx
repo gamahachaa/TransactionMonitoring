@@ -496,6 +496,7 @@ class TMApp
 		Question.INFO = new Info(mainApp.findComponent("info"));
 		inbound = ComponentMacros.buildComponent("assets/ui/content/inbound.xml");
 		mail = ComponentMacros.buildComponent("assets/ui/content/mail.xml");
+		telesales = ComponentMacros.buildComponent("assets/ui/content/telesales.xml");
 		ticket = ComponentMacros.buildComponent("assets/ui/content/case.xml");
 		telesales = ComponentMacros.buildComponent("assets/ui/content/telesales.xml");
 		forms.set("inbound", inbound);

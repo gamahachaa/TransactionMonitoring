@@ -29,10 +29,20 @@
 					  />
 			<resource path="locale/en-GB/case_en.properties"
 					  prefix="case"
+<<<<<<< HEAD
 					  />			
 			<resource path="locale/en-GB/telesales_en.properties"
 					  prefix="telesales"
 					  />			
+=======
+					  />
+			<resource path="locale/en-GB/telesales_en.csv"
+					  prefix="telesales"
+					  />
+			<resource path="locale/en-GB/telesales_en.properties"
+					  prefix="telesales"
+					  />
+>>>>>>> master
 		</locale>
 		<locale id="fr">
 			<resource path="locale/fr-FR/tm_fr.csv"
@@ -50,15 +60,25 @@
 			<resource path="locale/fr-FR/inbound_fr.properties"
 					  prefix="inbound"
 					  />
+			
 			<resource path="locale/fr-FR/mail_fr.properties"
 					  prefix="mail"
 					  />
 			<resource path="locale/fr-FR/case_fr.properties"
 					  prefix="case"
 					  />
+<<<<<<< HEAD
 			<resource path="locale/fr-FR/telesales_fr.properties"
 					  prefix="telesales"
 					  />						
+=======
+			<resource path="locale/fr-FR/telesales_fr.csv"
+					  prefix="telesales"
+					  />
+			<resource path="locale/fr-FR/telesales_fr.properties"
+					  prefix="telesales"
+					  />			
+>>>>>>> master
 		</locale>
 		<locale id="de">
 			<resource path="locale/de-DE/tm_de.csv"
@@ -82,9 +102,18 @@
 			<resource path="locale/de-DE/case_de.properties"
 					  prefix="case"
 					  />
+<<<<<<< HEAD
 			<resource path="locale/de-DE/telesales_de.properties"
 					  prefix="telesales"
 					  />			
+=======
+			<resource path="locale/de-DE/telesales_de.csv"
+					  prefix="telesales"
+					  />
+			<resource path="locale/de-DE/telesales_de.properties"
+					  prefix="telesales"
+					  />
+>>>>>>> master
 		</locale>
 		<locale id="it">
 			<resource path="locale/it-IT/tm_it.csv"
@@ -108,6 +137,12 @@
 			<resource path="locale/it-IT/case_it.properties"
 					  prefix="case"
 					  />
+<<<<<<< HEAD
+=======
+			<resource path="locale/it-IT/telesales_it.csv"
+					  prefix="telesales"
+					  />
+>>>>>>> master
 			<resource path="locale/it-IT/telesales_it.properties"
 					  prefix="telesales"
 					  />			

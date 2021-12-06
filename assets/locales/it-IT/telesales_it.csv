@@ -14,3 +14,8 @@ telesales.sales.handleobjections;Gestione delle obiezioni
 telesales.sales.handleobjections.desc;Trattamento delle obiezioni. Gestire le obbiezioni significa rispondere all'acquirente in modo da fargli cambiare idea o di alleviare le sue preoccupazioni e far proseguire la transazione.
 telesales.sales.handleobjections.passed;Quando:<br/>- L'agente ha affrontato in modo proattivo le preoccupazioni del cliente.<br/>- L'agente ha posto ulteriori domande qualificanti e ha risposto ponderatamente alle preoccupazioni del cliente.<br/>- L'agente ha usato gli argomenti giusti per far cambiare idea al cliente.<br/>- L'agente ha soluzioni alternative
 telesales.sales.handleobjections.failed;Quando:<br/>- L'agente non ha affrontato in modo proattivo le preoccupazioni del cliente.<br/>- L'agente non ha posto ulteriori domande qualificanti e non ha risposto ponderatamente alle preoccupazioni del cliente.<br/>- L'agente non ha usato gli argomenti giusti per far cambiare idea al cliente.<br/>- L'agente non ha soluzioni alternative
+<<<<<<< HEAD
+=======
+telesales.sales.opportunity.desc;Possibilità di suggerire promozioni, opzioni e contratti disponibili.
+telesales.sales.opportunity.passed;Quando : L’agente coglie l’occasione per suggerire:<ul><li>opzioni (p. es.: app Mobile Security/assicurazione);</li><li>rinnovo – acquisto di abbonamenti aggiuntivi;</li><li>Salt Home / pacchetti TV (se il cliente è idoneo per la fibra e i CSR sono autorizzati a vendere Home).</li></ul>
+>>>>>>> master

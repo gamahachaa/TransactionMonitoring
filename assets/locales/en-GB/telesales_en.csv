@@ -13,4 +13,11 @@ telesales.resolution.proactivity.failed;When:<br/>- Agent didn't anticipate furt
 telesales.sales.handleobjections;Handle objections
 telesales.sales.handleobjections.desc;Treatment of objections. Objection handling means responding to the buyer in a way that changes their mind or alleviates their concerns and allows the deal to move forward.
 telesales.sales.handleobjections.passed;When:<br/>- Agent proactively addressed customer's concerns.<br/>- Agent asked additional qualifying questions and responded thoughtfully to customer's concerns.<br/>- Agent used right arguments to change the customer's mind.<br/>- Agent has alternative solutions
+<<<<<<< HEAD
 telesales.sales.handleobjections.failed;When:<br/>- Agent didn't proactively address customer's concerns.<br/>- Agent didn't ask additional qualifying questions and respond thoughtfully to customer's concerns.<br/>- Agent didn't use right arguments to change the customer's mind.<br/>- Agent didn't have alternatives solutions
+=======
+telesales.sales.handleobjections.failed;When:<br/>- Agent didn't proactively address customer's concerns.<br/>- Agent didn't ask additional qualifying questions and respond thoughtfully to customer's concerns.<br/>- Agent didn't use right arguments to change the customer's mind.<br/>- Agent didn't have alternatives solutions
+
+telesales.sales.opportunity.desc;Opportunity to suggest available promotions, options and contracts.
+telesales.sales.opportunity.passed;When:Agent takes the opportunity to suggest <ul><li>Option (exp: Mobile Security App/insurance)</li><li>Renewal - Acquisition of additional sub</li><li>Salt Home /TV packages (If eligible for fiber and CSRs are entitled to sell Home).</li></ul>
+>>>>>>> master

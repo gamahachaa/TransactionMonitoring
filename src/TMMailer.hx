@@ -86,7 +86,11 @@ class TMMailer extends http.MailHelper
 		var monitoringSummary = monitoring.data.get(data.Monitoring.MONITORING_SUMMARY);
 		var criticalFailed = Question.FAILED_CRITICAL.length;
 		var score = Question.GET_SCORE();
-		var success = (Question.FAILED_CRITICAL.length == 0 || score.scaled > Question.MIN_PERCENTAGE_BEFORE_FAILLING);
+		var success = (Question.FAILED_CRITICAL.length == 0 && score.scaled > Question.MIN_PERCENTAGE_BEFORE_FAILLING);
+		#if debug
+		trace("TMMailer::prepareBody::success", success );
+		trace("TMMailer::prepareBody::score.scaled",  score.scaled );
+		#end
 		var descaled = Math.round(score.scaled * 100);
 		var formatedTransactionDate = DateTools.format(transaction.date, "%d.%m.%Y %H:%M");
 		var b = "";
