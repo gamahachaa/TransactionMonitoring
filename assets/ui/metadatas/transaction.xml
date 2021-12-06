@@ -95,8 +95,8 @@
 					   hidden="false"
 					   styleName="metaLabels"
 					   />
-			<optionbox id="case"
-					   text="case"
+			<optionbox id="ticket"
+					   text="ticket"
 					   hidden="false"
 					   styleName="metaLabels"
 					   />

@@ -3,6 +3,7 @@ package ui.metadatas;
 import haxe.ui.containers.VBox;
 import haxe.ui.events.UIEvent;
 import signals.Signal1;
+using StringTools;
 
 /**
  * ...
@@ -23,11 +24,17 @@ class TransactionUI extends VBox
 		searchAgentSignal = new Signal1<String>();
 		dateSignal = new Signal1<Date>();
 		formSignal = new Signal1<String>();
-		formSwitcher.onChange = (e:UIEvent)->(formSignal.dispatch(e.target.id));
+		formSwitcher.onChange = (e:UIEvent)->(trace(e.target.id));
+		//formSwitcher.onChange = (e:UIEvent)->(trace(e.target.id),formSignal.dispatch(e.target.id));
 		agentBtn.onClick = (e)->(searchAgentSignal.dispatch(agentNt.text));
-		TRANSACTION_WHEN.onChange = (e)(prepareTransactionDate());
-		TRANSACTIONWHENHOURS.onChange = (e)(prepareTransactionDate());
-		TRANSACTION_WHEN_MINUTES.onChange = (e)(prepareTransactionDate());
+		TRANSACTION_WHEN.onChange = onDateChange;
+		TRANSACTIONWHENHOURS.onChange = onDateChange;
+		TRANSACTION_WHEN_MINUTES.onChange = onDateChange;
+	}
+	
+	function onDateChange(e:haxe.ui.events.UIEvent) 
+	{
+		prepareTransactionDate();
 	}
 	public function validateData()
 	{

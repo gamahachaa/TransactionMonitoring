@@ -386,7 +386,11 @@ class TMApp
 
 	function prepareMetadatas()
 	{
-		var transactionUI:TransactionUI = cast(mainApp.findComponent("transaction"), TransactionUI);
+		#if debug
+		trace("TMApp::prepareMetadatas");
+		#end
+		//var transactionUI:TransactionUI = cast(mainApp.findComponent("transaction"), TransactionUI);
+		var transactionUI:TransactionUI = new TransactionUI();
 		transactionUI.formSignal.add((s)->(trace(s)));
 		/*
 		#if debug
@@ -497,11 +501,11 @@ class TMApp
 		inbound = ComponentMacros.buildComponent("assets/ui/content/inbound.xml");
 		mail = ComponentMacros.buildComponent("assets/ui/content/mail.xml");
 		telesales = ComponentMacros.buildComponent("assets/ui/content/telesales.xml");
-		ticket = ComponentMacros.buildComponent("assets/ui/content/case.xml");
+		ticket = ComponentMacros.buildComponent("assets/ui/content/ticket.xml");
 		telesales = ComponentMacros.buildComponent("assets/ui/content/telesales.xml");
 		forms.set("inbound", inbound);
 		forms.set("mail", mail);
-		forms.set("case", ticket);
+		forms.set("ticket", ticket);
 		forms.set("telesales", telesales);
 	}
 
