@@ -1,8 +1,7 @@
 /bin/*
 /bin/index.html
-
-/send.bat
-/send_prod.bat
+/WinSCP.log
 /send_test.bat
 /test.bat
-/WinSCP.log
+/send.bat
+/send_prod.bat

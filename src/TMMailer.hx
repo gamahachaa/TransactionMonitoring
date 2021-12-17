@@ -85,7 +85,7 @@ class TMMailer extends http.MailHelper
 		var transactionSummary = transaction.data.get(data.Transaction.TRANSACTION_SUMMARY);
 		var monitoringSummary = monitoring.data.get(data.Monitoring.MONITORING_SUMMARY);
 		var criticalFailed = Question.FAILED_CRITICAL.length;
-		var score = Question.GET_SCORE();
+		var score = Question.SCORE;
 		var success = (Question.FAILED_CRITICAL.length == 0 && score.scaled > Question.MIN_PERCENTAGE_BEFORE_FAILLING);
 		#if debug
 		trace("TMMailer::prepareBody::success", success );
