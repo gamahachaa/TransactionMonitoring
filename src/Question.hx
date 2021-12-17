@@ -28,21 +28,23 @@ import xapi.types.Score;
 	user;
 	none;
 }*/
-typedef Userdata = {
+typedef Userdata =
+{
 	var points: Int;
 	var criticality: String;
 	var critical: Bool;
 }
 class Question
 {
+	public static var SCORE = new Score();
 	public static var ALL:Map<String,Question> = [];
 	public static var COUNT:Int = 0;
 	public static var MAX_SCORE:Int = 0;
 	public static var FAILED_OVERALL:Array<String> = [];
 	public static var FAILED_CRITICAL:Array<String> = [];
-	public static var FAILED_CRITICAL_CUSTOMER:Array<String> = [];
-	public static var FAILED_CRITICAL_COMPLIANCE:Array<String> = [];
-	public static var FAILED_CRITICAL_BUSINESS:Array<String> = [];
+	//public static var FAILED_CRITICAL_CUSTOMER:Array<String> = [];
+	//public static var FAILED_CRITICAL_COMPLIANCE:Array<String> = [];
+	//public static var FAILED_CRITICAL_BUSINESS:Array<String> = [];
 	public static var RESULT_MAP:Map<String,String> = [];
 	public static var CRITICALITY_MAP:Map<String,Int> = ["business"=>0,"compliance"=>0,"customer"=>0];
 	public static var INFO:Info;
@@ -66,6 +68,7 @@ class Question
 	public static function GET_ALL(form:Component)
 	{
 		ALL = [];
+		SCORE.reset();
 		FAILED_OVERALL = [];
 		FAILED_CRITICAL = [];
 		COUNT = 0;
@@ -96,12 +99,13 @@ class Question
 	}
 	public function reset()
 	{
+		
 		FAILED_OVERALL.remove(id);
 		FAILED_CRITICAL.remove(id);
 
 		resetRadios();
 		resetJustification();
-        resetPointer();
+		resetPointer();
 	}
 	function resetPointer()
 	{
@@ -110,29 +114,44 @@ class Question
 	}
 	public static function RESET()
 	{
-		 INFO.reset();
+		SCORE.reset();
+		INFO.reset();
+		CRITICALITY_MAP = ["business" => 0, "compliance" => 0, "customer" => 0];
 		for (i in ALL)
 		{
 			i.reset();
 		}
 	}
-	public static function GET_SCORE():Score
+	public static function GET_SCORE()
 	{
-		var s = new Score();
-		if ( FAILED_CRITICAL.length > 0) {
-			s.max = 100;
-			s.raw = 0;
-		}
-		else{
-			var totalFailed = 0;
-			for (i in FAILED_OVERALL){
-				totalFailed += ALL.get(i).userData.points;
-			}
-			s.raw = MAX_SCORE-totalFailed;
-			s.max = MAX_SCORE;
-		}
+
 		
-		return s;
+		var criticalFailed:Bool = false;
+
+		var totalFailed = 0;
+		for (i in FAILED_OVERALL)
+		{
+			totalFailed += ALL.get(i).userData.points;
+		}
+		var count = 0;
+		for (c in FAILED_CRITICAL)
+		{
+			var cc = ALL.get(c).userData.criticality;
+			
+			count = CRITICALITY_MAP.get(cc);
+			
+			CRITICALITY_MAP.set(cc, count +1);
+		}
+
+		if ( FAILED_CRITICAL.length > 0)
+		{
+			SCORE.max = 100;
+			SCORE.raw = 0;
+		}else{
+			SCORE.raw = MAX_SCORE-totalFailed;
+			SCORE.max = MAX_SCORE;
+		}
+		//return s;
 	}
 	/*public static MAP_ALL(extPrefix:String)
 	{
@@ -176,6 +195,8 @@ class Question
 			m.push( "{{ALERT_ADD_ARGUEMENT_WHEN_DISAGREE}}");
 			canSubmit = false;
 		}
+		if ( canSubmit ) GET_SCORE();
+		
 		return {canSubmit:canSubmit, message: m};
 	}
 	static function RESET_Pointers()
@@ -188,10 +209,10 @@ class Question
 	function new(id:String, parent:HBox)
 	{
 		//this.parent = parent;
-        
+
 		this.id = id;
 		_this = parent;
-		
+
 		//trace(_this.styleNames);
 		//trace(_this.cssName);
 		//trace(id, _this.userData);
@@ -199,10 +220,13 @@ class Question
 		if ( _this.userData != null )
 		{
 			var ud:Dynamic = Json.parse( _this.userData);
-			try{
+			try
+			{
 				ud.critical = ! (ud.criticality == NON_CRITICAL);
 				userData = ud;
-			}catch (e){
+			}
+			catch (e)
+			{
 				trace('Wrong format for userdata $ud');
 			}
 			//userData.points = _this.userData.points;
@@ -212,8 +236,7 @@ class Question
 		//infoIcon = _this.findComponent("iconInfo", Image);
 		//infoIcon.resource = "images/info-" + (userData.critical ? "critical.png":"noncritical.png");
 		//infoIcon.onClick = updateInfo;
-		
-		
+
 		label = _this.findComponent("question", Label);
 		label.onClick = updateInfo;
 		//label.registerEvent(MouseEvent.MOUSE_OVER, function(e)trace(e));
@@ -239,22 +262,22 @@ class Question
 		}
 
 	}
-	
-	function updateInfo(e:MouseEvent) 
+
+	function updateInfo(e:MouseEvent)
 	{
 		//trace(id);
 		//var animOpt:AnimationOptions = {};
 		//animOpt.duration = 100;
 		//animOpt.delay = 1;
 		//var anim:Animation = new Animation(INFO.container, animOpt);
-		
+
 		if (INFO.container.hidden || this.id != INFO.id)
 		{
 			RESET_Pointers();
 			this.label.addClass("h3");
 			//pointerIcon.hidden = false;
 			INFO.show(this.id);
-			
+
 			INFO.title.htmlText = "{{" + id + "}}";
 			INFO.setCriticality(userData.critical);
 			//var criticalString = userData.critical ? this.userData.criticality.toUpperCase() : "NON CRITICAL";
@@ -309,15 +332,9 @@ class Question
 			if (userData.critical && !FAILED_CRITICAL.contains(id))
 			{
 				FAILED_CRITICAL.push(id);
-				var count = CRITICALITY_MAP.exists(userData.criticality)?CRITICALITY_MAP.get(userData.criticality):0;
-				
-				CRITICALITY_MAP.set(userData.criticality, ++count);
-				/*switch (userData.criticality)
-				{
-					case "business" : FAILED_CRITICAL_BUSINESS.push(id);
-					case "customer" : FAILED_CRITICAL_CUSTOMER.push(id);
-					case "compliance" : FAILED_CRITICAL_COMPLIANCE.push(id);
-				}*/
+				//var count = CRITICALITY_MAP.exists(userData.criticality)?CRITICALITY_MAP.get(userData.criticality):0;
+
+				//CRITICALITY_MAP.set(userData.criticality, ++count);
 			}
 		}
 
@@ -339,7 +356,9 @@ class Question
 		}
 		//this.justification.hidden = o.id == "n";
 		//this.agreement.choice = o.id;
-
+        #if debug
+		trace("Question::onchange::FAILED_CRITICAL", FAILED_CRITICAL );
+		#end
 	}
 
 	function resetJustification()

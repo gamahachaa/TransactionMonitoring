@@ -216,7 +216,7 @@ class TMApp
 		else if (stage == 1)
 		{
 			//var score = Question.GET_SCORE();
-			tracker.coachTracking( monitoring.coach,transaction.monitoree, transaction.type, Question.GET_SCORE(), Question.FAILED_CRITICAL.length == 0, lang, tmMetadatas);
+			tracker.coachTracking( monitoring.coach,transaction.monitoree, transaction.type, Question.SCORE, Question.FAILED_CRITICAL.length == 0, lang, tmMetadatas);
 
 		}
 		else if (stage == 2)
@@ -598,11 +598,14 @@ class TMApp
 			var metadataMap = Utils.mergeMaps(transaction.data, monitoring.data);
 			metadataMap =  Utils.mergeMaps( metadataMap , criticalMap);
 			tmMetadatas = Utils.addPrefixKey(Browser.location.origin +Browser.location.pathname, metadataMap );
-			var score = Question.GET_SCORE();
+			#if debug
+			trace("TMApp::onSend::tmMetadatas", tmMetadatas );
+			#end
+			//var score = Question.SCORE;
 			var questionExtensions:Map<String,String> = Utils.addPrefixKey(Browser.location.origin+Browser.location.pathname, Question.RESULT_MAP);
 			if (monitoring.data.get(Monitoring.MONITORING_REASON) == "calibration")
 			{
-				tracker.callibrationTracking(monitoring.coach, transaction.type, tmMetadatas, transaction.monitoree, score, Question.FAILED_CRITICAL.length == 0, lang, questionExtensions);
+				tracker.callibrationTracking(monitoring.coach, transaction.type, tmMetadatas, transaction.monitoree, Question.SCORE, Question.FAILED_CRITICAL.length == 0, lang, questionExtensions);
 
 			}
 			else
@@ -612,8 +615,8 @@ class TMApp
 					monitoring.coach,
 					transaction.type,
 					tmMetadatas,
-					score,
-					(Question.FAILED_CRITICAL.length == 0 || Question.GET_SCORE().scaled>Question.MIN_PERCENTAGE_BEFORE_FAILLING),
+					Question.SCORE,
+					(Question.FAILED_CRITICAL.length == 0 || Question.SCORE.scaled>Question.MIN_PERCENTAGE_BEFORE_FAILLING),
 					questionExtensions,
 					lang);
 			}
