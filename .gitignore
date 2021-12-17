@@ -1,2 +1,7 @@
 /bin/*
 /bin/index.html
+/WinSCP.log
+/send_test.bat
+/test.bat
+/send.bat
+/send_prod.bat
