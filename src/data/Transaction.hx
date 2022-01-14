@@ -17,23 +17,28 @@ class Transaction
 	@:isVar public var id(get, set):String;
 	@:isVar public var date(get, set):Date;
 	@:isVar public var summary(get, set):String;
-	public function new(?monitoree:Monitoree, ?type:String, ?id:String, ?date:Date ) 
+	//public function new(?monitoree:Monitoree, ?type:String, ?id:String, ?date:Date ) 
+	public function new() 
 	{
-		data = [];
-		//reset();
-		this.monitoree = monitoree;
-		this.date = date;
-		this.id = id;
-		this.summary = "";
+		//data = [];
+		reset();
+		//this.monitoree = monitoree;
+		//this.date = date;
+		//this.id = id;
+		//this.summary = "";
 	}
 	public function reset()
 	{
 		data = [];
 		date = new Date(2000, 0, 1, 0, 0, 0);
-		#if debug
-		trace("Transaction::reset::reset" );
-		trace("Transaction::reset::reset DATE",date  );
-		#end
+		id = "";
+		type = "";
+		summary = "";
+		monitoree = null;
+		//#if debug
+		//trace("Transaction::reset::reset" );
+		//trace("Transaction::reset::reset DATE",date  );
+		//#end
 	}
 	public function prepareData()
 	{

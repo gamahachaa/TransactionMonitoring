@@ -12,6 +12,9 @@ OF;per
 HELLO;Salve
 OVERALL_SCORE;Punteggio complessivo
 CRITICAL_MISTAKES;Errore/i critico/i
+NON_CRITICAL_MISTAKES;Errore/i non critico/i
+MORE_THAN_TWO_MISTAKES;Più di 2 errori
+TWO_MISTAKES_IN_A_DOMAIN;Due o più errori nella stessa categoria (vedi sotto)
 CRITICAL_ICON;"&#x02A3B;"
 LEGEND;"<span class=""critical"">&#x02A3B;</span> &#61; Argomento critico"
 SUBMIT;INVIA

@@ -20,6 +20,8 @@ ALERT_UNANSWERED_QUESTIONS;Manche Themen haben keinen Inhalt!
 ALERT_ADD_ARGUEMENT_WHEN_DISAGREE;Bitte argumentiere, warum dies deiner Meinung nach nicht auf dich zutrifft!
 ALERT_TRANSACTION_DATE_NOT_SET;Du hast kein Datum für die Transaktion angegeben.
 ALERT_TRANSACTION_ID_NOT_SET;Wie sollen wir deine Behauptungen überprüfen, wenn wir die Transaktion nicht identifizieren können?
+ALERT_TRANSACTION_TYPE;Es wurde keine Transaktionsart ausgewählt ...
+ALERT_TRANSACTION_FUTURR_DATE;Das Transaktionsdatum liegt in der Zukunft...
 TRANSACTION_SUMMARY;Transaktionszusammenfassung
 TRANSACTION_SUMMARY_HELP;Hinweis: Dies wird an den Agenten gesendet
 TRANSACTION_SUMMARY_PLACEHOLDER;Fasse hier kurz den Anwendungsfall der Kund:in zusammen.

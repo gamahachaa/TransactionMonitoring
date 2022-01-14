@@ -11,11 +11,11 @@ class Monitoree extends Actor
 	{
 		super(jsonUser, authorised);
 	}
-	inline public static function CREATE_DUMMY():Monitoree
+	inline public static function CREATE_DUMMY(samaccountname:String):Monitoree
 	{
 		return new Monitoree({
 			mail : "Bruno.Baudry@salt.ch", 
-			samaccountname : "bbaudry", 
+			samaccountname : samaccountname, 
 			givenname : "Bruno", 
 			sn : "Baudry", 
 			mobile : "+41 78 787 8673", 

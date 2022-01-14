@@ -10,11 +10,12 @@ typedef Ids =
 	var single:String;
 	var full:String;
 }
-typedef Status = {
+typedef Status =
+{
 	var canSubmit:Bool;
 	var message:Array<String>;
 }
-class Utils 
+class Utils
 {
 	public static function GET_PARENT_PATH(c:Component, ?path="")
 	{
@@ -55,7 +56,7 @@ class Utils
 		var idTab = id.split(".");
 		idTab.pop();
 		idTab.pop();
-		
+
 		return { single: idTab[idTab.length - 1], full: idTab.join(".") };
 	}
 	public static function mergeMaps<A,B>(a:Map<A,B>, b:Map<A,B>):Map<A,B>
@@ -85,4 +86,63 @@ class Utils
 		return m;
 	}
 	
+	public static function arrayToCsv(values:Array<Array<String>>, ?sep:String = ",", ?endOfLine:String="\n"):String
+	{
+		var seperator:String = sep;
+		var buffer:StringBuf= new StringBuf();
+		var eol = endOfLine;   //default line breaker is \n
+		if (values.length < 1) throw "Invalid value.";
+		for (v in values)
+		{
+			var vindex = 0;
+			for (jDyn in v)
+			{
+				var j = Std.string(jDyn);
+				var jindex = 0;
+				//trace(j);
+				//trace(j.indexOf("t"));
+				var addQuote = j.indexOf(seperator.charAt(0)+"") > -1 || j.indexOf('"') > -1 || j.indexOf(eol) > -1? true:false;  //add quote if part of the seperator exists in the current string
+				if (addQuote) buffer.addChar('"'.code);
+				for (k in 0...j.length)
+				{
+					var code = j.charCodeAt(k);
+					if (code == '"'.code && addQuote)
+					{
+						buffer.addChar(code);
+					}
+					buffer.addChar(code);
+				}
+				if (addQuote) buffer.addChar('"'.code);
+				if (jindex < v.length - 1) buffer.add(seperator);
+				jindex++;
+			}
+			if (vindex < values.length - 1) buffer.add(eol);
+			vindex++;
+		}
+		var tmp = buffer.toString();
+		buffer = new StringBuf();
+		return tmp;
+	}
+	public static function arrayDynamicToArrayArrayString(a:Array<Dynamic>):Array<Array<String>>
+	{
+		var head = Reflect.fields(a[0]);
+		var t = [];
+		var t0 = [];
+		for (j in head)
+		{
+			t0.push(j);
+		}
+		t.push(t0);
+		for ( i in a )
+		{
+			var t1 = [];
+			for (h in head)
+			{
+				t1.push(Reflect.getProperty(i, h));
+			}
+			t.push(t1);
+		}
+		return t;
+	}
+
 }

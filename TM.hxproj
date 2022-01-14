@@ -39,7 +39,9 @@
     <library name="xapi" />
     <library name="lrs" />
     <library name="thx.core" />
+    <library name="thx.format" />
     <library name="uglifyjs" />
+    <library name="mongo" />
   </haxelib>
   <!-- Class files to compile (other referenced classes will automatically be included) -->
   <compileTargets>

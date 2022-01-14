@@ -20,6 +20,8 @@ ALERT_UNANSWERED_QUESTIONS;Alcuni argomenti sono rimasti senza affermazioni!
 ALERT_ADD_ARGUEMENT_WHEN_DISAGREE;Per favore, mi dica perché pensa che questo non la riguarda!
 ALERT_TRANSACTION_DATE_NOT_SET;Non hai impostato una data per la transazione.
 ALERT_TRANSACTION_ID_NOT_SET;Come possiamo verificare le sue affermazioni se non possiamo identificare la transazione?
+ALERT_TRANSACTION_TYPE;Non è stato selezionato nessun tipo di transazione...
+ALERT_TRANSACTION_FUTURR_DATE;La data della transazione è nel futuro...
 TRANSACTION_SUMMARY;Riepilogo della transazione
 TRANSACTION_SUMMARY_HELP;Da notare che questo sarà inviato all'agente
 TRANSACTION_SUMMARY_PLACEHOLDER;Riassumi qui brevemente il caso d'uso del cliente.

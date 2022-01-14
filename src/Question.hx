@@ -36,86 +36,67 @@ typedef Userdata =
 }
 class Question
 {
+	static inline var NON_CRITICAL:String = "non critical";
+	public static inline var MIN_PERCENTAGE_BEFORE_FAILLING:Float = .8499; /**@TODO obsolete*/
+	public static var HASTwoFailedInATopic:Bool;
+	public static var TOTAL_FAILED:Float;
+	public static var TM_PASSED:Bool = true;
 	public static var SCORE = new Score();
 	public static var ALL:Map<String,Question> = [];
 	public static var COUNT:Int = 0;
 	public static var MAX_SCORE:Int = 0;
 	public static var FAILED_OVERALL:Array<String> = [];
 	public static var FAILED_CRITICAL:Array<String> = [];
-	//public static var FAILED_CRITICAL_CUSTOMER:Array<String> = [];
-	//public static var FAILED_CRITICAL_COMPLIANCE:Array<String> = [];
-	//public static var FAILED_CRITICAL_BUSINESS:Array<String> = [];
 	public static var RESULT_MAP:Map<String,String> = [];
 	public static var CRITICALITY_MAP:Map<String,Int> = ["business"=>0,"compliance"=>0,"customer"=>0];
 	public static var INFO:Info;
-	public static inline var MIN_PERCENTAGE_BEFORE_FAILLING:Float = .8499;
-	var label:Label;
-	var radioGroup:Group;
-	var justification:TextArea;
-	var radioBtns:Array<OptionBox>;
-	var id:String;
-	//var parent:Component;
-	var _this:Box;
-	//var critical:Bool;
-	//var criticality:Criticality;
-	//var points:Float;
-	public var userData:Userdata;
-	var infoIcon:Image;
-	static inline var NON_CRITICAL:String = "non critical";
-	//var pointerIcon:Image;
-	public var agreement(get, null):Agreement;
+	
 
+    /////////////////////////////////////////////////////////////////////
+	////////////////////////// STATIC ///////////////////////////////////
+	/////////////////////////////////////////////////////////////////////
 	public static function GET_ALL(form:Component)
 	{
 		ALL = [];
-		SCORE.reset();
+		COUNT = 0;
+		/*SCORE.reset();
 		FAILED_OVERALL = [];
 		FAILED_CRITICAL = [];
-		COUNT = 0;
+		
 		MAX_SCORE = 0;
+		TM_PASSED = true;
+		TOTAL_FAILED = 0;
+		HASTwoFailedInATopic = false;*/
 		//var qs:Array<VBox> = form.findComponents("questions", VBox);
 		var qs:Array<HBox> = form.findComponents("questions", HBox);
 		var id = "";
 		for (q in qs)
 		{
-
 			id = Utils.GET_PARENT_PATH(q, q.id);
 			if (id == "") continue;
-			//#if debug
-			//trace("Question::GET_ALL::id", id );
-			#if debug
-			//trace("Question::GET_ALL::id", id );
-			#end
-			//trace("Question::GET_ALL::id", id );
-			//#end
+			
 			ALL.set(id, new Question(id, q ));
-			//trace(ALL);
+			
 			COUNT++;
 		}
-		//#if debug
-		//trace("Question::GET_ALL::ALL", ALL );
-		//#end
+
 
 	}
-	public function reset()
-	{
-		
-		FAILED_OVERALL.remove(id);
-		FAILED_CRITICAL.remove(id);
-
-		resetRadios();
-		resetJustification();
-		resetPointer();
-	}
-	function resetPointer()
-	{
-		//pointerIcon.hidden = true;
-		if (this.label.hasClass("h3")) this.label.removeClass("h3");
-	}
+	
 	public static function RESET()
 	{
 		SCORE.reset();
 		INFO.reset();
+		ALL = [];
+		COUNT = 0;
+		SCORE.reset();
+		FAILED_OVERALL = [];
+		FAILED_CRITICAL = [];
+		
+		MAX_SCORE = 0;
+		TM_PASSED = true;
+		TOTAL_FAILED = 0;
+		HASTwoFailedInATopic = false;
 		CRITICALITY_MAP = ["business" => 0, "compliance" => 0, "customer" => 0];
 		for (i in ALL)
 		{
@@ -124,15 +105,28 @@ class Question
 	}
 	public static function GET_SCORE()
 	{
-
-		
-		var criticalFailed:Bool = false;
-
-		var totalFailed = 0;
+        var failedTopic = new Map<String, Int>();
+		var t = "";
+		var t2 = [];
+		TOTAL_FAILED = 0;
+		HASTwoFailedInATopic = false;
 		for (i in FAILED_OVERALL)
 		{
-			totalFailed += ALL.get(i).userData.points;
+			//totalFailed += ALL.get(i).userData.points;
+			TOTAL_FAILED++;
+			t2 = i.split(".");
+			t = t2[t2.length - 2];
+			if (failedTopic.exists(t)){
+				failedTopic.set(t, failedTopic.get(t) + 1);
+				HASTwoFailedInATopic = true;
+			}
+			else{
+				failedTopic.set(t, 1);
+			}
 		}
+		#if debug
+		trace("Question::GET_SCORE::failedTopic", failedTopic );
+		#end
 		var count = 0;
 		for (c in FAILED_CRITICAL)
 		{
@@ -143,14 +137,37 @@ class Question
 			CRITICALITY_MAP.set(cc, count +1);
 		}
 
-		if ( FAILED_CRITICAL.length > 0)
+		/*if ( FAILED_CRITICAL.length > 0)
 		{
 			SCORE.max = 100;
 			SCORE.raw = 0;
 		}else{
 			SCORE.raw = MAX_SCORE-totalFailed;
 			SCORE.max = MAX_SCORE;
+		}*/
+		if ( FAILED_CRITICAL.length > 0 || TOTAL_FAILED > 2 || HASTwoFailedInATopic )
+		{
+			TM_PASSED = false;
 		}
+		//SCORE.max = 100;
+		SCORE.raw = 100;
+		if (FAILED_CRITICAL.length > 0)
+		{
+			
+			SCORE.raw = 0;
+		}else if(TOTAL_FAILED == 1 ){
+			//SCORE.max = 100;
+			SCORE.raw = 95;
+		}else if(TOTAL_FAILED == 2 && !HASTwoFailedInATopic ){
+			//SCORE.max = 100;
+			SCORE.raw = 90;
+		}
+		else if (TOTAL_FAILED > 2 || HASTwoFailedInATopic)
+		{
+			SCORE.raw = 50;
+		}
+		// one critical -> failed
+		// 2 in same 
 		//return s;
 	}
 	/*public static MAP_ALL(extPrefix:String)
@@ -206,6 +223,20 @@ class Question
 			v.resetPointer();
 		}
 	}
+	/////////////////////////////////////////////////////////////////////
+	////////////////////////// OBJECT ///////////////////////////////////
+	/////////////////////////////////////////////////////////////////////
+	var label:Label;
+	var radioGroup:Group;
+	var justification:TextArea;
+	var radioBtns:Array<OptionBox>;
+	var id:String;
+	var _this:Box;
+	public var userData:Userdata;
+	var infoIcon:Image;
+	
+	//var pointerIcon:Image;
+	public var agreement(get, null):Agreement;
 	function new(id:String, parent:HBox)
 	{
 		//this.parent = parent;
@@ -258,11 +289,25 @@ class Question
 		else
 		{
 			ALL.set(this.id, this);
-			MAX_SCORE += userData.points;
+			//MAX_SCORE += userData.points;
 		}
 
 	}
+    public function reset()
+	{
+		
+		FAILED_OVERALL.remove(id);
+		FAILED_CRITICAL.remove(id);
 
+		resetRadios();
+		resetJustification();
+		resetPointer();
+	}
+	function resetPointer()
+	{
+		//pointerIcon.hidden = true;
+		if (this.label.hasClass("h3")) this.label.removeClass("h3");
+	}
 	function updateInfo(e:MouseEvent)
 	{
 		//trace(id);
@@ -312,18 +357,12 @@ class Question
 
 	function onchange(e:UIEvent)
 	{
-		#if debug
-		//trace("Question::onchange::this.id", this.id );
-		//trace(LocaleManager.instance.lookupString(this.id));
-		#end
-		var o:OptionBox = cast(e.target);
-		this.agreement.choice = o.id;
-		//this.justification.hidden = false;
+		//var o:OptionBox = cast(e.target);
+		//this.agreement.choice = o.id;
+		this.agreement.choice = cast(e.target, OptionBox).id;
 		updateInfo(null);
 		if (this.agreement.choice == "n")
 		{
-			//this.justification.hidden = false;
-			//this.justification.placeholder = "You must tell us why !";
 			this.justification.placeholder = "{{failed_placeholder}}";
 			if (!FAILED_OVERALL.contains(id))
 			{
@@ -332,9 +371,6 @@ class Question
 			if (userData.critical && !FAILED_CRITICAL.contains(id))
 			{
 				FAILED_CRITICAL.push(id);
-				//var count = CRITICALITY_MAP.exists(userData.criticality)?CRITICALITY_MAP.get(userData.criticality):0;
-
-				//CRITICALITY_MAP.set(userData.criticality, ++count);
 			}
 		}
 
@@ -351,14 +387,7 @@ class Question
 			}
 			FAILED_CRITICAL.remove(id);
 			FAILED_OVERALL.remove(id);
-			//this.justification.hidden = true;
-			//this.agreement.justification = "";
 		}
-		//this.justification.hidden = o.id == "n";
-		//this.agreement.choice = o.id;
-        #if debug
-		trace("Question::onchange::FAILED_CRITICAL", FAILED_CRITICAL );
-		#end
 	}
 
 	function resetJustification()

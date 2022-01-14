@@ -127,4 +127,7 @@
 		<!--<locale id="fr" resource="locale/fr-FR/tm_fr.txt" />-->
 		<!--<locale id="it" resource="locale/it-IT/tm_it.txt" />-->
 	</locales>
+	<components>
+		<component class="ui.AgentListing" />
+	</components>
 </module>

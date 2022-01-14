@@ -1,4 +1,5 @@
 package;
+import haxe.CallStack;
 import haxe.Json;
 import haxe.ds.StringMap;
 //import openfl.utils.Assets;
@@ -9,6 +10,12 @@ import xapi.Agent;
  * ...
  * @author bbaudry
  */
+typedef DirectReport= {
+	 var samaccountname:String;
+	 var mail:String;
+	 var distinguishedname :String;
+	 var description:String;
+}
 class Actor extends Agent
 {
 	public var manager(get, null):Actor;
@@ -23,7 +30,7 @@ class Actor extends Agent
 	public var workLocation(get, null):String;
 	public var division(get, null):String;
 	public var department(get, null):String;
-	//public var directReports(get, null):String;
+	public var directReports(get, null):Array<Actor>;
 	public var distinguishedName(get, null):String;
 	public var accountExpires(get, null):String; //@todo Date
 
@@ -41,7 +48,9 @@ class Actor extends Agent
 		this.authorised = authorised;
 		canDispach = authorised;
 		statement = "";
-		
+		#if debug
+		//trace('Actor::Actor::jsonUser ${jsonUser}');
+		#end
 		if (jsonUser != null )
 		{
 			super(jsonUser.mail, jsonUser.samaccountname);
@@ -54,7 +63,7 @@ class Actor extends Agent
 			workLocation = jsonUser.l == null ? "": jsonUser.l;
 			division = jsonUser.division == null ? "": jsonUser.division;
 			department = jsonUser.department = null ? "": jsonUser.department;
-			//directReports = jsonUser.directreports == null ? "": jsonUser.directreports;
+			directReports = jsonUser.directReports == null ? []: toActorsArray(jsonUser.directReports);
 			distinguishedName = jsonUser.distinguishedname == null ? "": jsonUser.distinguishedname;
 			accountExpires = jsonUser.accountexpires == null ? "": jsonUser.accountexpires; //@todo Date
 			mainLanguage = jsonUser.msexchuserculture  == null ? "en-GB": jsonUser.msexchuserculture;
@@ -67,6 +76,29 @@ class Actor extends Agent
 				trace("jsonUser is null");
 			#end
 		}
+	}
+	public function hasDirectReport(sAMAccountName:String)
+	{
+		if (directReports == []) return false;
+		for (i in directReports)
+		{
+			if ( i.sAMAccountName == sAMAccountName) return true;
+		}
+		return false;
+	}
+	public function getDirectReportsAMAccountNames():Array<String>
+	{
+		return Lambda.map(directReports, (i)->(i.sAMAccountName));
+	}
+	function toActorsArray(list:Array<DirectReport>):Array<Actor> 
+	{
+		var a:Array<Actor> = [];
+		for (i in list)(a.push(new Actor(i)));
+		#if debug
+		//trace(CallStack.callStack());
+		//trace("Actor::toActorsArray::a", a );
+		#end
+		return a;
 	}
 	public function isMember(groupName:String):Bool
 	{
@@ -193,26 +225,10 @@ class Actor extends Agent
 		return distinguishedName;
 	}
 	
-	inline public static function CREATE_DUMMY():Actor
+	function get_directReports():Array<Actor> 
 	{
-		return new Actor({
-			mail : "Bruno.Baudry@salt.ch", 
-			samaccountname : "bbaudry", 
-			givenname : "Bruno", 
-			sn : "Baudry", 
-			mobile : "+41 78 787 8673", 
-			company : "Salt Mobile SA", 
-			l : "Biel", 
-			division : "Customer Operations", 
-			department : "Process & Quality", 
-			distinguishedname : "CN=Baudry Bruno,OU=Domain-Generic-Accounts,DC=ad,DC=salt,DC=ch", 
-			accountexpires : "0", 
-			msexchuserculture : "fr-FR", 
-			title : "Manager Knowledge & Learning", 
-			initials : "BB", 
-			memberof : ["Microsoft - Teams Members - Standard", "Customer Operations - Training", "RA-PulseSecure-Laptops-Salt", "SG-PasswordSync", "RA-EasyConnect-Web-Mobile-Qook", "Customer Operations - Knowledge - Management", "Customer Operations - Direct Reports", "Customer Operations - Fiber Back Office", "DOLPHIN_REC", "Application-GIT_SALT-Operator", "Application-GIT_SALT-Visitor", "SG-OCH-WLAN_Users", "SG-OCH-EnterpriseVault_DefaultProvisioningGroup", "Entrust_SMS", "MIS Mobile Users", "GI-EBU-OR-CH-MobileUsers", "Floor Marshalls Biel", "CO_Knowledge And Translation Mgmt", "co training admin_ud", "Exchange_Customer Operations Management_ud", "Exchange_CustomerCareServiceDesign_ud"],
-			boss:{mail : "fabien.reanard@salt.ch", 
-			samaccountname : "frenard",distinguishedname : "CN=Renard Fabien,OU=Domain-Generic-Accounts,DC=ad,DC=salt,DC=ch"}
-		}, true);
+		return directReports;
 	}
+	
+	
 }

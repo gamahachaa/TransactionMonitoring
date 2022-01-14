@@ -64,13 +64,19 @@ class LoginHelper extends Http
 	}
 	function onMyData(data:String)
 	{
-		
+
 		var d:Dynamic = Json.parse(data);
-        #if debug
-		if (!_mainDebug) d = cretaDummyAgent();
-		#end
+
+		var coach:Coach = null;
+
+		//trace(d);
+
 		if (d.authorized)
 		{
+			if (d.attributes != null && d.directReports != null)
+			{
+				d.attributes.directReports = d.directReports;
+			}
 			successSignal.dispatch( new Coach(d.attributes));
 		}
 		else
@@ -78,10 +84,19 @@ class LoginHelper extends Http
 			d.mail = "";
 			d.samaccountname = d.username;
 			d.title = d.status;
+			#if debug
+			if (!_mainDebug)
+			{
+				coach = Coach.CREATE_DUMMY();
+				successSignal.dispatch(coach);
+				return;
+			}
+			#end
 			successSignal.dispatch(Coach.CREATE_ERROR(d.username));
+
 		}
 	}
-
+	/*
 	function parseJsonAgent(data:String)
 	{
 		#if debug
@@ -90,7 +105,7 @@ class LoginHelper extends Http
 		#else
 		return Json.parse(data);
 		#end
-	}
+	}*/
 	public function prepareCredentials(username:String, pwd:String)
 	{
 		if (username == null || username.trim() == "" || pwd == null || pwd.trim() == "")
@@ -98,11 +113,12 @@ class LoginHelper extends Http
 			throw "null credentials";
 		}
 		this.setParameter("username", username);
+		this.setParameter("directReports", username);
 		this.setParameter("pwd", Base64.encode(Bytes.ofString(pwd)));
 
 		canRequest = true;
 	}
-	public function search(nt:String)
+	public function searchAgent(nt:String)
 	{
 		this.params = [];
 		if (nt != null && nt != "")
@@ -120,12 +136,12 @@ class LoginHelper extends Http
 	}
 	public function send()
 	{
-        #if debug
-		    if (!_mainDebug)
-			{
-				onMyData("{}");
-				return;
-			}
+		#if debug
+		if (!_mainDebug)
+		{
+			onMyData("{}");
+			return;
+		}
 		#end
 		#if debug
 		trace("http.LoginHelper::send after debug");
@@ -140,7 +156,7 @@ class LoginHelper extends Http
 			throw new Exception("cannot request. Missing credetnitals I guess");
 		}
 		return;
-		
+
 	}
 	inline function cretaDummyAgent()
 	{
@@ -150,6 +166,7 @@ class LoginHelper extends Http
 			authorized : true,
 			username : "bbaudry",
 			attributes : {
+				description :'20973 / Internal employee / Manager Knowledge & Learning',
 				mail : "Bruno.Baudry@salt.ch",
 				samaccountname : "bbaudry",
 				givenname : "Bruno",
@@ -165,7 +182,8 @@ class LoginHelper extends Http
 				title : "Manager Knowledge & Learning",
 				initials : "BB",
 				mamanger: "",
-				memberof : ["Microsoft - Teams Members - Standard","Customer Operations - Training","RA-PulseSecure-Laptops-Salt","SG-PasswordSync","RA-EasyConnect-Web-Mobile-Qook","Customer Operations - Knowledge - Management","Customer Operations - Direct Reports","Customer Operations - Fiber Back Office","DOLPHIN_REC","Application-GIT_SALT-Operator","Application-GIT_SALT-Visitor","SG-OCH-WLAN_Users","SG-OCH-EnterpriseVault_DefaultProvisioningGroup","Entrust_SMS","MIS Mobile Users","GI-EBU-OR-CH-MobileUsers","Floor Marshalls Biel","CO_Knowledge And Translation Mgmt","co training admin_ud","Exchange_Customer Operations Management_ud","Exchange_CustomerCareServiceDesign_ud"]
+				memberof : ["Microsoft - Teams Members - Standard", "Customer Operations - Training", "RA-PulseSecure-Laptops-Salt", "SG-PasswordSync", "RA-EasyConnect-Web-Mobile-Qook", "Customer Operations - Knowledge - Management", "Customer Operations - Direct Reports", "Customer Operations - Fiber Back Office", "DOLPHIN_REC", "Application-GIT_SALT-Operator", "Application-GIT_SALT-Visitor", "SG-OCH-WLAN_Users", "SG-OCH-EnterpriseVault_DefaultProvisioningGroup", "Entrust_SMS", "MIS Mobile Users", "GI-EBU-OR-CH-MobileUsers", "Floor Marshalls Biel", "CO_Knowledge And Translation Mgmt", "co training admin_ud", "Exchange_Customer Operations Management_ud", "Exchange_CustomerCareServiceDesign_ud"]
+				,directReports:[{"samaccountname":"apeter","mail":"Aron.Peter@salt.ch","distinguishedname":"CN=Péter Áron,OU=Users,OU=Domain-Users,DC=ad,DC=salt,DC=ch","description":"25840 / Internal employee / Translator and Communication Specialist"},{"samaccountname":"awarmers","mail":"Alexandra.Warmers@salt.ch","distinguishedname":"CN=Warmers Alexandra,OU=Users,OU=Domain-Users,DC=ad,DC=salt,DC=ch","description":"30680 / Internal employee / Translator and Communication Specialist"},{"samaccountname":"grappaz1","mail":"Giovanna.Rappazzo@salt.ch","distinguishedname":"CN=Rappazzo Giovanna,OU=Users,OU=Domain-Users,DC=ad,DC=salt,DC=ch","description":"30850 / Internal employee / Translator and Communication Specialist"}]
 			}
 		};
 	}

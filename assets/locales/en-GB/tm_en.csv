@@ -20,6 +20,8 @@ ALERT_UNANSWERED_QUESTIONS;Some topics are left without statements!
 ALERT_ADD_ARGUEMENT_WHEN_DISAGREE;Please argue why you don't think that this applies to you!
 ALERT_TRANSACTION_DATE_NOT_SET;You did not set a date for the transaction.
 ALERT_TRANSACTION_ID_NOT_SET;How will we be able to verify your assertions if we can't identify the transaction?
+ALERT_TRANSACTION_TYPE;No transaction type was selected...
+ALERT_TRANSACTION_FUTURR_DATE;The transaction date is in the future...
 TRANSACTION_SUMMARY;Transaction summary
 TRANSACTION_SUMMARY_HELP;Note that this will be sent to the agent
 TRANSACTION_SUMMARY_PLACEHOLDER;Briefly summarize the customer's use case here.
@@ -67,3 +69,4 @@ LOGIN_USERNAME;Username
 LOGIN_PASSWORD;Password
 LOGIN_BTN;Let's coach!
 SHOW_PWD;Click me to display the entered password
+SEND_REPORT_TO_TL;send the report to my damm manager

@@ -6,7 +6,9 @@
 -lib xapi
 -lib lrs
 -lib thx.core
+-lib thx.format
 -lib uglifyjs
+-lib mongo
 -cp src
 -cp modules
 -cp C:/HaxeToolkit/haxe/lib/haxeui-core/git

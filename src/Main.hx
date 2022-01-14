@@ -19,6 +19,7 @@ class Main
 	{
 		CalendarDropDownHandler.DATE_FORMAT = "%d.%m.%Y";
 		//
+		trace("wtf");
 		var main = new TMApp();
 		//var main = new XapiSendSerialized();
 	}	
