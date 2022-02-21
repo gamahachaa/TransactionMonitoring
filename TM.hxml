@@ -9,6 +9,7 @@
 -lib thx.format
 -lib uglifyjs
 -lib mongo
+-lib markdown
 -cp src
 -cp modules
 -cp C:/HaxeToolkit/haxe/lib/haxeui-core/git

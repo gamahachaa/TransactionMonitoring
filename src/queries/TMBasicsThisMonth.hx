@@ -25,7 +25,8 @@ typedef BasicTM ={
 	var agent:String;
 	var tm:String;
 	var timestamp:String;
-	var success:String;
+	var TMpassed:String;
+	//var success:String;
 }
 class TMBasicsThisMonth extends QueryBase
 {

@@ -25,7 +25,7 @@ class QueryBase
 			agent:"$statement.actor.name",
 			tm:"$statement.object.id",
 			timestamp:"$statement.timestamp",
-			success:"$statement.result.success"
+			TMpassed:"$statement.result.success"
 		};
 		project = new Project( projetctMapping );
 	}

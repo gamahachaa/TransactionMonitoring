@@ -17,6 +17,7 @@ class Login extends VBox
 	public function new(logger:LoginHelper) 
 	{
 		super();
+		pwd.password = true;
 		_logger = logger;
 		login.onClick = onLoginClicked;
 		showPwd.onClick = onShowChange;

@@ -4,6 +4,7 @@ import data.Transaction;
 import haxe.ui.locale.LocaleManager;
 import http.MailHelper;
 import xapi.types.StatementRef;
+using tstool.utils.StringUtils;
 
 /**
  * ...
@@ -17,7 +18,7 @@ import xapi.types.StatementRef;
 }*/
 class TMMailer extends http.MailHelper
 {
-	static inline var CUSTOM_RULES:String = ".critical{color:#EC9A29;} .AGREE{color:#81c14b;} .DISAGREE{color:#f05365;}";
+	static inline var CUSTOM_RULES:String = ".critical{color:#EC9A29;} .AGREE{color:#81c14b;} .DISAGREE{color:#f05365;} .summary h1, .summary h2, .summary h3, .summary h4{color:#A1B0B8;padding-bottom:4px;maring-bottom:4px;} .summary{background-color:#fafafa;padding:8px}";
 	var reason:String;
 	var isCalibration:Bool;
 	var currentTopic:String;
@@ -82,8 +83,10 @@ class TMMailer extends http.MailHelper
 	function prepareBody(all:Bool, ?agentReviewRef:StatementRef, ?version:String="")
 	{
 		var reciepient = isCalibration ? monitoring.coach : transaction.monitoree;
-		var transactionSummary = transaction.data.get(data.Transaction.TRANSACTION_SUMMARY);
-		var monitoringSummary = monitoring.data.get(data.Monitoring.MONITORING_SUMMARY);
+		//var transactionSummary = Markdown.markdownToHtml(transaction.data.get(data.Transaction.TRANSACTION_SUMMARY)).lineFeedToHTMLbr();
+		var transactionSummary = transaction.data.get(data.Transaction.TRANSACTION_SUMMARY).markdowndToHtmlWithBR();
+		
+		var monitoringSummary = Markdown.markdownToHtml(monitoring.data.get(data.Monitoring.MONITORING_SUMMARY)).lineFeedToHTMLbr();
 		var criticalFailed = Question.FAILED_CRITICAL.length;
 		var score = Question.SCORE;
 		//var success = (Question.FAILED_CRITICAL.length == 0 && score.scaled > Question.MIN_PERCENTAGE_BEFORE_FAILLING);
@@ -110,9 +113,10 @@ class TMMailer extends http.MailHelper
 		
 		b += '<h2>${LocaleManager.instance.lookupString("TRANSACTION_SUMMARY")}</h2>';
 		b += '<p>${LocaleManager.instance.lookupString("TRANSACTION_ID")} : ${transaction.id}, ${LocaleManager.instance.lookupString("TRANSACTION_WHEN_DATE")} : $formatedTransactionDate</p>';
-		b += '<p>$transactionSummary</p>';
+		//b += '<p>$transactionSummary</p>';
+		b += '<div class="summary">$transactionSummary</div>';
 		b += '<h2>${LocaleManager.instance.lookupString("MONITORING_SUMMARY")}</h2>';
-		b += '<p>$monitoringSummary</p>';
+		b += '<div class="summary">$monitoringSummary</div>';
 		if (Question.TM_PASSED) {
 			b += '<h3 class="AGREE">';
 			b += '${LocaleManager.instance.lookupString("AGREE")} &rarr; ';

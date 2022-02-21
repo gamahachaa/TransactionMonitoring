@@ -28,15 +28,10 @@ class TMMentored extends QueryBase
 	}
 	override public function get_pipeline():Pipeline
 	{
-		//_now = DateTime.nowUtc();
-		//var lastMonth = DateTime.now().prevMonth().prevMonth().prevMonth().prevMonth();
-		//_now = lastMonth;
-		var firstOfTheMonth = new ISOdate('${_now.year}-${ StringTools.lpad(Std.string(_now.month),"0" ,2 )}-01T00:00:00.00Z');
-		
-	    trace("1");
+		var firstOfTheMonth = new ISOdate('${_now.year}-${ StringTools.lpad(Std.string(_now.month),"0" ,2 )}-01T00:00:00.00Z');	
+
 		var m:Match = new Match(new And([new VerbId(Verb.recieved.id), new InstructorName(nt)]));
-		//var mv:Match = new Match(new VerbId(Verb.recieved.id));
-		//var mDate:Match = new Match(new StmtTimestamp({"$gte": firstOfTheMonth}));
+		
 		var mDate:Match = new Match(new StmtTimestamp(new GreaterOrEqualThan(firstOfTheMonth)));
 		pipeline = new Pipeline([m, mDate, project]);
 		//trace(pipeline);

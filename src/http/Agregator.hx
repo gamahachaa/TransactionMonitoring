@@ -20,7 +20,7 @@ class Agregator extends Http
 	public function new()
 	{
 
-		super("https://qast.test.salt.ch/api/statements/aggregate");
+		super("https://qast"+(TMApp._mainDebug?".test":"") + ".salt.ch/api/statements/aggregate");
 		signal = new signal.Signal1<Array<Dynamic>>();
 		addHeader("Authorization", "Basic YTM2Y2M3M2RhMmE4YTc5ZjIwYjM2ZTc1MDJjMTBlZDdlZWJlZTk4YjpjMmQzYjc5YzUyZTk0YTk5YzRlMjM5YTNkZTUyOWZmZDZhNjBkMmIw");
 		addHeader("X-Experience-API-Version", "1.0.3");
@@ -75,7 +75,7 @@ class Agregator extends Http
 		#if debug
 		trace("http.Agregator::getBasicTMThisMonth::nt", nt );
 		#end
-		tmsMentored;
+		//tmsMentored;
 		try
 		{
 			if (tmsMentored == null)

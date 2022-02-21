@@ -165,7 +165,8 @@ class AgentListing extends VBox
 		table.addColumn("agent").width = 100;
 		table.addColumn("tm").width = 80;
 		table.addColumn("timestamp").width = 200;
-		table.addColumn("success").width = 80;
+		table.addColumn("TMpassed").width = 120;
+		//table.addColumn("success").width = 80;
 		
 		/*table.height = 100%;*/
 	}
@@ -199,7 +200,8 @@ class AgentListing extends VBox
 				agent : i,
 				tm : "none",
 				timestamp : "-",
-				success : "-"
+				TMpassed : "-"
+				//success : "-"
 			});
 		}
 		return l;

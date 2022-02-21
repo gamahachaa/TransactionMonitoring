@@ -30,7 +30,8 @@ class Actor extends Agent
 	public var workLocation(get, null):String;
 	public var division(get, null):String;
 	public var department(get, null):String;
-	public var directReports(get, null):Array<Actor>;
+	@:isVar public var directReports(get, set):Array<Actor>;
+	@:isVar  public var peers(get, set):Array<Actor>;
 	public var distinguishedName(get, null):String;
 	public var accountExpires(get, null):String; //@todo Date
 
@@ -64,6 +65,7 @@ class Actor extends Agent
 			division = jsonUser.division == null ? "": jsonUser.division;
 			department = jsonUser.department = null ? "": jsonUser.department;
 			directReports = jsonUser.directReports == null ? []: toActorsArray(jsonUser.directReports);
+			peers = jsonUser.peers == null ? []: toActorsArray(jsonUser.peers);
 			distinguishedName = jsonUser.distinguishedname == null ? "": jsonUser.distinguishedname;
 			accountExpires = jsonUser.accountexpires == null ? "": jsonUser.accountexpires; //@todo Date
 			mainLanguage = jsonUser.msexchuserculture  == null ? "en-GB": jsonUser.msexchuserculture;
@@ -228,6 +230,21 @@ class Actor extends Agent
 	function get_directReports():Array<Actor> 
 	{
 		return directReports;
+	}
+	
+	function set_directReports(value:Array<Actor>):Array<Actor> 
+	{
+		return directReports = value;
+	}
+	
+	function get_peers():Array<Actor> 
+	{
+		return peers;
+	}
+	
+	function set_peers(value:Array<Actor>):Array<Actor> 
+	{
+		return peers = value;
 	}
 	
 	

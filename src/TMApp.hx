@@ -19,6 +19,7 @@ import queries.TMBasicsThisMonth.BasicTM;
 import ui.AgentListing;
 import ui.Communicator;
 import ui.Login;
+import ui.dialogs.MarkdownHelp;
 import ui.metadatas.TransactionUI;
 //import haxe.ui.Toolkit;
 import haxe.ui.components.CheckBox;
@@ -144,6 +145,7 @@ class TMApp
 	var transactionUI:Transaction;
 	var agregator:Agregator;
 	var agentlisting:AgentListing;
+	var markdownHelper:ui.dialogs.MarkdownHelp;
 
 	//var info:Component;
 	public function new()
@@ -390,7 +392,9 @@ class TMApp
 		prepareForms();
 		prepareHeader();
 		prepareMetadatas();
-
+        markdownHelper = new MarkdownHelp();
+		markdownHelper.destroyOnClose = false;
+		
 		content = mainApp.findComponent("content", null, true);
 		agentlisting = new AgentListing(monitoringData.coach);
 		agentlisting.signal.add( onAgentListingChanged);
@@ -476,7 +480,13 @@ class TMApp
 		coachEmail = mainApp.findComponent("coachemail", Label);
 		coachEmail.htmlText = '<strong>${StringTools.replace(monitoringData.coach.mbox, "mailto:","")}</strong>\n${monitoringData.coach.title}';
 		coachEmail.onClick = onCoachClicked;
-		transactionSummary =  mainApp.findComponent("transactionsummary", TextArea);
+		transactionSummary = mainApp.findComponent("transactionsummary", TextArea);
+		var transactionSummaryLabel = mainApp.findComponent("tsummary", Label);
+		transactionSummaryLabel.onClick = (e)->(markdownHelper.show());
+		var monitoringSummaryLabel = mainApp.findComponent("msummary", Label);
+		monitoringSummaryLabel.onClick = (e)->(markdownHelper.show() );
+		//transactionSummary.registerEvent(FocusEvent.FOCUS_OUT, onTransactionOut);
+	    //transactionSummary.onMouseOut = onTransactionOut;
 
 		monitoringSummary =  mainApp.findComponent("monitoringsummary", TextArea);
 		monitoringType = mainApp.findComponent("type", Group);
@@ -487,6 +497,14 @@ class TMApp
 		monitoringReason.onChange = onMonitoringReasonChanged;
 		/**/
 	}
+	
+	//function onTransactionOut(e:MouseEvent):Void 
+	//{
+		//trace(transactionSummary.text); 
+		//trace(Markdown.markdownToHtml(transactionSummary.text)); 
+		//
+		//transactionSummary.htmlText = Markdown.markdownToHtml(transactionSummary.text);
+	//}
 	function onMonitoringReasonChanged(e)
 	{
 		var id = cast(e.target, Component).id;
