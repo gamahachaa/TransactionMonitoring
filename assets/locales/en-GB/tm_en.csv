@@ -24,6 +24,7 @@ ALERT_TRANSACTION_TYPE;No transaction type was selected...
 ALERT_TRANSACTION_FUTURR_DATE;The transaction date is in the future...
 TRANSACTION_SUMMARY;Transaction summary
 TRANSACTION_SUMMARY_HELP;Note that this will be sent to the agent
+TRANSACTION_SUMMARY_TOOLTIP;You can use Markdown syntax that will be formated in the email.
 TRANSACTION_SUMMARY_PLACEHOLDER;Briefly summarize the customer's use case here.
 TRANSACTION_TYPE;Type
 TRANSACTION_WHEN_HELP;Date and time when the transaction occured

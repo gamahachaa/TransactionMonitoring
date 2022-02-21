@@ -104,16 +104,16 @@
 	</hbox>
 	<label text="{{TRANSACTION_SUMMARY}}"
 		   tooltip="{{TRANSACTION_SUMMARY_HELP}}"
-		   id="summary"
+		   id="tsummary"
 		   styleName="h2meta"
 		   />
-	<textarea tooltip="{{TRANSACTION_SUMMARY_HELP}}"
+	<textarea tooltip="{{TRANSACTION_SUMMARY_TOOLTIP}}"
 			  id="transactionsummary"
 			  styleName="summarries"
 			  allowFocus="true"
 			  placeholder="{{TRANSACTION_SUMMARY_PLACEHOLDER}}"
 			  width="100%"
-			  height="150"
+			  height="75"
 			  autoScrollToBottom="true"
 			  />
 
