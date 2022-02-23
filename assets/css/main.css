@@ -124,7 +124,11 @@ textarea, #agentNt, #transactionID, #credentials #username, #credentials #pwd{
 	border-width: 2px;*/
 }
 #transactionsummary, #monitoringsummary{
-	height: 150px;
+	height: 60px;
+	
+}
+#monitoringsummaryBAD,#monitoringsummaryGOOD, #transactionsummary, #monitoringsummary
+{
 	font-family:"Arial";
 	font-size:12px;
 }
@@ -185,8 +189,9 @@ textarea, #agentNt, #transactionID, #credentials #username, #credentials #pwd{
 
 }
 .h1{
-	font-size: 36px;
+	font-size: 24px;
 	font-family:"serif";
+	padding-top: 8px;
 }
 .h2{
 	font-size: 12px;

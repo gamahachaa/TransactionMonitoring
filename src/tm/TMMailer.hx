@@ -89,6 +89,8 @@ class TMMailer extends http.MailHelper
 		var transactionSummary = transaction.data.get(data.Transaction.TRANSACTION_SUMMARY).markdowndToHtmlWithBR();
 		
 		var monitoringSummary = Markdown.markdownToHtml(monitoring.data.get(data.Monitoring.MONITORING_SUMMARY)).lineFeedToHTMLbr();
+		var monitoringSummaryGood = Markdown.markdownToHtml(monitoring.data.get(TMApp.MONITORING_SUMMARY_GOOD)).lineFeedToHTMLbr();
+		var  monitoringSummaryBad = Markdown.markdownToHtml(monitoring.data.get(TMApp.MONITORING_SUMMARY_BAD)).lineFeedToHTMLbr();
 		var criticalFailed = tm.Question.FAILED_CRITICAL.length;
 		var score = tm.Question.SCORE;
 		//var success = (Question.FAILED_CRITICAL.length == 0 && score.scaled > Question.MIN_PERCENTAGE_BEFORE_FAILLING);
@@ -118,7 +120,12 @@ class TMMailer extends http.MailHelper
 		//b += '<p>$transactionSummary</p>';
 		b += '<div class="summary">$transactionSummary</div>';
 		b += '<h2>${LocaleManager.instance.lookupString("MONITORING_SUMMARY")}</h2>';
+		b += '<h3>${LocaleManager.instance.lookupString("SUMMARY_OTHER")}</h3>';
 		b += '<div class="summary">$monitoringSummary</div>';
+		b += '<h3>${LocaleManager.instance.lookupString("MONITORING_SUMMARY_GOOD")}</h3>';
+		b += '<div class="summary">$monitoringSummaryGood</div>';
+		b += '<h3>${LocaleManager.instance.lookupString("MONITORING_SUMMARY_BAD")}</h3>';
+		b += '<div class="summary">$monitoringSummaryBad</div>';
 		if (tm.Question.TM_PASSED) {
 			b += '<h3 class="AGREE">';
 			b += '${LocaleManager.instance.lookupString("AGREE")} &rarr; ';

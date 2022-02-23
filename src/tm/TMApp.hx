@@ -62,7 +62,7 @@ class TMApp extends AppBase
 	var justifications:Array<TextArea>;
 	var communicator:MessageBox;
 
-	var summaries:Array<TextArea>;
+	//var summaries:Array<TextArea>;
 	var failedCriticals:Float;
 	var failedOverall:Float;
 	var countQuestions:Float;
@@ -81,6 +81,10 @@ class TMApp extends AppBase
 	var agentlisting:AgentListing;	
 	var tracker:tm.Tracker;
 	var mailComposer: tm.TMMailer;
+	var monitoringGood:TextArea;
+	var monitoringBad:TextArea;
+	public static inline var MONITORING_SUMMARY_GOOD:String = "monitoringsummaryGOOD";
+	public static inline var MONITORING_SUMMARY_BAD:String = "monitoringsummaryBAD";
 
 
 	//var info:Component;
@@ -183,81 +187,6 @@ class TMApp extends AppBase
 
 	}
 
-	//override function onLoginSuccess(agent:Actor)
-	//{
-		//if (Std.isOfType(agent, Coach))
-		//{
-			//if (agent.authorised)
-			//{
-				//monitoringData.coach  = cast(agent, Coach);
-//
-				//cookie.flush(version, monitoringData.coach );
-				//loadContent();
-			//}
-			//else
-			//{
-				////loginFeedback.addClass("error");
-				//loginApp.feedErrorBack(agent.title);
-			//}
-		//}
-		//else if (Std.isOfType(agent, Monitoree ))
-		//{
-			//transactionData.monitoree = cast(agent, Monitoree);
-//
-			//resetAgent();
-			//if (transactionData.monitoree.authorised)
-			//{
-//
-				//agentLabel.htmlText = '<strong class="correct">${StringTools.replace(transactionData.monitoree.mbox, "mailto:","")}</strong>\n${transactionData.monitoree.title}';
-				///*agentLabel.color = 0x65a63c;*/
-				//agentLabel.addClass("correct");
-				//agentOK.resource = "images/check-green-icon.png";
-				//agentOK.hidden = false;
-//
-				//if (transactionData.monitoree.manager != null)
-				//{
-					//cctl_text.text = StringTools.replace(transactionData.monitoree.manager.mbox, "mailto:", "");
-					//cctl.hidden = false;
-					//cctl_text.hidden = false;
-				//}
-				//else
-				//{
-					//cctl.hidden = true;
-					//cctl_text.hidden = true;
-				//}
-//
-				//tracker.start();
-			//}
-			//else
-			//{
-//
-				//agentOK.hidden = false;
-				//agentOK.resource = "images/check-red-icon.png";
-				//agentLabel.htmlText = '{{ERROR}} \n<strong class="error">${transactionData.monitoree.name}</strong>';
-				//agentLabel.addClass("error");
-				///*agentLabel.color = 0xFF0000;*/
-			//}
-			//#if debug
-			////trace("TMApp::onLoginSuccess::agentLabel.hidden", agentLabel.hidden );
-			////trace("TMApp::onLoginSuccess::agentLabel.text", agentLabel.htmlText);
-			//#end
-			//agentLabel.updateComponentDisplay();
-		//}
-	//}
-	/*function resetAgent(?fromscratch:Bool=false)
-	{
-		cctl.hidden = true;
-		cctl_text.hidden = true;
-		cctl.selected = false;
-		agentLabel.removeClass("error");
-		agentLabel.removeClass("correct");
-		agentOK.hidden = true;
-		if (fromscratch)
-		{
-			agentTF.text = "";
-			agentLabel.htmlText = "";
-		}
-	}*/
 	function loadContent()
 	{
 		if (loginApp != null) app.removeComponent(loginApp);
@@ -304,75 +233,24 @@ class TMApp extends AppBase
 		}
 	}
 
-	/*function onTmFecteched(list:Array<Dynamic>)
-	{
-		#if debug
-		trace("TMApp::onTmFecteched");
-		#end
-		//var agents = monitoringData.coach.getDirectReportsAMAccountNames();
-		//var al:AgentListing = new AgentListing(monitoringData.coach, list);
-		al.signal.add(onAgentSelectInList);
-		content.addComponent(al);
-	} */
+
 
 	override function prepareMetadatas()
 	{
 		super.prepareMetadatas();
-		#if debug
-		trace("TMApp::prepareMetadatas");
-		#end
-		//agentLabel = mainApp.findComponent("agentlabel", Label);
-		//agentOK = mainApp.findComponent("agewntOK", Image);
 		formSwitcher = mainApp.findComponent("formSwitcher", null, true);
 		formSwitcher.onChange = (e:UIEvent)->setCurrentForm(e.target.id);
-		//transactionIdTF = mainApp.findComponent("transactionID", TextField);
-
-		//transactionDateComp = mainApp.findComponent("TRANSACTION_WHEN", DropDown);
-
-		//transactionDateComp.onChange = (e)->(prepareTransactionDate());
-		//transcationHourComp = mainApp.findComponent("TRANSACTIONWHENHOURS", NumberStepper, true, "id");
-		//#if debug
-		//var testTHour  = transcationHourComp == null;
-		//trace("TMApp::prepareMetadatas::transcationHourComp", testTHour );
-		//#end
-		//transcationHourComp.onChange = (e)->(prepareTransactionDate());
-		//transcationMinutesComp = mainApp.findComponent("TRANSACTION_WHEN_MINUTES", NumberStepper);
-
-		//transcationMinutesComp.onChange = (e)->(prepareTransactionDate());
-
-		//agentBtn = mainApp.findComponent("agentBtn");
-		//agentTF = mainApp.findComponent("agentNt");
-		//agentTF.registerEvent(FocusEvent.FOCUS_OUT, onAgentFilledIn);
-		//agentBtn.onClick = onAgentClicked;
-
-		//coachEmail = mainApp.findComponent("coachemail", Label);
-		//coachEmail.htmlText = '<strong>${StringTools.replace(monitoringData.coach.mbox, "mailto:","")}</strong>\n${monitoringData.coach.title}';
-		//coachEmail.onClick = onCoachClicked;
-		//transactionSummary = mainApp.findComponent("transactionsummary", TextArea);
-		//var transactionSummaryLabel = mainApp.findComponent("tsummary", Label);
-		//transactionSummaryLabel.onClick = (e)->(markdownHelper.show());
-		//var monitoringSummaryLabel = mainApp.findComponent("msummary", Label);
-		//monitoringSummaryLabel.onClick = (e)->(markdownHelper.show() );
-		//transactionSummary.registerEvent(FocusEvent.FOCUS_OUT, onTransactionOut);
-		//transactionSummary.onMouseOut = onTransactionOut;
-
-		//monitoringSummary =  mainApp.findComponent("monitoringsummary", TextArea);
 		monitoringType = mainApp.findComponent("type", Group);
 		monitoringReason = mainApp.findComponent("reason", Group);
-		//monitoringType.onChange = (e)->(monitoringTypeValue = (e.target.id));
+		monitoringGood = mainApp.findComponent(MONITORING_SUMMARY_GOOD, TextArea);
+		monitoringBad = mainApp.findComponent(MONITORING_SUMMARY_BAD, TextArea);
 		monitoringType.onChange = (e)->(monitoringData.data.set( data.Monitoring.MONITORING_TYPE, e.target.id));
-		//monitoringReason.onChange = (e)->(monitoring.data.set(Monitoring.MONITORING_REASON,e.target.id));
+
 		monitoringReason.onChange = onMonitoringReasonChanged;
-		/**/
+
 	}
 
-	//function onTransactionOut(e:MouseEvent):Void
-	//{
-	//trace(transactionSummary.text);
-	//trace(Markdown.markdownToHtml(transactionSummary.text));
-	//
-	//transactionSummary.htmlText = Markdown.markdownToHtml(transactionSummary.text);
-	//}
+
 	function onMonitoringReasonChanged(e)
 	{
 		var id = cast(e.target, Component).id;
@@ -397,17 +275,7 @@ class TMApp extends AppBase
 	override function prepareHeader()
 	{
 		super.prepareHeader();
-		//sendBtn = mainApp.findComponent("send",Button);
-//
-		//langSwitcher = mainApp.findComponent("langSwitcher", null, true);
-		//langSwitcher.onChange = onLangChanged;
-		////langSwitcher.disabled = true;
-//
-		//sendBtn.onClick = onSend;
 		whatToSend = mainApp.findComponent("sendAll", CheckBox);
-		//cctl = mainApp.findComponent("cctl", CheckBox);
-		//cctl_text = mainApp.findComponent("cctl_text", Label);
-		//whatToSendLabel = mainApp.findComponent("slider2", Label);
 		whatToSend.onChange = (e)->(whatToSend.text = whatToSend.selected? "{{ALL}}" : "{{FAILED_ONLY}}");
 	}
 
@@ -546,6 +414,22 @@ class TMApp extends AppBase
 			//trace("TMApp::validateMetadatas::monitoring.data.exists(Monitoring.MONITORING_TYPE)", monitoring.data.exists(Monitoring.MONITORING_TYPE) );
 			#end
 		}
+		if (monitoringGood.text == null || monitoringGood.text.trim() == "")
+		{
+			s.canSubmit = false;
+			s.messages.push( "{{ALERT_MONITORING_SUMMARY_GOOD}}");
+		}   
+		else{
+			monitoringData.data.set(MONITORING_SUMMARY_GOOD, monitoringGood.text.trim());
+		}
+		if (monitoringBad.text == null || monitoringBad.text.trim() == "" )
+		{
+			s.canSubmit = false;
+			s.messages.push( "{{ALERT_MONITORING_SUMMARY_BAD}}");
+		}
+		else{
+			monitoringData.data.set(MONITORING_SUMMARY_BAD, monitoringBad.text.trim());
+		}
 		return s;
 	}
 	/*function onFormChanged(e:UIEvent)
@@ -577,18 +461,9 @@ class TMApp extends AppBase
 
 	function sendEmailToBoth(?previousStatement:StatementRef):Void
 	{
-		#if debug
-		//trace("TMApp::sendEmailToBoth");
-		#end
-		//dialog.message = "Wait...";
-		//dialog.showDialog(true);
+
 		tm.Question.INFO.reset();
-		//preloader.width = 250;
-		//preloader.height = 140;
-		//preloader.verticalAlign ="center";
-//
-		//mainApp.addComponent(preloader);
-//
+
 		mailComposer.cctl = cctl.selected;
 		mailComposer.transaction = transactionData;
 		mailComposer.monitoring = monitoringData;

@@ -69,3 +69,16 @@ LOGIN_USERNAME;Benutzername
 LOGIN_PASSWORD;Passwort
 LOGIN_BTN;Los geht's mit dem Coaching!
 SHOW_PWD;Hier klicken, um das eingegebene Passwort anzuzeigen
+;
+MONITORING_SUMMARY;Monitoring summary
+MONITORING_SUMMARY_HELP;Note that this will be sent to the agent
+MONITORING_SUMMARY_PLACEHOLDER;Briefly summarize your observations on how the agents handled the transaction here.
+SUMMARY_OTHER;Insgesamt
+MONITORING_SUMMARY_GOOD;Positive points
+MONITORING_SUMMARY_HELP_GOOD; List here what went particularly well.
+MONITORING_SUMMARY_PLACEHOLDER_GOOD; List here what went outstandingly well.
+MONITORING_SUMMARY_BAD;Areas for improvement
+MONITORING_SUMMARY_HELP_BAD; List here the topics where the agent should focus on.
+MONITORING_SUMMARY_PLACEHOLDER_BAD; List here the topics where the agent should focus on.
+ALERT_MONITORING_SUMMARY_GOOD;Irgendetwas muss doch richtig gelaufen sein, oder?
+ALERT_MONITORING_SUMMARY_BAD;Es muss doch etwas zu verbessern geben, oder?

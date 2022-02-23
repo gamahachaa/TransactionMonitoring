@@ -2,7 +2,7 @@ KEY;VALUE
 MAIN_TITLE;Transactions Monitoring
 AGREE;Réussi
 DISAGREE;Echec
-NA;Non disponible
+NA;Non applicable
 ERROR;Erreur
 FORM_HELP;Sélectionnez le type de transaction que vous êtes en train d'observez
 DIALOG_APPLY_YOURSELF;Allez sur {0}... Essayez mieux !
@@ -10,7 +10,7 @@ DIALOG_MSG_SUCCESS_TRUE;Tout va bien. Courriel envoyé avec succès
 DIALOG_MSG_SUCCESS_FALSE;Échec. Quelque chose n'a pas fonctionné :(
 DIALOG_TITLE_SUCCESS_TRUE;Suivi du courrier électronique et suivi
 DIALOG_TITLE_SUCCESS_FALSE;Suivi du courrier électronique et suivi
-ALERT_AGENT_NOT_SEARCHED;Vous n'avez pas choisi une personne à surveiller.
+ALERT_AGENT_NOT_SEARCHED;Vous n'avez pas choisi une personne à observer.
 ALERT_AGENT_NOT_FOUND;L'agent n'a pas été trouvé dans le répertoire actif.
 ALERT_MONITORING_SUMMARY;Le résumé du suivi est incomplet.
 ALERT_TRANSACTION_SUMMARY;Le résumé de la transaction est incomplet.
@@ -33,9 +33,7 @@ TRANSACTION_WHEN_TIME;Heure
 TRANSACTION_ID;Identifiant
 TRANSACTION_ID_HELP;Saisissez ici un identifiant spécifique de transaction :  - ID du ticket  ID de l'enregistrement de l'appel  - objet de l'e-mail  -etc. 
 SELECT_DATE;Choisir...
-MONITORING_SUMMARY;Résumé de l'observation
-MONITORING_SUMMARY_HELP;Notez que ceci sera envoyé à l'agent
-MONITORING_SUMMARY_PLACEHOLDER;Rédigez ici un petit résumé de vos observations sur la façon dont les agents ont traité la transaction
+
 MONITORED_BY;Observé par
 TRANSACTION_AGENT;Agent
 TRANSACTION_AGENT_HELP;Saisissez le NT de l'agent. S'il a été trouvé, son e-mail s'affichera
@@ -70,3 +68,18 @@ LOGIN_PASSWORD;Mot de passe
 LOGIN_BTN;Entraînons-nous !
 SHOW_PWD;Cliquez sur moi pour afficher le mot de passe saisi
 SEND_REPORT_TO_TL;Envoyer le rapport à mon manager
+;
+;
+MONITORING_SUMMARY;Résumé de l'observation
+MONITORING_SUMMARY_HELP;Notez que ceci sera envoyé à l'agent
+MONITORING_SUMMARY_PLACEHOLDER;Rédigez ici un petit résumé de vos observations sur la façon dont les agents ont traité la transaction
+SUMMARY_OTHER;Globalement
+MONITORING_SUMMARY_GOOD;Points positifs
+MONITORING_SUMMARY_HELP_GOOD; Énumérez ici ce qui s'est particulièrement bien passé.
+MONITORING_SUMMARY_PLACEHOLDER_GOOD; Énumérez ici ce qui s'est particulièrement bien passé.
+MONITORING_SUMMARY_BAD;Points à améliorer
+MONITORING_SUMMARY_HELP_BAD; Dressez ici la liste des faits mal gérés sur lesquels l'agent doit se concentrer. 
+MONITORING_SUMMARY_PLACEHOLDER_BAD; Dressez ici la liste des faits mal gérés sur lesquels l'agent doit se concentrer.
+ALERT_TRANSACTION_SUMMARY;Le résumé de la transaction est incomplet.
+ALERT_MONITORING_SUMMARY_GOOD;Il y forcément quelque chose qui s'est bien passé, non ?
+ALERT_MONITORING_SUMMARY_BAD;Il y forcément quelque à améliorer, non ?

@@ -34,9 +34,7 @@ TRANSACTION_WHEN_TIME;Time
 TRANSACTION_ID;Identifier
 TRANSACTION_ID_HELP;Enter here a clear transaction identifier: - SO ticket ID - call recording ID - email subject etc... 
 SELECT_DATE;Pick...
-MONITORING_SUMMARY;Monitoring summary
-MONITORING_SUMMARY_HELP;Note that this will be sent to the agent
-MONITORING_SUMMARY_PLACEHOLDER;Briefly summarize your observations on how the agents handled the transaction here.
+
 MONITORED_BY;Observed by
 TRANSACTION_AGENT;Agent
 TRANSACTION_AGENT_HELP;Enter agent's NT. If found, the email will be displayed
@@ -71,3 +69,16 @@ LOGIN_PASSWORD;Password
 LOGIN_BTN;Let's coach!
 SHOW_PWD;Click me to display the entered password
 SEND_REPORT_TO_TL;send the report to my damm manager
+;
+MONITORING_SUMMARY;Monitoring summary
+MONITORING_SUMMARY_HELP;Note that this will be sent to the agent
+MONITORING_SUMMARY_PLACEHOLDER;Briefly summarize your observations on how the agents handled the transaction here.
+SUMMARY_OTHER;Overall
+MONITORING_SUMMARY_GOOD;Positive points
+MONITORING_SUMMARY_HELP_GOOD; List here what went particularly well.
+MONITORING_SUMMARY_PLACEHOLDER_GOOD; List here what went outstandingly well.
+MONITORING_SUMMARY_BAD;Areas for improvement
+MONITORING_SUMMARY_HELP_BAD; List here the topics where the agent should focus on.
+MONITORING_SUMMARY_PLACEHOLDER_BAD; List here the topics where the agent should focus on.
+ALERT_MONITORING_SUMMARY_GOOD;Something must have gone right, right?
+ALERT_MONITORING_SUMMARY_BAD;There has to be something to improve, right?

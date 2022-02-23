@@ -83,6 +83,12 @@
 		   styleName="h2meta"
 		   tooltip="{{MONITORING_SUMMARY_HELP}}"
 		   />
+		<label text="{{SUMMARY_OTHER}}"
+		   verticalAlign="top"
+		   id="msummary"
+		   styleName="h3"
+		   tooltip="{{MONITORING_SUMMARY_HELP}}"
+		   />
 	<textarea id="monitoringsummary"
 			  width="100%"
 			  height="30px"
@@ -91,5 +97,34 @@
 			  tooltip="{{MONITORING_SUMMARY_HELP}}"
 			  placeholder="{{MONITORING_SUMMARY_PLACEHOLDER}}"
 			  />
+	<label text="{{MONITORING_SUMMARY_GOOD}}"
+		   verticalAlign="top"
+		   id="msummaryGOOD"
+		   styleName="h3"
+		   tooltip="{{MONITORING_SUMMARY_HELP_GOOD}}"
+		   />
+	  <textarea id="monitoringsummaryGOOD"
+			  width="100%"
+			  height="75px"
+			  allowFocus="true"
+			  styleName="summarries"
+			  tooltip="{{MONITORING_SUMMARY_HELP_GOOD}}"
+			  placeholder="{{MONITORING_SUMMARY_PLACEHOLDER_GOOD}}"
+			  />
+		<label text="{{MONITORING_SUMMARY_BAD}}"
+		   verticalAlign="top"
+		   id="msummaryBAD"
+		   styleName="h3"
+		   tooltip="{{MONITORING_SUMMARY_HELP_BAD}}"
+		   />
+	<textarea id="monitoringsummaryBAD"
+			  width="100%"
+			  height="75px"
+			  allowFocus="true"
+			  styleName="summarries"
+			  tooltip="{{MONITORING_SUMMARY_HELP_BAD}}"
+			  placeholder="{{MONITORING_SUMMARY_PLACEHOLDER_BAD}}"
+			  />
+	
 	<!--<textarea id="ta01" placeholder="Do an overal analyse in few words ..." width="300%" height="150px" allowFocus="true" />-->
 </vbox>
