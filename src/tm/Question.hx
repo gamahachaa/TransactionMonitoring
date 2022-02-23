@@ -1,5 +1,7 @@
-package;
+package tm;
 
+import AppBase;
+import Utils;
 import haxe.Exception;
 import haxe.Json;
 import haxe.ui.components.Image;
@@ -16,6 +18,7 @@ import haxe.ui.events.MouseEvent;
 import haxe.ui.events.UIEvent;
 import haxe.ui.locale.LocaleManager;
 import haxe.ui.styles.animation.Animation;
+import tm.Agreement;
 import xapi.types.Score;
 
 /**
@@ -49,7 +52,7 @@ class Question
 	public static var FAILED_CRITICAL:Array<String> = [];
 	public static var RESULT_MAP:Map<String,String> = [];
 	public static var CRITICALITY_MAP:Map<String,Int> = ["business"=>0,"compliance"=>0,"customer"=>0];
-	public static var INFO:Info;
+	public static var INFO:tm.Info;
 	
 
     /////////////////////////////////////////////////////////////////////
@@ -214,7 +217,7 @@ class Question
 		}
 		if ( canSubmit ) GET_SCORE();
 		
-		return {canSubmit:canSubmit, message: m};
+		return {canSubmit:canSubmit, messages: m};
 	}
 	static function RESET_Pointers()
 	{
@@ -236,7 +239,7 @@ class Question
 	var infoIcon:Image;
 	
 	//var pointerIcon:Image;
-	public var agreement(get, null):Agreement;
+	public var agreement(get, null):tm.Agreement;
 	function new(id:String, parent:HBox)
 	{
 		//this.parent = parent;
@@ -277,7 +280,7 @@ class Question
 		//critical = radioGroup.hasClass("critical");
 		radioBtns = cast(radioGroup.childComponents);
 		justification = _this.findComponent("justify", TextArea);
-		agreement = new Agreement(getSelected(),"", userData.critical);
+		agreement = new tm.Agreement(getSelected(),"", userData.critical);
 		radioGroup.onChange = onchange;
 		justification.registerEvent(FocusEvent.FOCUS_OUT, onJustifyOut);
 		justification.registerEvent(FocusEvent.FOCUS_IN, onJustifyIn);
@@ -332,7 +335,7 @@ class Question
 			INFO.passedDesc.htmlText = "{{" + id + ".passed}}";
 			INFO.failedDesc.htmlText = "{{" + id + ".failed}}";
 			LocaleManager.instance.language = "en";
-			LocaleManager.instance.language = TMApp.lang;
+			LocaleManager.instance.language = AppBase.lang;
 		}
 		//anim.run(()->trace("finished"));
 	}
@@ -412,9 +415,9 @@ class Question
 	function resetRadios()
 	{
 		radioGroup.resetGroup();
-		agreement = new Agreement(getSelected(),"", userData.critical);
+		agreement = new tm.Agreement(getSelected(),"", userData.critical);
 	}
-	function get_agreement():Agreement
+	function get_agreement():tm.Agreement
 	{
 		return agreement;
 	}

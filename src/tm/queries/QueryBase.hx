@@ -1,7 +1,7 @@
-package queries;
+package tm.queries;
 import mongo.Pipeline;
 import mongo.stages.Project;
-import queries.TMBasicsThisMonth.BasicTM;
+import tm.queries.TMBasicsThisMonth.BasicTM;
 import thx.DateTime;
 
 /**

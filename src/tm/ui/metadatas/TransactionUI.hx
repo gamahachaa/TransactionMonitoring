@@ -1,4 +1,4 @@
-package ui.metadatas;
+package tm.ui.metadatas;
 
 import haxe.ui.containers.VBox;
 import haxe.ui.events.UIEvent;

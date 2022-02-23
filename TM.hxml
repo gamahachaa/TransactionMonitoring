@@ -14,6 +14,7 @@
 -cp modules
 -cp C:/HaxeToolkit/haxe/lib/haxeui-core/git
 -cp C:/HaxeToolkit/haxe/lib/haxeui-html5/git
+-cp ../_myPackages/quality
 -js bin/TM.js
 -D haxeJSON
 -main Main

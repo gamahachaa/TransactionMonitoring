@@ -1,4 +1,4 @@
-package;
+package tm;
 import haxe.ui.components.Image;
 import haxe.ui.components.Label;
 import haxe.ui.core.Component;

@@ -19,6 +19,7 @@
     <class path="modules" />
     <class path="C:\HaxeToolkit\haxe\lib\haxeui-core\git" />
     <class path="C:\HaxeToolkit\haxe\lib\haxeui-html5\git" />
+    <class path="..\_myPackages\quality" />
   </classpaths>
   <!-- Build options -->
   <build>

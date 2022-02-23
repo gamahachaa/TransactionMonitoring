@@ -1,8 +1,10 @@
-package mailers;
+package tm;
+import AppBase;
 import data.Monitoring;
 import data.Transaction;
 import haxe.ui.locale.LocaleManager;
 import http.MailHelper;
+import tm.Question;
 import xapi.types.StatementRef;
 using tstool.utils.StringUtils;
 
@@ -87,8 +89,8 @@ class TMMailer extends http.MailHelper
 		var transactionSummary = transaction.data.get(data.Transaction.TRANSACTION_SUMMARY).markdowndToHtmlWithBR();
 		
 		var monitoringSummary = Markdown.markdownToHtml(monitoring.data.get(data.Monitoring.MONITORING_SUMMARY)).lineFeedToHTMLbr();
-		var criticalFailed = Question.FAILED_CRITICAL.length;
-		var score = Question.SCORE;
+		var criticalFailed = tm.Question.FAILED_CRITICAL.length;
+		var score = tm.Question.SCORE;
 		//var success = (Question.FAILED_CRITICAL.length == 0 && score.scaled > Question.MIN_PERCENTAGE_BEFORE_FAILLING);
 		#if debug
 		trace("TMMailer::prepareBody::success", success );
@@ -117,7 +119,7 @@ class TMMailer extends http.MailHelper
 		b += '<div class="summary">$transactionSummary</div>';
 		b += '<h2>${LocaleManager.instance.lookupString("MONITORING_SUMMARY")}</h2>';
 		b += '<div class="summary">$monitoringSummary</div>';
-		if (Question.TM_PASSED) {
+		if (tm.Question.TM_PASSED) {
 			b += '<h3 class="AGREE">';
 			b += '${LocaleManager.instance.lookupString("AGREE")} &rarr; ';
 			b += '$criticalFailed ${LocaleManager.instance.lookupString("CRITICAL_MISTAKES")}';
@@ -125,6 +127,7 @@ class TMMailer extends http.MailHelper
 			
 			//b += '${LocaleManager.instance.lookupString("OVERALL_SCORE")}: $descaled /100 &rarr; ${LocaleManager.instance.lookupString("AGREE")}</h3>';
 			b += '</h3>';
+			b += '</h3>';                        
 		}
 		else {
 			b += '<h3 class="DISAGREE">';
@@ -132,9 +135,9 @@ class TMMailer extends http.MailHelper
 			var t = [];
 			if(criticalFailed > 0)
 				t.push( '$criticalFailed ${LocaleManager.instance.lookupString("CRITICAL_MISTAKES")}');
-			if (Question.TOTAL_FAILED > 2)
+			if (tm.Question.TOTAL_FAILED > 2)
 				t.push( '${LocaleManager.instance.lookupString("MORE_THAN_TWO_MISTAKES")} (${Question.TOTAL_FAILED})');
-			if (Question.HASTwoFailedInATopic)
+			if (tm.Question.HASTwoFailedInATopic)
 				t.push( '${LocaleManager.instance.lookupString("TWO_MISTAKES_IN_A_DOMAIN")} (${Question.TOTAL_FAILED})');
 			b += t.join(", ");
 			//b += '${LocaleManager.instance.lookupString("OVERALL_SCORE")}: $descaled /100 &rarr; ${LocaleManager.instance.lookupString("DISAGREE")}</h3>';
@@ -146,8 +149,8 @@ class TMMailer extends http.MailHelper
 		var topic = "";
 		var topicTab = [];
 		LocaleManager.instance.language = "en-GB";
-		LocaleManager.instance.language = TMApp.lang;
-		for (k => v in Question.ALL)
+		LocaleManager.instance.language = AppBase.lang;
+		for (k => v in tm.Question.ALL)
 		{
 			topicTab = k.split(".");
 			topic = "common." + topicTab[2];
@@ -171,7 +174,7 @@ class TMMailer extends http.MailHelper
 		#end
 		return b;
 	}
-	function prepareAnswers(id:String, answer:Question)
+	function prepareAnswers(id:String, answer:tm.Question)
 	{
 		#if debug
 		trace("TMMailer::prepareAnswers::id", id );

@@ -2,6 +2,7 @@ package ;
 import haxe.ui.Toolkit;
 import haxe.ui.components.DropDown.CalendarDropDownHandler;
 import tests.XapiSendSerialized;
+import tm.TMApp;
 
 /**
  * --resource assets/ui/inbound.xml@inbound
@@ -14,13 +15,13 @@ import tests.XapiSendSerialized;
 class Main
 {
 	
-	
+	public static var _mainDebug:Bool;
 	public static function main()
 	{
 		CalendarDropDownHandler.DATE_FORMAT = "%d.%m.%Y";
 		//
-		trace("wtf");
-		var main = new TMApp();
+		//trace("wtf");
+		var main = new tm.TMApp();
 		//var main = new XapiSendSerialized();
 	}	
 }

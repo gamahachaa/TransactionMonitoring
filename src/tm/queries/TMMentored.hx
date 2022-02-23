@@ -1,4 +1,4 @@
-package queries;
+package tm.queries;
 import mongo.Pipeline;
 import mongo.comparaison.GreaterOrEqualThan;
 import mongo.conditions.And;

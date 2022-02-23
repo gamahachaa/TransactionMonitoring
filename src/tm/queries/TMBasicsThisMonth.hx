@@ -1,4 +1,4 @@
-package queries;
+package tm.queries;
 import haxe.Json;
 import mongo.Pipeline;
 import mongo.comparaison.GreaterOrEqualThan;
@@ -9,6 +9,7 @@ import mongo.stages.Project;
 import mongo.xapiSingleStmtShortcut.ActorName;
 import mongo.xapiSingleStmtShortcut.StmtTimestamp;
 import mongo.xapiSingleStmtShortcut.VerbId;
+import roles.Actor;
 import thx.DateTime;
 import thx.DateTimeUtc;
 import xapi.Agent;
@@ -31,10 +32,10 @@ typedef BasicTM ={
 class TMBasicsThisMonth extends QueryBase
 {
 
-	public var listOfAgents(default, set):Array<Actor>;
+	public var listOfAgents(default, set):Array<roles.Actor>;
 
 	
-	public function new(listOfAgents:Array<Actor>)
+	public function new(listOfAgents:Array<roles.Actor>)
 	{
 		super();
 		this.listOfAgents = listOfAgents;
@@ -44,7 +45,7 @@ class TMBasicsThisMonth extends QueryBase
 
 	
 
-	function set_listOfAgents(value:Array<Actor>):Array<Actor>
+	function set_listOfAgents(value:Array<roles.Actor>):Array<roles.Actor>
 	{
 		return listOfAgents = value;
 	}
