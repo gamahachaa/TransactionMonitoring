@@ -4,7 +4,7 @@
   <output>
     <movie outputType="Application" />
     <movie input="" />
-    <movie path="bin\TM.js" />
+    <movie path="bin\tm.js" />
     <movie fps="0" />
     <movie width="0" />
     <movie height="0" />
@@ -20,6 +20,7 @@
     <class path="C:\HaxeToolkit\haxe\lib\haxeui-core\git" />
     <class path="C:\HaxeToolkit\haxe\lib\haxeui-html5\git" />
     <class path="..\_myPackages\quality" />
+    <class path="..\..\_classes" />
   </classpaths>
   <!-- Build options -->
   <build>

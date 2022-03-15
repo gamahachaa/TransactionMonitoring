@@ -34,7 +34,8 @@ class Info
 	}
 	public function reset()
 	{
-		container.hidden = true;
+		container.fadeOut();
+		//container.hidden = true;
 		title.htmlText = "";
 		questionDesc.htmlText = "";
 		criticality.htmlText = "";
@@ -59,6 +60,7 @@ class Info
 	{
 		 this.id = id;
 		 container.hidden = false;
+		 container.fadeIn();
 	}
 	
 }

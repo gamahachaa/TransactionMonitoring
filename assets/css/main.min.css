@@ -1,3 +1,5 @@
+.fade-in{animation:animationFadeIn 0.3s ease-out 0s 1;}
+.fade-out{animation:animationFadeIn 0.3s ease-in 0s 1 reverse;}
 #tsummary,#msummary{cursor:help;}
 #AgentListing{width:100%;}
 #AgentListing #table{max-height:800px;}
@@ -29,7 +31,7 @@ textarea,#agentNt,#transactionID,#credentials #username,#credentials #pwd{}
 .h1{color:#4fd1d9;}
 .h2meta{font-size:14px;color:#393E41;background-color:#c2e812;padding-left:8px;padding-right:8px;padding-top:4px;padding-bottom:4px;border-radius:16px;}
 .h3{background-color:#96e4e8;padding-left:4px;padding-right:4px;padding-top:2px;padding-bottom:2px;color:#000000;}
-.h4{font-size:14px;}
+.h4{font-size:14px;color:#96e4e8;}
 .justify{font-size:10px;}
 #y,#n,#na{font-size:10px;}
 #y{color:#81c14b;}
@@ -39,7 +41,8 @@ textarea,#agentNt,#transactionID,#credentials #username,#credentials #pwd{}
 .wrong{border-color:#ff0000;}
 .error{background-color:#ffebf9;color:#ff0000;padding-left:4px;padding-right:4px;}
 .correct{}
-.metadatas{background-color:#393E41;height:100%;color:#c2e812;padding:8px;margin:8px;border-radius:16px;}
+.metadatas .metadatas{background-color:#393E41;height:100%;color:#c2e812;padding:8px;margin:8px;border-radius:16px;}
+#TRANSACTIONWHENHOURS,#TRANSACTION_WHEN_MINUTES{}
 #content,#metadatas{padding:12px;}
 #content{background-color:#fafafa;border-radius:16px;filter:drop-shadow(0,45,#393E41,.7,4,4,3,3,true);margin-left:16px;}
 #footer{margin-top:16px;}

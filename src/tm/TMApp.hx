@@ -8,6 +8,7 @@ import tm.TMMailer;
 import tm.Info;
 import tm.Question;
 import tm.Tracker;
+import tm.queries.TMAgregator;
 
 import ui.AgentListing;
 import ui.dialogs.Communicator;
@@ -83,6 +84,7 @@ class TMApp extends AppBase
 	var mailComposer: tm.TMMailer;
 	var monitoringGood:TextArea;
 	var monitoringBad:TextArea;
+	var agregator:TMAgregator;
 	public static inline var MONITORING_SUMMARY_GOOD:String = "monitoringsummaryGOOD";
 	public static inline var MONITORING_SUMMARY_BAD:String = "monitoringsummaryBAD";
 
@@ -90,20 +92,20 @@ class TMApp extends AppBase
 	//var info:Component;
 	public function new()
 	{
-		super(TMMailer, tm.Tracker);
+		super(TMMailer, tm.Tracker, "tm");
 		currentForm = null;
 		forms = new Map<String, Component>();
-		trace("start");
+		//trace("start");
 		tracker = cast(this.xapitracker, tm.Tracker);
-		trace("end");
+		//trace("end");
 		mailComposer = cast(this.mailHelper, TMMailer);
 		tracker.signal.add(this.onXapiTracking) ;
-		
+		agregator = new TMAgregator();
 		//cast(this.onXapiTracking, Tracker).signal.add(this.onXapiTracking) ;
 		
 		this.whenAppReady = loadContent;
 		
-		app.ready(onAppReady);
+		
 	}
 	function onXapiTracking(stage:Int)
 	{
@@ -158,7 +160,8 @@ class TMApp extends AppBase
 			trace("Main::onMailSucces::s", r, dialogEnd.message );
 			#end
 			dialogEnd.showDialog(true);
-			reset();
+			dialogEnd.onDialogClosed = (e)->reset();
+			
 		}
 		catch (e:Exception)
 		{
@@ -171,7 +174,7 @@ class TMApp extends AppBase
 		#if debug
 		trace("TMApp::reset::reset", reset );
 		#end
-		
+		checkVersion();
 		tracker.start();
 		content.hidden = true;
 		agentlisting.reset();
@@ -203,6 +206,7 @@ class TMApp extends AppBase
 		prepareMetadatas();
 		
 		markdownHelper.show();
+		//markdownView.show();
 
 		content = mainApp.findComponent("content", null, true);
 		agentlisting = new AgentListing(monitoringData.coach);
@@ -260,6 +264,8 @@ class TMApp extends AppBase
 	override function resetMonitoring()
 	{
 		super.resetMonitoring();
+		this.monitoringBad.text = "";
+		this.monitoringGood.text = "";
 		cast(monitoringReason.getComponentAt(0), OptionBox).resetGroup();
 		cast(monitoringType.getComponentAt(0), OptionBox).resetGroup();
 	}
@@ -454,6 +460,7 @@ class TMApp extends AppBase
 	{
 		content.removeComponentAt(0,false);
 		content.addComponentAt(c, 0 );
+		c.fadeIn();
 		content.hidden = hide;
 	}
 

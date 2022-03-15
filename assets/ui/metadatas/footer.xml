@@ -20,7 +20,7 @@
         
 		<checkbox id="sendAll"
 				selected="true"
-				width="65%"
+				width="63%"
 				tooltip="{{SEND_ALL_TOOLTIP}}"
 				/>
 		
@@ -32,7 +32,7 @@
 		
 		<button id="send"
 				text="{{SUBMIT}}"
-				width="35%"
+				width="37%"
 				/>
 	</grid>
 	<label text="Version 0.5"
