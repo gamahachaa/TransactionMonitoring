@@ -42,7 +42,7 @@ EFFBB8 grayish pink2
 #AgentListing #table{
 	 max-height:800px;
 }
- #langSwitcher optionbox{
+ #langSwitcher_group optionbox{
   color:#d4e878;
 }
 }
@@ -75,7 +75,7 @@ EFFBB8 grayish pink2
 #main {
 	background-color: #282d30;
 }                                                                                     
-#send{
+#send_button{
 	border-radius: 16px;
 	background-color:#4fd1d9;
 	color:#ffffff;

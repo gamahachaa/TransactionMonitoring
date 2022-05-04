@@ -2,7 +2,7 @@
 	<!--label text="TM"
 		   styleName="h1"
 		   /-->
-	<group id="langSwitcher"
+	<group id="langSwitcher_group"
 		   layout="horizontal"
 		   width="20%"
 		   >

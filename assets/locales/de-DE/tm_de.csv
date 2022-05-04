@@ -68,6 +68,7 @@ SEND_ALL_TOOLTIP;Wähle, ob du alle Themen ({{AGREE}}, {{DISAGREE}} und {{NA}}) 
 LOGIN_USERNAME;Benutzername
 LOGIN_PASSWORD;Passwort
 LOGIN_BTN;Los geht's mit dem Coaching!
+LOGIN_BAD_CREDENTIALS;Falsche(s) Benutzername oder Passwort(e)
 SHOW_PWD;Hier klicken, um das eingegebene Passwort anzuzeigen
 ;
 MONITORING_SUMMARY;Monitoring summary

@@ -67,6 +67,7 @@ SEND_ALL_TOOLTIP;Choose to send either all topics ({{AGREE}}, {{DISAGREE}} and {
 LOGIN_USERNAME;Username
 LOGIN_PASSWORD;Password
 LOGIN_BTN;Let's coach!
+LOGIN_BAD_CREDENTIALS;Wrong username or password
 SHOW_PWD;Click me to display the entered password
 SEND_REPORT_TO_TL;send the report to my damm manager
 ;

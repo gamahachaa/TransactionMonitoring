@@ -3,11 +3,11 @@
 #tsummary,#msummary{cursor:help;}
 #AgentListing{width:100%;}
 #AgentListing #table{max-height:800px;}
-#langSwitcher optionbox{color:#d4e878;}}
+#langSwitcher_group optionbox{color:#d4e878;}}
 .tooltip{background-color:#d4e878;border:2px solid #4fd1d9;filter:drop-shadow(1,45,#000000,0.8,6,1,30,35,false);border-radius:8px;padding:4px 5px;margin-left:0px;}
 @keyframes switchAnimateExtraSelected{0%{background-color:#FFFFFF;} 100%{background-color:#65a63c;}}
 #main{background-color:#282d30;}
-#send{border-radius:16px;background-color:#4fd1d9;color:#ffffff;font-size:1rem;font-weight:bolder;font-italic:true;filter:drop-shadow(1,45,#000000,1,4,2,1,3,false);}
+#send_button{border-radius:16px;background-color:#4fd1d9;color:#ffffff;font-size:1rem;font-weight:bolder;font-italic:true;filter:drop-shadow(1,45,#000000,1,4,2,1,3,false);}
 #passed,#failed,#description{border-width:8px;border-radius:8px;border-style:solid;font-size:12px;word-wrap:true;spacing:30px;}
 .chapters{padding-left:6px;margin:0;border-left-width:4px;border-bottom-style:solid;}
 #passed .chapters{border-color:#81c14b;}

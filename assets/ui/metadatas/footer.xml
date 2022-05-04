@@ -30,7 +30,7 @@
 			   styleName="metaLabels"
 			   /-->
 		
-		<button id="send"
+		<button id="send_button"
 				text="{{SUBMIT}}"
 				width="37%"
 				/>

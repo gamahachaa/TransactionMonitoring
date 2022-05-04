@@ -66,6 +66,7 @@ SEND_ALL_TOOLTIP;Choisissez d'envoyer soit tous les sujets ({{AGREE}}, {{DISAGRE
 LOGIN_USERNAME;Nom d'utilisateur
 LOGIN_PASSWORD;Mot de passe
 LOGIN_BTN;Entraînons-nous !
+LOGIN_BAD_CREDENTIALS;Nom d'utilisateur ou mot de passe erroné(s)
 SHOW_PWD;Cliquez sur moi pour afficher le mot de passe saisi
 SEND_REPORT_TO_TL;Envoyer le rapport à mon manager
 ;

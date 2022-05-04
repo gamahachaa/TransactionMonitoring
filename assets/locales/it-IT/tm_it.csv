@@ -68,6 +68,7 @@ SEND_ALL_TOOLTIP;Scegli di inviare tutti gli argomenti ({{AGREE}}, {{DISAGREE}} 
 LOGIN_USERNAME;Nome utente
 LOGIN_PASSWORD;Password
 LOGIN_BTN;Alleniamoci!
+LOGIN_BAD_CREDENTIALS;Nome utente o password errati
 SHOW_PWD;Clicca qui per visualizzare la password inserita
 ;
 MONITORING_SUMMARY;Monitoring summary
