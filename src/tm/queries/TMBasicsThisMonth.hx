@@ -35,9 +35,9 @@ class TMBasicsThisMonth extends QueryBase
 	public var listOfAgents(default, set):Array<roles.Actor>;
 
 	
-	public function new(listOfAgents:Array<roles.Actor>)
+	public function new(listOfAgents:Array<roles.Actor>, previousMonth:Bool)
 	{
-		super();
+		super(previousMonth);
 		this.listOfAgents = listOfAgents;
 
 	}
@@ -53,13 +53,17 @@ class TMBasicsThisMonth extends QueryBase
 	{
 		//_now = DateTime.nowUtc();
 		
-		var firstOfTheMonth = new ISOdate('${_now.year}-${ StringTools.lpad(Std.string(_now.month),"0" ,2 )}-01T00:00:00.00Z');
-	    trace("1");
+		//var firstOfTheMonth = new ISOdate('${_now.year}-${ StringTools.lpad(Std.string(_now.month),"0" ,2 )}-01T00:00:00.00Z');
+	    //trace("1");
 		var m:Match = new Match(new Or([for (i in listOfAgents) new ActorName(i.name)]));
 		var mv:Match = new Match(new VerbId(Verb.recieved.id));
 		//var mDate:Match = new Match(new StmtTimestamp({"$gte": firstOfTheMonth}));
-		var mDate:Match = new Match(new StmtTimestamp(new GreaterOrEqualThan(firstOfTheMonth)));
-		var pipeline = new Pipeline([m, mv, mDate, project]);
+		//var mDate:Match = new Match(new StmtTimestamp(new GreaterOrEqualThan(firstOfTheMonth)));
+		//#if debug
+		//trace(Json.stringify(this.getDatesBoundaries()));
+		//#end
+		//var pipeline = new Pipeline([m, mv, mDate, project]);
+		var pipeline = new Pipeline([m, mv, this.getDatesBoundaries(), project]);
 		return pipeline;
 	}
 	//public function test()

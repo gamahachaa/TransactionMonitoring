@@ -128,7 +128,7 @@ class Question
 			}
 		}
 		#if debug
-		trace("Question::GET_SCORE::failedTopic", failedTopic );
+		//trace("Question::GET_SCORE::failedTopic", failedTopic );
 		#end
 		var count = 0;
 		for (c in FAILED_CRITICAL)
@@ -344,7 +344,7 @@ class Question
 	{
 		justification.removeClass("wrong");
 		#if debug
-		trace("Question::onJustifyIn:: onJustifyIn", justification.className );
+		//trace("Question::onJustifyIn:: onJustifyIn", justification.className );
 		#end
 
 	}
@@ -354,7 +354,7 @@ class Question
 		this.agreement.justification = justification.text;
 		justification.removeClass("wrong");
 		#if debug
-		trace("Question::onJustifyOut:: onJustifyIn", justification.className );
+		//trace("Question::onJustifyOut:: onJustifyIn", justification.className );
 		#end
 	}
 

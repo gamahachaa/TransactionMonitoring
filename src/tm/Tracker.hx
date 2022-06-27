@@ -47,12 +47,12 @@ class Tracker extends XapiHelper
 
 		this.dispatcher.add(onStatemeentSent);
 		#if debug
-		trace("Tracker::Tracker::url", url );
+		//trace("Tracker::Tracker::url", url );
 		#end
 		stage = 0;
 		start();
 	}
-	override public function reset(referenceLast:Bool)
+	override public function reset(?referenceLast:Bool)
 	{
 		super.reset(referenceLast);
 		statement = null;
@@ -132,6 +132,9 @@ class Tracker extends XapiHelper
 	}
 	function onStatemeentSent( success:Bool )
 	{
+		#if debug
+		trace("tm.Tracker::onStatemeentSent success stage ", success, stage);
+		#end
 		if (success)
 		{
 			if (stage == 0)
@@ -167,7 +170,13 @@ class Tracker extends XapiHelper
 		
 		if (validateBeforeSending())
 		{
-			sendMany([new Statement(actor, verb, object, result, context)]);
+			var statement:Statement = new Statement(actor, verb, object, result, context);
+			#if debug
+			//trace(statement.timestamp);
+			#else
+			#end
+			//sendMany([statement]);
+			sendSignle(statement);
 		}
 		else{
 			/**
@@ -196,7 +205,13 @@ class Tracker extends XapiHelper
 		
 		if (validateBeforeSending())
 		{
-			sendMany([new Statement(actor, verb, object, result, context)]);
+			var statement:Statement = new Statement(actor, verb, object, result, context);
+			#if debug
+			//trace(statement.timestamp);
+			#else
+			#end
+			sendSignle(statement);
+			//sendSignle(statement);
 		}
 		else{
 			/**
@@ -226,7 +241,8 @@ class Tracker extends XapiHelper
 		
 		if (validateBeforeSending())
 		{
-			sendMany([new Statement(actor, verb, object, result, context)]);
+			//sendMany([new Statement(actor, verb, object, result, context)]);
+			sendSignle(new Statement(actor, verb, object, result, context));
 		}
 		else{
 			/**
@@ -238,6 +254,9 @@ class Tracker extends XapiHelper
 	
 	override public function start()
 	{
+		#if debug
+		trace("tm.Tracker::start");
+		#end
 		super.start();
 		this.stage = 0;
 		_duration = Date.now().getTime();

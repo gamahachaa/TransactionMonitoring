@@ -4,6 +4,7 @@ import AppBase;
 import Utils;
 import data.Transaction;
 import haxe.Exception;
+import ldap.Attributes;
 import tm.TMMailer;
 import tm.Info;
 import tm.Question;
@@ -85,6 +86,13 @@ class TMApp extends AppBase
 	var monitoringGood:TextArea;
 	var monitoringBad:TextArea;
 	var agregator:TMAgregator;
+	var sideBySide:OptionBox;
+	var remote:OptionBox;
+	var msummaryBAD:Label;
+	var msummaryGOOD:Label;
+	var msummaryOther:Label;
+	var msummary:Label;
+	var monitoringsummary:TextArea;
 	public static inline var MONITORING_SUMMARY_GOOD:String = "monitoringsummaryGOOD";
 	public static inline var MONITORING_SUMMARY_BAD:String = "monitoringsummaryBAD";
 
@@ -92,7 +100,8 @@ class TMApp extends AppBase
 	//var info:Component;
 	public function new()
 	{
-		super(TMMailer, tm.Tracker, "tm");
+		super(TMMailer, tm.Tracker, "tm", true);
+
 		currentForm = null;
 		forms = new Map<String, Component>();
 		//trace("start");
@@ -104,26 +113,28 @@ class TMApp extends AppBase
 		//cast(this.onXapiTracking, Tracker).signal.add(this.onXapiTracking) ;
 		
 		this.whenAppReady = loadContent;
+		//this.loginApp.needsDirectReports = true;
 		
-		
+		init();
 	}
 	function onXapiTracking(stage:Int)
 	{
 		if (stage == -1)
 		{
-			trace("errror with the XAPI");
+			//trace("errror with the XAPI");
 			debounce = true;
 		}
 		else if (stage == 1)
 		{
 			//var score = Question.GET_SCORE();
+			//ENFOIRä corrige mois ça, car le tracking envoi que des agents tracking ! ! !;
+			
 			tracker.coachTracking( monitoringData.coach,transactionData.monitoree, transactionData.type, tm.Question.SCORE, tm.Question.FAILED_CRITICAL.length == 0, AppBase.lang, tmMetadatas);
 
 		}
 		else if (stage == 2)
 		{
 			sendEmailToBoth(tracker.monitoreeRecieved);
-
 		}
 	}
 
@@ -159,8 +170,8 @@ class TMApp extends AppBase
 			#if debug
 			trace("Main::onMailSucces::s", r, dialogEnd.message );
 			#end
-			dialogEnd.showDialog(true);
 			dialogEnd.onDialogClosed = (e)->reset();
+			dialogEnd.showDialog(true);
 			
 		}
 		catch (e:Exception)
@@ -182,6 +193,7 @@ class TMApp extends AppBase
 		resetForm();
 		resetTransaction();
 		resetMonitoring();
+		toggleSummary(false);
 	}
 
 	function resetForm()
@@ -211,6 +223,7 @@ class TMApp extends AppBase
 		content = mainApp.findComponent("content", null, true);
 		agentlisting = new AgentListing(monitoringData.coach);
 		agentlisting.signal.add( onAgentListingChanged);
+		agentlisting.signalAgent.add( onAgentSelectInList );
 		agregator.signal.add( agentlisting.displayList );
 		content.addComponent( agentlisting );
 		//content.removeComponentAt(0,false);
@@ -225,14 +238,21 @@ class TMApp extends AppBase
 		}
 		//setCurrentForm("inbound");
 	}
+	
+	
 
 	function onAgentListingChanged(s:String)
 	{
+		#if debug
+		trace("tm.TMApp::onAgentListingChanged::s", s );
+		#end
 		switch (s)
 		{
-			case "myTm" : agregator.getBasicTMThisMonth(monitoringData.coach.sAMAccountName);
-			case "myDr" : agregator.getDirectReportsTMThisMonth(monitoringData.coach.directReports);
-			case _ : onAgentSelectInList(s);
+			case 'myTmthisMonth' : agregator.getBasicTMThisMonth(monitoringData.coach.sAMAccountName);
+			case 'myTmprevMonth' : agregator.getBasicTMThisMonth(monitoringData.coach.sAMAccountName, true);
+			case 'myDrthisMonth' : agregator.getDirectReportsTMThisMonth(monitoringData.coach.directReports);
+			case 'myDrprevMonth' : agregator.getDirectReportsTMThisMonth(monitoringData.coach.directReports, true);
+			case _ : return;
 
 		}
 	}
@@ -246,19 +266,46 @@ class TMApp extends AppBase
 		formSwitcher.onChange = (e:UIEvent)->setCurrentForm(e.target.id);
 		monitoringType = mainApp.findComponent("type", Group);
 		monitoringReason = mainApp.findComponent("reason", Group);
+		sideBySide = mainApp.findComponent("sideBySide", OptionBox);
+		remote = mainApp.findComponent("remote", OptionBox);
+		
+		msummary = mainApp.findComponent("msummary", Label);
+		msummaryOther = mainApp.findComponent("msummaryOther", Label);
+		msummaryGOOD = mainApp.findComponent("msummaryGOOD", Label);
+		msummaryBAD = mainApp.findComponent("msummaryBAD", Label);
+		monitoringsummary = mainApp.findComponent("monitoringsummary", TextArea);
 		monitoringGood = mainApp.findComponent(MONITORING_SUMMARY_GOOD, TextArea);
 		monitoringBad = mainApp.findComponent(MONITORING_SUMMARY_BAD, TextArea);
+		
 		monitoringType.onChange = (e)->(monitoringData.data.set( data.Monitoring.MONITORING_TYPE, e.target.id));
 
 		monitoringReason.onChange = onMonitoringReasonChanged;
 
 	}
-
+    function toggleSummary(show:Bool)
+	{
+		sideBySide.hidden = show;
+		msummary.hidden = show;
+		msummaryOther.hidden = show;
+		msummaryGOOD.hidden = show;
+		msummaryBAD.hidden = show;
+		monitoringsummary.hidden = show;
+		monitoringGood.hidden = show;
+		monitoringBad.hidden = show;
+	}
 
 	function onMonitoringReasonChanged(e)
 	{
 		var id = cast(e.target, Component).id;
-		cctl.hidden = cctl_text.hidden = (id == "calibration" || transactionData.monitoree == null || transactionData.monitoree.manager ==null );
+		var isCallibration =   id == "calibration";
+		cctl.hidden = cctl_text.hidden = ( isCallibration|| transactionData.monitoree == null || transactionData.monitoree.manager == null );
+		
+		if (isCallibration)
+		{
+			sideBySide.hidden = true;
+			remote.selected = true;
+		}
+		toggleSummary(isCallibration);
 		monitoringData.data.set(data.Monitoring.MONITORING_REASON, id);
 	}
 	override function resetMonitoring()
@@ -303,7 +350,7 @@ class TMApp extends AppBase
 	function prepareVersion()
 	{
 		versionLabel = mainApp.findComponent("version", Label);
-		versionLabel.text = "v " + version;
+		versionLabel.text = "v" + versionHelper.cachedVersion;
 	}
 
 	
@@ -392,7 +439,60 @@ class TMApp extends AppBase
 	
 	override function validateMetadatas():Utils.Status
 	{
-        var s = super.validateMetadatas();	
+        var s = {canSubmit:true, messages: []};
+		var monitoringReasonExists = monitoringData.data.exists(data.Monitoring.MONITORING_REASON);
+		var monitoringReasonIsCall = false;
+		var canSubmit = true;
+		var message = [];
+		if (transactionIdTF.text == null || transactionIdTF.text.trim() == "")
+		{
+			s.canSubmit = false;
+			s.messages.push("{{ALERT_TRANSACTION_ID_NOT_SET}}");
+		}
+		else{
+			#if debug
+			//trace("TMApp::validateMetadatas::transactionIdTF.text", transactionIdTF.text );
+			#end
+			transactionData.id = transactionIdTF.text;
+		} 
+		
+		if (agentTF.text == null || agentTF.text.trim() =="")
+		{
+
+			s.canSubmit = false;
+			s.messages.push("{{ALERT_AGENT_NOT_SEARCHED}}");
+		}
+		else if (transactionData.monitoree == null || transactionData.monitoree.mbox.indexOf("error@salt.ch") > -1)
+		{
+			s.canSubmit = false;
+			s.messages.push("{{ALERT_AGENT_NOT_FOUND}} ("+agentTF.text+")");
+		}
+		else{
+			#if debug
+			//trace("TMApp::validateMetadatas::agentTF.text", agentTF.text );
+			//trace("TMApp::validateMetadatas::agentTF.text",transaction.monitoree );
+			#end
+		}
+		if (transactionData.date.getFullYear() == 2000)
+		{
+			s.canSubmit = false;
+			s.messages.push("{{ALERT_TRANSACTION_DATE_NOT_SET}}");
+		}
+		else if (transactionData.date.getTime() > Date.now().getTime())
+		{
+			s.canSubmit = false;
+			s.messages.push("{{ALERT_TRANSACTION_FUTURR_DATE}}");
+		}
+		if (transactionSummary.text == null || transactionSummary.text.trim() == "")
+		{
+			s.canSubmit = false;
+			s.messages.push("{{ALERT_TRANSACTION_SUMMARY}}");
+		}
+		else{
+			this.transactionData.summary = transactionSummary.text.trim();
+		}
+		
+		//return {canSubmit:canSubmit, messages: message};
 		if (transactionData.type == "")
 		{
 			s.canSubmit = false;
@@ -400,12 +500,13 @@ class TMApp extends AppBase
 		}
 		
 
-		if (!monitoringData.data.exists(data.Monitoring.MONITORING_REASON))
+		if (!monitoringReasonExists)
 		{
 			s.canSubmit = false;
 			s.messages.push("{{ALERT_MONITORING_REASON}}");
 		}
 		else{
+			monitoringReasonIsCall = monitoringData.data.get(data.Monitoring.MONITORING_REASON) == "calibration";
 			#if debug
 			//trace("TMApp::validateMetadatas::monitoring.data.exists(Monitoring.MONITORING_REASON)", monitoring.data.exists(Monitoring.MONITORING_REASON) );
 			#end
@@ -420,18 +521,35 @@ class TMApp extends AppBase
 			//trace("TMApp::validateMetadatas::monitoring.data.exists(Monitoring.MONITORING_TYPE)", monitoring.data.exists(Monitoring.MONITORING_TYPE) );
 			#end
 		}
+		if (monitoringSummary.text == null || monitoringSummary.text.trim() == "")
+		{
+			if (!monitoringReasonIsCall)
+			{
+				canSubmit = false;
+				message.push("{{ALERT_MONITORING_SUMMARY}}");
+			}
+		}
+		else{
+			monitoringData.data.set(data.Monitoring.MONITORING_SUMMARY,monitoringSummary.text.trim());
+		}
 		if (monitoringGood.text == null || monitoringGood.text.trim() == "")
 		{
-			s.canSubmit = false;
-			s.messages.push( "{{ALERT_MONITORING_SUMMARY_GOOD}}");
+			if (!monitoringReasonIsCall)
+			{
+				s.canSubmit = false;
+				s.messages.push( "{{ALERT_MONITORING_SUMMARY_GOOD}}");
+			}
 		}   
 		else{
 			monitoringData.data.set(MONITORING_SUMMARY_GOOD, monitoringGood.text.trim());
 		}
 		if (monitoringBad.text == null || monitoringBad.text.trim() == "" )
 		{
-			s.canSubmit = false;
-			s.messages.push( "{{ALERT_MONITORING_SUMMARY_BAD}}");
+			if (!monitoringReasonIsCall)
+			{
+				s.canSubmit = false;
+				s.messages.push( "{{ALERT_MONITORING_SUMMARY_BAD}}");
+			}
 		}
 		else{
 			monitoringData.data.set(MONITORING_SUMMARY_BAD, monitoringBad.text.trim());
@@ -445,7 +563,7 @@ class TMApp extends AppBase
 	function setCurrentForm(id:String)
 	{
 		#if debug
-		trace('TMApp::setCurrentForm::id ${id}');
+		//trace('TMApp::setCurrentForm::id ${id}');
 		#end
 		tm.Question.INFO.reset();
 
@@ -468,14 +586,16 @@ class TMApp extends AppBase
 
 	function sendEmailToBoth(?previousStatement:StatementRef):Void
 	{
-
+       #if debug
+	   trace("tm.TMApp::sendEmailToBoth");
+	   #end
 		tm.Question.INFO.reset();
 
 		mailComposer.cctl = cctl.selected;
 		mailComposer.transaction = transactionData;
 		mailComposer.monitoring = monitoringData;
 
-		mailComposer.build(whatToSend.selected, previousStatement, version);
+		mailComposer.build(whatToSend.selected, previousStatement, versionHelper.getFullVersion());
 		super.sendEmail();
 		
 	}

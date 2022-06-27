@@ -9,6 +9,7 @@ import mongo.xapiSingleStmtShortcut.StmtTimestamp;
 import mongo.xapiSingleStmtShortcut.VerbId;
 import thx.DateTime;
 import thx.DateTimeUtc;
+import thx.TimePeriod;
 import xapi.Verb;
 import xapi.types.ISOdate;
 
@@ -20,20 +21,22 @@ class TMMentored extends QueryBase
 {
 	public var nt(default, set):String;
 
-	public function new(nt:String) 
+	public function new(nt:String, previousMonth:Bool) 
 	{
-		super();
+		super(previousMonth);
 		this.nt = nt;
 		
 	}
 	override public function get_pipeline():Pipeline
 	{
-		var firstOfTheMonth = new ISOdate('${_now.year}-${ StringTools.lpad(Std.string(_now.month),"0" ,2 )}-01T00:00:00.00Z');	
+		
+		//var firstOfTheMonth = new ISOdate('${_now.year}-${ StringTools.lpad(Std.string(_now.month),"0" ,2 )}-01T00:00:00.00Z');	
 
 		var m:Match = new Match(new And([new VerbId(Verb.recieved.id), new InstructorName(nt)]));
 		
-		var mDate:Match = new Match(new StmtTimestamp(new GreaterOrEqualThan(firstOfTheMonth)));
-		pipeline = new Pipeline([m, mDate, project]);
+		//var mDate:Match = new Match(new StmtTimestamp(new GreaterOrEqualThan(firstOfTheMonth)));
+		//pipeline = new Pipeline([m, mDate, project]);
+		pipeline = new Pipeline([m, getDatesBoundaries(), project]);
 		//trace(pipeline);
 		return pipeline;
 		
