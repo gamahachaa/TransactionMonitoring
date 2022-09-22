@@ -72,16 +72,11 @@ class TMAgregator extends Agregator
 			if (tmsDirectReports == null)
 			{
 				tmsDirectReports = new tm.queries.TMBasicsThisMonth(list, previousMonth);
-				//trace("all good");
-				//onData = tmBasics.onData;
 			}
 			else
 			{
 				tmsDirectReports.listOfAgents = list;
 			}
-			#if debug
-			//trace("http.Agregator::getDirectReportsTMThisMonth::Json.stringify(tmsDirectReports.pipeline)", Json.stringify(tmsDirectReports.pipeline) );
-			#end
 			tmsDirectReports.updateBoundaries(previousMonth);
 			 fetch(tmsDirectReports);
 		}

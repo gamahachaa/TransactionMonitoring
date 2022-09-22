@@ -195,6 +195,11 @@ textarea, #agentNt, #transactionID, #credentials #username, #credentials #pwd{
 	cursor: no-drop;
 
 }
+#app_label{
+	font-size: 12px;
+	padding: 4px;
+	color:#c2e812;
+}
 .h1{
 	font-size: 24px;
 	font-family:"serif";
@@ -217,7 +222,7 @@ textarea, #agentNt, #transactionID, #credentials #username, #credentials #pwd{
 	spacing: 20px;
 	background-color: #c2e812;
 	width: 100%;
-	color:#4fd1d9;
+	/*color:#4fd1d9;*/
 	color : #393E41;
 }
 .h1

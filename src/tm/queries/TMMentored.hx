@@ -1,23 +1,25 @@
 package tm.queries;
 import mongo.Pipeline;
-import mongo.comparaison.GreaterOrEqualThan;
+import xapi.Verb;
+//import mongo.comparaison.GreaterOrEqualThan;
 import mongo.conditions.And;
 import mongo.stages.Match;
-import mongo.xapiSingleStmtShortcut.ActorName;
+//import mongo.xapiSingleStmtShortcut.ActorName;
 import mongo.xapiSingleStmtShortcut.InstructorName;
-import mongo.xapiSingleStmtShortcut.StmtTimestamp;
+//import mongo.xapiSingleStmtShortcut.StmtTimestamp;
 import mongo.xapiSingleStmtShortcut.VerbId;
-import thx.DateTime;
-import thx.DateTimeUtc;
-import thx.TimePeriod;
-import xapi.Verb;
-import xapi.types.ISOdate;
+
+//import thx.DateTime;
+//import thx.DateTimeUtc;
+//import thx.TimePeriod;
+//import xapi.Verb;
+//import xapi.types.ISOdate;
 
 /**
  * ...
  * @author bb
  */
-class TMMentored extends QueryBase 
+class TMMentored extends TMQueryBase 
 {
 	public var nt(default, set):String;
 

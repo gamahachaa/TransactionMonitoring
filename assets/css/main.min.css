@@ -26,8 +26,9 @@ textarea,#agentNt,#transactionID,#credentials #username,#credentials #pwd{}
 #agentBtn{cursor:pointer;vertical-align:middle;}
 #agentlabel,#coachemail{color:#81c14b;border-color:#94AFB0;border-width:2px;}
 #coachemail{cursor:no-drop;}
+#app_label{font-size:12px;padding:4px;color:#c2e812;}
 .h1{font-size:24px;font-family:"serif";padding-top:8px;}
-.h2{font-size:12px;text-align:center;letter-spacing:2px;spacing:20px;background-color:#c2e812;width:100%;color:#4fd1d9;color:#393E41;}
+.h2{font-size:12px;text-align:center;letter-spacing:2px;spacing:20px;background-color:#c2e812;width:100%;color:#393E41;}
 .h1{color:#4fd1d9;}
 .h2meta{font-size:14px;color:#393E41;background-color:#c2e812;padding-left:8px;padding-right:8px;padding-top:4px;padding-bottom:4px;border-radius:16px;}
 .h3{background-color:#96e4e8;padding-left:4px;padding-right:4px;padding-top:2px;padding-bottom:2px;color:#000000;}

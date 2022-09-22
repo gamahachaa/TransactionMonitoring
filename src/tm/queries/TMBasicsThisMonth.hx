@@ -20,16 +20,8 @@ import xapi.types.ISOdate;
  * ...
  * @author bb
  */
-typedef BasicTM ={
-	var ?_id:Int;
-	var statement_id:String;
-	var agent:String;
-	var tm:String;
-	var timestamp:String;
-	var TMpassed:String;
-	//var success:String;
-}
-class TMBasicsThisMonth extends QueryBase
+
+class TMBasicsThisMonth extends TMQueryBase
 {
 
 	public var listOfAgents(default, set):Array<roles.Actor>;

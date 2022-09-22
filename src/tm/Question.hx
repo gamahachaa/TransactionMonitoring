@@ -334,7 +334,7 @@ class Question
 			INFO.questionDesc.htmlText = "{{" + id + ".desc}}";
 			INFO.passedDesc.htmlText = "{{" + id + ".passed}}";
 			INFO.failedDesc.htmlText = "{{" + id + ".failed}}";
-			LocaleManager.instance.language = "en";
+			//LocaleManager.instance.language = "en";
 			LocaleManager.instance.language = AppBase.lang;
 		}
 		//anim.run(()->trace("finished"));

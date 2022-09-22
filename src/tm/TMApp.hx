@@ -4,7 +4,10 @@ import AppBase;
 import Utils;
 import data.Transaction;
 import haxe.Exception;
+import haxe.ui.events.FocusEvent;
+import haxe.ui.events.MouseEvent;
 import ldap.Attributes;
+import roles.Actor;
 import tm.TMMailer;
 import tm.Info;
 import tm.Question;
@@ -14,7 +17,7 @@ import tm.queries.TMAgregator;
 import ui.AgentListing;
 import ui.dialogs.Communicator;
 //import ui.metadatas.TransactionUI;
-
+import data.Monitoring;
 import haxe.ui.components.CheckBox;
 import haxe.ui.components.Image;
 import haxe.ui.components.Button;
@@ -24,6 +27,7 @@ import haxe.ui.components.DropDown;
 import haxe.ui.components.TextArea;
 import haxe.ui.components.TextField;
 import haxe.ui.containers.Group;
+import haxe.ui.components.NumberStepper;
 
 import haxe.ui.containers.dialogs.MessageBox;
 import haxe.ui.core.Component;
@@ -58,7 +62,7 @@ class TMApp extends AppBase
 	var ticket:Component;
 	var telesales:Component;
 	// UI
-	
+
 	var versionLabel:Label;
 	var tmMetadatas:Map<String, Dynamic>;
 	var justifications:Array<TextArea>;
@@ -75,12 +79,17 @@ class TMApp extends AppBase
 	var monitoringTypeValue:String;
 	var monitoringSummaryValue:String;
 	var transactionSummaryValue:String;
+	var agentLabel:Label;
+	var agentOK:Image;
+	var agentBtn:Label;
+	var cctl:CheckBox;
+	var cctl_text:Label;
 ///////////////////////////////////////////////////////////
 	var formSwitcher: Group;
 	var monitoringType:Group;
 	var monitoringReason:Group;
 	var transactionUI:Transaction;
-	var agentlisting:AgentListing;	
+	var agentlisting:AgentListing;
 	var tracker:tm.Tracker;
 	var mailComposer: tm.TMMailer;
 	var monitoringGood:TextArea;
@@ -93,9 +102,15 @@ class TMApp extends AppBase
 	var msummaryOther:Label;
 	var msummary:Label;
 	var monitoringsummary:TextArea;
+
+	var transactionSummary:TextArea;
+	var monitoringSummary:TextArea;
+	var transactionDateComp:DropDown;
+	var transcationHourComp:NumberStepper;
+	var transcationMinutesComp:NumberStepper;
+	var transactionIdTF:TextField;
 	public static inline var MONITORING_SUMMARY_GOOD:String = "monitoringsummaryGOOD";
 	public static inline var MONITORING_SUMMARY_BAD:String = "monitoringsummaryBAD";
-
 
 	//var info:Component;
 	public function new()
@@ -111,10 +126,10 @@ class TMApp extends AppBase
 		tracker.signal.add(this.onXapiTracking) ;
 		agregator = new TMAgregator();
 		//cast(this.onXapiTracking, Tracker).signal.add(this.onXapiTracking) ;
-		
+
 		this.whenAppReady = loadContent;
 		//this.loginApp.needsDirectReports = true;
-		
+
 		init();
 	}
 	function onXapiTracking(stage:Int)
@@ -123,12 +138,16 @@ class TMApp extends AppBase
 		{
 			//trace("errror with the XAPI");
 			debounce = true;
+			#if debug
+			if (!Main._mainDebug) sendEmailToBoth(tracker.monitoreeRecieved);
+			#else
+			#end
 		}
 		else if (stage == 1)
 		{
 			//var score = Question.GET_SCORE();
 			//ENFOIRä corrige mois ça, car le tracking envoi que des agents tracking ! ! !;
-			
+
 			tracker.coachTracking( monitoringData.coach,transactionData.monitoree, transactionData.type, tm.Question.SCORE, tm.Question.FAILED_CRITICAL.length == 0, AppBase.lang, tmMetadatas);
 
 		}
@@ -172,7 +191,7 @@ class TMApp extends AppBase
 			#end
 			dialogEnd.onDialogClosed = (e)->reset();
 			dialogEnd.showDialog(true);
-			
+
 		}
 		catch (e:Exception)
 		{
@@ -204,31 +223,32 @@ class TMApp extends AppBase
 
 	function loadContent()
 	{
-		if (loginApp != null) app.removeComponent(loginApp);
-		this.mainApp = ComponentMacros.buildComponent("assets/ui/main.xml");
-       
-		communicator = new Communicator();
-		//mainApp = ComponentMacros.buildComponent("assets/ui/main.xml");
-		app.addComponent(mainApp);
-
-		//
-		prepareVersion();
-		prepareForms();
-		prepareHeader();
-		prepareMetadatas();
-		
-		markdownHelper.show();
-		//markdownView.show();
-
-		content = mainApp.findComponent("content", null, true);
-		agentlisting = new AgentListing(monitoringData.coach);
-		agentlisting.signal.add( onAgentListingChanged);
-		agentlisting.signalAgent.add( onAgentSelectInList );
-		agregator.signal.add( agentlisting.displayList );
-		content.addComponent( agentlisting );
-		//content.removeComponentAt(0,false);
 		try
 		{
+			if (loginApp != null) app.removeComponent(loginApp);
+			this.mainApp = ComponentMacros.buildComponent("assets/ui/main.xml");
+
+			communicator = new Communicator();
+			//mainApp = ComponentMacros.buildComponent("assets/ui/main.xml");
+			app.addComponent(mainApp);
+
+			//
+			prepareVersion();
+			prepareForms();
+			prepareHeader();
+			prepareMetadatas();
+
+			markdownHelper.show();
+			//markdownView.show();
+
+			content = mainApp.findComponent("content", null, true);
+			agentlisting = new AgentListing(monitoringData.coach);
+			agentlisting.signal.add( onAgentListingChanged);
+			agentlisting.signalAgent.add( onAgentSelectInList );
+			agregator.signal.add( agentlisting.displayList );
+			content.addComponent( agentlisting );
+			//content.removeComponentAt(0,false);
+
 			//agregator.getBasicTMThisMonth(monitoringData.coach.directReports);
 			//agregator.signal.add(onTmFecteched);
 		}
@@ -238,8 +258,6 @@ class TMApp extends AppBase
 		}
 		//setCurrentForm("inbound");
 	}
-	
-	
 
 	function onAgentListingChanged(s:String)
 	{
@@ -256,33 +274,52 @@ class TMApp extends AppBase
 
 		}
 	}
-
-
-
-	override function prepareMetadatas()
+	override function onLoginSuccess(agent:roles.Actor)
 	{
-		super.prepareMetadatas();
-		formSwitcher = mainApp.findComponent("formSwitcher", null, true);
-		formSwitcher.onChange = (e:UIEvent)->setCurrentForm(e.target.id);
-		monitoringType = mainApp.findComponent("type", Group);
-		monitoringReason = mainApp.findComponent("reason", Group);
-		sideBySide = mainApp.findComponent("sideBySide", OptionBox);
-		remote = mainApp.findComponent("remote", OptionBox);
-		
-		msummary = mainApp.findComponent("msummary", Label);
-		msummaryOther = mainApp.findComponent("msummaryOther", Label);
-		msummaryGOOD = mainApp.findComponent("msummaryGOOD", Label);
-		msummaryBAD = mainApp.findComponent("msummaryBAD", Label);
-		monitoringsummary = mainApp.findComponent("monitoringsummary", TextArea);
-		monitoringGood = mainApp.findComponent(MONITORING_SUMMARY_GOOD, TextArea);
-		monitoringBad = mainApp.findComponent(MONITORING_SUMMARY_BAD, TextArea);
-		
-		monitoringType.onChange = (e)->(monitoringData.data.set( data.Monitoring.MONITORING_TYPE, e.target.id));
+		super.onLoginSuccess(agent);
 
-		monitoringReason.onChange = onMonitoringReasonChanged;
+		if (Std.isOfType(agent, roles.Monitoree ))
+		{
+			transactionData.monitoree = cast(agent, roles.Monitoree);
 
+			resetAgent();
+			if (transactionData.monitoree.authorised)
+			{
+
+				agentLabel.htmlText = '<strong class="correct">${StringTools.replace(transactionData.monitoree.mbox, "mailto:","")}</strong>\n${transactionData.monitoree.title}';
+				agentLabel.addClass("correct");
+				agentOK.resource = "images/check-green-icon.png";
+				agentOK.hidden = false;
+
+				if (transactionData.monitoree.manager != null)
+				{
+					cctl_text.text = StringTools.replace(transactionData.monitoree.manager.mbox, "mailto:", "");
+					cctl.hidden = false;
+					cctl_text.hidden = false;
+				}
+				else
+				{
+					cctl.hidden = true;
+					cctl_text.hidden = true;
+				}
+
+				xapitracker.start();
+			}
+			else
+			{
+
+				agentOK.hidden = false;
+				agentOK.resource = "images/check-red-icon.png";
+				agentLabel.htmlText = '{{ERROR}} \n<strong class="error">${transactionData.monitoree.name}</strong>';
+				agentLabel.addClass("error");
+				/*agentLabel.color = 0xFF0000;*/
+			}
+
+			agentLabel.updateComponentDisplay();
+		}
 	}
-    function toggleSummary(show:Bool)
+
+	function toggleSummary(show:Bool)
 	{
 		sideBySide.hidden = show;
 		msummary.hidden = show;
@@ -299,7 +336,7 @@ class TMApp extends AppBase
 		var id = cast(e.target, Component).id;
 		var isCallibration =   id == "calibration";
 		cctl.hidden = cctl_text.hidden = ( isCallibration|| transactionData.monitoree == null || transactionData.monitoree.manager == null );
-		
+
 		if (isCallibration)
 		{
 			sideBySide.hidden = true;
@@ -308,7 +345,7 @@ class TMApp extends AppBase
 		toggleSummary(isCallibration);
 		monitoringData.data.set(data.Monitoring.MONITORING_REASON, id);
 	}
-	override function resetMonitoring()
+	/*override function resetMonitoring()
 	{
 		super.resetMonitoring();
 		this.monitoringBad.text = "";
@@ -321,17 +358,132 @@ class TMApp extends AppBase
 	{
 		super.resetTransaction();
 		cast(formSwitcher.getComponentAt(0), OptionBox).resetGroup();
+	} */
+
+	/**
+	* @todo TEST refactor to sub class (TM)
+	* @return
+	*/
+	function resetMonitoring()
+	{
+		this.monitoringBad.text = "";
+		this.monitoringGood.text = "";
+		cast(monitoringReason.getComponentAt(0), OptionBox).resetGroup();
+		cast(monitoringType.getComponentAt(0), OptionBox).resetGroup();
+		//
+		monitoringSummary.text = "";
+		monitoringData.reset();
 	}
+	/**
+	* @todo refactor to sub class (TM)
+	* @return
+	*/
+	function resetTransaction()
+	{
+		transactionData.reset();
+		transactionDateComp.value = null;
+		transactionDateComp.selectedIndex = -1;
+		transactionDateComp.selectedItem= null;
 
+		transcationHourComp.value = null;
+		transcationMinutesComp.value = null;
+		transactionIdTF.text = "";
+		transactionSummary.text = "";
 
+		resetAgent(true);
+
+		cast(formSwitcher.getComponentAt(0), OptionBox).resetGroup();
+
+	}
 
 	override function prepareHeader()
 	{
 		super.prepareHeader();
+		cctl = mainApp.findComponent("cctl", CheckBox);
+		cctl_text = mainApp.findComponent("cctl_text", Label);
 		whatToSend = mainApp.findComponent("sendAll", CheckBox);
 		whatToSend.onChange = (e)->(whatToSend.text = whatToSend.selected? "{{ALL}}" : "{{FAILED_ONLY}}");
 	}
+	/*override function prepareMetadatas()
+	{
+		super.prepareMetadatas();
+		formSwitcher = mainApp.findComponent("formSwitcher", null, true);
+		formSwitcher.onChange = (e:UIEvent)->setCurrentForm(e.target.id);
+		monitoringType = mainApp.findComponent("type", Group);
+		monitoringReason = mainApp.findComponent("reason", Group);
+		sideBySide = mainApp.findComponent("sideBySide", OptionBox);
+		remote = mainApp.findComponent("remote", OptionBox);
 
+		msummary = mainApp.findComponent("msummary", Label);
+		msummaryOther = mainApp.findComponent("msummaryOther", Label);
+		msummaryGOOD = mainApp.findComponent("msummaryGOOD", Label);
+		msummaryBAD = mainApp.findComponent("msummaryBAD", Label);
+		monitoringsummary = mainApp.findComponent("monitoringsummary", TextArea);
+		monitoringGood = mainApp.findComponent(MONITORING_SUMMARY_GOOD, TextArea);
+		monitoringBad = mainApp.findComponent(MONITORING_SUMMARY_BAD, TextArea);
+
+		monitoringType.onChange = (e)->(monitoringData.data.set( data.Monitoring.MONITORING_TYPE, e.target.id));
+
+		monitoringReason.onChange = onMonitoringReasonChanged;
+
+	}*/
+	/**
+	* @todo TEST refactoring
+	* @return
+	*/
+	function prepareMetadatas()
+	{
+		agentLabel = mainApp.findComponent("agentlabel", Label);
+		agentOK = mainApp.findComponent("agewntOK", Image);
+
+		transactionIdTF = mainApp.findComponent("transactionID", TextField);
+
+		transactionDateComp = mainApp.findComponent("TRANSACTION_WHEN", DropDown);
+
+		transactionDateComp.onChange = (e)->(prepareTransactionDate());
+		transcationHourComp = mainApp.findComponent("TRANSACTIONWHENHOURS", NumberStepper, true, "id");
+
+		transcationHourComp.onChange = (e)->(prepareTransactionDate());
+		transcationMinutesComp = mainApp.findComponent("TRANSACTION_WHEN_MINUTES", NumberStepper);
+
+		transcationMinutesComp.onChange = (e)->(prepareTransactionDate());
+
+		agentBtn = mainApp.findComponent("agentBtn");
+		agentTF = mainApp.findComponent("agentNt");
+		agentTF.registerEvent(FocusEvent.FOCUS_OUT, onAgentFilledIn);
+		agentBtn.onClick = onAgentClicked;
+
+		coachEmail = mainApp.findComponent("coachemail", Label);
+		coachEmail.htmlText = '<strong>${StringTools.replace(monitoringData.coach.mbox, "mailto:","")}</strong>\n${monitoringData.coach.title}';
+		coachEmail.onClick = onCoachClicked;
+		transactionSummary = mainApp.findComponent(Transaction.TRANSACTION_SUMMARY, TextArea);
+		var transactionSummaryLabel = mainApp.findComponent("tsummary", Label);
+		transactionSummaryLabel.onClick = (e)->(markdownHelper.show());
+		var monitoringSummaryLabel = mainApp.findComponent("msummary", Label);
+		monitoringSummaryLabel.onClick = (e)->(markdownHelper.show() );
+
+		monitoringSummary =  mainApp.findComponent(Monitoring.MONITORING_SUMMARY, TextArea);
+		//----------------------------------------------------------//	
+		formSwitcher = mainApp.findComponent("formSwitcher", null, true);
+		formSwitcher.onChange = (e:UIEvent)->setCurrentForm(e.target.id);
+		monitoringType = mainApp.findComponent("type", Group);
+		monitoringReason = mainApp.findComponent("reason", Group);
+		sideBySide = mainApp.findComponent("sideBySide", OptionBox);
+		remote = mainApp.findComponent("remote", OptionBox);
+
+		msummary = mainApp.findComponent("msummary", Label);
+		msummaryOther = mainApp.findComponent("msummaryOther", Label);
+		msummaryGOOD = mainApp.findComponent("msummaryGOOD", Label);
+		msummaryBAD = mainApp.findComponent("msummaryBAD", Label);
+		monitoringsummary = mainApp.findComponent("monitoringsummary", TextArea);
+		monitoringGood = mainApp.findComponent(MONITORING_SUMMARY_GOOD, TextArea);
+		monitoringBad = mainApp.findComponent(MONITORING_SUMMARY_BAD, TextArea);
+
+		monitoringType.onChange = (e)->(monitoringData.data.set( data.Monitoring.MONITORING_TYPE, e.target.id));
+
+		monitoringReason.onChange = onMonitoringReasonChanged;
+
+	}
 	function prepareForms()
 	{
 		forms = [];
@@ -353,8 +505,6 @@ class TMApp extends AppBase
 		versionLabel.text = "v" + versionHelper.cachedVersion;
 	}
 
-	
-	
 	/**
 	function onLoginClicked(e:MouseEvent)
 	{
@@ -378,8 +528,10 @@ class TMApp extends AppBase
 	 **/
 	override function onSend(e)
 	{
-		super.onSend(e);
-		
+		//super.onSend(e);
+		if (!debounce) return;
+
+		submitor = validateMetadatas();
 		var resultCheck = tm.Question.PREPARE_RESULTS();
 		this.submitor.messages = this.submitor.messages.concat(resultCheck.messages);
 		this.submitor.canSubmit =  this.submitor.canSubmit && resultCheck.canSubmit;
@@ -436,10 +588,111 @@ class TMApp extends AppBase
 			communicator.showDialog(true);
 		}
 	}
-	
-	override function validateMetadatas():Utils.Status
+	/**
+	* @todo TEST refactor to sub class (TM)
+	* @return
+	*/
+	function resetAgent(?fromscratch:Bool=false)
 	{
-        var s = {canSubmit:true, messages: []};
+		cctl.hidden = true;
+		cctl_text.hidden = true;
+		cctl.selected = false;
+		agentLabel.removeClass("error");
+		agentLabel.removeClass("correct");
+		agentOK.hidden = true;
+		if (fromscratch)
+		{
+			agentTF.text = "";
+			agentLabel.htmlText = "";
+		}
+	}
+	/**
+	* @todo TEST refactor to sub class (TM)
+	* @return
+	*/
+	function onCoachClicked(e:MouseEvent)
+	{
+		cookie.clearCockie( versionHelper.getFullVersion() );
+		Browser.location.reload(true);
+	}
+	/**
+	* @todo TEST refactor to sub class (TM)
+	* @return
+	*/
+	function onAgentClicked(e:MouseEvent):Void
+	{
+		checkAgent();
+	}
+	/**
+	* @todo TEST refactor to sub class (TM)
+	* @return
+	*/
+	function onAgentFilledIn(e:FocusEvent):Void
+	{
+		checkAgent();
+	}
+	/**
+	* @todo TEST refactor to sub class (TM)
+	* @return
+	*/
+	function onAgentSelectInList(s:String)
+	{
+		agentTF.text = s;
+		#if debug
+		trace('TMApp::onAgentSelectInList::s ${s}');
+		#end
+		checkAgent();
+	}
+	/**
+	* @todo TEST refactor to sub class (TM)
+	* @return
+	*/
+	function checkAgent():Void
+	{
+		#if debug
+		trace("AppBase::checkAgent");
+		#end
+		#if debug
+		if (Main._mainDebug)
+		{
+			if ( agentTF.text != null && agentTF.text != "")
+			{
+				transactionData.monitoree = null;
+				logger.searchAgent(agentTF.text, false);
+			}
+		}
+		else
+		{
+			var dummyMonotoree = roles.Monitoree.CREATE_DUMMY(agentTF.text);
+			onLoginSuccess(dummyMonotoree);
+		}
+		#else
+		if ( agentTF.text != null && agentTF.text != "" )
+		{
+			transactionData.monitoree = null;
+			logger.searchAgent(agentTF.text, false);
+		}
+		#end
+
+	}
+
+	/**
+	* @todo TEST refactor to sub class (TM)
+	* @return
+	*/
+	function prepareTransactionDate()
+	{
+		var tmp = cast(transactionDateComp.value, Date);
+		if (tmp != null)
+		{
+			transactionData.date = Date.fromTime(tmp.getTime() + (transcationHourComp.value * 3600000) + (transcationMinutesComp.value * 60000));
+		}
+
+	}
+
+	function validateMetadatas():Utils.Status
+	{
+		var s = {canSubmit:true, messages: []};
 		var monitoringReasonExists = monitoringData.data.exists(data.Monitoring.MONITORING_REASON);
 		var monitoringReasonIsCall = false;
 		var canSubmit = true;
@@ -454,8 +707,8 @@ class TMApp extends AppBase
 			//trace("TMApp::validateMetadatas::transactionIdTF.text", transactionIdTF.text );
 			#end
 			transactionData.id = transactionIdTF.text;
-		} 
-		
+		}
+
 		if (agentTF.text == null || agentTF.text.trim() =="")
 		{
 
@@ -491,14 +744,13 @@ class TMApp extends AppBase
 		else{
 			this.transactionData.summary = transactionSummary.text.trim();
 		}
-		
+
 		//return {canSubmit:canSubmit, messages: message};
 		if (transactionData.type == "")
 		{
 			s.canSubmit = false;
 			s.messages.push("{{ALERT_TRANSACTION_TYPE}}");
 		}
-		
 
 		if (!monitoringReasonExists)
 		{
@@ -539,7 +791,7 @@ class TMApp extends AppBase
 				s.canSubmit = false;
 				s.messages.push( "{{ALERT_MONITORING_SUMMARY_GOOD}}");
 			}
-		}   
+		}
 		else{
 			monitoringData.data.set(MONITORING_SUMMARY_GOOD, monitoringGood.text.trim());
 		}
@@ -571,7 +823,7 @@ class TMApp extends AppBase
 		currentForm = forms.get(id);
 		swapContent(currentForm);
 		tm.Question.GET_ALL(currentForm);
-		LocaleManager.instance.language = "en";
+		//LocaleManager.instance.language = "en";
 		LocaleManager.instance.language = AppBase.lang;
 	}
 	function swapContent(c:Component, ?hide:Bool=false )
@@ -582,13 +834,11 @@ class TMApp extends AppBase
 		content.hidden = hide;
 	}
 
-	
-
 	function sendEmailToBoth(?previousStatement:StatementRef):Void
 	{
-       #if debug
-	   trace("tm.TMApp::sendEmailToBoth");
-	   #end
+		#if debug
+		trace("tm.TMApp::sendEmailToBoth");
+		#end
 		tm.Question.INFO.reset();
 
 		mailComposer.cctl = cctl.selected;
@@ -597,7 +847,7 @@ class TMApp extends AppBase
 
 		mailComposer.build(whatToSend.selected, previousStatement, versionHelper.getFullVersion());
 		super.sendEmail();
-		
+
 	}
 
 }

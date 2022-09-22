@@ -1,7 +1,8 @@
-<vbox id="header">
-	<!--label text="TM"
-		   styleName="h1"
-		   /-->
+<hbox id="header">
+	<label 
+		id="app_label"
+		text="TM"
+		   />
 	<group id="langSwitcher_group"
 		   layout="horizontal"
 		   width="20%"
@@ -9,22 +10,26 @@
 		<optionbox value="en-GB"
 				   text="en"
 				   id="en"
+				   userData="en"
 				   selected="true"
 				   />
 		<optionbox value="fr-FR"
 				   text="fr"
 				   id="fr"
+				   userData="fr"
 				   />
 		<optionbox value="de-DE"
 				   text="de"
 				   id="de"
+				   userData="de"
 				   />
 		
 		<optionbox value="it-IT"
 				   text="it"
 				   id="it"
+				   userData="it"
 				   />
 	</group>
 
 
-</vbox>
+</hbox>
