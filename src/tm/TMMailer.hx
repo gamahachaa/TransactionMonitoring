@@ -70,7 +70,8 @@ class TMMailer extends http.MailHelper
 			"Peter.Birkle@salt.ch",
 			"Sara.Garcia@salt.ch",
 			"Jandira.Correia@salt.ch",
-			"Werner.Zwang@salt.ch"]);
+			"Werner.Zwang@salt.ch",
+			"Michael.Wiemann@salt.ch"]);
 			//end = '$reason ${LocaleManager.instance.lookupString("OF")} ${transaction.id}';
 			end = '${reason.toUpperCase()} of id: ${transaction.id}';
 		}

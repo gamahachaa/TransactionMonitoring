@@ -221,7 +221,7 @@ class TMApp extends AppBase
 
 	}
 
-	function loadContent()
+	override function loadContent()
 	{
 		try
 		{
