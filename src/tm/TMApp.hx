@@ -132,102 +132,16 @@ class TMApp extends AppBase
 
 		init();
 	}
-	function onXapiTracking(stage:Int)
-	{
-		if (stage == -1)
-		{
-			//trace("errror with the XAPI");
-			debounce = true;
-			#if debug
-			if (!Main._mainDebug) sendEmailToBoth(tracker.monitoreeRecieved);
-			#else
-			#end
-		}
-		else if (stage == 1)
-		{
-			//var score = Question.GET_SCORE();
-			//ENFOIRä corrige mois ça, car le tracking envoi que des agents tracking ! ! !;
-
-			tracker.coachTracking( monitoringData.coach,transactionData.monitoree, transactionData.type, tm.Question.SCORE, tm.Question.FAILED_CRITICAL.length == 0, AppBase.lang, tmMetadatas);
-
-		}
-		else if (stage == 2)
-		{
-			sendEmailToBoth(tracker.monitoreeRecieved);
-		}
-	}
-
-	override function onMailSucces(r:Result)
-	{
-		super.onMailSucces(r);
-		//debounce = true;
-		mainApp.removeComponent(preloader,false);
-		var dialogEnd = new MessageBox();
-
-		if (r.status == "success")
-		{
-
-			dialogEnd.width = 560;
-			dialogEnd.height = 560;
-			dialogEnd.draggable = false;
-			dialogEnd.type = MessageBoxType.TYPE_INFO;
-			dialogEnd.message = "{{DIALOG_MSG_SUCCESS_TRUE}}";
-			dialogEnd.title = "{{DIALOG_TITLE_SUCCESS_TRUE}}";
-		}
-		else
-		{
-			//var dialogError = new MessageBox();
-			dialogEnd.width = 560;
-			dialogEnd.height = 560;
-			dialogEnd.draggable = false;
-			dialogEnd.type = MessageBoxType.TYPE_ERROR;
-			dialogEnd.message = "{{DIALOG_MSG_SUCCESS_FALSE}}";
-			dialogEnd.title = "{{DIALOG_TITLE_SUCCESS_FALSE}}";
-		}
-		try
-		{
-			#if debug
-			trace("Main::onMailSucces::s", r, dialogEnd.message );
-			#end
-			dialogEnd.onDialogClosed = (e)->reset();
-			dialogEnd.showDialog(true);
-
-		}
-		catch (e:Exception)
-		{
-			trace(e);
-		}
-	}
-
-	function reset()
-	{
-		#if debug
-		trace("TMApp::reset::reset", reset );
-		#end
-		checkVersion();
-		tracker.start();
-		content.hidden = true;
-		agentlisting.reset();
-		swapContent(agentlisting);
-		resetForm();
-		resetTransaction();
-		resetMonitoring();
-		toggleSummary(false);
-	}
-
-	function resetForm()
-	{
-		tm.Question.RESET();
-
-	}
-
 	override function loadContent()
 	{
+		#if debug
+		trace("tm.TMApp::loadContent");
+		#end
 		try
 		{
 			if (loginApp != null) app.removeComponent(loginApp);
 			this.mainApp = ComponentMacros.buildComponent("assets/ui/main.xml");
-
+            transactionData = new data.Transaction();
 			communicator = new Communicator();
 			//mainApp = ComponentMacros.buildComponent("assets/ui/main.xml");
 			app.addComponent(mainApp);
@@ -258,108 +172,27 @@ class TMApp extends AppBase
 		}
 		//setCurrentForm("inbound");
 	}
-
-	function onAgentListingChanged(s:String)
+	function reset()
 	{
 		#if debug
-		trace("tm.TMApp::onAgentListingChanged::s", s );
+		trace("TMApp::reset::reset", reset );
 		#end
-		switch (s)
-		{
-			case 'myTmthisMonth' : agregator.getBasicTMThisMonth(monitoringData.coach.sAMAccountName);
-			case 'myTmprevMonth' : agregator.getBasicTMThisMonth(monitoringData.coach.sAMAccountName, true);
-			case 'myDrthisMonth' : agregator.getDirectReportsTMThisMonth(monitoringData.coach.directReports);
-			case 'myDrprevMonth' : agregator.getDirectReportsTMThisMonth(monitoringData.coach.directReports, true);
-			case _ : return;
-
-		}
-	}
-	override function onLoginSuccess(agent:roles.Actor)
-	{
-		super.onLoginSuccess(agent);
-
-		if (Std.isOfType(agent, roles.Monitoree ))
-		{
-			transactionData.monitoree = cast(agent, roles.Monitoree);
-
-			resetAgent();
-			if (transactionData.monitoree.authorised)
-			{
-
-				agentLabel.htmlText = '<strong class="correct">${StringTools.replace(transactionData.monitoree.mbox, "mailto:","")}</strong>\n${transactionData.monitoree.title}';
-				agentLabel.addClass("correct");
-				agentOK.resource = "images/check-green-icon.png";
-				agentOK.hidden = false;
-
-				if (transactionData.monitoree.manager != null)
-				{
-					cctl_text.text = StringTools.replace(transactionData.monitoree.manager.mbox, "mailto:", "");
-					cctl.hidden = false;
-					cctl_text.hidden = false;
-				}
-				else
-				{
-					cctl.hidden = true;
-					cctl_text.hidden = true;
-				}
-
-				xapitracker.start();
-			}
-			else
-			{
-
-				agentOK.hidden = false;
-				agentOK.resource = "images/check-red-icon.png";
-				agentLabel.htmlText = '{{ERROR}} \n<strong class="error">${transactionData.monitoree.name}</strong>';
-				agentLabel.addClass("error");
-				/*agentLabel.color = 0xFF0000;*/
-			}
-
-			agentLabel.updateComponentDisplay();
-		}
+		checkVersion();
+		tracker.start();
+		content.hidden = true;
+		agentlisting.reset();
+		swapContent(agentlisting);
+		resetForm();
+		resetTransaction();
+		resetMonitoring();
+		toggleSummary(false);
 	}
 
-	function toggleSummary(show:Bool)
+	function resetForm()
 	{
-		sideBySide.hidden = show;
-		msummary.hidden = show;
-		msummaryOther.hidden = show;
-		msummaryGOOD.hidden = show;
-		msummaryBAD.hidden = show;
-		monitoringsummary.hidden = show;
-		monitoringGood.hidden = show;
-		monitoringBad.hidden = show;
+		tm.Question.RESET();
+
 	}
-
-	function onMonitoringReasonChanged(e)
-	{
-		var id = cast(e.target, Component).id;
-		var isCallibration =   id == "calibration";
-		cctl.hidden = cctl_text.hidden = ( isCallibration|| transactionData.monitoree == null || transactionData.monitoree.manager == null );
-
-		if (isCallibration)
-		{
-			sideBySide.hidden = true;
-			remote.selected = true;
-		}
-		toggleSummary(isCallibration);
-		monitoringData.data.set(data.Monitoring.MONITORING_REASON, id);
-	}
-	/*override function resetMonitoring()
-	{
-		super.resetMonitoring();
-		this.monitoringBad.text = "";
-		this.monitoringGood.text = "";
-		cast(monitoringReason.getComponentAt(0), OptionBox).resetGroup();
-		cast(monitoringType.getComponentAt(0), OptionBox).resetGroup();
-	}
-
-	override function resetTransaction()
-	{
-		super.resetTransaction();
-		cast(formSwitcher.getComponentAt(0), OptionBox).resetGroup();
-	} */
-
 	/**
 	* @todo TEST refactor to sub class (TM)
 	* @return
@@ -395,6 +228,39 @@ class TMApp extends AppBase
 		cast(formSwitcher.getComponentAt(0), OptionBox).resetGroup();
 
 	}
+	/**
+	* @todo TEST refactor to sub class (TM)
+	* @return
+	*/
+	function resetAgent(?fromscratch:Bool=false)
+	{
+		cctl.hidden = true;
+		cctl_text.hidden = true;
+		cctl.selected = false;
+		agentLabel.removeClass("error");
+		agentLabel.removeClass("correct");
+		agentOK.hidden = true;
+		if (fromscratch)
+		{
+			agentTF.text = "";
+			agentLabel.htmlText = "";
+		}
+	}
+
+	/*override function resetMonitoring()
+	{
+		super.resetMonitoring();
+		this.monitoringBad.text = "";
+		this.monitoringGood.text = "";
+		cast(monitoringReason.getComponentAt(0), OptionBox).resetGroup();
+		cast(monitoringType.getComponentAt(0), OptionBox).resetGroup();
+	}
+
+	override function resetTransaction()
+	{
+		super.resetTransaction();
+		cast(formSwitcher.getComponentAt(0), OptionBox).resetGroup();
+	} */
 
 	override function prepareHeader()
 	{
@@ -463,7 +329,7 @@ class TMApp extends AppBase
 		monitoringSummaryLabel.onClick = (e)->(markdownHelper.show() );
 
 		monitoringSummary =  mainApp.findComponent(Monitoring.MONITORING_SUMMARY, TextArea);
-		//----------------------------------------------------------//	
+		//----------------------------------------------------------//
 		formSwitcher = mainApp.findComponent("formSwitcher", null, true);
 		formSwitcher.onChange = (e:UIEvent)->setCurrentForm(e.target.id);
 		monitoringType = mainApp.findComponent("type", Group);
@@ -486,6 +352,9 @@ class TMApp extends AppBase
 	}
 	function prepareForms()
 	{
+		#if debug
+		trace("tm.TMApp::prepareForms");
+		#end
 		forms = [];
 		tm.Question.INFO = new tm.Info(mainApp.findComponent("info"));
 		inbound = ComponentMacros.buildComponent("assets/ui/content/inbound.xml");
@@ -503,6 +372,19 @@ class TMApp extends AppBase
 	{
 		versionLabel = mainApp.findComponent("version", Label);
 		versionLabel.text = "v" + versionHelper.cachedVersion;
+	}
+	/**
+	* @todo TEST refactor to sub class (TM)
+	* @return
+	*/
+	function prepareTransactionDate()
+	{
+		var tmp = cast(transactionDateComp.value, Date);
+		if (tmp != null)
+		{
+			transactionData.date = Date.fromTime(tmp.getTime() + (transcationHourComp.value * 3600000) + (transcationMinutesComp.value * 60000));
+		}
+
 	}
 
 	/**
@@ -526,169 +408,6 @@ class TMApp extends AppBase
 		}
 	}
 	 **/
-	override function onSend(e)
-	{
-		//super.onSend(e);
-		if (!debounce) return;
-
-		submitor = validateMetadatas();
-		var resultCheck = tm.Question.PREPARE_RESULTS();
-		this.submitor.messages = this.submitor.messages.concat(resultCheck.messages);
-		this.submitor.canSubmit =  this.submitor.canSubmit && resultCheck.canSubmit;
-		if (this.submitor.canSubmit)
-		{
-			debounce = false;
-			transactionData.prepareData();
-
-			// PREPARE XAPI METADATA EXTENSIONS
-			tmMetadatas = Utils.addPrefixKey(
-							  Browser.location.origin +Browser.location.pathname,
-							  Utils.mergeMaps(
-								  Utils.mergeMaps( transactionData.data, monitoringData.data ),
-								  Utils.stringyfyMap(tm.Question.CRITICALITY_MAP)
-							  )
-						  );
-
-			// PREPARE QUESTION EXTENSIONS
-			var questionExtensions:Map<String,String> = Utils.addPrefixKey(Browser.location.origin + Browser.location.pathname, tm.Question.RESULT_MAP);
-
-			if (monitoringData.data.get(data.Monitoring.MONITORING_REASON) == "calibration")
-			{
-				// CALIBRATION
-				tracker.callibrationTracking(
-					monitoringData.coach,
-					transactionData.type,
-					tmMetadatas,
-					transactionData.monitoree,
-					tm.Question.SCORE,
-					tm.Question.TM_PASSED,
-					AppBase.lang,
-					questionExtensions);
-
-			}
-			else
-			{
-				// TM AGENT TRACK
-				tracker.agentTracking(
-					transactionData.monitoree,
-					monitoringData.coach,
-					transactionData.type,
-					tmMetadatas,
-					tm.Question.SCORE,
-					tm.Question.TM_PASSED,
-					questionExtensions,
-					AppBase.lang);
-			}
-
-		}
-		else
-		{
-			this.submitor.messages.unshift(LocaleManager.instance.lookupString("DIALOG_APPLY_YOURSELF",  monitoringData.coach.firstName));
-			communicator.message = this.submitor.messages.join("\n\n");
-			communicator.showDialog(true);
-		}
-	}
-	/**
-	* @todo TEST refactor to sub class (TM)
-	* @return
-	*/
-	function resetAgent(?fromscratch:Bool=false)
-	{
-		cctl.hidden = true;
-		cctl_text.hidden = true;
-		cctl.selected = false;
-		agentLabel.removeClass("error");
-		agentLabel.removeClass("correct");
-		agentOK.hidden = true;
-		if (fromscratch)
-		{
-			agentTF.text = "";
-			agentLabel.htmlText = "";
-		}
-	}
-	/**
-	* @todo TEST refactor to sub class (TM)
-	* @return
-	*/
-	function onCoachClicked(e:MouseEvent)
-	{
-		cookie.clearCockie( versionHelper.getFullVersion() );
-		Browser.location.reload(true);
-	}
-	/**
-	* @todo TEST refactor to sub class (TM)
-	* @return
-	*/
-	function onAgentClicked(e:MouseEvent):Void
-	{
-		checkAgent();
-	}
-	/**
-	* @todo TEST refactor to sub class (TM)
-	* @return
-	*/
-	function onAgentFilledIn(e:FocusEvent):Void
-	{
-		checkAgent();
-	}
-	/**
-	* @todo TEST refactor to sub class (TM)
-	* @return
-	*/
-	function onAgentSelectInList(s:String)
-	{
-		agentTF.text = s;
-		#if debug
-		trace('TMApp::onAgentSelectInList::s ${s}');
-		#end
-		checkAgent();
-	}
-	/**
-	* @todo TEST refactor to sub class (TM)
-	* @return
-	*/
-	function checkAgent():Void
-	{
-		#if debug
-		trace("AppBase::checkAgent");
-		#end
-		#if debug
-		if (Main._mainDebug)
-		{
-			if ( agentTF.text != null && agentTF.text != "")
-			{
-				transactionData.monitoree = null;
-				logger.searchAgent(agentTF.text, false);
-			}
-		}
-		else
-		{
-			var dummyMonotoree = roles.Monitoree.CREATE_DUMMY(agentTF.text);
-			onLoginSuccess(dummyMonotoree);
-		}
-		#else
-		if ( agentTF.text != null && agentTF.text != "" )
-		{
-			transactionData.monitoree = null;
-			logger.searchAgent(agentTF.text, false);
-		}
-		#end
-
-	}
-
-	/**
-	* @todo TEST refactor to sub class (TM)
-	* @return
-	*/
-	function prepareTransactionDate()
-	{
-		var tmp = cast(transactionDateComp.value, Date);
-		if (tmp != null)
-		{
-			transactionData.date = Date.fromTime(tmp.getTime() + (transcationHourComp.value * 3600000) + (transcationMinutesComp.value * 60000));
-		}
-
-	}
 
 	function validateMetadatas():Utils.Status
 	{
@@ -808,6 +527,52 @@ class TMApp extends AppBase
 		}
 		return s;
 	}
+
+	/**
+	* @todo TEST refactor to sub class (TM)
+	* @return
+	*/
+	function checkAgent():Void
+	{
+		#if debug
+		trace("AppBase::checkAgent");
+		#end
+		#if debug
+		if (Main._mainDebug)
+		{
+			if ( agentTF.text != null && agentTF.text != "")
+			{
+				transactionData.monitoree = null;
+				logger.searchAgent(agentTF.text, false);
+			}
+		}
+		else
+		{
+			var dummyMonotoree = roles.Monitoree.CREATE_DUMMY(agentTF.text);
+			onLoginSuccess(dummyMonotoree);
+		}
+		#else
+		if ( agentTF.text != null && agentTF.text != "" )
+		{
+			transactionData.monitoree = null;
+			logger.searchAgent(agentTF.text, false);
+		}
+		#end
+
+	}
+
+	function toggleSummary(show:Bool)
+	{
+		sideBySide.hidden = show;
+		msummary.hidden = show;
+		msummaryOther.hidden = show;
+		msummaryGOOD.hidden = show;
+		msummaryBAD.hidden = show;
+		monitoringsummary.hidden = show;
+		monitoringGood.hidden = show;
+		monitoringBad.hidden = show;
+	}
+
 	/*function onFormChanged(e:UIEvent)
 	{
 		setCurrentForm(e.target.id);
@@ -815,7 +580,7 @@ class TMApp extends AppBase
 	function setCurrentForm(id:String)
 	{
 		#if debug
-		//trace('TMApp::setCurrentForm::id ${id}');
+		trace('TMApp::setCurrentForm::id ${id}');
 		#end
 		tm.Question.INFO.reset();
 
@@ -849,5 +614,245 @@ class TMApp extends AppBase
 		super.sendEmail();
 
 	}
+	/************************************************************************************
+	 * EVENT HANDLERS
+	************************************************************************************/
+	function onXapiTracking(stage:Int)
+	{
+		if (stage == -1)
+		{
+			//trace("errror with the XAPI");
+			debounce = true;
+			#if debug
+			if (!Main._mainDebug) sendEmailToBoth(tracker.monitoreeRecieved);
+			#else
+			#end
+		}
+		else if (stage == 1)
+		{
+			//var score = Question.GET_SCORE();
+			//ENFOIRä corrige mois ça, car le tracking envoi que des agents tracking ! ! !;
 
+			tracker.coachTracking( monitoringData.coach,transactionData.monitoree, transactionData.type, tm.Question.SCORE, tm.Question.FAILED_CRITICAL.length == 0, AppBase.lang, tmMetadatas);
+
+		}
+		else if (stage == 2)
+		{
+			sendEmailToBoth(tracker.monitoreeRecieved);
+		}
+	}
+
+	override function onMailSucces(r:Result)
+	{
+		super.onMailSucces(r);
+		//debounce = true;
+		mainApp.removeComponent(preloader,false);
+		var dialogEnd = new MessageBox();
+
+		if (r.status == "success")
+		{
+
+			dialogEnd.width = 560;
+			dialogEnd.height = 560;
+			dialogEnd.draggable = false;
+			dialogEnd.type = MessageBoxType.TYPE_INFO;
+			dialogEnd.message = "{{DIALOG_MSG_SUCCESS_TRUE}}";
+			dialogEnd.title = "{{DIALOG_TITLE_SUCCESS_TRUE}}";
+		}
+		else
+		{
+			//var dialogError = new MessageBox();
+			dialogEnd.width = 560;
+			dialogEnd.height = 560;
+			dialogEnd.draggable = false;
+			dialogEnd.type = MessageBoxType.TYPE_ERROR;
+			dialogEnd.message = "{{DIALOG_MSG_SUCCESS_FALSE}}";
+			dialogEnd.title = "{{DIALOG_TITLE_SUCCESS_FALSE}}";
+		}
+		try
+		{
+			#if debug
+			trace("Main::onMailSucces::s", r, dialogEnd.message );
+			#end
+			dialogEnd.onDialogClosed = (e)->reset();
+			dialogEnd.showDialog(true);
+
+		}
+		catch (e:Exception)
+		{
+			trace(e);
+		}
+	}
+	function onAgentListingChanged(s:String)
+	{
+		#if debug
+		trace("tm.TMApp::onAgentListingChanged::s", s );
+		#end
+		switch (s)
+		{
+			case 'myTmthisMonth' : agregator.getBasicTMThisMonth(monitoringData.coach.sAMAccountName);
+			case 'myTmprevMonth' : agregator.getBasicTMThisMonth(monitoringData.coach.sAMAccountName, true);
+			case 'myDrthisMonth' : agregator.getDirectReportsTMThisMonth(monitoringData.coach.directReports);
+			case 'myDrprevMonth' : agregator.getDirectReportsTMThisMonth(monitoringData.coach.directReports, true);
+			case _ : return;
+
+		}
+	}
+	override function onLoginSuccess(agent:roles.Actor)
+	{
+		super.onLoginSuccess(agent);
+
+		if (Std.isOfType(agent, roles.Monitoree ))
+		{
+			transactionData.monitoree = cast(agent, roles.Monitoree);
+
+			resetAgent();
+			if (transactionData.monitoree.authorised)
+			{
+
+				agentLabel.htmlText = '<strong class="correct">${StringTools.replace(transactionData.monitoree.mbox, "mailto:","")}</strong>\n${transactionData.monitoree.title}';
+				agentLabel.addClass("correct");
+				agentOK.resource = "images/check-green-icon.png";
+				agentOK.hidden = false;
+
+				if (transactionData.monitoree.manager != null)
+				{
+					cctl_text.text = StringTools.replace(transactionData.monitoree.manager.mbox, "mailto:", "");
+					cctl.hidden = false;
+					cctl_text.hidden = false;
+				}
+				else
+				{
+					cctl.hidden = true;
+					cctl_text.hidden = true;
+				}
+
+				xapitracker.start();
+			}
+			else
+			{
+
+				agentOK.hidden = false;
+				agentOK.resource = "images/check-red-icon.png";
+				agentLabel.htmlText = '{{ERROR}} \n<strong class="error">${transactionData.monitoree.name}</strong>';
+				agentLabel.addClass("error");
+				/*agentLabel.color = 0xFF0000;*/
+			}
+
+			agentLabel.updateComponentDisplay();
+		}
+	}
+	function onMonitoringReasonChanged(e)
+	{
+		var id = cast(e.target, Component).id;
+		var isCallibration =   id == "calibration";
+		cctl.hidden = cctl_text.hidden = ( isCallibration|| transactionData.monitoree == null || transactionData.monitoree.manager == null );
+
+		if (isCallibration)
+		{
+			sideBySide.hidden = true;
+			remote.selected = true;
+		}
+		toggleSummary(isCallibration);
+		monitoringData.data.set(data.Monitoring.MONITORING_REASON, id);
+	}
+	/**
+	* @todo TEST refactor to sub class (TM)
+	* @return
+	*/
+	function onCoachClicked(e:MouseEvent)
+	{
+		cookie.clearCockie( versionHelper.getFullVersion() );
+		Browser.location.reload(true);
+	}
+	/**
+	* @todo TEST refactor to sub class (TM)
+	* @return
+	*/
+	function onAgentClicked(e:MouseEvent):Void
+	{
+		checkAgent();
+	}
+	/**
+	* @todo TEST refactor to sub class (TM)
+	* @return
+	*/
+	function onAgentFilledIn(e:FocusEvent):Void
+	{
+		checkAgent();
+	}
+	/**
+	* @todo TEST refactor to sub class (TM)
+	* @return
+	*/
+	function onAgentSelectInList(s:String)
+	{
+		agentTF.text = s;
+		#if debug
+		trace('TMApp::onAgentSelectInList::s ${s}');
+		#end
+		checkAgent();
+	}
+	override function onSend(e)
+	{
+		//super.onSend(e);
+		if (!debounce) return;
+
+		submitor = validateMetadatas();
+		var resultCheck = tm.Question.PREPARE_RESULTS();
+		this.submitor.messages = this.submitor.messages.concat(resultCheck.messages);
+		this.submitor.canSubmit =  this.submitor.canSubmit && resultCheck.canSubmit;
+		if (this.submitor.canSubmit)
+		{
+			debounce = false;
+			transactionData.prepareData();
+
+			// PREPARE XAPI METADATA EXTENSIONS
+			tmMetadatas = Utils.addPrefixKey(
+							  Browser.location.origin +Browser.location.pathname,
+							  Utils.mergeMaps(
+								  Utils.mergeMaps( transactionData.data, monitoringData.data ),
+								  Utils.stringyfyMap(tm.Question.CRITICALITY_MAP)
+							  )
+						  );
+
+			// PREPARE QUESTION EXTENSIONS
+			var questionExtensions:Map<String,String> = Utils.addPrefixKey(Browser.location.origin + Browser.location.pathname, tm.Question.RESULT_MAP);
+
+			if (monitoringData.data.get(data.Monitoring.MONITORING_REASON) == "calibration")
+			{
+				// CALIBRATION
+				tracker.callibrationTracking(
+					monitoringData.coach,
+					transactionData.type,
+					tmMetadatas,
+					tm.Question.SCORE,
+					//transactionData.monitoree,
+					tm.Question.TM_PASSED,
+					AppBase.lang,
+					questionExtensions);
+
+			}
+			else
+			{
+				// TM AGENT TRACK
+				tracker.agentTracking(
+					transactionData.monitoree,
+					monitoringData.coach,
+					transactionData.type,
+					tmMetadatas,
+					tm.Question.SCORE,
+					tm.Question.TM_PASSED,
+					questionExtensions,
+					AppBase.lang);
+			}
+
+		}
+		else
+		{
+			this.submitor.messages.unshift(LocaleManager.instance.lookupString("DIALOG_APPLY_YOURSELF",  monitoringData.coach.firstName));
+			communicator.message = this.submitor.messages.join("\n\n");
+			communicator.showDialog(true);
+		}
+	}
 }

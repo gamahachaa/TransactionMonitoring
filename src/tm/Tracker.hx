@@ -224,7 +224,7 @@ class Tracker extends XapiHelper
 		coachAgent:roles.Actor,
 		activity:String,
 		activityExtensions:Map<String,Dynamic>,
-		monitoree:roles.Actor,
+		/*monitoree:roles.Actor,*/
 		score:Score,
 		success:Bool,
 		lang:String,
